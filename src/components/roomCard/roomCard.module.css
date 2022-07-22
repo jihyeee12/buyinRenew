@@ -1,0 +1,78 @@
+.roomCard{
+    width: 384px;
+    height: 386px;
+    border-radius: 12px;
+    box-shadow: 0px 2px 4px rgba(84, 116, 199, 0.07);
+    border: 1px solid #EDEFF2;
+    background-color: white;
+    cursor: pointer;
+}
+.roomInfo{
+    padding: 20px 16px;
+}
+p{
+    margin: 4px auto;
+    font-family: pretendard;
+}
+.roomImg{
+    position: relative;
+}
+.wish{
+    position: absolute;
+    transform: translate(-52px, 10px);
+    cursor: pointer;
+}
+.wishIcon{
+    margin-right: 6px;
+}
+.HotelName{
+    font-size: 18px;
+    font-weight: 600;
+    color: #303030;
+}
+.Location{
+    font-size: 13px;
+    font-weight: 600;
+    color: #636465;
+    display: flex;
+}
+.hotelPrice{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: end;
+    margin-top: 24px;
+}
+
+.interestZone{
+    text-align: left;
+}
+
+.interest{
+    font-size: 14px;
+    color: #4365A2;
+    font-weight: 600;
+}
+.interestCount{
+    color: #303030;
+}
+
+.priceZone{
+    text-align: right;
+}
+
+.discounts{
+    font-size: 14px;
+    font-weight: 600;
+}
+.discount{
+    color: #4365A2;
+}
+.discountPrice{
+    color: #A1A1A1;
+    text-decoration: line-through;
+}
+.roomPrice{
+    font-size: 16px;
+    font-weight: 600;
+    color: #303030;
+}

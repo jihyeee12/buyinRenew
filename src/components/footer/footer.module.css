@@ -1,0 +1,32 @@
+footer{
+    width: 100%;
+    min-height: 220px;
+    background-color: #FFFFFF;
+    bottom: 0;
+    border: 1px solid #EDEFF2;
+}
+.footer{
+    width: 1200px;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    margin: 32px auto;
+    align-items: center;
+}
+.notice li, .hotelInfo li{
+    float: left;
+    margin-left: 10px;
+    border-right: 2px solid #6D6D6D;
+    padding-right: 6px;
+    font-family: pretendard;
+    color: #6D6D6D;
+    font-size: 13px;
+    line-height: 18px;
+}
+
+.notice li:last-child, .hotelInfo li:last-child{
+    border-right: none;
+}
+
+.notice{
+    padding-bottom: 50px;
+}

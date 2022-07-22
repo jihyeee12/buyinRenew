@@ -1,0 +1,25 @@
+body{
+  background-color: #F5F5F5;
+}
+@font-face {
+  font-family: "pretendard";
+  src: url(/public/font/Pretendard-Regular.otf);
+}
+ul{
+  padding-left: 0px;
+}
+li{
+  list-style: none;
+}
+button{
+  cursor: pointer;
+}
+input:focus{
+  outline: none;
+}
+main{
+  margin: 0 auto;
+  width: 1200px;
+  padding-top: 80px;
+  padding-bottom: 128px;
+}
