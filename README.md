@@ -1,6 +1,6 @@
-#**buyinHotel Renewal WebPage**
+# buyinHotel Renewal WebPage
 
-##introduce
+## introduce
 
     호텔 예약 웹 페이지입니다.
     
@@ -8,11 +8,11 @@
     
     지인에게 객실 이용권을 선물할 수 있는 객실 선물하기 기능 등이 있는 페이지입니다.
 
-##pageUrl
+## pageUrl
 
     https://www.buyinhotel.co.kr
 
-##homepage Main Img
+## homepage Main Img
 
 ![main](https://user-images.githubusercontent.com/109775670/180366100-240cba6d-822d-42c5-a546-6d4e49519065.png)
 
