@@ -1,10 +1,17 @@
 import React from 'react';
 import styles from './roomCard.module.css';
+import { useNavigate } from 'react-router-dom';
 
 
-    function RoomCard() {
+    const RoomCard = props => {
+        const navigate = useNavigate();
+
+        const linkRoom = () =>{
+            navigate('/lodgement');
+        }
+
         return(
-            <li>
+            <li className={styles.roomCardArea} onClick={linkRoom}>
                 <div className={styles.roomCard}>
                     <img className={styles.roomImg} src='/img/roomImg/roomCard.png' alt='roomImg' />
                     <img className={styles.wish} src='/img/icon/wish.png' alt='wish' />

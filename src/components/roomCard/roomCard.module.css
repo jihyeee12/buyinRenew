@@ -1,3 +1,9 @@
+.roomCardArea{
+    display: inline-block;
+    margin-right: 0.8rem;
+    margin-bottom: 1.2rem;
+}
+
 .roomCard{
     width: 384px;
     height: 386px;

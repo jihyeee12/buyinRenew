@@ -1,0 +1,32 @@
+.searchDiv{
+    margin-top: 2.5rem;
+}
+
+.sort{
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+.count{
+    margin-left: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #000000;
+}
+
+.sortKind{
+    display: flex;
+}
+.sortKind li{
+    padding: 0 0.5rem;
+    border-right: 1.8px solid #707070;
+    font-size: 0.8rem;
+    color: #707070;
+    cursor: pointer;
+}
+
+.sortKind li:last-child{
+    border-right: none;
+    padding-right: 0;
+}

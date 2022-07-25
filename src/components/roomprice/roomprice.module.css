@@ -1,0 +1,77 @@
+.roomPriceInfo{
+    width: 30rem;
+    background-color: #fff;
+    border: 1px solid #EDEFF2;
+    box-shadow: 0px 2px 4px 0px #5474C712;
+    border-radius: 8px;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+.roomInfo{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    align-items: start;
+    justify-items: center;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid #F1F1F1;
+    ;
+}
+.roomName{
+    width: 100%;
+}
+
+.roomName h4{
+    margin: 0;
+    font-family: pretendard;
+    font-size: 1.25rem;
+    color: #303030;
+    font-weight: 600;
+}
+.roomName p{
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #303030;
+}
+.rent{
+    border-bottom: 1px solid #F1F1F1;
+    padding: 1rem 1.25rem;
+}
+.lodge{
+    padding: 1rem 1.25rem;
+}
+.discount{
+    text-align: right;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+.percent{
+    color: #3966B7;
+    margin-right: 0.25rem;
+}
+.listPrice{
+    color: #A1A1A1;
+    text-decoration: line-through;
+}
+.kinds{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.kinds p{
+    font-size: 1rem;
+    color: #303030;
+    font-weight: 600;
+    width: 100%;
+}
+.availTime{
+    color: #A1A1A1;
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-left: 0.25rem;
+}
+.typeName{
+    text-align: left;
+}
+.salePrice{
+    text-align: right;
+}

@@ -1,0 +1,26 @@
+.dateBox{
+    width: 100%;
+    height: 4.125rem;
+    background-color: #fff;
+    box-sizing: border-box;
+    border: 1px solid #EDEFF2;
+    box-shadow: 0px 2px 4px 0px #5474C712;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: 10% 70% 20%;
+    align-items: center;
+    justify-items: center;
+}
+.date{
+    width: 100%;
+    text-align: left;
+    font-size: 1rem;
+    color: #303030;
+    font-weight: 500;
+}
+.changeDate{
+    font-size: 1rem;
+    color: #4365A2;
+    font-weight: 600;
+    cursor: pointer;
+}

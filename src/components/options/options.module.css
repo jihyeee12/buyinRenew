@@ -1,0 +1,107 @@
+.options{
+    width: 100%;
+    box-shadow: 0px 2px 4px 0px #5474C712;
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    border: 1px solid #EDEFF2;
+    border-radius: 8px;
+    padding: 1.25rem;
+}
+
+.roomOptions{
+    border-bottom: 1px solid #EDEFF2;
+}
+.optionTitle{
+    margin: 0;
+    font-family: pretendard;
+    font-size: 1.125rem;
+    color: #303030;
+    width: 100%;
+}
+.roomTotal{
+    color: #4365A2;
+    font-family: pretendard;
+    font-size: 1.125rem;
+}
+.roomOptionTable{
+    width: 100%;
+}
+.roomOptionTable td{
+    height: 3rem;
+}
+.roomOptionTable td:first-child{
+    width: 70%;
+}
+.roomOptionTable td:last-child{
+    width: 30%;
+    text-align: right;
+}
+
+.plusTitle{
+    font-family: pretendard;
+    font-size: 1rem;
+    color: #303030;
+}
+.plusPrice{
+    font-family: pretendard;
+    color: #707070;
+    font-size: 1rem;
+}
+
+.minus,.plus{
+    width: 2.25rem;
+    height: 2.25rem;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 2px;
+}
+.minus{
+    background-color: #F3F3F5;
+    color: #C6C5CB;
+}
+.plus{
+    background-color: #EAECFB;
+    color: #C4C4C4;
+    font-size: 1.2rem;
+}
+
+.count{
+    border: none;
+    width: 3.125rem;
+    font-family: pretendard;
+    font-size: 1rem;
+    color: #303030;
+    text-align: center;
+    height: 2.25rem;
+}
+
+.amenityOption{
+    margin: 1.25rem 0;
+}
+.amenities{
+    margin: 0.5rem 0;
+}
+
+.selectAmenity{
+    width: 100%;
+    background-color: #FFFFFF;
+    border: 1px solid #EDEFF2;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 0.625rem;
+}
+.amenityText{
+    border: none;
+    width: 92%;
+}
+.selectBtn{
+    border: 1px solid #5D72CB;
+    background-color: #EAECFB;
+    width: 3rem;
+    height: 1.75rem;
+    border-radius: 2px;
+}
+.amenityTotal{
+    float: right;
+    color: #4365A2;
+}

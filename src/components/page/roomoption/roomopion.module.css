@@ -1,0 +1,38 @@
+.roomoption{
+    display: grid;
+    grid-template-columns: 65% 35%;
+    margin: 2.5rem 0;
+}
+.reservationInfo{
+    width: 24rem;
+    border: 1px solid #EDEFF2;
+    box-shadow: 0px 2px 4px 0px #5474C712;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    margin: 0 auto;
+}
+
+.roomInfo{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    align-items: start;
+    justify-items: center;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid #F1F1F1;
+}
+.roomName{
+    width: 100%;
+}
+
+.roomName h4{
+    margin: 0;
+    font-family: pretendard;
+    font-size: 1.25rem;
+    color: #303030;
+    font-weight: 600;
+}
+.roomName p{
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #303030;
+}
