@@ -1,0 +1,55 @@
+.infoBox{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    border: 1px solid #EDEFF2;
+    background-color: #FFFFFF;
+    box-shadow: 0px 2px 4px 0px #5474C712;
+    box-sizing: border-box;
+    border-radius: 8px;
+    width: 49.5rem;
+}
+.reservaionInfo{
+    border-right: 1px solid #F1F1F1;
+}
+.reservaionInfo, .userInfo{
+    padding: 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
+}
+.infoTitle{
+    margin: 0;
+    font-family: pretendard;
+    font-size: 1.125rem;
+    color: #303030;
+}
+.agreeBox{
+    font-size: 0.8rem;
+    font-weight: 500;
+    float: right;
+}
+.infoTable{
+    margin-top: 1rem;
+}
+.infoTable td{
+    font-family: pretendard;
+    font-size: 1rem;
+    color: #303030;
+    height: 3rem;
+}
+.infoTable td:first-child{
+    width: 30%;
+}
+.infoTable td:last-child{
+    width: 70%;
+}
+.infoInput{
+    width: 15.5rem;
+    height: 2.5rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #F4F4F4;
+    box-sizing: border-box;
+    padding-left: 1rem;
+    font-family: pretendard;
+    font-size: 0.93rem;
+}

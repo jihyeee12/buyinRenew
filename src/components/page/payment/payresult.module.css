@@ -1,0 +1,143 @@
+.resultBox{
+    border: 1px solid #EDEFF2;
+    box-shadow: 0px 2px 4px 0px #5474C712;
+    width: 49.5rem;
+    background-color: #fff;
+    border-radius: 8px;
+    margin: 2.5rem auto;
+    
+}
+.resultMessage{
+    text-align: center;
+    padding: 2rem 0;
+    border-bottom: 1px solid #EDEFF2;
+    color: #303030;
+}
+.resultMessage h4{
+    margin: 1rem 0;
+    font-family: pretendard;
+    font-size: 1.375rem;
+}
+.resultMessage p{
+    font-size: 1rem;
+}
+.reservationInfo, .userInfo ,.priceInfo{
+    border-bottom: 1px solid #EDEFF2;
+    padding: 1.5rem;
+}
+.reservationInfo h4{
+    margin: 0;
+    padding-bottom: 0.5rem;
+    font-family: Pretendard;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-align: left;
+}
+.reservationInfo p{
+    font-size: 0.9rem;
+}
+.userInfo h4, .priceInfo h4{
+    margin: 0;
+    font-family: pretendard;
+    font-size: 1.125rem;
+    padding-bottom: 1rem;
+}
+.userTable, .priceTable{
+    border-collapse: collapse;
+    width: 100%;
+}
+.userTable td ,.priceTable td{
+    width: 50%;
+    font-family: pretendard;
+    font-size: 1rem;
+    color: #303030;
+    height: 1.5rem;
+}
+.userTable td:last-child, .priceTable td:last-child{
+    text-align: right;
+}
+.priceTable tr:nth-child(4) td{
+    padding-bottom: 1rem;
+}
+.priceTable tr:last-child td{
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #303030;
+    border-top: 1px solid #EDEFF2;
+    padding-top: 1rem;
+}
+.resultBtn{
+    text-align: center;
+}
+.resultBtn button{
+    box-shadow: 0px 2px 4px 0px #5474C740;
+    width: 24.25rem;
+    height: 3.5rem;
+    border-radius: 4px;
+    font-family: pretendard;
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+.reservation{
+    background-color: #fff;
+    border: 1px solid #3966B7;
+    color: #3966B7;
+    margin-right: 1rem;
+}
+.main{
+    border: 1px solid #3966B7;
+    background-color: #3966B7;
+    color: #fff;
+}
+.hotelBox{
+    border-bottom: 1px solid #EDEFF2;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.hotelInfo{
+    width: 50%;
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 1.25rem;
+    border-right: 1px solid #EDEFF2;
+}
+
+.roomInfo{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    align-items: start;
+    justify-items: center;
+}
+.roomName{
+    width: 100%;
+    margin-left: 1rem;
+}
+
+.roomName h4{
+    margin: 0;
+    font-family: pretendard;
+    font-size: 1.25rem;
+    color: #303030;
+    font-weight: 600;
+}
+.roomName p{
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #303030;
+}
+.totalpriceTable{
+    box-sizing: border-box;
+    width: 100%;
+}
+.totalpriceTable td{ 
+    font-family: pretendard;
+    font-size: 0.9rem;
+    color: #303030;
+    width: 50%;
+    height: 1.5rem;
+}
+.totalpriceTable tr td:last-child{
+    text-align: right;
+}
+

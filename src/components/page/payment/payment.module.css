@@ -1,0 +1,180 @@
+.select{
+    display: grid;
+    grid-template-columns: 70% 30%;
+    margin: 2.5rem 0;
+}
+.discountBox{
+    border: 1px solid #EDEFF2;
+    background-color: #FFFFFF;
+    box-shadow: 0px 2px 4px 0px #5474C712;
+    box-sizing: border-box;
+    border-radius: 8px;
+    width: 49.5rem;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+}
+.discountTitle{
+    margin: 0;
+    font-family: pretendard;
+    font-size: 1.125rem;
+    color: #303030;
+}
+.discount{
+    margin: 1rem 0;
+}
+.discountType{
+    font-size: 1rem;
+    color: #303030;
+}
+.okTitle{
+    font-size: 0.875rem;
+    color: #303030;
+    float: right;
+}
+.okCount{
+    color: #FE5104;
+}
+
+.selectBox{
+    width: 46.5rem;
+    height: 2.875rem;
+    background-color: #FFFFFF;
+    border: 1px solid #EDEFF2;
+    border-radius: 4px;
+    display: grid;
+    align-items: center;
+    margin: 0.5rem 0;
+    grid-template-columns: 90% 10%;
+}
+.selectTxt{
+    width: 97%;
+    font-family: pretendard;
+    font-size: 0.98rem;
+    color: #303030;
+    border: none;
+    padding-left: 1rem;
+    box-sizing: border-box;
+}
+.selectBtn, .allPoint{
+    height: 1.625rem;
+    background-color: #4D76BF;
+    border-radius: 2px;
+    border: none;
+    color: #FFFFFF;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+.selectBtn{
+    width: 2.8rem;
+}
+.allPoint{
+    width: 4.312rem;
+}
+.btnBox{
+    text-align: right;
+    margin-right: 0.625rem;
+}
+.reservationInfo{
+    border: 1px solid #EDEFF2;
+    background-color: #FFFFFF;
+    box-shadow: 0px 2px 4px 0px #5474C712;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+.hotelInfo{
+    padding: 1.25rem;
+    border-bottom: 1px solid #EDEFF2;
+}
+.hotelInfo h4{
+    margin: 0;
+    font-family: pretendard;
+    font-size: 1.125rem;
+    color: #303030;
+}
+.hotelInfo p{
+    font-size: 0.875rem;
+    color: #303030;
+}
+.dataBox,.payBox{
+    padding: 1rem;
+    border-bottom: 1px solid #EDEFF2;
+}
+.dateTable td{
+    font-family: pretendard;
+    font-size: 0.98rem;
+    color: #303030;
+    width: 50%;
+    height: 1.5rem;
+}
+.payTitle{
+    font-size: 1rem;
+    font-weight: 600;
+    color: #303030;
+}
+.payTable{
+    width: 100%;
+}
+.payTable td{
+    font-family: pretendard;
+    font-size: 0.98rem;
+    font-weight: 400;
+    color: #303030;
+    width: 50%;
+    height: 1.5rem;
+}
+.payTable tr td:last-child{
+    text-align: right;
+    font-weight: 500;
+}
+.payTable tr:nth-child(4) td{
+    padding-bottom: 1rem;
+}
+.payTable tr:last-child td{
+    font-size: 1.125rem;
+    font-weight: 600;
+    border-top: 1px solid #EDEFF2;
+    padding-top: 1rem;
+}
+.checkBox{
+    margin: 1rem 0;
+    font-family: pretendard;
+    font-size: 0.875rem;
+    color: #303030;
+}
+.checkBox label{
+    display: flex;
+    align-items: center;
+}
+.hr{
+    background-color: #DFDFDF;
+}
+.allChecks{
+    font-weight: 600;
+}
+.oneChecks label{
+    margin: 0.25rem 0;
+}
+
+.agreeTxt{
+    text-decoration: underline;
+}
+.blue{
+    color: #4365A2;
+}
+.paybtn{
+    box-shadow: 0px 2px 4px 0px #5474C740;
+    background-color: #3966B7;
+    width: 22rem;
+    height: 3rem;
+    border-radius: 4px;
+    border: none;
+    font-family: pretendard;
+    font-size: 1rem;
+    color: #FFFFFF;
+}
+.infoTxt{
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #919191;
+    margin: 0.5rem 0;
+}

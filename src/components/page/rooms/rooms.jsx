@@ -9,6 +9,11 @@ const Rooms = () => {
     const linkOption = () => {
         navigate('/roomoption');
     }
+
+    const linkgift = () =>{
+        navigate('/gift');
+    }
+
     return(
         <>
         <div className={styles.rooms}>
@@ -82,7 +87,7 @@ const Rooms = () => {
                     </ul>
                 </div>
                 <div className={styles.reservationBtn}>
-                    <img src="/img/icon/giftBtn.png" alt="giftBtn" />
+                    <img src="/img/icon/giftBtn.png" alt="giftBtn" onClick={linkgift} />
                     <button type='button' className={styles.rentBtn}>대실예약</button>
                     <button type='button' className={styles.lodgeBtn} onClick={linkOption}>숙박예약</button>
                 </div>

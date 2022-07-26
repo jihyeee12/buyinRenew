@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react';
+// import React,{useState, useEffect} from 'react';
 import styles from './main.module.css';
 import SearchBar from '../../searchBar/searchBar';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -7,8 +7,8 @@ import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 import RoomList from '../../roomList/roomList';
-import axios from 'axios';
-import {BrowserRouter as Router} from 'react-router-dom';
+// import axios from 'axios';
+// import {BrowserRouter as Router} from 'react-router-dom';
 
 SwiperCore.use([Navigation, Pagination,Autoplay])
 
