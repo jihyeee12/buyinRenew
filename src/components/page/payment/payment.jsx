@@ -1,6 +1,6 @@
 import React from 'react';
 import Paymethod from '../../paymethod/paymethod';
-import Userinfo from '../../userinfo/userinfo';
+import Userinfo from '../../reservation/userinfo/userinfo';
 import styles from './payment.module.css';
 import { useNavigate } from 'react-router-dom';
 

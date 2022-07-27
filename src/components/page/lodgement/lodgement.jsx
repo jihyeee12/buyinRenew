@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './lodgement.module.css';
 import Date from '../../date/date';
-import Roomprice from '../../roomprice/roomprice';
+import Roomprice from '../../reservation/roomprice/roomprice';
 
 const Lodgement = () => (
     <>

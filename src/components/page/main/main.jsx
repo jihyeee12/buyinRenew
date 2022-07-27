@@ -6,7 +6,7 @@ import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
-import RoomList from '../../roomList/roomList';
+import RoomList from '../../reservation/roomList/roomList';
 // import axios from 'axios';
 // import {BrowserRouter as Router} from 'react-router-dom';
 

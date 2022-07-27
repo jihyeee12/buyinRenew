@@ -1,5 +1,5 @@
 import React from 'react';
-import Options from '../../options/options';
+import Options from '../../reservation/options/options';
 import styles from './roomopion.module.css';
 import { useNavigate } from 'react-router-dom';
 

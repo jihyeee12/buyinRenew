@@ -1,5 +1,5 @@
 import React from 'react';
-import RoomCard from '../../roomCard/roomCard';
+import RoomCard from '../../reservation/roomCard/roomCard';
 import SearchBar from '../../searchBar/searchBar';
 import styles from './search.module.css';
 
