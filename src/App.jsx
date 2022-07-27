@@ -10,6 +10,7 @@ import Roomoption from './components/page/roomoption/roomoption';
 import Payment from './components/page/payment/payment';
 import Payresult from './components/page/payment/payresult';
 import Gift from './components/page/gift/gift';
+import Giftresult from './components/page/gift/giftresult';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path ='/payment' element={<Payment/>}/>
             <Route path ='/payResult' element={<Payresult/>}/>
             <Route path ='/gift' element={<Gift/>}/>
+            <Route path ='/giftResult' element={<Giftresult/>}/>
           </Routes>
         </BrowserRouter>
       </main>
