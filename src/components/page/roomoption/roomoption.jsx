@@ -12,7 +12,7 @@ const Roomoption = () => {
     return(
         <>
         <div className={styles.roomoption}>
-            <div>
+            <div className={styles.optionBox}>
                 <Options/>
             </div>
             <div>

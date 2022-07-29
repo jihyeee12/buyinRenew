@@ -1,7 +1,17 @@
 .roomoption{
     display: grid;
     grid-template-columns: 65% 35%;
-    margin: 2.5rem 0;
+    margin: 2.5rem auto;
+    width: 1200px;
+}
+.optionBox{
+    width: 100%;
+    box-shadow: 0px 2px 4px 0px #5474C712;
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    border: 1px solid #EDEFF2;
+    border-radius: 8px;
+    padding: 1.25rem;
 }
 .reservationInfo{
     width: 24rem;

@@ -1,6 +1,7 @@
 .rooms{
-    margin: 2.5rem 0;
+    margin: 2.5rem auto;
     display: grid;
+    width: 1200px;
 }
 .roomImgs{
     grid-column: 1/2;

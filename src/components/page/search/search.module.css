@@ -1,5 +1,6 @@
 .searchDiv{
-    margin-top: 2.5rem;
+    margin: 2.5rem auto;
+    width: 1200px;
 }
 
 .sort{

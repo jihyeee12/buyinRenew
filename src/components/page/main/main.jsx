@@ -45,6 +45,7 @@ function Main() {
 
         return (
             <>
+            <div className={styles.container}>
                 <div className={styles.main}>
                     <Swiper 
                         className='banner'
@@ -75,6 +76,8 @@ function Main() {
                         <img className={styles.adImg} src="/img/roomImg/app.png" alt="app" />
                     </div>
                 </div>
+
+            </div>
             </>
                 
         );

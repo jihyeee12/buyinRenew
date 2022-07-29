@@ -5,6 +5,7 @@ import Roomprice from '../../reservation/roomprice/roomprice';
 
 const Lodgement = () => (
     <>
+    <div className={styles.container}>
         <div className={styles.RoomImgs}>
             <img src="/img/roomImg/bigRoom.png" alt="bigRoom" />
             <div className={styles.smallImgs}>
@@ -82,6 +83,8 @@ const Lodgement = () => (
                 <Roomprice />
             </div>
         </div>
+
+    </div>
     </>
     );
 

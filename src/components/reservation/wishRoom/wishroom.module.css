@@ -1,0 +1,53 @@
+.wishBox{
+    width: 384px;
+    border: 1px solid #EDEFF2;
+    box-shadow: 0px 2px 4px 0px #5474C712;
+    background: #FFFFFF;
+    border-radius: 12px;
+    position: relative;
+    display: inline-block;
+    margin-right: 14px;
+    margin-bottom: 24px;
+    cursor: pointer;
+}
+.wishImg{
+    width: 384px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    height: 182px;
+}
+.wishIcon{
+    position: absolute;
+    transform: translate(-54px, 10px);
+}
+.wishTable{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 16px;
+}
+.wishTable td{
+    font-family: pretendard;
+}
+.wishTable td:last-child{
+    text-align: right;
+}
+.hotelName ,.price{
+    font-weight: 600;
+    font-size: 16px;
+    color: #303030;
+}
+.percent ,.discount{
+    font-size: 14px;
+    font-weight: 600;
+}
+.percent{
+    color: #4365A2;
+}
+.discount{
+    color: #A1A1A1;
+    text-decoration: line-through;
+}
+.standard{
+    font-size: 14px;
+    color: #707070;
+}

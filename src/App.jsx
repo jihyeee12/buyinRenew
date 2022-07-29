@@ -11,27 +11,31 @@ import Payment from './components/page/payment/payment';
 import Payresult from './components/page/payment/payresult';
 import Gift from './components/page/gift/gift';
 import Giftresult from './components/page/gift/giftresult';
+import Wishlist from './components/page/wishlist/wishlist';
+import Basket from './components/page/basket/basket';
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <main>
-        <BrowserRouter>
-          <Routes>
-            <Route path ='/' element={<Main />}/>
-            <Route path ='/search' element={<Search />}/>
-            <Route path ='/lodgement' element={<Lodgement />}/>
-            <Route path ='/rooms' element={<Rooms />}/>
-            <Route path ='/roomoption' element={<Roomoption/>}/>
-            <Route path ='/payment' element={<Payment/>}/>
-            <Route path ='/payResult' element={<Payresult/>}/>
-            <Route path ='/gift' element={<Gift/>}/>
-            <Route path ='/giftResult' element={<Giftresult/>}/>
-          </Routes>
-        </BrowserRouter>
-      </main>
-      <Footer />
+      <BrowserRouter>
+        <Header />
+        <main>    
+            <Routes>
+              <Route path ='/' element={<Main />}/>
+              <Route path ='/search' element={<Search />}/>
+              <Route path ='/lodgement' element={<Lodgement />}/>
+              <Route path ='/rooms' element={<Rooms />}/>
+              <Route path ='/roomoption' element={<Roomoption/>}/>
+              <Route path ='/payment' element={<Payment/>}/>
+              <Route path ='/payResult' element={<Payresult/>}/>
+              <Route path ='/gift' element={<Gift/>}/>
+              <Route path ='/giftResult' element={<Giftresult/>}/>
+              <Route path ='/wish' element={<Wishlist/>}/>
+              <Route path ='/basket' element={<Basket/>}/>
+            </Routes>
+        </main>
+        <Footer />
+      </BrowserRouter>
     </div>
   );
 }

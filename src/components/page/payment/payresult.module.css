@@ -1,3 +1,7 @@
+.container{
+    width: 1200px;
+    margin: 0 auto;
+}
 .resultBox{
     border: 1px solid #EDEFF2;
     box-shadow: 0px 2px 4px 0px #5474C712;

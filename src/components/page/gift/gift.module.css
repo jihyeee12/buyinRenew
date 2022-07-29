@@ -1,7 +1,8 @@
 .giftBox{
     display: grid;
     grid-template-columns: 68% 32%;
-    margin: 2.5rem 0;
+    margin: 2.5rem auto;
+    width: 1200px;
 }
 .giftName{
     width: 24rem;
