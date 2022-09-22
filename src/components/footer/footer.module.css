@@ -6,7 +6,7 @@ footer{
     border: 1px solid #EDEFF2;
 }
 .footer{
-    width: 1200px;
+    width: 66%;
     display: grid;
     grid-template-columns: 20% 80%;
     margin: 32px auto;

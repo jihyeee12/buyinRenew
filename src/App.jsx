@@ -13,6 +13,8 @@ import Gift from './components/page/gift/gift';
 import Giftresult from './components/page/gift/giftresult';
 import Wishlist from './components/page/wishlist/wishlist';
 import Basket from './components/page/basket/basket';
+import Notice from './components/page/seemore/notice/notice';
+import Info from './components/page/mypage/info/info';
 
 function App() {
   return (
@@ -32,6 +34,8 @@ function App() {
               <Route path ='/giftResult' element={<Giftresult/>}/>
               <Route path ='/wish' element={<Wishlist/>}/>
               <Route path ='/basket' element={<Basket/>}/>
+              <Route path ='/notice' element={<Notice/>}/>
+              <Route path ='/info' element={<Info/>}/>
             </Routes>
         </main>
         <Footer />

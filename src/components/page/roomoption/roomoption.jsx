@@ -9,6 +9,9 @@ const Roomoption = () => {
     const linkpay = () => {
         navigate('/payment');
     }
+    const basket = () => {
+        navigate('/Basket');
+    }
     return(
         <>
         <div className={styles.roomoption}>
@@ -43,7 +46,7 @@ const Roomoption = () => {
                     </table>
                 </div>
                 <div className={styles.moveBtn}>
-                    <button type='button' className={styles.basketBtn}>장바구니 담기</button>
+                    <button type='button' className={styles.basketBtn} onClick={basket}>장바구니 담기</button>
                     <button type='button' className={styles.payBtn} onClick={linkpay}>바로 결제하기</button>
                 </div>
             </div>

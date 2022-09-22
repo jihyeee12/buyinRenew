@@ -8,7 +8,7 @@ header{
 }
 .header{
     display: grid;
-    width: 1200px;
+    width: 62%;
     margin: 0px auto;
     grid-template-columns: 30% 70%;
     margin: 10px auto;
@@ -30,4 +30,7 @@ header{
 .ul{
     display: flex;
     flex-direction: row-reverse;
+}
+.link{
+    text-decoration: none;
 }

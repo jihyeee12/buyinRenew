@@ -1,0 +1,72 @@
+.basketBox{
+    width: 66%;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px 0px #EDEFF2;
+    border: 1px solid #EDEFF2;
+    margin: 14px auto;
+}
+.roomInfo{
+    width: 95%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 17% 82%;
+    border-bottom: 1px solid #EDEFF2;
+}
+.roomImg{
+    width: 112px;
+    height: 72px;
+    border-radius: 4px;
+}
+.roomTxt{
+    font-family: pretendard;
+    color: #303030;
+}
+.roomType{
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+.reservation{
+    font-size: 14px;
+}
+.roomPrice{
+    font-size: 14px;
+    font-weight: 600;
+}
+.delete{
+    float: right;
+    cursor: pointer;
+}
+.rangeTable{
+    width: 100%;
+    padding: 20px;
+    font-family: pretendard;
+}
+.rangeTable td{
+    padding: 0.25rem 0;
+}
+.rangeTable td:last-child{
+    text-align: right;
+}
+.changeOptionBtn{
+    width: 95%;
+    text-align: center;
+    height: 40px;
+    border: 1px solid #D1D1D1;
+    background-color: white;
+    font-family: pretendard;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #1A1A1A;
+}
+.changeBtn{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1.25rem;
+}
+.options{
+    padding: 0 1.25rem;
+    border-top: 1px solid #EDEFF2;
+}
