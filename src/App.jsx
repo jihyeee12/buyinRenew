@@ -15,6 +15,9 @@ import Wishlist from './components/page/wishlist/wishlist';
 import Basket from './components/page/basket/basket';
 import Notice from './components/page/seemore/notice/notice';
 import Info from './components/page/mypage/info/info';
+import Infochange from './components/page/mypage/infoChange/infoChange';
+import UserDelete from './components/page/mypage/userDelete/userDelete';
+import ReservationList from './components/page/mypage/reservationList/reservationList';
 
 function App() {
   return (
@@ -36,6 +39,9 @@ function App() {
               <Route path ='/basket' element={<Basket/>}/>
               <Route path ='/notice' element={<Notice/>}/>
               <Route path ='/info' element={<Info/>}/>
+              <Route path ='/infoChange' element={<Infochange/>}/>
+              <Route path ='/userDelete' element={<UserDelete/>}/>
+              <Route path ='/reservationList' element={<ReservationList/>}/>
             </Routes>
         </main>
         <Footer />

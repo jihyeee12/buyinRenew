@@ -1,0 +1,12 @@
+.banner{
+    width: 100%;
+    height: 160px;
+    background: linear-gradient(318.58deg, rgba(57, 102, 183, 0.8) 5.21%, rgba(58, 48, 175, 0.8) 125.53%);
+    color: white;
+    font-size: 2rem;
+    font-family: pretendard;
+}
+.bannerTxt{
+    width: 62%;
+    padding: 4rem 0;
+}

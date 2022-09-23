@@ -1,0 +1,33 @@
+.reservationInfo{
+    width: calc(100%/3);
+}
+.reservationBox{
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px 0px #5474C712;
+    border: 1px solid #EDEFF2;
+    background-color: #FFFFFF;
+}
+.reservationImg img{
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+    height: 164px;
+}
+.reservationTxt{
+    border-bottom: 1px solid #EDEFF2;
+    padding: 1rem;
+}
+.reservationHotel{
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+.reservationRoom{
+    font-size: 0.9rem;
+}
+.reservationCheck{
+    padding: 1rem;
+}
+.reservationTable td{
+    font-family: pretendard;
+    font-size: 1rem;
+    padding: 0.25rem;
+}

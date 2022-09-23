@@ -1,9 +1,9 @@
 .sideMenu{
-    width: 11%;
+    width: 100%;
     margin-left: 0;
 }
 .sideMenu ul li{
-    width: 100%;
+    width: 56%;
     padding: 0.8rem;
     font-family: pretendard;
     font-size: 1.25rem;
