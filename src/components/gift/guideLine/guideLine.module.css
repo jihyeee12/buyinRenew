@@ -1,0 +1,30 @@
+
+.userInformation{
+    display: flex;
+    padding: 1rem;
+    border-top: 1px solid #EDEFF2;
+}
+.userInformation p{
+    margin-left: 0;
+}
+.toggleBtn{
+    background-color: transparent;
+    border: none;
+}
+.informationList, .refundList{
+    padding: 1rem;
+}
+.informationList ul, .refundList ul{
+    margin: 0;
+    padding-left: 1rem;
+}
+.informationList ul li{
+    list-style-type: disc;
+}
+.informationList ul li,.refundList ul li{
+    font-family: pretendard;
+    font-size: 0.98rem;
+    font-weight: 400;
+    line-height: 1.7rem;
+    margin-bottom: 0.7rem;
+}

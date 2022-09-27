@@ -21,6 +21,10 @@ import ReservationList from './components/page/mypage/reservationList/reservatio
 import ReservationDetail from './components/page/mypage/reservationDetail/reservationDetail';
 import Point from './components/page/mypage/point/point';
 import Review from './components/page/mypage/review/review';
+import WriteReview from './components/page/writeReview/writeReview';
+import RecentSearch from './components/page/mypage/recentSearch/recentSearch';
+import GiftBox from './components/page/mypage/giftBox/giftBox';
+import GiftDetail from './components/page/mypage/giftBox/giftDetail';
 
 function App() {
   return (
@@ -48,6 +52,10 @@ function App() {
               <Route path ='/reservationDetail' element={<ReservationDetail/>}/>
               <Route path ='/point' element={<Point/>}/>
               <Route path ='/review' element={<Review/>}/>
+              <Route path ='/writeReview' element={<WriteReview/>}/>
+              <Route path ='/recent' element={<RecentSearch/>}/>
+              <Route path ='/giftBox' element={<GiftBox/>}/>
+              <Route path ='/giftDetail' element={<GiftDetail/>}/>
             </Routes>
         </main>
         <Footer />

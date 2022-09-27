@@ -1,0 +1,12 @@
+.giftInfoBox{
+    width: 80%;
+    box-shadow: 0px 2px 4px 0px #5474C712;
+    border: 1px solid #EDEFF2;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background-color: #ffffff;
+}
+.title{
+    font-weight: 600;
+    font-size: 1.125rem;
+}

@@ -1,0 +1,58 @@
+.giftBox{
+    display: flex;
+    flex-wrap: wrap;
+}
+.giftCard{
+    width: calc(80%/2);
+    border: 1px solid #EDEFF2;
+    box-shadow: 0px 2px 4px 0px #5474C712;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background-color: #ffffff;
+    cursor: pointer;
+    margin: 0 1rem 1.5rem 0;
+}
+.giftSend{
+    border-bottom: 1px solid #EDEFF2;
+}
+.senderName{
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+}
+.giftState{
+    color: #3399FF;
+}
+.giftCardInfo{
+    padding: 0.8rem;
+    width: 94%;
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
+
+.giftImg{
+    background-color: #F6F6F6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 88%;
+    border-radius: 8px;
+    height: 10vh;
+}
+.giftImg img{
+    width: 5.5em;
+}
+.giftPrice{
+    font-size: 0.98rem;
+}
+.giftInfo{
+    position: relative;
+}
+.giftPeriod{
+    font-size: 0.9rem;
+    position: absolute;
+    bottom: 0;
+}

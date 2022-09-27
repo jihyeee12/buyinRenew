@@ -71,3 +71,49 @@
     font-family: pretendard;
     padding-left: 0.5rem;
 }
+.contentBox{
+    display: flex;
+    flex-wrap: wrap;
+}
+.reviewAbleBox{
+    width: calc(80%/2);
+    background-color: white;
+    border: 1px solid #EDEFF2;
+    box-shadow: 0px 2px 4px 0px #5474C712;
+    border-radius: 8px;
+    margin-right: 1.5rem;
+    margin-bottom: 1rem;
+}
+.reviewAbleTable{
+    border-collapse: collapse;
+    border-bottom: 1px solid #EDEFF2;
+    width: 100%;
+}
+.reviewAbleTable td{
+    padding: 1rem 1.125rem;
+    font-family: pretendard;
+    font-size: 1rem;
+    font-weight: 600;
+}
+.reviewBtn{
+    color: #3966B7;
+    cursor: pointer;
+    text-align: right;
+}
+.reviewAbleHotel{
+    width: 88%;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    padding: 1rem;
+}
+.ableHotelImg{
+    width: 7em;
+    border-radius: 8px;
+}
+.reviewAbleInfo{
+    font-weight: 600;
+    font-size: 1rem;
+}
+.reviewAbleInfo p:last-child{
+    font-size: 0.9rem;
+}

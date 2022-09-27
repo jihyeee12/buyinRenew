@@ -1,0 +1,52 @@
+.recentList{
+    display: flex;
+    flex-wrap: wrap;
+}
+.recentBox{
+    border: 1px solid #EDEFF2;
+    box-shadow: 0px 2px 4px 0px #5474C712;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border-radius: 8px;
+    width: calc(80%/2);
+    display: grid;
+    grid-template-columns: 35% 60% 5%;
+    padding: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+.hotelImg{
+    width: 7em;
+    height: 7em;
+    border-radius: 8px;
+}
+.deleteImg{
+    cursor: pointer;
+}
+.hotelName{
+    font-weight: 600;
+    font-size: 1rem;
+}
+.infoTxt{
+    font-size: 0.9rem;
+}
+.standard{
+    color: #636465;
+}
+.percent{
+    color: #4365A2;
+}
+.listPrice{
+    color: #A1A1A1;
+    text-decoration: line-through;
+}
+.salePrice, .percent,.listPrice{
+    font-weight: 600;
+}
+.hotelInfo{
+    position: relative;
+}
+.infoTxt{
+    position: absolute;
+    bottom: 0;
+}

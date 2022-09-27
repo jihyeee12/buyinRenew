@@ -1,0 +1,48 @@
+.cardBox{
+    width: 80%;
+    border: 1px solid #EDEFF2;
+    box-shadow: 0px 2px 4px 0px #5474C712;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background-color: #ffffff;
+}
+.sender{
+    padding: 0.7rem;
+    border-bottom: 1px solid #EDEFF2;
+}
+.sender p{
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.cardInfo{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 22% 70%;
+    padding: 0.7rem;
+}
+.cardImg{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    background-color: #F6F6F6;
+    border-radius: 8px;
+    width: 9em;
+    height: 6em;
+}
+.cardTxt{
+    position: relative;
+}
+.company{
+    font-size: 0.9rem;
+}
+.cardName{
+    font-size: 1rem;
+}
+.cardPrice{
+    position: absolute;
+    bottom: 0;
+    font-size: 0.98rem;
+    font-weight: 600;
+}

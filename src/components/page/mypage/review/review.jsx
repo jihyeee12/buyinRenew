@@ -2,9 +2,15 @@ import React from 'react';
 import Banner from '../../../banner/banner';
 import SideMenu from '../sideMenu/sideMenu';
 import styles from './review.module.css';
+import { useNavigate } from 'react-router-dom';
 
 
 const Review = () => {
+    const navigate = useNavigate();
+
+    const writeReview = () =>{
+        navigate('/writeReview');
+    }
 
     return(
         <>
@@ -49,24 +55,27 @@ const Review = () => {
                                 <span className={styles.likeCount}>100</span>
                             </div>
                         </div> */}
-                        <div className={styles.reviewAbleBox}>
-                            <table className={styles.reviewAbleTable}>
-                                <tbody>
-                                    <tr>
-                                        <td>2022.01.01 <span>이용완료</span></td>
-                                        <td>리뷰작성</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div className={styles.reviewAbleHotel}>
-                                <div>
-                                    <img src='../../../img/roomImg/giftRoom.png' alt='호텔이미지' className={styles.hotelImg} />
-                                </div>
-                                <div className={styles.reviewAbleInfo}>
-                                    <p>이끌림호텔 충장점</p>
-                                    <p>스탠다드</p>
+                        <div className={styles.contentBox}>
+                            <div className={styles.reviewAbleBox}>
+                                <table className={styles.reviewAbleTable}>
+                                    <tbody>
+                                        <tr>
+                                            <td>2022.01.01 <span>이용완료</span></td>
+                                            <td className={styles.reviewBtn} onClick={writeReview}>리뷰작성</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div className={styles.reviewAbleHotel}>
+                                    <div>
+                                        <img src='../../../img/roomImg/giftRoom.png' alt='호텔이미지' className={styles.ableHotelImg} />
+                                    </div>
+                                    <div className={styles.reviewAbleInfo}>
+                                        <p>이끌림호텔 충장점</p>
+                                        <p>스탠다드</p>
+                                    </div>
                                 </div>
                             </div>
+                            
                         </div>
                     </div>
                 </section>

@@ -1,0 +1,57 @@
+.writeBox{
+    width: 80%;
+    border: 1px solid #EDEFF2;
+    box-shadow: 0px 2px 4px 0px #5474C712;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border-radius: 8px;
+}
+.hotelInfo{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    padding: 1rem;
+    border-bottom: 1px solid #EDEFF2;
+}
+.hotelImg{
+    width: 8em;
+    border-radius: 8px;
+}
+.Txt{
+    font-weight: 600;
+}
+.Txt p:last-child{
+    font-size: 0.9rem;
+}
+.writeArea{
+    padding: 1rem;
+}
+.reviewWrite{
+    width: 95%;
+    border: none;
+    background-color: #F7F7F7;
+    border-radius: 4px;
+    resize: none;
+    padding: 1rem;
+    margin: 1rem 0;
+    font-family: pretendard;
+}
+.reviewWrite:focus{
+    outline: none;
+}
+.photoImg{
+    cursor: pointer;
+}
+.writeBtn{
+    width: 80%;
+    text-align: center;
+    margin-top: 1.5rem;
+}
+.writeBtn button{
+    box-shadow: 0px 2px 4px 0px #5474C740;
+    background-color: #3966B7;
+    color: #F8F9FD;
+    border-radius: 4px;
+    border: none;
+    padding: 0.8rem 2rem;
+}
