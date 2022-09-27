@@ -47,3 +47,19 @@ main{
 .pageBox{
   margin: 1rem 0;
 }
+.tabMenu{
+  display: flex;
+}
+.tabMenu li{
+  padding: 0 0.5rem;
+  cursor: pointer;
+  font-family: pretendard;
+  font-size: 1.125rem;
+  text-align: center;
+  padding-bottom: 0.25rem;
+}
+.selectTab{
+  color: #3966B7;
+  font-weight: 600;
+  border-bottom: 2px solid #3966B7;
+}

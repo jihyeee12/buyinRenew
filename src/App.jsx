@@ -18,6 +18,9 @@ import Info from './components/page/mypage/info/info';
 import Infochange from './components/page/mypage/infoChange/infoChange';
 import UserDelete from './components/page/mypage/userDelete/userDelete';
 import ReservationList from './components/page/mypage/reservationList/reservationList';
+import ReservationDetail from './components/page/mypage/reservationDetail/reservationDetail';
+import Point from './components/page/mypage/point/point';
+import Review from './components/page/mypage/review/review';
 
 function App() {
   return (
@@ -42,6 +45,9 @@ function App() {
               <Route path ='/infoChange' element={<Infochange/>}/>
               <Route path ='/userDelete' element={<UserDelete/>}/>
               <Route path ='/reservationList' element={<ReservationList/>}/>
+              <Route path ='/reservationDetail' element={<ReservationDetail/>}/>
+              <Route path ='/point' element={<Point/>}/>
+              <Route path ='/review' element={<Review/>}/>
             </Routes>
         </main>
         <Footer />

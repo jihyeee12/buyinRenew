@@ -1,11 +1,17 @@
 import React from 'react';
 import styles from './reservationBox.module.css';
+import { useNavigate } from 'react-router-dom';
 
 const ReservationBox = () => {
+    const navigate = useNavigate();
+
+    const reservationDetail = () => {
+        navigate('/reservationDetail');
+    }
     return (
         <div className={styles.reservationInfo}>
-            <p className={styles.reservationDate}>2022.01.01  예약</p>
-            <div className={styles.reservationBox}>
+            <p className={styles.reservationDate}><span className={styles.cancelState}>취소완료</span>2022.01.01  예약</p>
+            <div className={styles.reservationBox} onClick={reservationDetail}>
                 <div className={styles.reservationImg}>
                     <img src="../img/roomImg/bigRoom.png" alt="호텔사진" />
                 </div>

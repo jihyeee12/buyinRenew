@@ -1,0 +1,73 @@
+.reviewCount{
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+.reviewBox{
+    box-shadow: 0px 2px 4px 0px #5474C712;
+    border: 1px solid #EDEFF2;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border-radius: 8px;
+}
+.reviewTitle{
+    font-family: pretendard;
+    font-size: 1rem;
+    font-weight: 600;
+    border-collapse: collapse;
+    width: 100%;
+}
+.reviewTitle tr{
+    border-bottom: 1px solid #EDEFF2;
+}
+.reviewTitle td{
+    padding: 1rem;
+}
+.reviewTitle td:last-child{
+    text-align: right;
+    cursor: pointer;
+}
+.deleteBtn{
+    color: #DB2D2D;
+    padding-left: 0.7rem;
+}
+.hotelInfoBox, .reviewImgBox{
+    padding: 1rem;
+}
+.hotelInfoBox{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 15% 80%;
+}
+.hotelImg{
+    width: 8em;
+    border-radius: 8px;
+}
+.hotelInfo{
+    font-weight: 600;
+}
+.hotelInfo p:last-child{
+    font-size: 0.9rem;
+}
+.reviewTxt{
+    padding: 0 1rem;
+}
+.reviewImg{
+    width: 11em;    
+    border-radius: 8px;
+}
+.likeBox{
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    display: flex;
+    align-items: flex-end;
+}
+.likeBox img{
+    cursor: pointer;
+}
+.likeCount{
+    color: #707070;
+    font-size: 0.9rem;
+    font-family: pretendard;
+    padding-left: 0.5rem;
+}

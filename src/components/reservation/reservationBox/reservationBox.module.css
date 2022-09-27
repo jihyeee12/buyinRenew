@@ -1,6 +1,12 @@
 .reservationInfo{
     width: calc(100%/3);
 }
+.reservationDate{
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+}
 .reservationBox{
     border-radius: 8px;
     box-shadow: 0px 2px 4px 0px #5474C712;
@@ -30,4 +36,8 @@
     font-family: pretendard;
     font-size: 1rem;
     padding: 0.25rem;
+}
+.cancelState{
+    color: #DB2D2D;
+    display: none;
 }

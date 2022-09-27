@@ -11,6 +11,12 @@ const SideMenu = () => {
     const reservation = () =>{
         navigate('/reservationList');
     }
+    const point = () =>{
+        navigate('/point');
+    }
+    const review = () =>{
+        navigate('/review');
+    }
 
     return(
         <>
@@ -18,8 +24,8 @@ const SideMenu = () => {
                 <ul>
                     <li className={styles.menuClick} onClick={info}>내정보</li>
                     <li onClick={reservation}>예약내역</li>
-                    <li>포인트 · 쿠폰</li>
-                    <li>리뷰관리</li>
+                    <li onClick={point}>포인트 · 쿠폰</li>
+                    <li onClick={review}>리뷰관리</li>
                     <li>최근검색숙소</li>
                     <li>선물함</li>
                 </ul>

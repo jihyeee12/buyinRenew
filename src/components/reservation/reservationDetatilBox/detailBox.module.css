@@ -1,0 +1,84 @@
+.detailBox{
+    width: 80%;
+    background-color: white;
+    border: 1px solid #EDEFF2;
+    box-shadow: 0px 2px 4px 0px #5474C712;
+    border-radius: 8px;
+}
+.hotelBox, .userInfo, .payInfo, .totalPrice, .cancelReasonBox, .cancelBox{
+    padding: 1rem;
+    border-bottom: 1px solid #EDEFF2;
+}
+.reservationBox{
+    border-bottom: 1px solid #EDEFF2;
+}
+
+.hotelName{
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+.reservationDate, .reservationNum{
+    font-size: 0.98rem;
+}
+.title{
+    font-weight: 600;
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.userTable, .payTable, .cancelTable{
+    width: 100%;
+}
+.userTable td, .payTable td, .cancelTable td{
+    font-family: pretendard;
+    font-size: 1rem;
+    padding: 0.25rem 0;
+}
+.userTable td:first-child, .payTable td:first-child, .cancelTable td:first-child{
+    text-align: left;
+}
+.userTable td:last-child, .payTable td:last-child, .cancelTable td:last-child{
+    text-align: right;
+}
+.totalPrice div{
+    display: flex;
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+.totalPrice p:first-child, .totalPrice p:nth-child(3){
+    margin-left: 0%;
+}
+.totalPrice p:last-child , .totalPrice p:nth-child(2){
+    margin-right: 0;
+}
+.reasonBox{
+    border: 1px solid #D1D1D1;
+    border-radius: 4px;
+    width: 100%;
+    height: 2.5rem;
+    font-size: 1rem;
+    font-family: pretendard;
+    padding-left: 0.5rem;
+}
+.reasonBox:focus{
+    outline: none;
+}
+.cancelRegulation{
+    font-size: 0.8rem;
+    color: #4365A2;
+    cursor: pointer;
+}
+
+.cancelState{
+    padding-left: 1rem;
+    padding-top: 1rem;
+    font-weight: 600;
+    color: #DB2D2D;
+}
+
+.refundPrice p{
+    color: #DB2D2D;
+}

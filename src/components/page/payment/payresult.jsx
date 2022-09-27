@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './payresult.module.css';
 import { useNavigate } from 'react-router-dom';
+import ReservationInfo from '../../reservation/reservationInfo/reservationInfo';
 
 const Payresult = () => {
     const navigate = useNavigate();
@@ -24,66 +25,9 @@ const Payresult = () => {
                     <p>주문번호 : 00000000</p>
                 </div>
                 <div className={styles.hotelBox}>
-                    <div className={styles.hotelInfo}>
-                        <div className={styles.roomInfo}>
-                            <img src="/img/roomImg/roomPrice.png" alt="roomprice" />
-                            <div className={styles.roomName}>
-                                <h4>스탠다드</h4>
-                                <p>예약금액</p>
-                                <p>0원</p>
-                            </div>
-                        </div>
-                        <table className={styles.totalpriceTable}>
-                            <tbody>
-                                <tr>
-                                    <td>체크인</td>
-                                    <td>2022.01.01(토) 18:00</td>
-                                </tr>
-                                <tr>
-                                    <td>체크아웃</td>
-                                    <td>2022.01.02(일) 12:00</td>
-                                </tr>
-                                <tr>
-                                    <td>객실옵션 (+0)</td>
-                                    <td>-</td>
-                                </tr>
-                                <tr>
-                                    <td>어메니티 옵션(+0)</td>
-                                    <td>-</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div className={styles.hotelInfo}>
-                        <div className={styles.roomInfo}>
-                            <img src="/img/roomImg/roomPrice.png" alt="roomprice" />
-                            <div className={styles.roomName}>
-                                <h4>스탠다드</h4>
-                                <p>예약금액</p>
-                                <p>0원</p>
-                            </div>
-                        </div>
-                        <table className={styles.totalpriceTable}>
-                            <tbody>
-                                <tr>
-                                    <td>체크인</td>
-                                    <td>2022.01.01(토) 18:00</td>
-                                </tr>
-                                <tr>
-                                    <td>체크아웃</td>
-                                    <td>2022.01.02(일) 12:00</td>
-                                </tr>
-                                <tr>
-                                    <td>객실옵션 (+0)</td>
-                                    <td>-</td>
-                                </tr>
-                                <tr>
-                                    <td>어메니티 옵션(+0)</td>
-                                    <td>-</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <ReservationInfo/>
+                    <ReservationInfo/>
+                    
                 </div>
                 <div className={styles.userInfo}>
                     <h4>예약자정보</h4>
