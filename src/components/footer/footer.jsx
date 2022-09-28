@@ -22,7 +22,7 @@ class Footer extends Component {
                             <li>Business registration number: 627-81-02234</li>
                             <li>Mail Order business report : Dong-gu, Gwangju-0024</li>
                             <li>Address: Room 1109, 11th floor, 58, Nonhyeon-ro 85-gil, Gangnam-gu, Seoul (Yeoksam-dong, Gangnam Rudens Officetel)</li>
-                            <li>CEO : Lin Jae Ok</li>
+                            <li>CEO : Lim Jae Ok</li>
                             <li>Buy in Hotel Co.,Ltd is responsible for all transacrtions such as responsibility, delivery, exchange, refund, and civil complaints.
                                 (complaint Officer: Lim Jae Ok / Contact information: 062-230-0115)
                             </li>

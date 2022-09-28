@@ -10,3 +10,42 @@
     font-weight: 600;
     font-size: 1.125rem;
 }
+.giftInfo, .perchaseInfo{
+    padding: 1rem;
+    border-bottom: 1px solid #EDEFF2;
+}
+.receiveTable, .perchaseTable{
+    width: 100%;
+}
+.receiveTable td,.perchaseTable td{
+    font-family: pretendard;
+    font-size: 1rem;
+    width: 50%;
+    height: 3vh;
+}
+.receiveTable td:last-child, .perchaseTable td:last-child{
+    text-align: right;
+}
+.cancelBtn{
+    border: 1px solid #D1D1D1;
+    background-color: #fff;
+    border-radius: 2px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    font-family: pretendard;
+    margin-right: 0.5rem;
+}
+.giftState{
+    font-weight: 600;
+    color: #3399FF;
+}
+.complateState{
+    font-weight: 600;
+    color: #DB2D2D;
+}
+.totalPrice{
+    font-weight: 600;
+}
+.giftPrice{
+    font-weight: 600;
+}

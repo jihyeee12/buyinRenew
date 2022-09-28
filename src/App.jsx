@@ -25,6 +25,7 @@ import WriteReview from './components/page/writeReview/writeReview';
 import RecentSearch from './components/page/mypage/recentSearch/recentSearch';
 import GiftBox from './components/page/mypage/giftBox/giftBox';
 import GiftDetail from './components/page/mypage/giftBox/giftDetail';
+import Giftcard from './components/page/seemore/giftcard/giftcard';
 
 function App() {
   return (
@@ -56,6 +57,8 @@ function App() {
               <Route path ='/recent' element={<RecentSearch/>}/>
               <Route path ='/giftBox' element={<GiftBox/>}/>
               <Route path ='/giftDetail' element={<GiftDetail/>}/>
+              <Route path ='/notice' element={<Notice/>}/>
+              <Route path ='/giftcard' element={<Giftcard/>}/>
             </Routes>
         </main>
         <Footer />

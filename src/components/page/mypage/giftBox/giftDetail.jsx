@@ -10,14 +10,14 @@ const GiftDetail = (props) => {
     
     return(
         <>
-        <Banner/>
+        <Banner name={"마이페이지"}/>
         <div className="mypage">
             <SideMenu/>
             <div className="pageBox">
                 <div className={styles.card}>
                     <CardInfo/>
                 </div>
-                <div>
+                <div className={styles.gift}>
                     <GiftInfo/>
                 </div>
                 <div className={styles.guideLine}>

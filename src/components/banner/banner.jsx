@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './banner.module.css';
 
-const Banner = () => (
+const Banner = ({name}) => (
     <div className={styles.banner}>
-        <p className={styles.bannerTxt}>마이페이지</p>
+        <p className={styles.bannerTxt}>{name}</p>
     </div>    
     );
 

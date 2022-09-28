@@ -6,6 +6,6 @@
     border-radius: 8px;
     background-color: #ffffff;
 }
-.card{
+.card, .gift{
     margin-bottom: 1.5rem;
 }

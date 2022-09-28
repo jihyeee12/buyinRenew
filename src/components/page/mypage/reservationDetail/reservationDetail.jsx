@@ -8,9 +8,9 @@ const ReservationDetail = (props) => {
 
     return(
         <>
-        <Banner/>
+        <Banner name={"마이페이지"}/>
         <div className="mypage">
-            <SideMenu/>
+            <SideMenu type={'my'}/>
             <div className="pageBox">
                 <p className={styles.reservationTitle}>예약내역상세</p>
                     <DetailBox/>

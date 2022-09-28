@@ -13,9 +13,9 @@ const GiftBox = (props) => {
 
     return(
         <>
-        <Banner/>
+        <Banner name={"마이페이지"}/>
         <div className="mypage">
-            <SideMenu/>
+            <SideMenu type={'my'}/>
             <div className="pageBox">
             <section className="reservation">
                     <ul className="tabMenu">
