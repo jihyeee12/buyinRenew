@@ -26,6 +26,8 @@ import RecentSearch from './components/page/mypage/recentSearch/recentSearch';
 import GiftBox from './components/page/mypage/giftBox/giftBox';
 import GiftDetail from './components/page/mypage/giftBox/giftDetail';
 import Giftcard from './components/page/seemore/giftcard/giftcard';
+import GiftcardDetail from './components/page/seemore/giftcard/giftcardDetail/giftcardDetail';
+import Event from './components/page/seemore/event/event';
 
 function App() {
   return (
@@ -59,6 +61,9 @@ function App() {
               <Route path ='/giftDetail' element={<GiftDetail/>}/>
               <Route path ='/notice' element={<Notice/>}/>
               <Route path ='/giftcard' element={<Giftcard/>}/>
+              <Route path ='/giftcardDetail' element={<GiftcardDetail/>}/>
+              <Route path ='/event' element={<Event/>}/>
+              
             </Routes>
         </main>
         <Footer />

@@ -29,6 +29,9 @@ const SideMenu = ({type}) => {
     const giftcard = () =>{
         navigate('/giftcard');
     }
+    const event = () =>{
+        navigate('/event');
+    }
 
     return(
             <div className={styles.sideMenu}>
@@ -45,7 +48,7 @@ const SideMenu = ({type}) => {
                     <ul>
                         <li className={styles.menuClick} onClick={notice}>공지사항</li>
                         <li onClick={giftcard}>선물하기</li>
-                        <li>이벤트</li>
+                        <li onClick={event}>이벤트</li>
                         <li>회원등급혜택</li>
                         <li>FAQ</li>
                         <li>약관 및 정책</li>

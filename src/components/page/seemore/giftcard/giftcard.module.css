@@ -1,0 +1,43 @@
+.giftcardBox{
+    text-align: center;
+    margin: 2.5rem auto;
+    max-width: 1200px;
+}
+.cardList{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+}
+.giftcard{
+    width: 15rem;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    cursor: pointer;
+}
+.cardImg{
+    background-color: white;
+    border-radius: 4px;
+    padding: 1rem 2rem;
+    width: 11rem;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    border-radius: 0.25em;
+}
+.cardTxt{
+    margin-top: 0.5em;
+}
+.cardName{
+    font-size: 0.98rem;
+}
+.cardPrice{
+    font-size: 0.9rem;
+    font-weight: 600;
+}
