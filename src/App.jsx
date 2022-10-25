@@ -28,6 +28,8 @@ import GiftDetail from './components/page/mypage/giftBox/giftDetail';
 import Giftcard from './components/page/seemore/giftcard/giftcard';
 import GiftcardDetail from './components/page/seemore/giftcard/giftcardDetail/giftcardDetail';
 import Event from './components/page/seemore/event/event';
+import Faq from './components/page/seemore/faq/faq';
+import Terms from './components/page/seemore/terms/terms';
 
 function App() {
   return (
@@ -63,6 +65,8 @@ function App() {
               <Route path ='/giftcard' element={<Giftcard/>}/>
               <Route path ='/giftcardDetail' element={<GiftcardDetail/>}/>
               <Route path ='/event' element={<Event/>}/>
+              <Route path ='/faq' element={<Faq/>}/>
+              <Route path ='/terms' element={<Terms/>}/>
               
             </Routes>
         </main>

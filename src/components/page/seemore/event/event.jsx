@@ -1,6 +1,7 @@
 import React from 'react';
 import Banner from '../../../banner/banner';
 import SideMenu from '../../mypage/sideMenu/sideMenu';
+import styles from './event.module.css';
 
 const Event = () => {
     const eventBanner= [
@@ -15,8 +16,9 @@ const Event = () => {
             event_img_url: "https://www.buyinhotel.co.kr/images/event/review_point.png"
         }
     ]
+    
     const event = eventBanner.map(v => (
-        <img id={v.event_id}  src={v.event_img_url}></img>
+        <img className={styles.eventImg} id={v.event_id}  src={v.event_img_url} onClick={()=> window.open(v.event_contents_url,'_blank','width=780, height= 1200, left=100%')} />
     ))
     return(
         <>
