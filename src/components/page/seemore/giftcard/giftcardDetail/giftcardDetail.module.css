@@ -11,6 +11,7 @@
 .cardInfoBox{
     display: grid;
     grid-template-columns: 50% 50%;
+    position: relative;
 }
 .cardImgBox{
     border-radius: 4px;
@@ -114,4 +115,16 @@
     text-align: left;
     font-family: pretendard;
     line-height: 1.5rem;
+}
+.urlTxt{
+    font-family: pretendard;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: white;
+    width: 25%;
+    padding: 0.5rem;
+    position: absolute;
+    top: 103%;
+    left: 58%;
+    display: none;
 }

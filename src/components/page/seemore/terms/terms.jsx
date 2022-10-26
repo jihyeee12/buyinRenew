@@ -23,7 +23,7 @@ const Terms = () => {
     ]
 
     const [index, setIndex] = useState(0);
-    const [btnClick, setBtnClick] = useState("click");
+    const [btnClick, setBtnClick] = useState("");
     return (
         <>
         <Banner name={"더보기"}/>
@@ -44,7 +44,7 @@ const Terms = () => {
                         <div className={styles.Btn}>
                             {item.language === true ? 
                                 <div className={styles.languageBtn}>
-                                    <button type='button' className={[styles.koreanBtn, btnClick === "click" ? styles.btnActive : ""].join(" ")}>한글(Korean)</button>
+                                    <button type='button' className={[styles.koreanBtn, btnClick === "click" ? styles.btnActive : ""].join(" ")} onClick={()=> {setBtnClick("")}}>한글(Korean)</button>
                                     <button type='button' className={[styles.englishBtn, btnClick === "click" ? styles.btnActive : ""].join(" ")}>영문(English)</button>
                                 </div>
                                 :<></>}

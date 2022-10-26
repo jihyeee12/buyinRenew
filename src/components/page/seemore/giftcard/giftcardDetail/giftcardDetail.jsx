@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './giftcardDetail.module.css';
 import { useNavigate } from 'react-router-dom';
+import { useRef } from 'react';
 
 const GiftcardDetail = () => {
     const navigate = useNavigate();
@@ -19,7 +20,10 @@ const GiftcardDetail = () => {
             valid_date: "30일",
             giftcard_usage: "온라인"
         }
-
+        const clip = () => {
+            navigator.clipboard.writeText(window.location.href);
+            alert("url을 복사했습니다.");
+        }
     
     return(
         <>
@@ -42,7 +46,7 @@ const GiftcardDetail = () => {
                                     <button type='button' className={styles.productBtn}>상품정보고시</button>
                                     <button type='button' className={styles.refundBtn}>환불정책 및 방법</button>
                                 </div>
-                                <button type='button' className={styles.shareBtn}>공유하기&nbsp;<img src='../img/icon/shareicon.png' /></button>
+                                <button type='button' className={styles.shareBtn} onClick={clip}>공유하기&nbsp;<img src='../img/icon/shareicon.png' /></button>
                             </div>
                         </div>  
                     </div>
