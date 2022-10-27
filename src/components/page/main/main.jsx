@@ -55,9 +55,8 @@ function Main() {
                         pagination={{clickable : true}}
                         autoplay={{delay : 3000}}
                     >
-                        <SwiperSlide className={styles.slides} > slide 1</SwiperSlide>
-
-                        
+                        <SwiperSlide className={styles.slides} ><img src='img/header/eventBanner.png'/></SwiperSlide>
+                        <SwiperSlide className={styles.slides} ><img src='img/header/eventBanner.png'/></SwiperSlide>
                     </Swiper>
                 </div>
                 

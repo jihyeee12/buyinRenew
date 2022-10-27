@@ -4,8 +4,8 @@ import styles from "../../faq/faq.module.css"
 
 const InfoFaq = () => {
     const data =[
-        {id: 0, category: "예약/결제/영수증", title: "당일예약 가능?", answer: "가능 불가능?"},
-        {id: 1, category: "예약/결제/영수증", title: "당일예약 불가능?", answer: "불가능"}
+        {id: 0, category: "회원·개인정보", title: "당일예약 가능?", answer: "가능 불가능?"},
+        {id: 1, category: "회원·개인정보", title: "당일예약 불가능?", answer: "불가능"}
     ]
     const [isCheck, setCheck] = useState(false);
     

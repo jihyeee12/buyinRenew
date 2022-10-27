@@ -53,3 +53,20 @@
     padding: 1rem;
     white-space: pre-wrap;
 }
+.callBox{
+    display: grid;
+    grid-template-columns: 8% 30%;
+    align-items: center;
+}
+.serviceTitle{
+    font-family: pretendard;
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-bottom: 0.7rem;
+}
+.serviceInfo p:first-child{
+    font-size: 1.125rem;
+}
+.serviceInfo p:last-child{
+    font-size: 1rem;
+}

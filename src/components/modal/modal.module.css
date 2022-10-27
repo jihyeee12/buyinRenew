@@ -1,0 +1,87 @@
+.Modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+   
+  /* modal창 */
+  .modalBody {
+    position: absolute;
+    height: 580px;
+    padding: 1.25rem;
+    overflow-y: auto;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+  }
+.modalBody::-webkit-scrollbar {
+    width: 6px;  /* 스크롤바의 너비 */
+}
+
+.modalBody::-webkit-scrollbar-thumb {
+    height: 30%; /* 스크롤바의 길이 */
+    background: #A4A4A4; /* 스크롤바의 색상 */
+    border-radius: 10px;
+}
+
+.modalBody::-webkit-scrollbar-track {
+    width: 12px;
+}
+   
+  .modalCloseBtn {
+    position: absolute;
+    top: 2%;
+    right: 1%;
+    border: none;
+    color: rgba(0, 0, 0, 0.7);
+    background-color: transparent;
+    font-size: 20px;
+  }
+   
+  .modalCloseBtn:hover {
+    cursor: pointer;
+  }
+  .infoBox{
+    border-bottom: 1px solid #EDEFF2;
+    padding-bottom: 1.5rem;
+  }
+  .infoBox table td{
+    font-family: pretendard;
+  }
+  .infoTitle{
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-align: left;
+  }
+  .roomInfoTable td{
+    font-size: 1rem;
+    text-align: left;
+    padding: 0.25rem 0;
+  }
+  .roomInfoTable tr td:first-child{
+    width: 5rem;
+  }
+  .roomsTable{
+    border: 1px solid #EDEFF2;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .roomsTable tr td{
+    border: 1px solid #EDEFF2;
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+  .roomsTable tr td:first-child{
+    width: 10rem;
+    background-color: #FAFAFA;
+  }
+  .roomsTable tr td:last-child{
+    border-bottom: none;
+}

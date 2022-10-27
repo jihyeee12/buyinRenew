@@ -31,6 +31,7 @@ import Event from './components/page/seemore/event/event';
 import Faq from './components/page/seemore/faq/faq';
 import Terms from './components/page/seemore/terms/terms';
 
+
 function App() {
   return (
     <div className="App">
@@ -67,6 +68,7 @@ function App() {
               <Route path ='/event' element={<Event/>}/>
               <Route path ='/faq' element={<Faq/>}/>
               <Route path ='/terms' element={<Terms/>}/>
+              
               
             </Routes>
         </main>

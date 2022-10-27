@@ -9,6 +9,7 @@ import RefundFaq from './faqContent/refundFaq';
 import ReservationFaq from './faqContent/reservationFaq';
 import InfoFaq from './faqContent/infoFaq';
 
+
 const Faq = () => {
     const data = [
         {id: 0, title: "전체", content: <AllFaq />},
@@ -18,9 +19,7 @@ const Faq = () => {
         {id: 4, title: "회원·개인정보", content: <InfoFaq/>},
     ];
     const [index, setIndex] = useState(0);
-
-   
-
+    
     return(
         <>
         <Banner name={"더보기"}/>
@@ -42,6 +41,16 @@ const Faq = () => {
                         {item.content}
                         </div>
                 ))}
+                </div>
+                <div className={styles.serviceBox}>
+                    <h3 className={styles.serviceTitle}>원하시는 질문이 없으신가요?</h3>
+                    <div className={styles.callBox}>
+                        <img src="../img/icon/callIcon.png" alt="callIcon" />
+                        <div className={styles.serviceInfo}>
+                            <p>고객센터 : 1533-3152</p>
+                            <p>문의 가능 시간: 09:00 - 18:00</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

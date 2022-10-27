@@ -14,6 +14,10 @@
     height: 296px;
     border-radius: 8px;
 }
+.slides img{
+    width: 100%;
+    height: 302px;
+}
 .roomList{
     margin: 90px auto;
 }

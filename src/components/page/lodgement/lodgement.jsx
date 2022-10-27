@@ -2,17 +2,51 @@ import React from 'react';
 import styles from './lodgement.module.css';
 import Date from '../../date/date';
 import Roomprice from '../../reservation/roomprice/roomprice';
+import { useState } from 'react';
+import RoominfoModal from '../../modal/roomInfo_modal/roominfoModal';
 
-const Lodgement = () => (
-    <>
+
+const Lodgement = () => {
+    
+    const serviceData = [
+        {id: 0, img_src :'/img/icon/service.png', service_name: "와이파이"},
+        {id: 1, img_src :'/img/icon/service.png', service_name: "와이파이"},
+    ]
+    
+    const hotelImg = [
+        {hotel_id: 0, hotel_img : "/img/roomImg/bigRoom.png"},
+        {hotel_id: 1, hotel_img : "/img/roomImg/room1.png"},
+        {hotel_id: 2, hotel_img : "/img/roomImg/room1.png"},
+        {hotel_id: 3, hotel_img : "/img/roomImg/room1.png"},
+        {hotel_id: 4, hotel_img : "/img/roomImg/room1.png"},
+    ]
+
+    const clip = () => {
+        var url = "";
+        var textarea = document.createElement("textarea");
+        document.body.appendChild(textarea);
+        url = window.document.location.href;
+        textarea.value = url;
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+
+        alert("url을 복사했습니다.");
+    }
+
+    const [modalOpen, setModalOpen] = useState(false);
+    
+
+    return(
+        <>
     <div className={styles.container}>
         <div className={styles.RoomImgs}>
-            <img src="/img/roomImg/bigRoom.png" alt="bigRoom" />
+            <img src={hotelImg[0].hotel_img} alt="bigRoom" />
             <div className={styles.smallImgs}>
-                <img src="/img/roomImg/room1.png" alt="smallRoom" />
-                <img src="/img/roomImg/room1.png" alt="smallRoom" />
-                <img src="/img/roomImg/room1.png" alt="smallRoom" />
-                <img src="/img/roomImg/room1.png" alt="smallRoom" /> 
+                <img src={hotelImg[1].hotel_img} alt="smallRoom" />
+                <img src={hotelImg[2].hotel_img} alt="smallRoom" />
+                <img src={hotelImg[3].hotel_img} alt="smallRoom" />
+                <img src={hotelImg[4].hotel_img} alt="smallRoom" /> 
                 <div className={styles.roomPlus}>
                     <p>+8</p>
                 </div>           
@@ -21,26 +55,26 @@ const Lodgement = () => (
         <div className={styles.hotelGrid}>
             <div className={styles.hotelInfo}>
                 <div className={styles.hotelTitle}>
-                    <h4>이끌림호텔 충장점 <img className={styles.shareIcon} src="/img/icon/share.png" alt="shareIcon" /></h4>
+                    <h4>이끌림호텔 충장점 <img className={styles.shareIcon} onClick={clip} src="/img/icon/share.png" alt="shareIcon" /></h4>
                     <p className={styles.hotelLocation}><img className={styles.locationImg} src="/img/icon/location.png" alt="location" /> 충장로, 구시청, 아시아문화전당역</p>
                 </div>
                 <div className={styles.service}>
                     <h4 className={styles.title}>편의 시설 및 서비스</h4>
                     <div className={styles.serviceIcons}>
-                        <div className={styles.serviceIcon}>
-                            <img src="/img/icon/service.png" alt="serviceIcon" />
-                            <p>와이파이</p>
-                        </div>
-                        <div className={styles.serviceIcon}>
-                            <img src="/img/icon/service.png" alt="serviceIcon" />
-                            <p>와이파이</p>
-                        </div>
+                            {serviceData.map(v => (
+                                <div className={styles.serviceIcon}>
+                                    <img src={v.img_src} alt="serviceIcon" />
+                                    <p>{v.service_name}</p>
+                                </div>    
+                            ))
+                            }
                     </div>
                 </div>
                 <div className={styles.introduce}>
                     <h4 className={styles.title}>
-                        숙소소개 <span className={styles.introSpan}>상세정보 &nbsp;<img src="/img/icon/rightArrow.png" alt="right" /></span>
+                        숙소소개 <span className={styles.introSpan} onClick={()=> setModalOpen(!modalOpen)}>상세정보 &nbsp;<img src="/img/icon/rightArrow.png" alt="right" /></span>
                     </h4>
+                    {modalOpen && <RoominfoModal setModalOpen={() => setModalOpen(!modalOpen)} />}
                     <p className={styles.introText}>
                         이끌림호텔 신안점은
                         고객들이 가장 필요로 하는 핵심적인 서비스와 시설에 초점을 맞춤으로써, 스마트한 고객님들의 니즈를 충족하고 비즈니스 호텔과는
@@ -86,6 +120,8 @@ const Lodgement = () => (
 
     </div>
     </>
-    );
+    )
+    
+};
 
 export default Lodgement;
