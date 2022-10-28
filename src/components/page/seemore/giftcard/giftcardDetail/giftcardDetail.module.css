@@ -46,7 +46,7 @@
 .popBtn{
     margin: 1rem 0;
 }
-.popBtn button{
+.productBtn, .refundBtn{
     box-shadow: 0px 2px 4px 0px #ACACAC26;
     border: 1px solid #D1D1D1;
     background-color: #FFFFFF;

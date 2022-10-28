@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './giftcardDetail.module.css';
 import { useNavigate } from 'react-router-dom';
-import { useRef } from 'react';
+import ProductInfoModal from '../../../../modal/modal/productInfoModal';
+import RefundModal from '../../../../modal/modal/refundModal';
+
 
 const GiftcardDetail = () => {
     const navigate = useNavigate();
@@ -32,7 +34,9 @@ const GiftcardDetail = () => {
             
             alert("url을 복사했습니다.");
         }
-    
+        const [modalOpen, setModalOpen] = useState(false);
+        const [refundOpen, setrefundOpen] = useState(false);
+
     return(
         <>
             <div className={styles.detailBox}>
@@ -51,8 +55,10 @@ const GiftcardDetail = () => {
                                 <p className={styles.infoTxt}>유효기간 : {cardDetail.valid_date}</p>
                                 <p className={styles.infoTxt}>사용처 : {cardDetail.giftcard_usage}</p>
                                 <div className={styles.popBtn}>
-                                    <button type='button' className={styles.productBtn}>상품정보고시</button>
-                                    <button type='button' className={styles.refundBtn}>환불정책 및 방법</button>
+                                    <button type='button' className={styles.productBtn} onClick={()=> setModalOpen(!modalOpen)}>상품정보고시</button>
+                                    {modalOpen && <ProductInfoModal setModalOpen={() => setModalOpen(!modalOpen)} />}
+                                    <button type='button' className={styles.refundBtn} onClick={()=> setrefundOpen(!refundOpen)}>환불정책 및 방법</button>
+                                    {refundOpen && <RefundModal setrefundOpen={() => setrefundOpen(!refundOpen)} />}
                                 </div>
                                 <button type='button' className={styles.shareBtn} onClick={clip}>공유하기&nbsp;<img src='../img/icon/shareicon.png' /></button>
                             </div>

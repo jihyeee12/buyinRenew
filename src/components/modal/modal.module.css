@@ -13,7 +13,7 @@
   /* modal창 */
   .modalBody {
     position: absolute;
-    height: 580px;
+    max-height: 580px;
     padding: 1.25rem;
     overflow-y: auto;
     text-align: center;
@@ -84,4 +84,78 @@
   }
   .roomsTable tr td:last-child{
     border-bottom: none;
+}
+.couponList{
+  width: 45rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+.couponBox{
+  width: 18rem;
+  margin: 1rem 2rem;
+}
+.couponName{
+  box-sizing: border-box;
+  box-shadow: 0px 1px 4px 0px #1D1D1D40;
+  border-radius: 0.125rem;
+  border: 1px solid linear-gradient(94.59deg, rgba(57, 102, 183, 0.7) 1.52%, rgba(84, 134, 199, 0.7) 100%),
+  linear-gradient(0deg, #FFFFFF, #FFFFFF);
+  text-align: left;
+  padding: 1rem;
+}
+.couponPrice{
+  font-weight: 600;
+  font-size: 1.5rem;
+  font-family: pretendard;
+  background-image: linear-gradient(94.59deg, #3966B7 1.52%, #5486C7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+.couponCondition{
+  padding-left: 1rem;
+}
+.couponCondition li{
+  font-family: pretendard;
+  font-size: 0.9rem;
+  list-style-type: disc;
+}
+.couponBtn{
+  width: 100%;
+  font-family: pretendard;
+  background-color: #FFFFFF;
+  border: 1px solid #3966B7;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  color: #3966B7;
+  padding: 0.75rem 0;
+  margin-top: 1rem;
+}
+.productTable{
+  width: 45rem;
+  text-align: left;
+  border-collapse: collapse;
+  border: 1px solid #EDEFF2;
+}
+.productTable td{
+  border-bottom: 1px solid #EDEFF2;
+  padding: 0.8rem;
+  font-family: pretendard;
+  line-height: 1.25rem;
+}
+.productTable td:first-child{
+  width: 20%;
+  background-color: #FAFAFA;
+  border-right: 1px solid #EDEFF2;
+}
+.refundBox{
+  width: 45rem;
+  text-align: left;
+}
+.refundList li{
+  margin-bottom: 1rem;
+  font-family: pretendard;
+  line-height: 1.5rem;
+  font-weight: 400;
 }

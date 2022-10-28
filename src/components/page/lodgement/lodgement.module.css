@@ -170,3 +170,19 @@
 .roomSelect{
     width: 30rem;
 }
+
+.couponBtn{
+    border: 1px solid #E7E7E7;
+    background-color: #F8F8F8;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #3966B7;
+    font-family: pretendard;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0.8rem 0;
+    margin-top: 1rem;
+}

@@ -3,7 +3,8 @@ import styles from './lodgement.module.css';
 import Date from '../../date/date';
 import Roomprice from '../../reservation/roomprice/roomprice';
 import { useState } from 'react';
-import RoominfoModal from '../../modal/roomInfo_modal/roominfoModal';
+import RoominfoModal from '../../modal/modal/roominfoModal';
+import CouponModal from '../../modal/modal/couponModal';
 
 
 const Lodgement = () => {
@@ -35,8 +36,9 @@ const Lodgement = () => {
     }
 
     const [modalOpen, setModalOpen] = useState(false);
-    
+    const [couponOpen, setcouponOpen] = useState(false);
 
+    
     return(
         <>
     <div className={styles.container}>
@@ -57,6 +59,8 @@ const Lodgement = () => {
                 <div className={styles.hotelTitle}>
                     <h4>이끌림호텔 충장점 <img className={styles.shareIcon} onClick={clip} src="/img/icon/share.png" alt="shareIcon" /></h4>
                     <p className={styles.hotelLocation}><img className={styles.locationImg} src="/img/icon/location.png" alt="location" /> 충장로, 구시청, 아시아문화전당역</p>
+                    <button type='button' className={styles.couponBtn} onClick={()=> setcouponOpen(!couponOpen)}>최대 10,000원 쿠폰받기<img src='/img/icon/downloadIcon.png'/></button>
+                    {couponOpen && <CouponModal setcouponOpen={() => setcouponOpen(!couponOpen)} />}
                 </div>
                 <div className={styles.service}>
                     <h4 className={styles.title}>편의 시설 및 서비스</h4>
