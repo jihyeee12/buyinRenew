@@ -56,13 +56,8 @@
 .pointTable td p:last-child, .couponDate{
     font-size: 0.9rem;
 }
-.pointUsed{
-    color: #FF5F5F;
-}
+
 .couponPercent{
     font-size: 1.25rem;
     color: #3966B7;
-}
-.coupon{
-    display: none;
 }

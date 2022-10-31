@@ -96,7 +96,7 @@ import { useState } from 'react';
         }
         
         const [clickedNum, setClickedNum] = useState();
-
+        
     return( 
         <>
         <Slider {...settings}>

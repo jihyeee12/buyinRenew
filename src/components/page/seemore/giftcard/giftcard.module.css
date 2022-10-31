@@ -18,6 +18,13 @@
     align-items: center;
     margin: 1rem;
     cursor: pointer;
+    padding: 0.5rem;
+}
+.giftcard:hover{
+    box-shadow: 2px 2px 6px 2px #5474C712;
+    outline: 1px solid #EDEFF2;
+    border-radius: 0.25rem;
+
 }
 .cardImg{
     background-color: white;

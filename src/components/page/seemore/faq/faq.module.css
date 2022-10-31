@@ -24,6 +24,8 @@
     background-color: #FFFFFF;
     box-sizing: border-box;
     border-radius: 0.5rem;
+    max-width: 50rem;
+    width: 100%;
 }
 .contentList{
     border-bottom: 1px solid #EDEFF2;
@@ -52,6 +54,7 @@
 .answerTxt{
     padding: 1rem;
     white-space: pre-wrap;
+    line-height: 1.5rem;
 }
 .callBox{
     display: grid;
