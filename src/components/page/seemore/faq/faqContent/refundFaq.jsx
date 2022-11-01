@@ -61,8 +61,24 @@ const RefundFaq = () => {
         +"이미 이용이 완료된 상품을 취소 요청할 경우, 취소 요청 중 상태에서 이용 완료 상태로 변경될 수 있습니다."},
 
     ]
-    const [isCheck, setCheck] = useState(false);
-    
+      
+    const [clickedNumArr, setClickedNumArr] = useState([]);
+
+    const handleClickToggleBtn = (id) => {
+      setClickedNumArr((arr) => {
+        let newArr = [];
+        arr.map((item) => newArr.push(item));
+  
+        if (newArr.includes(id)) {
+          newArr.splice(newArr.indexOf(id), 1);
+        } else {
+          newArr.push(id);
+        }
+        console.log(clickedNumArr);
+        return newArr;
+      });
+    };
+
     return (
         <>
         {data.map(v => (
@@ -72,13 +88,12 @@ const RefundFaq = () => {
                         <p>[{v.category}]</p>
                         <p key={v.id}>{v.title}</p>    
                     </div>
-                    <button type='button' className={styles.toggleBtn} onClick={() => {
-                        setCheck((e) => !e);}}>
-                        {isCheck ? <img src='../../../img/icon/oneUp.png' alt='upIcon' /> : <img src='../../../img/icon/oneDown.png' alt='downIcon' />}
+                    <button type='button' key={v.id} className={styles.toggleBtn} onClick={() => handleClickToggleBtn(v.id)}>
+                        {clickedNumArr.includes(v.id)  ? <img src='../../../img/icon/oneUp.png' alt='upIcon' /> : <img src='../../../img/icon/oneDown.png' alt='downIcon' />}
                     </button>
                 </div>
-                {isCheck && (
-                    <div className={styles.answerBox}>
+                {clickedNumArr.includes(v.id)  && (
+                    <div key={v.id} className={styles.answerBox}>
                         <p className={styles.answerTxt}>{v.answer}</p>
                     </div>
                 )}

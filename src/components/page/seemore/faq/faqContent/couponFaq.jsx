@@ -19,8 +19,24 @@ const CouponFaq = () => {
         +"- 후기 삭제는 본인이 작성한 후기에 한해 삭제 가능하며, 바이인 호텔 고객센터(1533-3152)에 문의하시면 후기 삭제가 가능합니다.\n"
         +"- 후기 삭제 시, 기 지급된 포인트가 회수될 수 있다는 점 서비스 이용에 참고 부탁드립니다."}
     ]
-    const [isCheck, setCheck] = useState(false);
-    
+      
+    const [clickedNumArr, setClickedNumArr] = useState([]);
+
+    const handleClickToggleBtn = (id) => {
+      setClickedNumArr((arr) => {
+        let newArr = [];
+        arr.map((item) => newArr.push(item));
+  
+        if (newArr.includes(id)) {
+          newArr.splice(newArr.indexOf(id), 1);
+        } else {
+          newArr.push(id);
+        }
+        console.log(clickedNumArr);
+        return newArr;
+      });
+    };
+
     return (
         <>
         {data.map(v => (
@@ -30,13 +46,12 @@ const CouponFaq = () => {
                         <p>[{v.category}]</p>
                         <p key={v.id}>{v.title}</p>    
                     </div>
-                    <button type='button' className={styles.toggleBtn} onClick={() => {
-                        setCheck((e) => !e);}}>
-                        {isCheck ? <img src='../../../img/icon/oneUp.png' alt='upIcon' /> : <img src='../../../img/icon/oneDown.png' alt='downIcon' />}
+                    <button type='button' key={v.id} className={styles.toggleBtn} onClick={() => handleClickToggleBtn(v.id)}>
+                        {clickedNumArr.includes(v.id)  ? <img src='../../../img/icon/oneUp.png' alt='upIcon' /> : <img src='../../../img/icon/oneDown.png' alt='downIcon' />}
                     </button>
                 </div>
-                {isCheck && (
-                    <div className={styles.answerBox}>
+                {clickedNumArr.includes(v.id)  && (
+                    <div key={v.id} className={styles.answerBox}>
                         <p className={styles.answerTxt}>{v.answer}</p>
                     </div>
                 )}

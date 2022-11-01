@@ -1,0 +1,60 @@
+.loginBody{
+    width: 50%;
+    margin: 5rem auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginTxt{
+    font-family: pretendard;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #909090;
+    text-align: left;
+    width: 18rem;
+    padding-top: 2rem;
+    padding-bottom: 0.5rem;
+}
+
+.loginInput{
+    width: 18rem;
+    border: none;
+    border-bottom: 1px solid #CCCCCC;
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+
+.loginBtn{
+    font-family: pretendard;
+    color: white;
+    background-color: #3966B7;
+    border-radius: 0.25rem;
+    border: none;
+    padding: 1rem 8rem;
+    margin-top: 2rem;
+}
+
+.loginList{
+    display: flex;
+}
+.loginList li{
+    font-family: pretendard;
+    font-size: 0.9rem;
+    color: #707070;
+    border-right: 2px solid #707070;
+    padding: 0 0.5rem;
+    cursor: pointer;
+}
+.loginList li:last-child{
+    border-right: none;
+}
+.snsLogin{
+    text-align: center;
+    margin-top: 2.5rem;
+}
+.snsBtn{
+    margin: 1rem 0.5rem;
+    cursor: pointer;
+}

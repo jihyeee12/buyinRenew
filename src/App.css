@@ -25,7 +25,7 @@ main{
   min-width: 1200px;
   padding-top: 78px;
   padding-bottom: 128px;
-  min-height: 33rem;
+  min-height: 33.3rem;
 }
 .titleBar{
   background-image: url(/public/img/header/titleBar.png);

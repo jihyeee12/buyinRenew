@@ -1,0 +1,21 @@
+.certifyBox{
+    text-align: center;
+    margin-top: 5rem;
+}
+.certifiedTitle{
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+}
+.certifiedTxt{
+    font-size: 1rem;
+}
+.phoneBtn{
+    background-color: white;
+    border: 1.5px solid #3966B7;
+    border-radius: 0.25rem;
+    font-family: pretendard;
+    color: #3966B7;
+    padding: 0.5rem 0.75rem;
+    margin: 1rem;
+}

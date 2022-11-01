@@ -21,6 +21,7 @@
     border-radius: 10px;
     box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
   }
+  
 .modalBody::-webkit-scrollbar {
     width: 6px;  /* 스크롤바의 너비 */
 }

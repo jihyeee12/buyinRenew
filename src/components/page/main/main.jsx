@@ -55,13 +55,11 @@ function Main() {
                         pagination={{clickable : true}}
                         autoplay={{delay : 3000}}
                     >
-                        <SwiperSlide className={styles.slides} ><img src='img/header/eventBanner.png'/></SwiperSlide>
-                        <SwiperSlide className={styles.slides} ><img src='img/header/eventBanner.png'/></SwiperSlide>
+                        <SwiperSlide className={styles.slides}><img src='img/header/eventBanner.png'/></SwiperSlide>
+                        <SwiperSlide className={styles.slides}><img src='img/header/eventBanner.png'/></SwiperSlide>
                     </Swiper>
                 </div>
-                
                 <SearchBar />
-                
                 <div className={styles.roomList}>
                     <RoomList />
                 </div>
@@ -75,10 +73,8 @@ function Main() {
                         <img className={styles.adImg} src="/img/roomImg/app.png" alt="app" />
                     </div>
                 </div>
-
             </div>
             </>
-                
         );
     }
 

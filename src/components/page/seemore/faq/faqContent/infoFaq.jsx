@@ -36,8 +36,24 @@ const InfoFaq = () => {
         {id: 6, category: "회원·개인정보", title: "탈퇴한 아이디로 재가입 할 수 있나요?", answer: "- 탈퇴 후 30일 이후부터 동일한 아이디로 재가입이 가능합니다."},
         {id: 7, category: "회원·개인정보", title: "회원가입 시 인증 문자가 오지 않아요.", answer: "- 회원가입 시 인증번호 문자가 확인이 안될 시 차단 여부를 확인해 주세요."},
     ]
-    const [isCheck, setCheck] = useState(false);
-    
+        
+    const [clickedNumArr, setClickedNumArr] = useState([]);
+
+    const handleClickToggleBtn = (id) => {
+      setClickedNumArr((arr) => {
+        let newArr = [];
+        arr.map((item) => newArr.push(item));
+  
+        if (newArr.includes(id)) {
+          newArr.splice(newArr.indexOf(id), 1);
+        } else {
+          newArr.push(id);
+        }
+        console.log(clickedNumArr);
+        return newArr;
+      });
+    };
+
     return (
         <>
         {data.map(v => (
@@ -47,13 +63,12 @@ const InfoFaq = () => {
                         <p>[{v.category}]</p>
                         <p key={v.id}>{v.title}</p>    
                     </div>
-                    <button type='button' className={styles.toggleBtn} onClick={() => {
-                        setCheck((e) => !e);}}>
-                        {isCheck ? <img src='../../../img/icon/oneUp.png' alt='upIcon' /> : <img src='../../../img/icon/oneDown.png' alt='downIcon' />}
+                    <button type='button' key={v.id} className={styles.toggleBtn} onClick={() => handleClickToggleBtn(v.id)}>
+                        {clickedNumArr.includes(v.id)  ? <img src='../../../img/icon/oneUp.png' alt='upIcon' /> : <img src='../../../img/icon/oneDown.png' alt='downIcon' />}
                     </button>
                 </div>
-                {isCheck && (
-                    <div className={styles.answerBox}>
+                {clickedNumArr.includes(v.id)  && (
+                    <div key={v.id} className={styles.answerBox}>
                         <p className={styles.answerTxt}>{v.answer}</p>
                     </div>
                 )}

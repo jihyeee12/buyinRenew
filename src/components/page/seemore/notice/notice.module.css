@@ -19,17 +19,12 @@
     background-color: transparent;
 }
 .answerBox{
-    padding: 1rem;
-    padding-top: 0;
-}
-.answerBox ul{
+    margin: 0 1rem 1rem 1rem;
     background-color: #F7F7F7;
-    padding: 1rem;
     border-radius: 0.25rem;
-    margin: 0;
 }
-.answerBox li{
-    font-family: pretendard;
+.answerTxt{
+    padding: 1rem;
+    white-space: pre-wrap;
     line-height: 1.5rem;
-    margin-bottom: 1rem;
 }

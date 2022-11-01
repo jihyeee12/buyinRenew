@@ -76,8 +76,24 @@ const ReservationFaq = () => {
         {id: 22,category:"예약·결제·영수증", title: "예약 후 객실 가격이 달라졌습니다.", answer: "- 객실 요금은 실시간으로 변동될 수 있으며 취소 가능 시점 내에서는 직접 앱에서 취소 가능합니다.\n"
         +"단, 취소 불가 시점일 경우에는 해당 사유로 인한 취소 요청은 불가합니다."},
     ]
-    const [isCheck, setCheck] = useState(false);
     
+    const [clickedNumArr, setClickedNumArr] = useState([]);
+
+    const handleClickToggleBtn = (id) => {
+      setClickedNumArr((arr) => {
+        let newArr = [];
+        arr.map((item) => newArr.push(item));
+  
+        if (newArr.includes(id)) {
+          newArr.splice(newArr.indexOf(id), 1);
+        } else {
+          newArr.push(id);
+        }
+        console.log(clickedNumArr);
+        return newArr;
+      });
+    };
+
     return (
         <>
         {data.map(v => (
@@ -87,13 +103,12 @@ const ReservationFaq = () => {
                         <p>[{v.category}]</p>
                         <p key={v.id}>{v.title}</p>    
                     </div>
-                    <button type='button' className={styles.toggleBtn} onClick={() => {
-                        setCheck((e) => !e);}}>
-                        {isCheck ? <img src='../../../img/icon/oneUp.png' alt='upIcon' /> : <img src='../../../img/icon/oneDown.png' alt='downIcon' />}
+                    <button type='button' key={v.id} className={styles.toggleBtn} onClick={() => handleClickToggleBtn(v.id)}>
+                        {clickedNumArr.includes(v.id)  ? <img src='../../../img/icon/oneUp.png' alt='upIcon' /> : <img src='../../../img/icon/oneDown.png' alt='downIcon' />}
                     </button>
                 </div>
-                {isCheck && (
-                    <div className={styles.answerBox}>
+                {clickedNumArr.includes(v.id)  && (
+                    <div key={v.id} className={styles.answerBox}>
                         <p className={styles.answerTxt}>{v.answer}</p>
                     </div>
                 )}

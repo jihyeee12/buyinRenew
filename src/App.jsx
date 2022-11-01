@@ -30,16 +30,23 @@ import GiftcardDetail from './components/page/seemore/giftcard/giftcardDetail/gi
 import Event from './components/page/seemore/event/event';
 import Faq from './components/page/seemore/faq/faq';
 import Terms from './components/page/seemore/terms/terms';
+import Login from './components/page/loginPage/login/login';
+import Certified from './components/page/loginPage/certified/certified';
+import Join from './components/page/loginPage/join/join';
+import FindId from './components/page/loginPage/findId/findId';
+import FindPw from './components/page/loginPage/findPw/findPw';
 
 
 function App() {
+
   return (
     <div className="App">
       <BrowserRouter>
         <Header />
         <main>    
             <Routes>
-              <Route path ='/' element={<Main />}/>
+              <Route path ='/' value="0" element={<Main />}/>
+              <Route path ='/login' value="1" element={<Login />}/>
               <Route path ='/search' element={<Search />}/>
               <Route path ='/lodgement' element={<Lodgement />}/>
               <Route path ='/rooms' element={<Rooms />}/>
@@ -68,6 +75,10 @@ function App() {
               <Route path ='/event' element={<Event/>}/>
               <Route path ='/faq' element={<Faq/>}/>
               <Route path ='/terms' element={<Terms/>}/>
+              <Route path ='/certified' element={<Certified/>}/>
+              <Route path ='/join' element={<Join/>}/>
+              <Route path ='/findId' element={<FindId/>}/>
+              <Route path ='/findPW' element={<FindPw/>}/>
               
               
             </Routes>
