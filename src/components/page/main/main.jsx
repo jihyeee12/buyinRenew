@@ -7,7 +7,9 @@ import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 import RoomList from '../../reservation/roomList/roomList';
-// import axios from 'axios';
+import axios from 'axios';
+import { useState } from 'react';
+import { useEffect } from 'react';
 // import {BrowserRouter as Router} from 'react-router-dom';
 
 SwiperCore.use([Navigation, Pagination,Autoplay])
@@ -19,29 +21,30 @@ function Main() {
 
     // useEffect(() => {
     //     const fetchUsers = async () => {
-    //         try {
-    //             // 요청이 시작 할 때에는 error 와 users 를 초기화하고
-    //             setError(null);
-    //             setUsers(null);
-    //             // loading 상태를 true 로 바꿉니다.
-    //             setLoading(true);
-    //             const response = await axios.get(
-    //                 'https://www.buyinhotel.co.kr/mainpage'
-    //             );
-    //             setUsers(response.data); // 데이터는 response.data 안에 들어있습니다.
-    //             console.log(response.data);
-    //         } catch (e) {
-    //             setError(e);
-    //         }
-    //         setLoading(false);
+    //     try {
+    //         // 요청이 시작 할 때에는 error 와 users 를 초기화하고
+    //         setError(null);
+    //         setUsers(null);
+    //         // loading 상태를 true 로 바꿉니다.
+    //         setLoading(true);
+    //         const response = await axios.get(
+    //         'https://www.buyinhotel.co.kr/mainpage'
+    //         );
+    //         setUsers(response.data); // 데이터는 response.data 안에 들어있습니다.
+    //     } catch (e) {
+    //         setError(e);
+    //     }
+    //     setLoading(false);
     //     };
-    
+
     //     fetchUsers();
     // }, []);
 
     // if (loading) return <div>로딩중..</div>;
     // if (error) return <div>에러가 발생했습니다</div>;
     // if (!users) return null;
+    
+    // console.log(users);
 
         return (
             <>

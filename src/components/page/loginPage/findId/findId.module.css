@@ -1,0 +1,32 @@
+.idBox{
+    width: 50%;
+    margin: 5rem auto;
+    text-align: center;
+}
+.idTitle{
+    font-family: pretendard;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.idTxt{
+    font-size: 1rem;
+    margin: 1rem 0;
+}
+.idInput{
+    background-color: white;
+    border-radius: 0.25rem;
+    border: none;
+    padding: 0.5rem;
+    text-align: center;
+}
+.loginBtn{
+    border: none;
+    border-radius: 0.25rem;
+    background-color: #3966B7;
+    font-family: pretendard;
+    font-weight: 600;
+    font-size: 0.98rem;
+    color: #FFFFFF;
+    padding: 0.8rem 4.5rem;
+    margin-top: 1rem;
+}

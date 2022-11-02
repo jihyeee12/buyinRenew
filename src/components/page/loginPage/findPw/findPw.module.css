@@ -1,0 +1,36 @@
+.pwBox{
+    width: 50%;
+    margin: 3rem auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.pwTitle{
+    font-family: pretendard;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+.pwLabel{
+    text-align: left;
+    width: 15rem;
+    font-family: pretendard;
+    margin-bottom: 0.25rem;
+}
+.pwInput{
+    width: 14rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    border: none;
+}
+.pwBtn{
+    background-color: #3966B7;
+    border-radius: 0.25rem;
+    font-family: pretendard;
+    font-size: 1rem;
+    color: white;
+    border: none;
+    padding: 1rem 4rem;
+    margin-top: 1rem;
+}

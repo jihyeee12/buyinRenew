@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
 import styles from './giftcardDetail.module.css';
 import { useNavigate } from 'react-router-dom';
-import ProductInfoModal from '../../../../modal/modal/productInfoModal';
-import RefundModal from '../../../../modal/modal/refundModal';
+import Modal from '../../../../modal/modal';
 
 
 const GiftcardDetail = () => {
     const navigate = useNavigate();
-
-    const gift = () =>{
-        navigate('/gift');
+    const gift = (giftCard_Id,name,giftCard_img,giftCard_price,giftcard_name) =>{
+        navigate('/gift',{
+            state: {
+                giftCard_Id: giftCard_Id,
+                name: name,
+                giftCard_img: giftCard_img,
+                giftCard_price: giftCard_price,
+                giftcard_name: giftcard_name
+            }
+        });
     }
 
     const cardDetail = 
@@ -56,9 +62,9 @@ const GiftcardDetail = () => {
                                 <p className={styles.infoTxt}>사용처 : {cardDetail.giftcard_usage}</p>
                                 <div className={styles.popBtn}>
                                     <button type='button' className={styles.productBtn} onClick={()=> setModalOpen(!modalOpen)}>상품정보고시</button>
-                                    {modalOpen && <ProductInfoModal setModalOpen={() => setModalOpen(!modalOpen)} />}
+                                    {modalOpen && <Modal type={"productInfo"} setModalOpen={() => setModalOpen(!modalOpen)} />}
                                     <button type='button' className={styles.refundBtn} onClick={()=> setrefundOpen(!refundOpen)}>환불정책 및 방법</button>
-                                    {refundOpen && <RefundModal setrefundOpen={() => setrefundOpen(!refundOpen)} />}
+                                    {refundOpen && <Modal type={"refund"} setrefundOpen={() => setrefundOpen(!refundOpen)} />}
                                 </div>
                                 <button type='button' className={styles.shareBtn} onClick={clip}>공유하기&nbsp;<img src='../img/icon/shareicon.png' /></button>
                             </div>
@@ -84,7 +90,7 @@ const GiftcardDetail = () => {
                 </div>
                 <div className={styles.payBox}>
                     <p className={styles.payment}>결제금액 <span className={styles.payPrice}>{cardDetail.giftcard_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</span></p>
-                    <button type='button' className={styles.giftBtn} onClick={gift}>선물하기</button>
+                    <button type='button' className={styles.giftBtn} onClick={() => gift(cardDetail.giftcard_id, "giftcard", cardDetail.giftcard_img_url,cardDetail.giftcard_price,cardDetail.giftcard_name)}>선물하기</button>
                 </div>
             </div>
         </>

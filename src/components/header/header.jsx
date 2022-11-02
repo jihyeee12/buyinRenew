@@ -7,7 +7,7 @@ const Header = () => {
 
         return (
             <header>
-                {/* <div className={styles.header}>
+                <div className={styles.header}>
                         <Link to ="/">
                             <img src="/img/header/Logo.png" alt='Logo'/>
                         </Link>
@@ -20,9 +20,9 @@ const Header = () => {
                             <Link to="info" className={styles.link}><li>마이페이지</li></Link>
                         </ul>
                     </div>
-                </div> */}
+                </div>
 
-                <div className={styles.header}>
+                {/* <div className={styles.header}>
                         <Link to ="/">
                             <img src="/img/header/Logo.png" alt='Logo'/>
                         </Link>
@@ -35,7 +35,7 @@ const Header = () => {
                             <Link to ="notice" className={styles.link}><li>더보기</li></Link>
                         </ul>
                     </div>
-                </div>
+                </div> */}
             </header>
         );
 }

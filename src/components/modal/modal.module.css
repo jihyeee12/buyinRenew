@@ -8,6 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1;
   }
    
   /* modal창 */
@@ -159,4 +160,22 @@
   font-family: pretendard;
   line-height: 1.5rem;
   font-weight: 400;
+}
+.buyRoomBox{
+  padding: 1rem;
+}
+.buyRoomtitle{
+  font-size: 1.25rem;
+  padding-bottom: 2rem;
+}
+.buyRoomBtn{
+  background-color: #FFFFFF;
+  border: 1px solid #3966B7;
+  box-sizing: border-box;
+  border-radius: 0.25rem;
+  font-family: pretendard;
+  font-size: 1rem;
+  color: #3966B7;
+  padding: 0.8rem 3rem;
+  margin: 0 0.5rem;
 }

@@ -3,11 +3,46 @@ import styles from './lodgement.module.css';
 import Date from '../../date/date';
 import Roomprice from '../../reservation/roomprice/roomprice';
 import { useState } from 'react';
-import RoominfoModal from '../../modal/modal/roominfoModal';
-import CouponModal from '../../modal/modal/couponModal';
+import Modal from '../../modal/modal';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 
 const Lodgement = () => {
+    const [modalOpen, setModalOpen] = useState(false);
+    const [couponOpen, setcouponOpen] = useState(false);
+
+    // const [users, setUsers] = useState(null);
+    // const [loading, setLoading] = useState(false);
+    // const [error, setError] = useState(null);
+
+    // useEffect(() => {
+    //     const fetchUsers = async () => {
+    //     try {
+    //         // 요청이 시작 할 때에는 error 와 users 를 초기화하고
+    //         setError(null);
+    //         setUsers(null);
+    //         // loading 상태를 true 로 바꿉니다.
+    //         setLoading(true);
+    //         const response = await axios.get(
+    //         'https://www.buyinhotel.co.kr/lodgement-detail'
+    //         );
+    //         setUsers(response.data); // 데이터는 response.data 안에 들어있습니다.
+    //     } catch (e) {
+    //         setError(e);
+    //     }
+    //     setLoading(false);
+    //     };
+
+    //     fetchUsers();
+    // }, []);
+
+    // if (loading) return <div>로딩중..</div>;
+    // if (error) return <div>에러가 발생했습니다</div>;
+    // if (!users) return null;
+    
+    // console.log(users);
+
     
     const serviceData = [
         {id: 0, img_src :'/img/icon/service.png', service_name: "와이파이"},
@@ -35,10 +70,6 @@ const Lodgement = () => {
         alert("url을 복사했습니다.");
     }
 
-    const [modalOpen, setModalOpen] = useState(false);
-    const [couponOpen, setcouponOpen] = useState(false);
-
-    
     return(
         <>
     <div className={styles.container}>
@@ -60,7 +91,7 @@ const Lodgement = () => {
                     <h4>이끌림호텔 충장점 <img className={styles.shareIcon} onClick={clip} src="/img/icon/share.png" alt="shareIcon" /></h4>
                     <p className={styles.hotelLocation}><img className={styles.locationImg} src="/img/icon/location.png" alt="location" /> 충장로, 구시청, 아시아문화전당역</p>
                     <button type='button' className={styles.couponBtn} onClick={()=> setcouponOpen(!couponOpen)}>최대 10,000원 쿠폰받기<img src='/img/icon/downloadIcon.png'/></button>
-                    {couponOpen && <CouponModal setcouponOpen={() => setcouponOpen(!couponOpen)} />}
+                    {couponOpen && <Modal type={"coupon"} setcouponOpen={() => setcouponOpen(!couponOpen)} />}
                 </div>
                 <div className={styles.service}>
                     <h4 className={styles.title}>편의 시설 및 서비스</h4>
@@ -78,7 +109,7 @@ const Lodgement = () => {
                     <h4 className={styles.title}>
                         숙소소개 <span className={styles.introSpan} onClick={()=> setModalOpen(!modalOpen)}>상세정보 &nbsp;<img src="/img/icon/rightArrow.png" alt="right" /></span>
                     </h4>
-                    {modalOpen && <RoominfoModal setModalOpen={() => setModalOpen(!modalOpen)} />}
+                    {modalOpen && <Modal type={"roominfo"} setModalOpen={() => setModalOpen(!modalOpen)} />}
                     <p className={styles.introText}>
                         이끌림호텔 신안점은
                         고객들이 가장 필요로 하는 핵심적인 서비스와 시설에 초점을 맞춤으로써, 스마트한 고객님들의 니즈를 충족하고 비즈니스 호텔과는

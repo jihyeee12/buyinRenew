@@ -22,9 +22,7 @@
     display: flex;
     justify-content: space-between;
 }
-.giftState{
-    color: #3399FF;
-}
+
 .giftCardInfo{
     padding: 0.8rem;
     width: 94%;

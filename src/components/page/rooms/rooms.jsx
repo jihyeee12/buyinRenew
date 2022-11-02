@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './rooms.module.css';
 import Date from '../../date/date';
 import { useNavigate } from 'react-router-dom';
+import Modal from '../../modal/modal';
+import { useState } from 'react';
 
 const Rooms = () => {
     const navigate = useNavigate();
@@ -9,10 +11,9 @@ const Rooms = () => {
     const linkOption = () => {
         navigate('/roomoption');
     }
+    const [modalOpen, setModalOpen] = useState(false);
 
-    const linkgift = () =>{
-        navigate('/gift');
-    }
+    
 
     return(
         <>
@@ -87,7 +88,8 @@ const Rooms = () => {
                     </ul>
                 </div>
                 <div className={styles.reservationBtn}>
-                    <img src="/img/icon/giftBtn.png" alt="giftBtn" onClick={linkgift} />
+                    <img src="/img/icon/giftBtn.png" alt="giftBtn" onClick={()=> setModalOpen(!modalOpen)}/>
+                    {modalOpen && <Modal type={"buyRoom"} setModalOpen={() => setModalOpen(!modalOpen)} />}
                     <button type='button' className={styles.rentBtn}>대실예약</button>
                     <button type='button' className={styles.lodgeBtn} onClick={linkOption}>숙박예약</button>
                 </div>

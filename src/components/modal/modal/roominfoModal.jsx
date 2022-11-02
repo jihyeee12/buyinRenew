@@ -1,18 +1,11 @@
 import React from 'react';
 import styles from '../modal.module.css';
 
-const RoominfoModal = ({setModalOpen}) => {
-    const closeModal = () => {
-        setModalOpen(false);
-    }
-    
+const RoominfoModal = () => {
+       
     return (
-        <div className={styles.Modal} onClick={closeModal}>
-            <div className={styles.modalBody}>
-                <button className={styles.modalCloseBtn} onClick={closeModal}>
-                    <img src='../../../img/icon/modalClose.png' />
-                </button>
-                <div className={styles.infoBox}>
+        <>
+        <div className={styles.infoBox}>
                     <h3 className={styles.infoTitle}>숙소정보</h3>
                     <table className={styles.roomInfoTable}>
                         <tbody>
@@ -65,8 +58,9 @@ const RoominfoModal = ({setModalOpen}) => {
                             </tbody>
                         </table>
                     </div>
-                </div>
-        </div>
+        </>
+                
+              
     );
 };
 
