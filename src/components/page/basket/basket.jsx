@@ -9,7 +9,7 @@ const Basket = () => {
     const linkpay = () => {
         navigate('/payment');
     }
-
+console.log("dd");
     return(
         <>
             <div className="titleBar">
