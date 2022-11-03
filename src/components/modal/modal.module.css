@@ -14,33 +14,39 @@
   /* modal창 */
   .modalBody {
     position: absolute;
-    max-height: 580px;
-    padding: 1.25rem;
-    overflow-y: auto;
     text-align: center;
-    background-color: rgb(255, 255, 255);
-    border-radius: 10px;
     box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
   }
+  .modalTitle{
+    display: flex;
+    justify-content: space-between;
+  }
+  .modalContent{
+    background-color: rgb(255, 255, 255);
+    padding: 1.25rem;
+    overflow-y: auto;
+    border-radius: 10px;
+    max-height: 45rem;
+  }
+
   
-.modalBody::-webkit-scrollbar {
-    width: 6px;  /* 스크롤바의 너비 */
+.modalContent::-webkit-scrollbar {
+    width: 10px;  /* 스크롤바의 너비 */
 }
 
-.modalBody::-webkit-scrollbar-thumb {
+.modalContent::-webkit-scrollbar-thumb {
     height: 30%; /* 스크롤바의 길이 */
     background: #A4A4A4; /* 스크롤바의 색상 */
     border-radius: 10px;
+    
 }
 
-.modalBody::-webkit-scrollbar-track {
+.modalContent::-webkit-scrollbar-track {
     width: 12px;
+    margin: 1rem;
 }
    
   .modalCloseBtn {
-    position: absolute;
-    top: 2%;
-    right: 1%;
     border: none;
     color: rgba(0, 0, 0, 0.7);
     background-color: transparent;
@@ -178,4 +184,60 @@
   color: #3966B7;
   padding: 0.8rem 3rem;
   margin: 0 0.5rem;
+}
+
+.cancelList{
+  padding-left: 1.5rem;
+}
+.cancelList li{
+  list-style-type: disc;
+  font-family: pretendard;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+.cancelTable{
+  width: 100%;
+  border-collapse: collapse;
+}
+.cancelTable td{
+  font-family: pretendard;
+  text-align: center;
+  border: 1px solid #EDEFF2;
+  font-size: 0.98rem;
+  padding: 1rem 0;
+}
+.cancelTable td:first-child{
+  width: 12rem;
+}
+.cancelTable td:last-child{
+  width: 30rem;
+}
+.cancelTable tr:first-child td{
+  background-color: #FAFAFA;
+}
+.reviewTitle{
+  font-size: 1.5rem;
+}
+
+.reviewBtn, .deleteBtn{
+  box-sizing: border-box;
+  font-family: pretendard;
+  border-radius: 0.25rem;
+  font-size: 0.98rem;
+  font-weight: 600;
+  padding: 0.5em 2rem;
+  margin-top: 3rem;
+}
+.reviewBtn{
+  border: 1px solid #ACACAC;
+  box-shadow: 0px 2px 4px 0px #ACACAC40;
+  color: #808080;
+  background-color: white;
+  margin-right: 1rem;
+}
+.deleteBtn{
+  background-color: #3966B7;
+  box-shadow: 0px 2px 4px 0px #5474C740;
+  color: white;
+  border: none;
 }

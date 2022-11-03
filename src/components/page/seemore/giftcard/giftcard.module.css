@@ -38,6 +38,9 @@
     align-content: center;
     border-radius: 0.25em;
 }
+.card_imgs{
+    width: 11rem;
+}
 .cardTxt{
     margin-top: 0.5em;
 }

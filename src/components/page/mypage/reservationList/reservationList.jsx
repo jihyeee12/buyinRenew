@@ -31,9 +31,9 @@ const ReservationList = () => {
                     <div className="tabContent">
                         {tabList.filter(item => index === item.id).map(item => {
                             if(item.id === 0){
-                                return <><ReservationBox type="reservation"/></>
+                                return <><ReservationBox type={"reservation"}/></>
                             } else if(item.id === 1){
-                                return <><ReservationBox type="cancel"/></>
+                                return <><ReservationBox type={"cancel"}/></>
                             }
                         })}
                         

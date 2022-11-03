@@ -1,11 +1,51 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './giftcardDetail.module.css';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Modal from '../../../../modal/modal';
+import axios from 'axios';
 
 
 const GiftcardDetail = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+    const [modalOpen, setModalOpen] = useState(false);
+    const [refundOpen, setrefundOpen] = useState(false);
+    const giftcard_id = location.state.value;
+    
+console.log(giftcard_id);
+
+    const [users, setUsers] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchUsers = async () => {
+        try {
+            // 요청이 시작 할 때에는 error 와 users 를 초기화하고
+            setError(null);
+            setUsers(null);
+            // loading 상태를 true 로 바꿉니다.
+            setLoading(true);
+            const response = await axios.get(
+             '/giftcard-info',{
+                giftcard : {giftcard_id}}
+            );
+            setUsers(response.data.data); // 데이터는 response.data 안에 들어있습니다.
+        } catch (e) {
+            setError(e);
+        }
+        setLoading(false);
+        };
+
+        fetchUsers();
+    }, []);
+
+    if (loading) return <div>로딩중..</div>;
+    if (error) return <div>에러가 발생했습니다</div>;
+    if (!users) return null;
+ 
+
+
     const gift = (giftCard_Id,name,giftCard_img,giftCard_price,giftcard_name) =>{
         navigate('/gift',{
             state: {
@@ -40,8 +80,7 @@ const GiftcardDetail = () => {
             
             alert("url을 복사했습니다.");
         }
-        const [modalOpen, setModalOpen] = useState(false);
-        const [refundOpen, setrefundOpen] = useState(false);
+       
 
     return(
         <>

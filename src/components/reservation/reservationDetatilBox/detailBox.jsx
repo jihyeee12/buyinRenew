@@ -1,13 +1,16 @@
 import React from 'react';
+import { useState } from 'react';
+import Modal from '../../modal/modal';
 import ReservationInfo from '../reservationInfo/reservationInfo';
 import styles from './detailBox.module.css';
 
-const DetailBox = (props) => {
-
+const DetailBox = ({type}) => {
+    const [modalOpen, setModalOpen] = useState(false);
+    
     return(
         <>
             <div className={styles.detailBox}>
-                {/* <p className={styles.cancelState}>취소완료</p> */}
+                {type === "cancel" && <p className={styles.cancelState}>취소완료</p>}
                 <div className={styles.hotelBox}>
                     <p className={styles.hotelName}>이끌림호텔 충장점</p>
                     <p className={styles.reservationDate}>예약일 : 2022.01.01</p>
@@ -63,8 +66,9 @@ const DetailBox = (props) => {
                         </tbody>
                     </table>
                 </div>
-                {/* <div className={styles.cancelBox}>
-                    <p className={styles.title}>금액 정보 <span className={styles.cancelRegulation}>취소규정 〉</span></p>
+                 <div className={styles.cancelBox}>
+                    <p className={styles.title}>금액 정보 {type !== "reservation" &&<span className={styles.cancelRegulation} onClick={()=> setModalOpen(!modalOpen)}>취소규정 〉</span>}</p>
+                    {modalOpen && <Modal type={"cancel"} setModalOpen={() => setModalOpen(!modalOpen)} />}
                     <table className={styles.cancelTable}>
                         <tbody>
                             <tr>
@@ -85,16 +89,16 @@ const DetailBox = (props) => {
                             </tr>
                         </tbody>
                     </table>
-                </div> */}
+                </div>
                 <div className={styles.totalPrice}>
                     <div>
                         <p>총 결제금액</p>
                         <p>90,000원</p>
                     </div>
-                    {/* <div className={styles.refundPrice}>
+                    {type === "cancel" && <div className={styles.refundPrice}>
                         <p>환불금액</p>
                         <p>90,000원</p>
-                    </div> */}
+                    </div>}
                 </div>
             </div>
         </>

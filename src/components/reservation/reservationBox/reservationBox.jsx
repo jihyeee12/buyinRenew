@@ -1,19 +1,25 @@
 import React from 'react';
 import styles from './reservationBox.module.css';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const ReservationBox = ({type}) => {
     const navigate = useNavigate();
 
-    const reservationDetail = () => {
-        navigate('/reservationDetail');
+    const reservationDetail = (name) => {
+        navigate('/reservationDetail',{
+            state:{
+                name: name,
+            }
+        });
     }
+    
     return (
         <>
         {type === 'reservation' ? 
         <div className={styles.reservationInfo}>
             <p className={styles.reservationDate}>2022.01.01  예약</p>
-            <div className={styles.reservationBox} onClick={reservationDetail}>
+            <div className={styles.reservationBox} onClick={()=> reservationDetail("reservation")}>
                 <div className={styles.reservationImg}>
                     <img src="../img/roomImg/bigRoom.png" alt="호텔사진" />
                 </div>
@@ -39,7 +45,7 @@ const ReservationBox = ({type}) => {
         </div>
         : <div className={styles.reservationInfo}>
             <p className={styles.reservationDate}><span className={styles.cancelState}>취소완료</span>2022.01.01  예약</p>
-            <div className={styles.reservationBox} onClick={reservationDetail}>
+            <div className={styles.reservationBox} onClick={()=> reservationDetail("cancel")}>
                 <div className={styles.reservationImg}>
                     <img src="../img/roomImg/bigRoom.png" alt="호텔사진" />
                 </div>

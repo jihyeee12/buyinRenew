@@ -1,0 +1,15 @@
+.giftcardItem{
+    padding: 0 0.75rem;
+}
+.giftcardImg{
+    width: 11rem;
+}
+.giftcardTitle, .giftcardName, .giftcardPrice{
+    font-size: 0.98rem;
+}
+.giftcardPrice{
+    font-weight: 600;
+    color: #000;
+    text-align: right;
+    margin-top: 1rem;
+}

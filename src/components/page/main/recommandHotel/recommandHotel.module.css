@@ -1,0 +1,47 @@
+.recommandItem{
+    padding: 0 1rem;
+    border-right: 1px solid #EDEFF2;
+}
+.lodgement_img{
+    width: 16.5rem;
+    height: 10rem;
+    border-radius: 0.5rem;
+}
+.recommandItem:last-child{
+    border-right: none;
+}
+.lodgement_name{
+    font-size: 1rem;
+    font-weight: 600;
+}
+.infoBox{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: end;
+}
+.countBox{
+    text-align: left;
+    font-weight: 600;
+}
+.Count{
+    font-size: 0.9rem;
+}
+.countTitle{
+    color: #4365A2;   
+}
+.priceBox{
+    text-align: right;
+}
+.dcRate{
+    color: #4365A2;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.priceTxt{
+    color: #A1A1A1;
+    text-decoration-line: line-through;
+}
+.salePrice{
+    font-size: 1rem;
+    font-weight: 600;
+}

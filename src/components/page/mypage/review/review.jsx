@@ -4,10 +4,12 @@ import SideMenu from '../sideMenu/sideMenu';
 import styles from './review.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import Modal from '../../../modal/modal';
 
 
 const Review = () => {
     const navigate = useNavigate();
+    const [modalOpen, setModalOpen] = useState(false);
 
     const writeReview = () =>{
         navigate('/writeReview');
@@ -71,7 +73,8 @@ const Review = () => {
                                                     <td>{review.review_date}</td>
                                                     <td>
                                                         <span key={review.review_id} onClick={writeReview}>수정</span>
-                                                        <span key={review.review_id} className={styles.deleteBtn}>삭제</span>
+                                                        <span key={review.review_id} className={styles.deleteBtn} onClick={()=> setModalOpen(!modalOpen)}>삭제</span>
+                                                        {modalOpen && <Modal type={"delete"} setModalOpen={() => setModalOpen(!modalOpen)} />}
                                                     </td>
                                                 </tr>
                                             </tbody>
