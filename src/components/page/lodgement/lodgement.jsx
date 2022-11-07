@@ -6,43 +6,16 @@ import { useState } from 'react';
 import Modal from '../../modal/modal';
 import { useEffect } from 'react';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 
 const Lodgement = () => {
     const [modalOpen, setModalOpen] = useState(false);
     const [couponOpen, setcouponOpen] = useState(false);
-
-
-    // const [users, setUsers] = useState(null);
-    // const [loading, setLoading] = useState(false);
-    // const [error, setError] = useState(null);
-
-    // useEffect(() => {
-    //     const fetchUsers = async () => {
-    //     try {
-    //         // 요청이 시작 할 때에는 error 와 users 를 초기화하고
-    //         setError(null);
-    //         setUsers(null);
-    //         // loading 상태를 true 로 바꿉니다.
-    //         setLoading(true);
-    //         const response = await axios.get(
-    //         'https://www.buyinhotel.co.kr/lodgement-detail'
-    //         );
-    //         setUsers(response.data); // 데이터는 response.data 안에 들어있습니다.
-    //     } catch (e) {
-    //         setError(e);
-    //     }
-    //     setLoading(false);
-    //     };
-
-    //     fetchUsers();
-    // }, []);
-
-    // if (loading) return <div>로딩중..</div>;
-    // if (error) return <div>에러가 발생했습니다</div>;
-    // if (!users) return null;
-    
-    // console.log(users);
+    const [allReview, setAllReview] = useState(false);
+    const [photoOpen, setPhotoOpen] = useState(false);
+    const [hotelOpen, setHotelOpen] = useState(false);
+    const {lodgement} = useParams();
 
     
     const serviceData = [
@@ -81,9 +54,10 @@ const Lodgement = () => {
                 <img src={hotelImg[2].hotel_img} alt="smallRoom" />
                 <img src={hotelImg[3].hotel_img} alt="smallRoom" />
                 <img src={hotelImg[4].hotel_img} alt="smallRoom" /> 
-                <div className={styles.roomPlus}>
+                <div className={styles.roomPlus} onClick={()=> setHotelOpen(!hotelOpen)}>
                     <p>+8</p>
-                </div>           
+                </div>   
+                {hotelOpen && <Modal type={"hotelPhoto"} setHotelOpen={() => setHotelOpen(!hotelOpen)} />}        
             </div>
         </div>
         <div className={styles.hotelGrid}>
@@ -110,7 +84,7 @@ const Lodgement = () => {
                     <h4 className={styles.title}>
                         숙소소개 <span className={styles.introSpan} onClick={()=> setModalOpen(!modalOpen)}>상세정보 &nbsp;<img src="/img/icon/rightArrow.png" alt="right" /></span>
                     </h4>
-                    {modalOpen && <Modal type={"roominfo"} setModalOpen={() => setModalOpen(!modalOpen)} />}
+                    {modalOpen && <Modal type={"roominfo"} lodgement={lodgement} setModalOpen={() => setModalOpen(!modalOpen)} />}
                     <p className={styles.introText}>
                         이끌림호텔 신안점은
                         고객들이 가장 필요로 하는 핵심적인 서비스와 시설에 초점을 맞춤으로써, 스마트한 고객님들의 니즈를 충족하고 비즈니스 호텔과는
@@ -124,13 +98,15 @@ const Lodgement = () => {
                 <div className={styles.review}>     
                     <h4 className={styles.title}>리뷰 &nbsp;<span className={styles.reviewCount}>100</span></h4>
                     <div className={styles.reviewImgs}>
-                        <img src="/img/roomImg/reviewImg.png" alt="reviewimg" />
-                        <img src="/img/roomImg/reviewImg.png" alt="reviewimg" />
-                        <img src="/img/roomImg/reviewImg.png" alt="reviewimg" />
-                        <img src="/img/roomImg/reviewImg.png" alt="reviewimg" />
-                        <div className={styles.reviewPlus}>
+                        <img className={styles.photoReviews} onClick={() => setPhotoOpen(!photoOpen)} src="/img/roomImg/reviewImg.png" alt="reviewimg" />
+                        <img className={styles.photoReviews} src="/img/roomImg/reviewImg.png" alt="reviewimg" />
+                        <img className={styles.photoReviews} src="/img/roomImg/reviewImg.png" alt="reviewimg" />
+                        <img className={styles.photoReviews} src="/img/roomImg/reviewImg.png" alt="reviewimg" />
+                        <div className={styles.reviewPlus} onClick={()=> setAllReview(!allReview)}>
                             <p>+5</p>
                         </div>
+                    {allReview && <Modal type={"allReview"} setAllReview={() => setAllReview(!allReview)} />}
+                    {photoOpen && <Modal type={"photoReview"} setPhotoOpen={() => setPhotoOpen(!photoOpen)} />}
                     </div>
                     <div className={styles.reviewText}>
                         <div className={styles.userReview}>

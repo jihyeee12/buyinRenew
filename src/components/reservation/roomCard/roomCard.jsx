@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './roomCard.module.css';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -31,9 +31,10 @@ import { useState } from 'react';
             {roomData.map((v) => (
                 <div className={styles.roomCardArea}>
                     <div className={styles.roomCard} >
-                        <img className={styles.roomImg} onClick={linkRoom} src={v.lodgement_img_url} alt='roomImg' />
+                        <Link to={`/lodgement/${v.lodgement_id}`}><img className={styles.roomImg} src={v.lodgement_img_url} alt='roomImg' /></Link>
                         <img className={styles.wish} key={v.lodgement_id} src={(v.lodgement_id === clickedNum  ? "/img/icon/wishOkIcon.png" : "/img/icon/wish.png")}onClick={() => {setClickedNum(v.lodgement_id)}} alt='wish' />
-                        <div className={styles.roomInfo} onClick={linkRoom} >
+                        <Link to={`/lodgement/${v.lodgement_id}`}>
+                        <div className={styles.roomInfo} >
                             <p className={styles.HotelName}>{v.lodgement_name}</p>
                             <p className={styles.Location}><img className={styles.wishIcon} src='/img/icon/location.png' alt='mapIcon'/> {v.landmark}</p>
                             <div className={styles.hotelPrice}>
@@ -50,6 +51,7 @@ import { useState } from 'react';
                                 </div>
                             </div>
                         </div>
+                        </Link>
                     </div>
                 </div>
             ))}

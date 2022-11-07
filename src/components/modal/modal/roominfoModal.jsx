@@ -1,29 +1,64 @@
+import axios from 'axios';
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import styles from '../modal.module.css';
 
-const RoominfoModal = () => {
-       
+const RoominfoModal = ({lodgement}) => {
+    const [roomInfo, setroomInfo] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchroomInfo = async () => {
+        try {
+            // 요청이 시작 할 때에는 error 와 roomInfo 를 초기화하고
+            setError(null);
+            setroomInfo(null);
+            // loading 상태를 true 로 바꿉니다.
+            setLoading(true);
+            const response = await axios.get(
+            `/lodgement-detail?lodgement=${lodgement}`
+            );
+            setroomInfo(response.data.data); // 데이터는 response.data 안에 들어있습니다.
+        } catch (e) {
+            setError(e);
+        }
+        setLoading(false);
+        };
+
+        fetchroomInfo();
+    }, []);
+
+    if (loading) return <div>로딩중..</div>;
+    if (error) return <div>에러가 발생했습니다</div>;
+    if (!roomInfo) return null;
+    
+    
+        
     return (
         <>
-        <div className={styles.infoBox}>
+        <div className={styles.infoBox} key={roomInfo.lodgement_id}>
                     <h3 className={styles.infoTitle}>숙소정보</h3>
                     <table className={styles.roomInfoTable}>
                         <tbody>
                             <tr>
                                 <td>위치</td>
-                                <td>광주 광역시</td>
+                                <td>{roomInfo.lodgement_address}</td>
                             </tr>
                             <tr>
                                 <td>대표번호</td>
-                                <td>100</td>
+                                <td>{roomInfo.lodgement_tel.replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`)}</td>
                             </tr>
                             <tr>
                                 <td>객실수</td>
-                                <td>0</td>
+                                <td>{roomInfo.room_count}</td>
                             </tr>
                             <tr>
                                 <td>객실타입</td>
-                                <td>111/</td>
+                                <td>{roomInfo.room_infos.map(v => (
+                                    v.room_name + "/ "
+                                ))}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -32,14 +67,13 @@ const RoominfoModal = () => {
                     <h3 className={styles.infoTitle}>객실별 어메니티</h3>
                     <table className={styles.roomsTable}>
                         <tbody>
-                            <tr>
-                                <td>스탠다드 더블</td>
-                                <td>ㅇㅇㅇ</td>
-                            </tr>
-                            <tr>
-                                <td>비즈니스 더블</td>
-                                <td>칫솔, 치약, 샤워, 스펀지, 샴푸, 린스, 바디워시, 비누, 생수, 스킨, 로션, 가운, 폼클렌징, 면도기, 커피, 녹차, 슬리퍼, 레이디세트</td>
-                            </tr>
+                            {roomInfo.room_infos.map(info => (
+                                <tr>
+                                    <td>{info.room_name}</td>
+                                    <td>{info.room_amenity}</td>
+                                </tr>
+                            ))}
+                            
                         </tbody>
                     </table>
                 </div>
@@ -47,14 +81,12 @@ const RoominfoModal = () => {
                     <h3 className={styles.infoTitle}>객실별 특이사항</h3>
                         <table className={styles.roomsTable}>
                             <tbody>
+                            {roomInfo.room_infos.map(info => (
                                 <tr>
-                                    <td>스탠다드 더블</td>
-                                    <td>더블베드, 티테이블, 커피포트,드라이기,고데기,냉장고,충전기,에어컨</td>
+                                    <td>{info.room_name}</td>
+                                    <td>{info.room_notice}</td>
                                 </tr>
-                                <tr>
-                                    <td>비즈니스 더블</td>
-                                    <td>더블베드, 티테이블, 커피포트,드라이기,고데기,냉장고,충전기,에어컨, 2PC(모니터 32인치 본체 CPU i5-9400F,REM 16G RTX2060)</td>
-                                </tr>
+                            ))}
                             </tbody>
                         </table>
                     </div>

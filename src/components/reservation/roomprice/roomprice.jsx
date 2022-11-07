@@ -6,7 +6,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 
-const Roomprice = props => {
+const Roomprice = (props) => {
+    
     const navigate = useNavigate();
     const linkRoom = () =>{
         navigate('/rooms')
