@@ -71,7 +71,7 @@ function App() {
               <Route path ='/giftDetail' element={<GiftDetail/>}/>
               <Route path ='/notice' element={<Notice/>}/>
               <Route path ='/giftcard' element={<Giftcard/>}/>
-              <Route path ='/giftcardDetail' element={<GiftcardDetail/>}/>
+              <Route path ='/giftcardDetail/:giftcard_id' element={<GiftcardDetail/>}/>
               <Route path ='/event' element={<Event/>}/>
               <Route path ='/faq' element={<Faq/>}/>
               <Route path ='/terms' element={<Terms/>}/>

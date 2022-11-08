@@ -1,8 +1,19 @@
 import React from 'react';
 import styles from './baskethotel.module.css';
 import Options from '../reservation/options/options';
+import { useState } from 'react';
 
-const Baskethotel = () => (
+const Baskethotel = () => {
+    const [showOption, setShowOption] = useState(false);
+    const showClick = () => {
+        setShowOption((prev) => !prev);
+    }
+
+    const data =[
+        {roomid: 0}
+    ]
+
+    return(
     <>
         <div className={styles.basketBox}>
             <div className={styles.roomInfo}>
@@ -25,14 +36,17 @@ const Baskethotel = () => (
                     </tr>
                 </tbody>
             </table>
-            <div className={styles.options}>
+            {showOption? <div className={styles.options}>
                 <Options/>
-            </div>
+            </div>:null}
+            
             <div className={styles.changeBtn}>
-                <button type='button' className={styles.changeOptionBtn}>옵션변경 <img src="/img/icon/down.png" alt="downIcon" /></button>
+                <button type='button' key={data.roomid} className={styles.changeOptionBtn} onClick={showClick}>옵션변경 {showOption? <img src="/img/icon/up.png" alt="upIcon" /> :  <img src="/img/icon/down.png" alt="downIcon" />}</button>
             </div>
         </div>
     </>
-    );
+
+    )
+};
 
 export default Baskethotel;

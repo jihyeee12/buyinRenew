@@ -23,17 +23,34 @@ import { useState } from 'react';
             slidesToScroll: 3
         }
         
-        const [clickedNum, setClickedNum] = useState();
+        const [clickedNumArr, setClickedNumArr] = useState([]);
+        const handleClickToggleBtn = (id) => {
+            setClickedNumArr((arr) => {
+              let newArr = [];
+              arr.map((item) => newArr.push(item));
         
+              if (newArr.includes(id)) {
+                newArr.splice(newArr.indexOf(id), 1);
+              } else {
+                newArr.push(id);
+              }
+              console.log(clickedNumArr);
+              return newArr;
+            });
+          };
+        
+
     return( 
         <>
         <Slider {...settings}>
             {roomData.map((v) => (
                 <div className={styles.roomCardArea}>
                     <div className={styles.roomCard} >
-                        <Link to={`/lodgement/${v.lodgement_id}`}><img className={styles.roomImg} src={v.lodgement_img_url} alt='roomImg' /></Link>
-                        <img className={styles.wish} key={v.lodgement_id} src={(v.lodgement_id === clickedNum  ? "/img/icon/wishOkIcon.png" : "/img/icon/wish.png")}onClick={() => {setClickedNum(v.lodgement_id)}} alt='wish' />
-                        <Link to={`/lodgement/${v.lodgement_id}`}>
+                        <Link className={styles.link} to={`/lodgement/${v.lodgement_id}`}><img className={styles.roomImg} src={v.lodgement_img_url} alt='roomImg' /></Link>
+                        <button type='button' className={styles.wishBtn} key={v.lodgement_id} onClick={() => {handleClickToggleBtn(v.lodgement_id)}}> 
+                            <img className={styles.wish} src={(clickedNumArr.includes(v.lodgement_id)  ? "/img/icon/wishOkIcon.png" : "/img/icon/wish.png")} alt='wish' />
+                        </button>
+                        <Link className={styles.link} to={`/lodgement/${v.lodgement_id}`}>
                         <div className={styles.roomInfo} >
                             <p className={styles.HotelName}>{v.lodgement_name}</p>
                             <p className={styles.Location}><img className={styles.wishIcon} src='/img/icon/location.png' alt='mapIcon'/> {v.landmark}</p>

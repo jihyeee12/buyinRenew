@@ -27,12 +27,15 @@ p{
     height: 182px;
     border-radius: 12px 12px 0px 0px;
 }
-.wish{
+.wishBtn{
     position: absolute;
-    cursor: pointer;
+    cursor: auto;
     top: 3%;
     right: 3%;
+    background-color: transparent;
+    border: none;
 }
+
 .wishIcon{
     margin-right: 6px;
 }
@@ -86,4 +89,7 @@ p{
     font-size: 16px;
     font-weight: 600;
     color: #303030;
+}
+.link{
+    text-decoration: none;
 }

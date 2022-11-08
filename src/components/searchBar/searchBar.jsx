@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import styles from './searchBar.module.css';
 
 
-const SearchBar = props => {
+const SearchBar = (props) => {
     const navigate = useNavigate();
 
     const linkSearch = () => {

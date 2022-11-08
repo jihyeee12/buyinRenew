@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './modal.module.css';
 import AllReviewModal from './modal/AllReviewModal';
+import AmenityModal from './modal/amenityModal';
 import BuyroomModal from './modal/buyroomModal';
 import CancelModal from './modal/cancelModal';
 import CouponModal from './modal/couponModal';
@@ -51,6 +52,7 @@ const Modal = ({setModalOpen, type,setcouponOpen, setrefundOpen, setAllReview, s
                         type === "allReview"? "포토리뷰 전체보기":
                         type === "photoReview"? "포토리뷰":
                         type === "hotelPhoto"? "숙소사진 전체보기":
+                        type === "amenity"? "어메니티 옵션":
                         null
                         }
                         </p>
@@ -72,6 +74,7 @@ const Modal = ({setModalOpen, type,setcouponOpen, setrefundOpen, setAllReview, s
                         type === "allReview"? <AllReviewModal/>:
                         type === "photoReview"? <PhotoReviewModal/>:
                         type === "hotelPhoto"? <HotelFullViewModal/>:
+                        type === "amenity"? <AmenityModal/>:
                         null
                         }
                    </div>

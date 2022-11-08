@@ -302,3 +302,26 @@
 .hotelImgBox{
   width: 45rem;
 }
+.amenityBox{
+  height: 37rem;
+}
+.amenityTable{
+  width: 27rem;
+  border-collapse: collapse;
+}
+.amenityTable td{
+  font-family: pretendard;
+  border-bottom: 1px solid #EDEFF2;
+  padding: 1rem 0;
+}
+.amenityTable td:first-child{
+  text-align: left;
+}
+.amenityTable td:last-child{
+  text-align: right;
+}
+.amenitySelect{
+  font-weight: 600;
+  color: #4365A2;
+  cursor: pointer;
+}

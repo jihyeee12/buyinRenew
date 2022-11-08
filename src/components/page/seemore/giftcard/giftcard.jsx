@@ -1,20 +1,12 @@
 import React from 'react';
 import styles from './giftcard.module.css'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
 
 const Giftcard = () => {
-    const navigate = useNavigate();
-    const cardDetail = (value) => {
-        navigate('/giftcardDetail',{
-            state:{
-                value: value,
-            }
-        });
-    }
-
+    
     const [users, setUsers] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -45,17 +37,15 @@ const Giftcard = () => {
     if (!users) return null;
     
     const giftcard = users;
-    
-    
-
-    
+       
     return(
         <>
             <div className={styles.giftcardBox}>
                 <img src="..\img\icon\giftCardMain.png" alt="giftcardTitle" />
                 <div className={styles.cardList}>
                 {giftcard.map(v => (
-                    <div id={v.card_id} className={styles.giftcard} onClick={cardDetail(v.giftcard_id)}>
+                    <Link to={`/giftcardDetail/${v.giftcard_id}`} className={styles.link}>
+                    <div id={v.card_id} className={styles.giftcard}>
                     <div className={styles.cardImg}>
                             <img className={styles.card_imgs} src={v.giftcard_img_url} alt="cardImg" />
                         </div>
@@ -64,6 +54,7 @@ const Giftcard = () => {
                             <p className={styles.cardPrice}>{String(v.giftcard_price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</p>
                         </div>
                     </div>
+                    </Link>
                 ))}
                 </div>
             </div>

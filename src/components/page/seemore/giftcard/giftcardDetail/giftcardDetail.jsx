@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import styles from './giftcardDetail.module.css';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import Modal from '../../../../modal/modal';
 import axios from 'axios';
 
 
 const GiftcardDetail = () => {
+    const {giftcard_id} = useParams();
     const navigate = useNavigate();
-    const location = useLocation();
     const [modalOpen, setModalOpen] = useState(false);
     const [refundOpen, setrefundOpen] = useState(false);
-    const giftcard_id = location.state.value;
     
-console.log(giftcard_id);
-
     const [users, setUsers] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -27,9 +24,7 @@ console.log(giftcard_id);
             // loading 상태를 true 로 바꿉니다.
             setLoading(true);
             const response = await axios.get(
-             '/giftcard-info',{
-                giftcard : {giftcard_id}}
-            );
+             `/giftcard-info?giftcard=${giftcard_id}`);
             setUsers(response.data.data); // 데이터는 response.data 안에 들어있습니다.
         } catch (e) {
             setError(e);
@@ -44,30 +39,17 @@ console.log(giftcard_id);
     if (error) return <div>에러가 발생했습니다</div>;
     if (!users) return null;
  
+console.log(users);
 
-
-    const gift = (giftCard_Id,name,giftCard_img,giftCard_price,giftcard_name) =>{
+    const gift = (giftCard_Id,name) =>{
         navigate('/gift',{
             state: {
                 giftCard_Id: giftCard_Id,
                 name: name,
-                giftCard_img: giftCard_img,
-                giftCard_price: giftCard_price,
-                giftcard_name: giftcard_name
             }
         });
     }
 
-    const cardDetail = 
-        {
-            giftcard_detail_img_url: "https://www.buyinhotel.co.kr/images/giftcard/giftcard_detail.png",
-            giftcard_img_url: "https://www.buyinhotel.co.kr/images/giftcard/giftcard_100,000.png",
-            giftcard_id: 3,
-            giftcard_name: "[기프트카드] 100,000원권 기프트카드",
-            giftcard_price: 100000,
-            valid_date: "30일",
-            giftcard_usage: "온라인"
-        }
         const clip = () => {
             var url = "";
             var textarea = document.createElement("textarea");
@@ -88,17 +70,17 @@ console.log(giftcard_id);
                 <div>
                     <div className={styles.cardInfoBox}>
                         <div className={styles.cardImgBox}>
-                            <img src={cardDetail.giftcard_img_url} />
+                            <img src={users.giftcard_img_url} />
                         </div>
                         <div className={styles.cardInfoArea}>
                             <div className={styles.cardTitle}>
                                 <p className={styles.title}>BUYINHOTEL</p>
-                                <p className={styles.cardName}>{cardDetail.giftcard_name}</p>
-                                <p className={styles.cardPrice}>{cardDetail.giftcard_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</p>
+                                <p className={styles.cardName}>{users.giftcard_name}</p>
+                                <p className={styles.cardPrice}>{users.giftcard_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</p>
                             </div>
                             <div className={styles.cardInfo}>
-                                <p className={styles.infoTxt}>유효기간 : {cardDetail.valid_date}</p>
-                                <p className={styles.infoTxt}>사용처 : {cardDetail.giftcard_usage}</p>
+                                <p className={styles.infoTxt}>유효기간 : {users.valid_period}</p>
+                                <p className={styles.infoTxt}>사용처 : {users.giftcard_usage}</p>
                                 <div className={styles.popBtn}>
                                     <button type='button' className={styles.productBtn} onClick={()=> setModalOpen(!modalOpen)}>상품정보고시</button>
                                     {modalOpen && <Modal type={"productInfo"} setModalOpen={() => setModalOpen(!modalOpen)} />}
@@ -111,7 +93,7 @@ console.log(giftcard_id);
                     </div>
                     
                     <div className={styles.cardDetailBox}>
-                        <img src={cardDetail.giftcard_detail_img_url} alt="" />
+                        <img src={users.giftcard_detail_img_url} alt="giftcardImg" />
                         <p className={styles.informationTitle}>이용안내</p>
                         <ul className={styles.informationList}>
                             <li>정식 판매처 외의 경로를 통하여 구매하거나 불법 또는 부정한 방법 등으로 보유하신 e카드 교환권은 정상적인 사용(환불, 재전송 등 포함)이 제한될 수 있으며,
@@ -128,8 +110,8 @@ console.log(giftcard_id);
                     </div>
                 </div>
                 <div className={styles.payBox}>
-                    <p className={styles.payment}>결제금액 <span className={styles.payPrice}>{cardDetail.giftcard_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</span></p>
-                    <button type='button' className={styles.giftBtn} onClick={() => gift(cardDetail.giftcard_id, "giftcard", cardDetail.giftcard_img_url,cardDetail.giftcard_price,cardDetail.giftcard_name)}>선물하기</button>
+                    <p className={styles.payment}>결제금액 <span className={styles.payPrice}>{users.giftcard_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</span></p>
+                    <button type='button' key={users.giftcard_id} className={styles.giftBtn} onClick={() => gift(users.giftcard_id, "giftcard")}>선물하기</button>
                 </div>
             </div>
         </>
