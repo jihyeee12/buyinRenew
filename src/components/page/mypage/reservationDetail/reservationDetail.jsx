@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Banner from '../../../banner/banner';
 import DetailBox from '../../../reservation/reservationDetatilBox/detailBox';
-import SideMenu from '../sideMenu/sideMenu';
+import SideMenu from '../../../sideMenu/sideMenu';
 import styles from './reservationDetail.module.css';
 
 const ReservationDetail = () => {

@@ -26,11 +26,36 @@ header{
     font-size: 20px;
     color: #303030;
     font-family: pretendard;
+    cursor: pointer;
 }
 .ul{
     display: flex;
     flex-direction: row-reverse;
+    
 }
 .link{
     text-decoration: none;
+    color: #303030;
 }
+.menuClick{
+    position: relative;
+}
+.subMenu{
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 2px 4px 0px #5474C712;
+    border: 1px solid #EDEFF2;
+    border-radius: 0.5rem;
+    z-index: 5;
+    width: 8rem;
+}
+.subMenu li{
+    font-size: 1.125rem;
+    padding: 0.5rem 1rem;
+    margin: 0;
+}
+.userName{
+    font-weight: 600;
+    border-bottom: 1px solid #EDEFF2;
+}
+

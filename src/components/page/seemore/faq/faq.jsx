@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import Banner from '../../../banner/banner';
-import SideMenu from '../../mypage/sideMenu/sideMenu';
+import SideMenu from '../../../sideMenu/sideMenu';
 import styles from './faq.module.css';
 import AllFaq from './faqContent/allFaq';
 import CouponFaq from './faqContent/couponFaq';

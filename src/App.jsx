@@ -35,6 +35,7 @@ import Certified from './components/page/loginPage/certified/certified';
 import Join from './components/page/loginPage/join/join';
 import FindId from './components/page/loginPage/findId/findId';
 import FindPw from './components/page/loginPage/findPw/findPw';
+import UserGrade from './components/page/seemore/userGrade/userGrade';
 
 
 function App() {
@@ -79,6 +80,7 @@ function App() {
               <Route path ='/join' element={<Join/>}/>
               <Route path ='/findId' element={<FindId/>}/>
               <Route path ='/findPW' element={<FindPw/>}/>
+              <Route path ='/grade' element={<UserGrade/>}/>
               
               
             </Routes>

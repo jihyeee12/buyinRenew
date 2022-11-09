@@ -19,12 +19,18 @@ const SideMenu = ({type}) => {
         {EngName: "notice", KorName: "공지사항"},
         {EngName: "giftcard", KorName: "선물하기"},
         {EngName: "event", KorName: "이벤트"},
-        {EngName: "notice", KorName: "회원등급혜택"},
+        {EngName: "grade", KorName: "회원등급혜택"},
         {EngName: "faq", KorName: "FAQ"},
         {EngName: "terms", KorName: "약관 및 정책"},
     ]
-    const navigateMenu = (menuName) => {
+    const menuclickStyle = {
+        background: "#3966B7",
+        borderRadius: "4px",
+        color: "#ffffff!important"
+    }
+    const navigateMenu = (menuName,index) => {
     navigate(`/${menuName}`);
+    setActiveId(index);
     }
     const navigateSee = (seeName) => {
         navigate(`/${seeName}`);
@@ -35,7 +41,7 @@ const SideMenu = ({type}) => {
                     <ul>
                         
                         {menuList.map((menu,index) => (
-                            <li key={index} className={activeId === index ? styles.menuClick : ""} onClick={() => {navigateMenu(menu.EngName); setActiveId(index)}} >{menu.KorName}</li>
+                            <li key={index} className={activeId === index ? styles.menuClick : ""} onClick={() => {navigateMenu(menu.EngName,index)}} >{menu.KorName}</li>
                         ))}
                     </ul>
                     :

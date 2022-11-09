@@ -1,6 +1,6 @@
 import React from 'react';
 import Banner from '../../../banner/banner';
-import SideMenu from '../sideMenu/sideMenu';
+import SideMenu from '../../../sideMenu/sideMenu';
 import styles from './review.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';

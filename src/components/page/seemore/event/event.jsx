@@ -1,6 +1,6 @@
 import React from 'react';
 import Banner from '../../../banner/banner';
-import SideMenu from '../../mypage/sideMenu/sideMenu';
+import SideMenu from '../../../sideMenu/sideMenu';
 import styles from './event.module.css';
 
 const Event = () => {

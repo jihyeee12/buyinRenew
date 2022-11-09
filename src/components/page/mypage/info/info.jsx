@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './info.module.css';
-import SideMenu from '../sideMenu/sideMenu';
+import SideMenu from '../../../sideMenu/sideMenu';
 import { useNavigate } from 'react-router-dom';
 import Banner from '../../../banner/banner';
 

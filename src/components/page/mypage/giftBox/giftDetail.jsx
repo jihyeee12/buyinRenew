@@ -3,7 +3,7 @@ import Banner from '../../../banner/banner';
 import CardInfo from '../../../gift/cardInfo/cardInfo';
 import GiftInfo from '../../../gift/giftInfo/giftInfo';
 import GuideLine from '../../../gift/guideLine/guideLine';
-import SideMenu from '../sideMenu/sideMenu';
+import SideMenu from '../../../sideMenu/sideMenu';
 import styles from './giftDetail.module.css';
 
 const GiftDetail = (props) => {
