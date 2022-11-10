@@ -23,12 +23,13 @@ const Gift = () => {
     useEffect(() => {
         const giftUrl= () => {
             if(locationHref.name === "giftcard"){
-                return `/gift-basic-info?giftcard=${locationHref.giftCard_Id}`
+                return `/gift-basic-info?giftcard=${locationHref.giftCard_Id}&isGiftcard=true`
+                //null은 그냥 지우면 됨
             } else if(locationHref.name === "room"){
-                return `/gift-basic-info?giftcard=${locationHref.giftCard_Id}`
+                return `/gift-basic-info?giftcard=${locationHref.giftCard_Id}&isGiftcard=true`
             };
         }
-        console.log(giftUrl());
+        
         const fetchUsers = async () => {
         try {
             // 요청이 시작 할 때에는 error 와 users 를 초기화하고
@@ -37,7 +38,7 @@ const Gift = () => {
             // loading 상태를 true 로 바꿉니다.
             setLoading(true);
             const response = await axios.get(
-                giftUrl(),null,{params:{isGiftcard: "true", room: "null", isWeekend: "null" }},{headers:{'Contents-type': 'application/json',user: "AppIDEtest"}});
+                giftUrl(),{headers:{'Contents-type': 'application/json','user': 'AppIDEtest'}}); //get은 data 넣을 자리 필요없으니까 안넣어도 됨
             setUsers(response.data.data); // 데이터는 response.data 안에 들어있습니다.
             console.log(response);
         } catch (e) {

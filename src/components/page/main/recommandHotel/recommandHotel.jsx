@@ -6,7 +6,7 @@ const RecommandHotel = ({state}) => {
     return (
         <>
             {state.map(v => (
-                <div className={styles.recommandItem}>
+                <div className={styles.recommandItem} key={v.lodgement_id}>
                     <img className={styles.lodgement_img} src={v.lodgement_img_url} alt="lodgement_img" />
                     <p className={styles.lodgement_name}>{v.lodgement_name}</p>
                     <div className={styles.infoBox}>

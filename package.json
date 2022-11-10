@@ -43,5 +43,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy" : "https://www.buyinhotel.co.kr/"
+  "proxy" : "http://192.168.0.2:8081/ekklim_web/"
 }

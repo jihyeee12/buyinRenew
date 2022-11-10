@@ -5,7 +5,7 @@ const RecommandCard = ({state}) => {
     return (
         <>
         {state.map(v => (
-            <div className={styles.giftcardItem}>
+            <div className={styles.giftcardItem} key={v.lodgement_id}>
                 <div className={styles.giftcardBack}>
                     <img className={styles.giftcardImg} src={v.giftcard_img_url} alt="giftcardImg" />
                 </div>

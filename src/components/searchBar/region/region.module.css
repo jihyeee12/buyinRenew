@@ -1,0 +1,54 @@
+.resultPop{
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+.region, .zone{
+    height: 18rem;
+    overflow-y: auto;
+}
+.region::-webkit-scrollbar, .zone::-webkit-scrollbar {
+    width: 10px;
+}
+.region::-webkit-scrollbar-track, .zone::-webkit-scrollbar-track {
+    background-color: #EDEFF2;
+}
+.region::-webkit-scrollbar-thumb, .zone::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    border-radius: 1rem;
+}
+.region li, .zone li{
+    margin: 0;
+    padding: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+}
+.region li{
+    color: #707070;
+}
+.zone{
+    background-color: rgb(249, 249, 249);
+}
+.zone li{
+
+}
+.active{
+    background-color: rgb(249, 249, 249);
+    color: #4366A3;
+}
+.zoneActive{
+    color: #4366A3;
+    font-weight: 600;
+}
+.btnBox{
+    width: 100%;
+    text-align: center;
+}
+.btnBox button{
+    font-family: pretendard;
+    font-size: 1rem;
+    padding: 0.8rem;
+    width: 50%;
+    background-color: transparent;
+    border: none;
+}

@@ -1,0 +1,73 @@
+button {
+    cursor: pointer;
+  }
+  
+  .container {
+    margin: auto;
+    border: 1px solid rgba(128, 128, 128, 0.267);
+  }
+  
+  .container .title {
+    display: flex;
+  }
+  
+  .container .title > button {
+    border: none;
+    margin-left: 5px;
+    height: 20px;
+    align-self: center;
+    background: none;
+  }
+  
+  .container .title .pagination {
+    margin-left: auto;
+    align-self: center;
+  }
+  .container .title .pagination button {
+    margin: 0 10px;
+    border: none;
+    background: none;
+  }
+  
+  .container .week {
+    display: flex;
+  }
+  
+  .container .week .weekday {
+    width: calc(100% / 7);
+    text-align: center;
+  }
+  
+  .container .week .sunday {
+    color: red;
+  }
+  
+  .container .week .saturday {
+    color: blue;
+  }
+  
+  .container .date {
+    margin-top: 20px;
+  }
+  
+  .container .date .weekday {
+    width: calc(100% / 7);
+    float: left;
+    text-align: center;
+    line-height: 2rem;
+  }
+  
+  .container .date .sunday {
+    color: red;
+  }
+  
+  .container .date .saturday {
+    color: blue;
+  }
+  
+  .container .date .today {
+    background-color: rgb(88, 111, 187);
+    color: white;
+    font-weight: 700;
+    border-radius: 50%;
+  }
