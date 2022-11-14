@@ -12,8 +12,8 @@ const Rooms = () => {
         navigate('/roomoption');
     }
     const [modalOpen, setModalOpen] = useState(false);
-
-    
+    const [cancelModal, setCancelModal] = useState(false);
+    const [roomModal, setRoomModal] = useState(false);
 
     return(
         <>
@@ -58,7 +58,8 @@ const Rooms = () => {
                     </div>
                 </div>
                 <div className={styles.roomInfoDetail}>
-                    <h4 className={styles.detailTitle}>객실정보 <span className={styles.detailPop}>상세정보&nbsp;<img src="/img/icon/rightArrow.png" alt="right" /></span></h4>
+                    <h4 className={styles.detailTitle}>객실정보 <span className={styles.detailPop} onClick={() => setRoomModal(!roomModal)}>상세정보&nbsp;<img src="/img/icon/rightArrow.png" alt="right" /></span></h4>
+                    {roomModal && <Modal type={"room"} setRoomModal = {() => setRoomModal(!roomModal)}/>}
                     <div className={styles.infoIconBox}>
                         <div className={styles.infoIcon}>
                             <img src="/img/icon/parking.png" alt="parking" />
@@ -73,7 +74,7 @@ const Rooms = () => {
             </div>
             <div className={styles.userInfo}>
                 <div className={styles.infoText}>
-                    <p>예약공지</p>
+                    <p className={styles.infoTitle}>예약공지</p>
                     <ul className={styles.infoList}>
                         <li>객실요금은 2인 입실 기준이며, 인원 추가시 프론트로 문의 후 현장에서 추가결제 부탁드립니다.</li>
                         <li>미성년자의 입실 가능 여부는 직접 제휴점에 확인 후 예약 진행해주시기 바랍니다.</li>
@@ -81,7 +82,8 @@ const Rooms = () => {
                         <li>제휴점 사정에 의한 취소 발생 시 100% 환불 처리됩니다.</li>
                         <li>제휴점 사정으로 객실 정보가 변경될 수 있습니다. 이로인한 불이익은 당사가 책임지지 않습니다.</li>
                     </ul>
-                    <p>취소규정 <span className={styles.detailPop}>상세보기&nbsp;<img src="/img/icon/rightArrow.png" alt="right" /></span></p>
+                    <p className={styles.infoTitle}>취소규정 <span className={styles.detailPop} onClick={() => setCancelModal(!cancelModal)}>상세보기&nbsp;<img src="/img/icon/rightArrow.png" alt="right" /></span></p>
+                    {cancelModal && <Modal type={"cancel"} setCancelModal={() => setCancelModal(!cancelModal)} />}
                     <ul className={styles.infoList}>
                         <li>모텔의 경우 예약완료 시각으로부터 1시간 이내인 경우 바이인호텔 앱을 통해 전액취소가 가능합니다. 단, 1시간 이내라도 시간 경과시 취소 불가합니다.</li>
                         <li>상세한 취소 규정은 [상세보기]에서 확인하실 수 있습니다.</li>

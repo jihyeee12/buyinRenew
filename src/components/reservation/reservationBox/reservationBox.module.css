@@ -1,5 +1,7 @@
 .reservationInfo{
-    width: calc(100%/3);
+    width: 18.5rem;
+    margin: 1rem 1rem 1rem 0;
+    cursor: pointer;
 }
 .reservationDate{
     font-size: 1rem;

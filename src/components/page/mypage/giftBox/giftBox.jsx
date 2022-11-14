@@ -4,12 +4,20 @@ import SideMenu from '../../../sideMenu/sideMenu';
 import styles from './giftBox.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { useEffect } from 'react';
+import axios from 'axios';
 
-const GiftBox = (props) => {
+const GiftBox = () => {
     const navigate = useNavigate();
 
-    const giftDetail = () =>{
-        navigate('/giftDetail');
+    const giftDetail = (giftId, giftType,giftStatus) =>{
+        navigate('/giftDetail',{
+            state: {
+                giftId: giftId,
+                giftType : giftType,
+                giftStatus : giftStatus
+            }
+        });
     }
     const [index, setIndex] = useState(0);
 
@@ -18,44 +26,39 @@ const GiftBox = (props) => {
         {id: 1, title: "받은 선물"}
     ]
 
-    const sendGift = [
-        {   gift_id: 0, 
-            gifttype: 0,
-            gift_img_url: null,
-            gift_receiver:"강지혜",
-            gift_name: "[기프트카드] 기프트카드 30,000원권",
-            gift_price: 30000,
-            gift_valid_date: "2022.01.01~ 2022.01.02"
-        },
-        {   gift_id: 0, 
-            gifttype: 0,
-            gift_img_url: null,
-            gift_receiver:"강지혜",
-            gift_name: "[기프트카드] 기프트카드 10,000원권",
-            gift_price: 10000,
-            gift_valid_date: "2022.01.01~ 2022.01.02"
+    const [gifts, setgifts] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+    const fetchgifts = async () => {
+        try {
+            // 요청이 시작 할 때에는 error 와 gifts 를 초기화하고
+            setError(null);
+            setgifts(null);
+            // loading 상태를 true 로 바꿉니다.
+            setLoading(true);
+            const response = await axios.get(
+                '/gifts',{headers:{'Contents-type': 'application/json','user': 'AppIDEtest'}}); //get은 data 넣을 자리 필요없으니까 안넣어도 됨
+            setgifts(response.data.data); // 데이터는 response.data 안에 들어있습니다.
+            
+        } catch (e) {
+            setError(e);
         }
-    ]
-    const receiveGift = [
-        {   gift_id: 0, 
-            gifttype: 0,
-            gift_img_url: null,
-            gift_receiver:"강지혜",
-            gift_name: "[기프트카드] 기프트카드 50,000원권",
-            gift_state: "사용 전",
-            gift_price: 50000,
-            gift_valid_date: "2022.01.01~ 2022.01.02"
-        },
-        {   gift_id: 0, 
-            gifttype: 0,
-            gift_img_url: null,
-            gift_receiver:"강지혜",
-            gift_name: "[기프트카드] 기프트카드 30,000원권",
-            gift_state: "사용 완료",
-            gift_price: 30000,
-            gift_valid_date: "2022.01.01~ 2022.01.02"
-        }
-    ]
+        setLoading(false);
+        };
+        fetchgifts();
+    
+    }, []);
+    if (loading) return <div>로딩중..</div>;
+    if (error) return <div>에러가 발생했습니다</div>;
+    if (!gifts) return null;
+    
+    console.log(gifts);
+
+    const sendGift = gifts.gift_sends;
+    const receiveGift = gifts.gift_receives;
+
 
     return(
         <>
@@ -80,7 +83,7 @@ const GiftBox = (props) => {
                             if(item.id === 0){
                                 return <>
                                 {sendGift.map(send => (
-                                <div className={styles.giftCard} onClick={giftDetail}>
+                                <div className={styles.giftCard} key={send.gift_id} type={send.gift_type} onClick={() => giftDetail(send.gift_id, send.gift_type, "send")}>
                                     <div className={styles.giftSend}>
                                         <p className={styles.senderName}>TO. {send.gift_receiver}님</p>
                                     </div>
@@ -103,9 +106,9 @@ const GiftBox = (props) => {
                             } else if(item.id === 1){
                                 return <>
                                 {receiveGift.map(receive => (
-                                    <div className={styles.giftCard} onClick={giftDetail}>
+                                    <div className={styles.giftCard} key={receive.gift_id}  type={receive.gift_type} onClick={() => giftDetail(receive.gift_id, receive.gift_type, "receive")}>
                                         <div className={styles.giftSend}>
-                                            <p className={styles.senderName}>FROM. {receive.gift_receiver}님 <span 
+                                            <p className={styles.senderName}>FROM. {receive.gift_sender}님 <span 
                                             className={styles.giftState}
                                             style={{color: receive.gift_state === "사용 전" ? "#3399FF" : "#DB2D2D"}}
                                             >{receive.gift_state}</span></p>

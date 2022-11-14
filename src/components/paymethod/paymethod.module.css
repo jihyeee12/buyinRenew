@@ -12,6 +12,7 @@
     font-family: pretendard;
     font-size: 1.125rem;
     color: #303030;
+    margin-bottom: 1rem;
 }
 .discount{
     margin: 1rem 0;
@@ -55,6 +56,9 @@
     text-align: right;
     margin-right: 0.625rem;
 }
+.paymethodBtn{
+    display: flex;
+}
 .paymethodBtn button{
     box-sizing: border-box;
     width: 22.5rem;
@@ -64,7 +68,7 @@
     font-family: pretendard;
     font-weight: 600;
 }
-.bank{
+.payBtn{
     background-color: #FFFFFF;
     border: 1px solid #EBEBEB;
     color: #707070;

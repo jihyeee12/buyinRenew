@@ -10,9 +10,10 @@ import HotelFullViewModal from './modal/hotelFullViewModal';
 import PhotoReviewModal from './modal/photoReviewModal';
 import ProductInfoModal from './modal/productInfoModal';
 import RefundModal from './modal/refundModal';
+import RoomDetailModal from './modal/roomDetailModal';
 import RoominfoModal from './modal/roominfoModal';
 
-const Modal = ({setModalOpen, type,setcouponOpen, setrefundOpen, setAllReview, setPhotoOpen,setHotelOpen, lodgement}) => {
+const Modal = ({setModalOpen, type,setcouponOpen, setrefundOpen, setAllReview, setPhotoOpen,setHotelOpen, lodgement, setCancelModal, setRoomModal}) => {
     console.log(lodgement)
     const closeModal = () => {
         {if(type === "coupon"){
@@ -25,7 +26,12 @@ const Modal = ({setModalOpen, type,setcouponOpen, setrefundOpen, setAllReview, s
             return setPhotoOpen(false);
         } else if(type === "hotelPhoto"){
             return setHotelOpen(false);
-        } else{
+        } else if( type === "cancel"){
+            return setCancelModal(false);
+        } else if(type === "room"){
+            return setRoomModal(false);
+        } 
+        else{
             return setModalOpen(false);
         }
     }
@@ -53,6 +59,7 @@ const Modal = ({setModalOpen, type,setcouponOpen, setrefundOpen, setAllReview, s
                         type === "photoReview"? "포토리뷰":
                         type === "hotelPhoto"? "숙소사진 전체보기":
                         type === "amenity"? "어메니티 옵션":
+                        type === "room"? "객실상세정보":
                         null
                         }
                         </p>
@@ -75,6 +82,7 @@ const Modal = ({setModalOpen, type,setcouponOpen, setrefundOpen, setAllReview, s
                         type === "photoReview"? <PhotoReviewModal/>:
                         type === "hotelPhoto"? <HotelFullViewModal/>:
                         type === "amenity"? <AmenityModal/>:
+                        type === "room"? <RoomDetailModal/>:
                         null
                         }
                    </div>

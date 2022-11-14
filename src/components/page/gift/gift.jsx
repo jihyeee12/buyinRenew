@@ -59,8 +59,8 @@ const Gift = () => {
         <>
         <div className={styles.giftBox}>
             <div>
-                <Userinfo/>
-                <Paymethod/>
+                <Userinfo users = {users}/>
+                <Paymethod name={"gift"}/>
             </div>
             <div>
                 <div className={styles.giftName}>
@@ -69,7 +69,7 @@ const Gift = () => {
                     <p>{ users.gift_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</p>
                 </div>
                 <label className={styles.agreeBox}><input type="checkbox" /> <span className={styles.agreeTxt}>주문정보 및 서비스 이용약관 동의</span>&nbsp;<span className={styles.blue}>(필수)</span></label>
-                <button type='button' className={styles.reservationBtn} onClick={linkgift}>{users.gift_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원 결제하기</button>
+                <button type='button' className={styles.reservationBtn} key={users.gift_type_id} onClick={linkgift}>{users.gift_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원 결제하기</button>
                 <p className={styles.notice}>발행일로부터 1년 이내 수신자에게 90% 환불 가능하며, 판매가 중단되거나 판매가 변경된 상품의 경우 기간연장이 불가하여 환불처리됩니다.</p>
             </div>
         </div>

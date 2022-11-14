@@ -1,124 +1,149 @@
 .Modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-  }
-   
-  /* modal창 */
-  .modalBody {
-    position: absolute;
-    text-align: center;
-    box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
-  }
-  .popTitle{
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: #FFFFFF;
-    box-shadow: 0px 1px 2px 0px #00000040;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
 
-  }
-  .modalTitle{
-    display: flex;
-    justify-content: space-between;
-  }
-  .modalContent{
-    background-color: rgb(255, 255, 255);
-    padding: 1.25rem;
-    overflow-y: auto;
-    border-radius: 10px;
-    max-height: 45rem;
-  }
+/* modal창 */
+.modalBody {
+  position: absolute;
+  text-align: center;
+}
 
-  
+.popTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #FFFFFF;
+
+}
+
+.modalTitle {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modalContent {
+  background-color: rgb(255, 255, 255);
+  padding: 1.25rem;
+  overflow-y: auto;
+  border-radius: 10px;
+  max-height: 45rem;
+  max-width: 45rem;
+  box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+}
+
+
 .modalContent::-webkit-scrollbar {
-    width: 10px;  /* 스크롤바의 너비 */
+  width: 10px;
+  /* 스크롤바의 너비 */
 }
 
 .modalContent::-webkit-scrollbar-thumb {
-    height: 30%; /* 스크롤바의 길이 */
-    background: #A4A4A4; /* 스크롤바의 색상 */
-    border-radius: 10px;
-    
+  height: 30%;
+  /* 스크롤바의 길이 */
+  background: #A4A4A4;
+  /* 스크롤바의 색상 */
+  border-radius: 10px;
+
 }
 
 .modalContent::-webkit-scrollbar-track {
-    width: 12px;
-    margin: 1rem;
+  width: 12px;
+  margin: 1rem;
 }
-   
-  .modalCloseBtn {
-    border: none;
-    color: rgba(0, 0, 0, 0.7);
-    background-color: transparent;
-    font-size: 20px;
-  }
-   
-  .modalCloseBtn:hover {
-    cursor: pointer;
-  }
-  .infoBox{
-    border-bottom: 1px solid #EDEFF2;
-    padding-bottom: 1.5rem;
-  }
-  .infoBox table td{
-    font-family: pretendard;
-  }
-  .infoTitle{
-    font-size: 1.125rem;
-    font-weight: 600;
-    text-align: left;
-  }
-  .roomInfoTable td{
-    font-size: 1rem;
-    text-align: left;
-    padding: 0.25rem 0;
-  }
-  .roomInfoTable tr td:first-child{
-    width: 5rem;
-  }
-  .roomsTable{
-    border: 1px solid #EDEFF2;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  .roomsTable tr td{
-    border: 1px solid #EDEFF2;
-    padding: 1rem;
-    font-size: 0.9rem;
-  }
-  .roomsTable tr td:first-child{
-    width: 10rem;
-    background-color: #FAFAFA;
-  }
-  .roomsTable tr td:last-child{
-    border-bottom: none;
+
+.modalCloseBtn {
+  border: none;
+  color: rgba(0, 0, 0, 0.7);
+  background-color: transparent;
+  font-size: 20px;
 }
-.couponList, .reviewImgBox{
-  width: 45rem;
+
+.modalCloseBtn:hover {
+  cursor: pointer;
+}
+
+.infoBox {
+  border-bottom: 1px solid #EDEFF2;
+  padding-bottom: 1.5rem;
+}
+
+.infoBox table td {
+  font-family: pretendard;
+}
+
+.infoTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.roomInfoTable td {
+  font-size: 1rem;
+  text-align: left;
+  padding: 0.25rem 0;
+}
+
+.roomInfoTable tr td:first-child {
+  width: 5rem;
+}
+
+.roomsTable {
+  border: 1px solid #EDEFF2;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.roomsTable tr td {
+  border: 1px solid #EDEFF2;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+.roomsTable tr td:first-child {
+  width: 10rem;
+  background-color: #FAFAFA;
+}
+
+.roomsTable tr td:last-child {
+  border-bottom: none;
+}
+
+.couponList,
+.reviewImgBox {
   display: flex;
   flex-wrap: wrap;
 }
-.couponBox{
+
+.reviewImgBox,
+.amenityBox,
+.roomBox {
+  height: 37rem;
+}
+
+.couponBox {
   width: 18rem;
   margin: 1rem 2rem;
 }
-.couponName{
+
+.couponName {
   box-sizing: border-box;
   box-shadow: 0px 1px 4px 0px #1D1D1D40;
   border-radius: 0.125rem;
   border: 1px solid linear-gradient(94.59deg, rgba(57, 102, 183, 0.7) 1.52%, rgba(84, 134, 199, 0.7) 100%),
-  linear-gradient(0deg, #FFFFFF, #FFFFFF);
+    linear-gradient(0deg, #FFFFFF, #FFFFFF);
   text-align: left;
   padding: 1rem;
 }
-.couponPrice{
+
+.couponPrice {
   font-weight: 600;
   font-size: 1.5rem;
   font-family: pretendard;
@@ -128,15 +153,18 @@
   background-clip: text;
   text-fill-color: transparent;
 }
-.couponCondition{
+
+.couponCondition {
   padding-left: 1rem;
 }
-.couponCondition li{
+
+.couponCondition li {
   font-family: pretendard;
   font-size: 0.9rem;
   list-style-type: disc;
 }
-.couponBtn{
+
+.couponBtn {
   width: 100%;
   font-family: pretendard;
   background-color: #FFFFFF;
@@ -147,41 +175,47 @@
   padding: 0.75rem 0;
   margin-top: 1rem;
 }
-.productTable{
-  width: 45rem;
+
+.productTable {
   text-align: left;
   border-collapse: collapse;
   border: 1px solid #EDEFF2;
 }
-.productTable td{
+
+.productTable td {
   border-bottom: 1px solid #EDEFF2;
   padding: 0.8rem;
   font-family: pretendard;
   line-height: 1.25rem;
 }
-.productTable td:first-child{
+
+.productTable td:first-child {
   width: 20%;
   background-color: #FAFAFA;
   border-right: 1px solid #EDEFF2;
 }
-.refundBox{
-  width: 45rem;
+
+.refundBox {
   text-align: left;
 }
-.refundList li{
+
+.refundList li {
   margin-bottom: 1rem;
   font-family: pretendard;
   line-height: 1.5rem;
   font-weight: 400;
 }
-.buyRoomBox{
+
+.buyRoomBox {
   padding: 1rem;
 }
-.buyRoomtitle{
+
+.buyRoomtitle {
   font-size: 1.25rem;
   padding-bottom: 2rem;
 }
-.buyRoomBtn{
+
+.buyRoomBtn {
   background-color: #FFFFFF;
   border: 1px solid #3966B7;
   box-sizing: border-box;
@@ -193,40 +227,48 @@
   margin: 0 0.5rem;
 }
 
-.cancelList{
+.cancelList {
   padding-left: 1.5rem;
 }
-.cancelList li{
+
+.cancelList li {
   list-style-type: disc;
   font-family: pretendard;
   text-align: left;
   margin-bottom: 1rem;
 }
-.cancelTable{
+
+.cancelTable {
   width: 100%;
   border-collapse: collapse;
 }
-.cancelTable td{
+
+.cancelTable td {
   font-family: pretendard;
   text-align: center;
   border: 1px solid #EDEFF2;
   font-size: 0.98rem;
   padding: 1rem 0;
 }
-.cancelTable td:first-child{
+
+.cancelTable td:first-child {
   width: 12rem;
 }
-.cancelTable td:last-child{
+
+.cancelTable td:last-child {
   width: 30rem;
 }
-.cancelTable tr:first-child td{
+
+.cancelTable tr:first-child td {
   background-color: #FAFAFA;
 }
-.reviewTitle{
+
+.reviewTitle {
   font-size: 1.5rem;
 }
 
-.reviewBtn, .deleteBtn{
+.reviewBtn,
+.deleteBtn {
   box-sizing: border-box;
   font-family: pretendard;
   border-radius: 0.25rem;
@@ -235,20 +277,23 @@
   padding: 0.5em 2rem;
   margin-top: 3rem;
 }
-.reviewBtn{
+
+.reviewBtn {
   border: 1px solid #ACACAC;
   box-shadow: 0px 2px 4px 0px #ACACAC40;
   color: #808080;
   background-color: white;
   margin-right: 1rem;
 }
-.deleteBtn{
+
+.deleteBtn {
   background-color: #3966B7;
   box-shadow: 0px 2px 4px 0px #5474C740;
   color: white;
   border: none;
 }
-.reviewImg{
+
+.reviewImg {
   width: 9.6rem;
   height: 9.6rem;
   border-radius: 0.5rem;
@@ -256,29 +301,31 @@
   margin-right: 1rem;
   margin-bottom: 1rem;
 }
-.reviewBox{
-  width: 45rem;
-}
-.reviewImgs{
+
+.reviewImgs {
   width: 41rem;
 }
-.reviewInfo{
+
+.reviewInfo {
   border-top: 1px solid #F1F1F1;
   border-bottom: 1px solid #F1F1F1;
   padding: 1rem 0;
   margin: 1rem 0;
   text-align: left;
 }
-.reviewInfoTxt{
+
+.reviewInfoTxt {
   font-size: 1rem;
   font-weight: 600;
 }
-.reviewTxt{
+
+.reviewTxt {
   font-size: 1rem;
   font-weight: 400;
   margin-top: 1rem;
 }
-.reviewListBtn{
+
+.reviewListBtn {
   background-color: #FFFFFF;
   border: 1px solid #3966B7;
   font-size: 0.9rem;
@@ -289,8 +336,9 @@
   border-radius: 0.25rem;
   padding: 0.8rem 2.5rem;
 }
-.bestBtn{
-  pointer-events : none;
+
+.bestBtn {
+  pointer-events: none;
   background-color: #4365A2;
   padding: 4px 6px;
   border: none;
@@ -299,29 +347,46 @@
   font-family: pretendard;
   color: #FFFFFF;
 }
-.hotelImgBox{
-  width: 45rem;
-}
-.amenityBox{
-  height: 37rem;
-}
-.amenityTable{
+
+.amenityTable {
   width: 27rem;
   border-collapse: collapse;
 }
-.amenityTable td{
+
+.amenityTable td {
   font-family: pretendard;
   border-bottom: 1px solid #EDEFF2;
   padding: 1rem 0;
 }
-.amenityTable td:first-child{
+
+.amenityTable td:first-child {
   text-align: left;
 }
-.amenityTable td:last-child{
+
+.amenityTable td:last-child {
   text-align: right;
 }
-.amenitySelect{
+
+.amenitySelect {
   font-weight: 600;
   color: #4365A2;
   cursor: pointer;
+}
+
+.roomModal {
+  border-collapse: collapse;
+}
+
+.roomModal tr td {
+  border: 1px solid #EDEFF2;
+  padding: 1rem;
+  font-family: pretendard;
+  font-size: 0.98rem;
+  line-height: 1.25rem;
+  text-align: center;
+}
+
+.roomModal tr td:first-child {
+  width: 8rem;
+  background-color: #FAFAFA;
 }

@@ -5,7 +5,7 @@ import ReservationInfo from '../reservationInfo/reservationInfo';
 import styles from './detailBox.module.css';
 
 const DetailBox = ({type}) => {
-    const [modalOpen, setModalOpen] = useState(false);
+    const [cancelModal, setCancelModal] = useState(false);
     
     return(
         <>
@@ -39,14 +39,14 @@ const DetailBox = ({type}) => {
                         </tbody>
                     </table>
                 </div>
-                {/* <div className={styles.cancelReasonBox}>
+                { type === "cancel" && <div className={styles.cancelReasonBox}>
                     <p className={styles.title}>취소사유</p>
                     <select name="cancel" id="cancelReason" className={styles.reasonBox}>
                         <option value="0">단순변심</option>
                         <option value="1">예약일 변경</option>
                         <option value="2">룸타입 변경</option>
                     </select>
-                </div> */}
+                </div> }
                 <div className={styles.payInfo}>
                     <p className={styles.title}>금액 정보</p>
                     <table className={styles.payTable}>
@@ -67,8 +67,8 @@ const DetailBox = ({type}) => {
                     </table>
                 </div>
                  <div className={styles.cancelBox}>
-                    <p className={styles.title}>금액 정보 {type !== "reservation" &&<span className={styles.cancelRegulation} onClick={()=> setModalOpen(!modalOpen)}>취소규정 〉</span>}</p>
-                    {modalOpen && <Modal type={"cancel"} setModalOpen={() => setModalOpen(!modalOpen)} />}
+                    <p className={styles.title}>금액 정보 {type !== "reservation" &&<span className={styles.cancelRegulation} onClick={()=> setCancelModal(!cancelModal)}>취소규정 〉</span>}</p>
+                    {cancelModal && <Modal type={"cancel"} setCancelModal={() => setCancelModal(!cancelModal)} />}
                     <table className={styles.cancelTable}>
                         <tbody>
                             <tr>
