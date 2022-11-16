@@ -37,7 +37,7 @@ const ReservationDetail = () => {
             // loading 상태를 true 로 바꿉니다.
             setLoading(true);
             const response = await axios.get(
-               `/v2/refund-charge?reservation=${locationId}`,{headers:{'Contents-type': 'application/json','user': 'AppIDE00807557670'}}); //get은 data 넣을 자리 필요없으니까 안넣어도 됨
+               `/v2/refund-charge?reservation=${locationId}`,{headers:{'Contents-type': 'application/json','user': 'AppIDEtest'}}); //get은 data 넣을 자리 필요없으니까 안넣어도 됨
             setcancel(response.data.data); // 데이터는 response.data 안에 들어있습니다.
             
         } catch (e) {

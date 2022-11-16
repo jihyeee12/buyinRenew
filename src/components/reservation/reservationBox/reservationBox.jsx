@@ -5,8 +5,10 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 
+
 const ReservationBox = ({index, gifts}) => {
     const navigate = useNavigate();
+
     
     const reservationDetail = (name, reservaion_id) => {
         navigate('/reservationDetail',{
@@ -16,7 +18,7 @@ const ReservationBox = ({index, gifts}) => {
             }
         });
     }
-    
+
     return (
         <>
         {index === 0 ? <>
@@ -78,8 +80,7 @@ const ReservationBox = ({index, gifts}) => {
         ))}
         
     </>:null} 
-        
-        </>
+    </>
         
     );
 };

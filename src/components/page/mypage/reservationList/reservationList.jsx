@@ -7,12 +7,14 @@ import { useEffect } from 'react';
 import axios from 'axios';
 
 
+
 const ReservationList = () => {
     const tabList = [
         {id: 0, title: "예약내역"},
         {id: 1, title: "취소내역"}
     ]
     const [index, setIndex] = useState(0);
+ 
 
     const [gifts, setgifts] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -35,7 +37,7 @@ const ReservationList = () => {
             // loading 상태를 true 로 바꿉니다.
             setLoading(true);
             const response = await axios.get(
-                listUrl(),{headers:{'Contents-type': 'application/json','user': 'AppIDE00807557670'}}); //get은 data 넣을 자리 필요없으니까 안넣어도 됨
+                listUrl(),{headers:{'Contents-type': 'application/json','user': 'AppIDEtest'}}); //get은 data 넣을 자리 필요없으니까 안넣어도 됨
             setgifts(response.data.data); // 데이터는 response.data 안에 들어있습니다.
             
         } catch (e) {
@@ -51,7 +53,6 @@ const ReservationList = () => {
     if (!gifts) return null;
     
     console.log(gifts);
-
     
     return(
         <>

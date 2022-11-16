@@ -1,4 +1,5 @@
 .roomOptions{
+    padding: 0 1.25rem;
     border-bottom: 1px solid #EDEFF2;
 }
 .optionTitle{
@@ -63,9 +64,11 @@
     color: #303030;
     text-align: center;
     height: 2.25rem;
+    background-color: transparent;
 }
 
 .amenityOption{
+    padding: 0 1.25rem;
     margin: 1.25rem 0;
 }
 .amenities{

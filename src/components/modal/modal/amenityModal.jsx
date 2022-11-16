@@ -1,21 +1,24 @@
 import React from 'react';
 import styles from '../modal.module.css';
 
-const AmenityModal = () => {
-    const option = [
-        {option_id: 0, name: "기본드라이기" , price: "기본"},
-        {option_id: 1, name: "다이슨" , price: "1,000"},
-        {option_id: 2, name: "유닉스" , price: "500"},
-    ]
+const AmenityModal = ({targetAmenity, changeAmenity, amenityName}) => {
+    console.log(targetAmenity);
 
-    return (
+    const amenityClick = () => {
+        changeAmenity(amenityName);
+    }
+    console.log(amenityName);
+   return (
         <div className={styles.amenityBox}>
             <table className={styles.amenityTable}>
                 <tbody>
-                {option.map(option => (
-                    <tr className={styles.amenityList}>
-                        <td>{option.name}({option.price})</td>
-                        <td className={styles.amenitySelect}>선택</td>
+                {targetAmenity.amenity_options.map(option => (
+                    <tr key={option.amenity_option_id} 
+                    className={styles.amenityList}
+                    isSelected = {option.isSelected}
+                    >
+                        <td>{option.amenity_option_name}(+{option.amenity_option_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')})</td>
+                        <td value={option.amenity_option_id} name={option.amenity_option_name} className={styles.amenitySelect} onClick={() => amenityClick(option.amenity_option_name)}>선택</td>
                     </tr>
                 ))}
                 </tbody>
