@@ -10,11 +10,12 @@ import HotelFullViewModal from './modal/hotelFullViewModal';
 import PhotoReviewModal from './modal/photoReviewModal';
 import ProductInfoModal from './modal/productInfoModal';
 import RefundModal from './modal/refundModal';
+import ReservationCancelModal from './modal/reservationCancelModal';
 import RoomDetailModal from './modal/roomDetailModal';
 import RoominfoModal from './modal/roominfoModal';
 
-const Modal = ({setModalOpen, type,setcouponOpen, setrefundOpen, setAllReview, setPhotoOpen,setHotelOpen, lodgement, setCancelModal, setRoomModal}) => {
-    console.log(lodgement)
+const Modal = ({setModalOpen, type,setcouponOpen, setrefundOpen, setAllReview, setPhotoOpen,setHotelOpen, lodgement, setCancelModal, setRoomModal, id, cancelReason}) => {
+    
     const closeModal = () => {
         {if(type === "coupon"){
             return setcouponOpen(false);
@@ -30,17 +31,12 @@ const Modal = ({setModalOpen, type,setcouponOpen, setrefundOpen, setAllReview, s
             return setCancelModal(false);
         } else if(type === "room"){
             return setRoomModal(false);
-        } 
-        else{
+        } else{
             return setModalOpen(false);
         }
+        }         
     }
-        // {type === "coupon"?setcouponOpen(false):
-        // type === "refund"?setrefundOpen(false):
-        // type === "allRevie"? setAllReview(false):
-        // setModalOpen(false)}              
-    }
-    console.log(type);
+    
     return (
         <div className={styles.Modal}>
                 
@@ -60,6 +56,7 @@ const Modal = ({setModalOpen, type,setcouponOpen, setrefundOpen, setAllReview, s
                         type === "hotelPhoto"? "숙소사진 전체보기":
                         type === "amenity"? "어메니티 옵션":
                         type === "room"? "객실상세정보":
+                        type === "reservationCancel"? "예약취소":
                         null
                         }
                         </p>
@@ -83,6 +80,7 @@ const Modal = ({setModalOpen, type,setcouponOpen, setrefundOpen, setAllReview, s
                         type === "hotelPhoto"? <HotelFullViewModal/>:
                         type === "amenity"? <AmenityModal/>:
                         type === "room"? <RoomDetailModal/>:
+                        type === "reservationCancel"? <ReservationCancelModal id={id} cancelReason={cancelReason} closeModal={closeModal}/>:
                         null
                         }
                    </div>

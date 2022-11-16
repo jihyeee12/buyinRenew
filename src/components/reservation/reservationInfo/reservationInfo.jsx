@@ -1,35 +1,35 @@
 import React from 'react';
 import styles from './reservationInfo.module.css';
 
-const ReservationInfo = (props) => {
-
+const ReservationInfo = ({room}) => {
+    
     return(
         <div className={styles.hotelInfo}>
             <div className={styles.roomInfo}>
-                <img src="/img/roomImg/roomPrice.png" alt="roomprice" />
+                <img className={styles.roomImg} src={room.room_img_url} alt="roomprice" />
                 <div className={styles.roomName}>
-                    <h4>스탠다드</h4>
+                    <h4>{room.room_name}</h4>
                     <p>예약금액</p>
-                    <p>0원</p>
+                    <p>{room.room_total_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</p>
                 </div>
             </div>
             <table className={styles.totalpriceTable}>
                 <tbody>
                     <tr>
                         <td>체크인</td>
-                        <td>2022.01.01(토) 18:00</td>
+                        <td>{room.checkin_date}</td>
                     </tr>
                     <tr>
                         <td>체크아웃</td>
-                        <td>2022.01.02(일) 12:00</td>
+                        <td>{room.checkout_date}</td>
                     </tr>
                     <tr>
-                        <td>객실옵션 (+0)</td>
-                        <td>-</td>
+                        <td>객실옵션 </td>
+                        <td className={styles.optionTxt}>{room.room_option.replaceAll("\n",", ")}</td>
                     </tr>
                     <tr>
-                        <td>어메니티 옵션(+0)</td>
-                        <td>-</td>
+                        <td>어메니티 옵션</td>
+                        <td className={styles.optionTxt}>{room.room_amenity.replaceAll("\n",", ")}</td>
                     </tr>
                 </tbody>
             </table>

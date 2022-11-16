@@ -36,6 +36,7 @@ import Join from './components/page/loginPage/join/join';
 import FindId from './components/page/loginPage/findId/findId';
 import FindPw from './components/page/loginPage/findPw/findPw';
 import UserGrade from './components/page/seemore/userGrade/userGrade';
+import ReservationCancel from './components/page/mypage/reservationDetail/reservationCancel/reservationCancel';
 
 
 function App() {
@@ -81,6 +82,7 @@ function App() {
               <Route path ='/findId' element={<FindId/>}/>
               <Route path ='/findPW' element={<FindPw/>}/>
               <Route path ='/grade' element={<UserGrade/>}/>
+              <Route path ='/reservationCancel' element={<ReservationCancel/>}/>
               
               
             </Routes>

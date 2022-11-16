@@ -82,3 +82,9 @@
 .refundPrice p{
     color: #DB2D2D;
 }
+.cancel_reason{
+    border: none;
+    font-family: pretendard;
+    font-size: 1rem;
+    background-color: transparent;
+}

@@ -1,17 +1,23 @@
 
 .hotelInfo{
-    width: 50%;
+    width: 100%;
     box-sizing: border-box;
     display: inline-block;
     padding: 1.25rem;
-    border-right: 1px solid #EDEFF2;
+    border-bottom: 1px solid #EDEFF2;
 }
-
+.hotelInfo:last-child{
+    border-bottom: none;
+}
 .roomInfo{
     display: grid;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 25% 75%;
     align-items: start;
     justify-items: center;
+}
+.roomImg{
+    width: 9rem;
+    border-radius: 0.5rem;
 }
 .roomName{
     width: 100%;
@@ -44,4 +50,6 @@
 .totalpriceTable tr td:last-child{
     text-align: right;
 }
-
+/* .optionTxt{
+    white-space: pre-wrap;
+} */
