@@ -10,7 +10,7 @@ const Options = ({basket}) => {
     const [amenityName, setAmenityName] = useState("");
 
     const [targetAmenity, setTargetAmenity] = useState({})
-
+    console.log(basket)
     const handleModalOpen = e => {
         let clickedAmenity = {}
         basket.amenities.map(item => {
@@ -93,12 +93,12 @@ const Options = ({basket}) => {
                     <p className={styles.amenityType}>{amenity.amenity_name}</p>
                     <div className={styles.selectAmenity}>
                         
-                        <input type="text" className={styles.amenityText} value={amenityName} readOnly />
+                        <input type="text" className={styles.amenityText} onChange={changeAmenity} value={amenityName} readOnly />
                         <button type='button' className={styles.selectBtn} value={amenity.amenity_id} onClick={ e=> handleModalOpen(e)}>선택</button>
                     </div>
                 </div>
             ))}
-                {modalOpen && <Modal type={"amenity"} targetAmenity={targetAmenity} amenityName={amenityName} changeAmenity={changeAmenity}  setModalOpen={() => setModalOpen(!modalOpen)} />}
+                {modalOpen && <Modal type={"amenity"} targetAmenity={targetAmenity} changeAmenity={changeAmenity}  setModalOpen={() => setModalOpen(!modalOpen)} />}
         </div>
     </div>
     </>     

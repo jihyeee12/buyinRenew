@@ -1,13 +1,16 @@
 import React from 'react';
 import styles from '../modal.module.css';
 
-const AmenityModal = ({targetAmenity, changeAmenity, amenityName}) => {
-    console.log(targetAmenity);
-
-    const amenityClick = () => {
-        changeAmenity(amenityName);
+const AmenityModal = ({targetAmenity, changeAmenity}) => {
+    const amenityClick = e => {
+        let clickAmenityInfo = {};
+        targetAmenity.amenity_options.map(item => {
+            return `${item.amenity_option_id}` === e.target.value ? (clickAmenityInfo = item): ""
+        })
+        changeAmenity(clickAmenityInfo);
     }
-    console.log(amenityName);
+    console.log(targetAmenity);
+    
    return (
         <div className={styles.amenityBox}>
             <table className={styles.amenityTable}>
@@ -18,12 +21,11 @@ const AmenityModal = ({targetAmenity, changeAmenity, amenityName}) => {
                     isSelected = {option.isSelected}
                     >
                         <td>{option.amenity_option_name}(+{option.amenity_option_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')})</td>
-                        <td value={option.amenity_option_id} name={option.amenity_option_name} className={styles.amenitySelect} onClick={() => amenityClick(option.amenity_option_name)}>선택</td>
+                        <td value={option.amenity_option_id} className={styles.amenitySelect} onClick={e => amenityClick(e)}>선택</td>
                     </tr>
                 ))}
                 </tbody>
             </table>
-            
         </div>
     );
 };
