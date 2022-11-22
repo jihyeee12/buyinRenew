@@ -121,6 +121,9 @@
   display: flex;
   flex-wrap: wrap;
 }
+.reviewImgBox{
+  width: 45rem;
+}
 
 .reviewImgBox,
 .amenityBox,
@@ -416,4 +419,10 @@
   background-color: #FFFFFF;
   border: 1px solid #ACACAC;
   color: #808080;
+}
+.hotelImgBox{
+  width: 45rem;
+}
+.bigImg{
+  width: 40rem;
 }

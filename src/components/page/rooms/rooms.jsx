@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './rooms.module.css';
-import Date from '../../date/date';
 import { useNavigate } from 'react-router-dom';
 import Modal from '../../modal/modal';
 import { useState } from 'react';
+import Calendar from '../../date/date';
 
 const Rooms = () => {
     const navigate = useNavigate();
@@ -39,7 +39,7 @@ const Rooms = () => {
                     <p>넷플릭스 이용가능</p>
                 </div>
                 <div className={styles.date}>
-                    <Date />    
+                    <Calendar />    
                 </div>
                 <div className={styles.rentType}>
                     <div className={styles.rent}>

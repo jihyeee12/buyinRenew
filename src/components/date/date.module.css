@@ -23,6 +23,9 @@
     color: #4365A2;
     font-weight: 600;
     cursor: pointer;
+    border: none;
+    background-color: transparent;
+    font-family: pretendard;
 }
 .datepicker{
     

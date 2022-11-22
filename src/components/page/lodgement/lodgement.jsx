@@ -1,12 +1,11 @@
 import React from 'react';
 import styles from './lodgement.module.css';
-import Date from '../../date/date';
 import Roomprice from '../../reservation/roomprice/roomprice';
 import { useState } from 'react';
 import Modal from '../../modal/modal';
-import { useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import Date from '../../date/date';
 
 
 const Lodgement = () => {

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { createContext } from 'react';
 
 export const MainContext = createContext({
-    onDateSetting: (a,b) => {},
+    onDateSetting: (a,b) => { },
     dateSet: {start: "" , end: ""},
 });
 
@@ -14,11 +14,11 @@ const Store = () => {
         if(start && end) {
             const startDay = start.getFullYear().toString() + `.`
             + (start.getMonth() +1).toString()
-            +(`.`) + start.getDate().toString();
+            +`.` + start.getDate().toString();
 
             const endDay = end.getFullYear().toString() + `.`
             + (end.getMonth() +1).toString()
-            +(`.`) + end.getDate().toString();
+            +`.` + end.getDate().toString();
 
             return setDateSet({start: startDay, end: endDay});
         } else{
@@ -26,3 +26,4 @@ const Store = () => {
         }
     }
 };
+export default Store;
