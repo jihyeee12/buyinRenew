@@ -12,9 +12,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import RecommandHotel from './recommandHotel/recommandHotel';
 import RecommandCard from './recommandCard/recommandCard';
-import { Link } from 'react-router-dom';
-
-// import {BrowserRouter as Router} from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 SwiperCore.use([Navigation, Pagination,Autoplay])
 
@@ -22,6 +20,15 @@ function Main() {
     const [users, setUsers] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
+    
+    const recommandDorm = (state) => {
+        navigate('/recommandDorm',{
+            state:{
+                state: state
+            }
+        });
+    }
 
     useEffect(() => {
         const fetchUsers = async () => {
@@ -43,13 +50,16 @@ function Main() {
 
         fetchUsers();
     }, []);
-    console.log(users)
-
+    
     if (loading) return <div>로딩중..</div>;
     if (error) return <div>에러가 발생했습니다</div>;
     if (!users) return null;
     
-        return (
+    console.log(users)
+    const recommendLodgements = users.recommend_lodgements;
+    
+
+    return (
             <>
             <div className={styles.container}>
                 <div className={styles.main}>
@@ -84,7 +94,7 @@ function Main() {
                     </div>
                 </div>
                 <div className={styles.recommand}>
-                    <p className={styles.title}>추천숙소 &nbsp;<img className={styles.seemoreBtn} src='img/icon/seemore.png' alt='더보기' /></p>
+                    <p className={styles.title}>추천숙소 &nbsp;<img className={styles.seemoreBtn} onClick={()=> recommandDorm({recommendLodgements})} src='img/icon/seemore.png' alt='더보기' /></p>
                     <div className={styles.recommandBox}>
                         <RecommandHotel state={users.recommend_lodgements}/>
                     </div>

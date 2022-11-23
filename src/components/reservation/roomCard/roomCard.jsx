@@ -7,14 +7,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
     const RoomCard = ({state, slider}) => {
-        const navigate = useNavigate();
-        
-        const linkRoom = () =>{
-            navigate('/lodgement');
-        }
-        
+       
          const roomData = state;
-
+         console.log(roomData);
          const settings = {
             dots: true,
             infinite: true,

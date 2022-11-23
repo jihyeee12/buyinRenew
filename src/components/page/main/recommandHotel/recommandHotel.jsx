@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './recommandHotel.module.css';
 
 const RecommandHotel = ({state}) => {
@@ -6,8 +7,11 @@ const RecommandHotel = ({state}) => {
     return (
         <>
             {state.map(v => (
+                
                 <div className={styles.recommandItem} key={v.lodgement_id}>
+                    <Link to={`/lodgement/${v.lodgement_id}`}>
                     <img className={styles.lodgement_img} src={v.lodgement_img_url} alt="lodgement_img" />
+                    </Link>
                     <p className={styles.lodgement_name}>{v.lodgement_name}</p>
                     <div className={styles.infoBox}>
                         <div className={styles.countBox}>
@@ -28,6 +32,7 @@ const RecommandHotel = ({state}) => {
                         </div>
                     </div>
                 </div>
+                
             ))}
         </>
     );

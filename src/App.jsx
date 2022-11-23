@@ -1,8 +1,8 @@
 import './App.css';
+import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
 import Main from './components/page/main/main';
-import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import Search from './components/page/search/search';
 import Lodgement from './components/page/lodgement/lodgement';
 import Rooms from './components/page/rooms/rooms';
@@ -37,6 +37,8 @@ import FindId from './components/page/loginPage/findId/findId';
 import FindPw from './components/page/loginPage/findPw/findPw';
 import UserGrade from './components/page/seemore/userGrade/userGrade';
 import ReservationCancel from './components/page/mypage/reservationDetail/reservationCancel/reservationCancel';
+import PopularHotel from './components/page/popularHotel/popularHotel';
+import RecommandDorm from './components/page/recommandDorm/recommandDorm';
 
 
 function App() {
@@ -52,6 +54,8 @@ function App() {
               <Route path ='/search' element={<Search />}/>
               <Route path ='/lodgement/:lodgement' element={<Lodgement />}/>
               <Route path ='/rooms' element={<Rooms />}/>
+              <Route path ='/popularHotel' element={<PopularHotel />}/>
+              <Route path ='/recommandDorm' element={<RecommandDorm/>}/>
               <Route path ='/roomoption' element={<Roomoption/>}/>
               <Route path ='/payment' element={<Payment/>}/>
               <Route path ='/payResult' element={<Payresult/>}/>

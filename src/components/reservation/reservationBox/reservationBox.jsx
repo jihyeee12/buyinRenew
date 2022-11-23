@@ -8,7 +8,6 @@ import axios from 'axios';
 
 const ReservationBox = ({index, gifts}) => {
     const navigate = useNavigate();
-
     
     const reservationDetail = (name, reservaion_id) => {
         navigate('/reservationDetail',{

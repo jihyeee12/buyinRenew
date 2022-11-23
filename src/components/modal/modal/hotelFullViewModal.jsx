@@ -41,13 +41,13 @@ const HotelFullViewModal = () => {
   ]
 
     const settings = {
-        customPaging: function(i) {
-          return (
-            <a>
-              <img src={hotelImg.lodgement_img_url} />
-            </a>
-          );
-        },
+        // customPaging: function(i) {
+        //   return (
+        //     <a>
+        //       <img src={hotelImg.lodgement_img_url} />
+        //     </a>
+        //   );
+        // },
         dots: true,
         dotsClass: "slick-dots slick-thumb",
         infinite: true,
@@ -66,7 +66,7 @@ const HotelFullViewModal = () => {
                         <img className={styles.bigImg} key={hotel.id} src={hotel.lodgement_img_url} />
                     </div>
                 ))}
-        </Slider>
+            </Slider>
         </div>
     );
 };
