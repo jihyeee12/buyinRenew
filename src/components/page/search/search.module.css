@@ -31,3 +31,8 @@
     border-right: none;
     padding-right: 0;
 }
+.roomList{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0.5rem 0;
+}
