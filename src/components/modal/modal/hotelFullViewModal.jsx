@@ -1,11 +1,47 @@
 import React from 'react';
 import Slider from "react-slick";
 import styles from '../modal.module.css';
+import styled, {css} from 'styled-components';
+import { useState } from 'react';
 
 
 const HotelFullViewModal = () => {
+    const [index, setIndex] = useState("0");
+    const [clickImg, setClickImg] = useState("0");
+    
+    const imgClick = (i) => {
+        setIndex(i);
+        setClickImg(i);
+    }
+    const StyledSlider = styled(Slider)`
+        width: 100%;
+        height: 100%;
+        position: relative;
+        .slick-prev::before,
+        .slick-next::before{
+            opacity: 0;
+            display: none;
+        }
+    `;
+
+    const arrowBtn = css`
+        width: 3rem;
+        height: 3rem;
+        border: none;
+        background-color: transparent;
+        position: absolute;
+        z-index: 1;
+    `
+
+    const Pre = styled.div`
+        ${arrowBtn}
+        left: -3%;
+    `
+    const Next = styled.div`
+        ${arrowBtn}
+        right: -3%;
+    `
     const hotelImg = [
-        
         {
             "id": 4170,
             "lodgement_img_url": "https://www.buyinhotel.co.kr/images/lodgements/ekklim031/ekklim031_99_000_2022-08-19-17_57_27.jpg"
@@ -41,32 +77,32 @@ const HotelFullViewModal = () => {
   ]
 
     const settings = {
-        // customPaging: function(i) {
-        //   return (
-        //     <a>
-        //       <img src={hotelImg.lodgement_img_url} />
-        //     </a>
-        //   );
-        // },
-        dots: true,
-        dotsClass: "slick-dots slick-thumb",
         infinite: true,
         speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1
-      };
-
-     
+        slidesToShow: 7,
+        slidesToScroll: 7,
+        prevArrow: (
+            <Pre>
+                <img src="../img/icon/leftBtn.png" alt="" />
+            </Pre>
+        ),
+        nextArrow: (
+            <Next>
+                <img src="../img/icon/rightBtn.png" alt="" />
+            </Next>
+        )
+    };
 
     return (
         <div className={styles.hotelImgBox}>
-            <Slider {...settings}>
-                {hotelImg.map(hotel => (
-                    <div>
-                        <img className={styles.bigImg} key={hotel.id} src={hotel.lodgement_img_url} />
-                    </div>
+            <img className={styles.bigImg} src={hotelImg[index].lodgement_img_url} alt="bigRoom" />
+            
+            <StyledSlider {...settings}>
+                {hotelImg.map((room, i) => (
+                    <img idx={i} onClick={() => imgClick(i)} key={room.id} className={[styles.hotelList , clickImg === i && styles.selectImg].join(" ")} src={room.lodgement_img_url} alt="smallRoom" />
                 ))}
-            </Slider>
+            </StyledSlider>
+            
         </div>
     );
 };

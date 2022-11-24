@@ -1,9 +1,8 @@
 import React from 'react';
-import { useState } from 'react';
+import styles from './search.module.css';
 import RoomCard from '../../reservation/roomCard/roomCard';
 import SearchBar from '../../searchBar/searchBar';
 import Sort from '../../sort/sort';
-import styles from './search.module.css';
 
 const Search = () => {
     

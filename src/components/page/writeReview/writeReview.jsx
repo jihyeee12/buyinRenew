@@ -2,15 +2,51 @@ import React from 'react';
 import Banner from '../../banner/banner';
 import SideMenu from '../../sideMenu/sideMenu';
 import styles from './writeReview.module.css';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 
-const WriteReview = (props) => {
+const WriteReview = () => {
     const navigate = useNavigate();
-
+    const location = useLocation();
+    const reservation_id = location.state.reservation_id;
+    
     const review = () =>{
         navigate('/review');
     }
+
+    const [writeReview, setwriteReview] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+      
+        
+    const fetchwriteReview = async () => {
+        try {
+            // 요청이 시작 할 때에는 error 와 writeReview 를 초기화하고
+            setError(null);
+            setwriteReview(null);
+            // loading 상태를 true 로 바꿉니다.
+            setLoading(true);
+            const response = await axios.get(
+                `/review-basic-info?reservation=${reservation_id}`,{headers:{'Contents-type': 'application/json','user': 'AppIDEtest'}}); //get은 data 넣을 자리 필요없으니까 안넣어도 됨
+            setwriteReview(response.data.data); // 데이터는 response.data 안에 들어있습니다.
+        } catch (e) {
+            setError(e);
+        }
+        setLoading(false);
+        };
+        fetchwriteReview();
+    
+    }, []);
+    if (loading) return <div>로딩중..</div>;
+    if (error) return <div>에러가 발생했습니다</div>;
+    if (!writeReview) return null;
+    
+    console.log(writeReview);
 
     return(
         <>
@@ -21,11 +57,11 @@ const WriteReview = (props) => {
                 <div className={styles.writeBox}>
                     <div className={styles.hotelInfo}>
                         <div>
-                            <img className={styles.hotelImg} src='../../../img/roomImg/bigRoom.png' alt='hotelImg' />
+                            <img className={styles.hotelImg} src={writeReview.lodgement_img_url} alt='hotelImg' />
                         </div>
                         <div className={styles.Txt}>
-                            <p>이끌림호텔 충장점</p>
-                            <p>스탠다드</p>
+                            <p>{writeReview.lodgement_name}</p>
+                            <p>{writeReview.room_name}</p>
                         </div>
                     </div>
                     <div className={styles.writeArea}>
@@ -36,7 +72,7 @@ const WriteReview = (props) => {
                     </div>
                 </div>
                 <div className={styles.writeBtn}>
-                    <button type='button' onClick={review}>작성완료</button>
+                    <button type='button' key={writeReview.review_id} onClick={review}>작성완료</button>
                 </div>
             </div>
         </div>

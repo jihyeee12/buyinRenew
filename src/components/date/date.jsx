@@ -17,13 +17,13 @@ const Date = (props) => {
     return(
     <div className={styles.dateBox}>
             <img src="/img/icon/dateIcon.png" alt="dateIcon" />
-             <div>
-                <button className={styles.changeDate} onClick={showDatePicker}>변경</button>
-                <Calendar showDatePicker={showDatePicker}/>
-             </div>
              <p className={styles.date}>
                 {dateSet.start && dateSet.start} ~ {dateSet.end && dateSet.end}
              </p>
+             <div>
+                <button className={styles.changeDate} onClick={showDatePicker}>변경</button>
+                {/* <Calendar showDatePicker={showDatePicker}/> */}
+             </div>
         </div>
     )};
 

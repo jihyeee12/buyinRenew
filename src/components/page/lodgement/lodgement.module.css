@@ -8,11 +8,11 @@
     margin: 2.5rem auto;
 }
 
-.smallImgs img{
+.hotelSmall{
     margin: 0 0.5rem;
 }
 
-.smallImgs img:nth-child(4){
+.hotelSmall:nth-child(4){
     filter: brightness(0.5);
     position: relative;
     cursor: pointer;
@@ -24,7 +24,7 @@
     color: #FFFFFF;
 }
 
-.smallImgs img:nth-child(1), .smallImgs img:nth-child(2){
+.hotelSmall:nth-child(1), .hotelSmall:nth-child(2){
     margin-bottom: 0.78rem;
 }
 

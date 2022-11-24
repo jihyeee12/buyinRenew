@@ -13,8 +13,12 @@ const Review = () => {
     const navigate = useNavigate();
     const [modalOpen, setModalOpen] = useState(false);
 
-    const writeReview = () =>{
-        navigate('/writeReview');
+    const writeReview = (reservation_id) =>{
+        navigate('/writeReview',{
+            state:{
+                reservation_id: reservation_id
+            }
+        });
     }
     const [index, setIndex] = useState(0);
 
@@ -46,7 +50,6 @@ const Review = () => {
             const response = await axios.get(
                 listUrl(),{headers:{'Contents-type': 'application/json','user': 'AppIDEtest'}}); //get은 data 넣을 자리 필요없으니까 안넣어도 됨
             setreview(response.data.data); // 데이터는 response.data 안에 들어있습니다.
-            
         } catch (e) {
             setError(e);
         }
@@ -76,14 +79,15 @@ const Review = () => {
     //             "review_img_url": null
     //         }
     //     ]
-    // const reviewAbleData = [
-    //     {
-    //         "reservation_id": 194,
-    //         "room_name": "비즈니스 더블",
-    //         "lodgement_name": "신안동 이끌림",
-    //         "date_string": "2022.04.19 (화) 19:00 ~ 2022.04.30 (수) 11:00"
-    //     }
-    // ]
+     const reviewAbleData = [
+         {
+             "reservation_id": 194,
+             "room_name": "비즈니스 더블",
+             "lodgement_name": "신안동 이끌림",
+             "date_string": "2022.04.19 (화) 19:00 ~ 2022.04.30 (수) 11:00",
+             "lodgement_img_url": "https://www.buyinhotel.co.kr/images/lodgements/test0325/test0325_99_000_2022-03-30-17_56_09.jpg",
+         }
+     ]
 
     return(
         <>
@@ -143,21 +147,21 @@ const Review = () => {
                                 </>
                             } else if(item.id === 1){
                                 return <>
-                                <p className={styles.reviewCount}>작성리뷰 <span className={styles.reviewCount}>{review.length}개</span></p>
+                                <p className={styles.reviewCount}>작성리뷰 <span className={styles.reviewCount}>{reviewAbleData.length}개</span></p>
                                 <div className={styles.contentBox}>
-                                {review.map(able => (
+                                {reviewAbleData.map(able => (
                                     <div className={styles.reviewAbleBox}>
                                         <table className={styles.reviewAbleTable}>
                                             <tbody>
                                                 <tr>
                                                     <td>{able.date_string} <span>이용완료</span></td>
-                                                    <td className={styles.reviewBtn} key={able.reservation_id} onClick={writeReview}>리뷰작성</td>
+                                                    <td className={styles.reviewBtn} key={able.reservation_id} onClick={() => writeReview(able.reservation_id)}>리뷰작성</td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                         <div className={styles.reviewAbleHotel}>
                                             <div>
-                                                <img src='../../../img/roomImg/giftRoom.png' alt='호텔이미지' className={styles.ableHotelImg} />
+                                                <img src={able.lodgement_img_url} alt='호텔이미지' className={styles.ableHotelImg} />
                                             </div>
                                             <div className={styles.reviewAbleInfo}>
                                                 <p>{able.lodgement_name}</p>

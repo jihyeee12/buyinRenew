@@ -16,7 +16,7 @@ const Roomoption = () => {
         <>
         <div className={styles.roomoption}>
             <div className={styles.optionBox}>
-                <Options/>
+                <Options basket={basket}/>
             </div>
             <div>
                 <div className={styles.reservationInfo}>

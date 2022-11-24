@@ -92,8 +92,7 @@ const SearchBar = (props) => {
                                 getDayName(createDate(date)) === '토' ? styles.saturDay :
                                 getDayName(createDate(date)) === '일' ? styles.sunDay : ""}
                                 />
-                            {/* <input type='textbox' className={styles.selectInput} readOnly onClick={()=> subMenuClick(2)} placeholder='날짜를 선택해주세요'></input>
-                            {clickedNumArr.includes(2) && } */}
+                           
                         </li>
                         <li className={styles.searchLi}>
                             <p className={styles.searchTitle}>체크아웃</p>
@@ -113,7 +112,7 @@ const SearchBar = (props) => {
                                 getDayName(createDate(date)) === '토' ? styles.saturDay :
                                 getDayName(createDate(date)) === '일' ? styles.sunDay : undefined}
                             />
-                            {/* <input type='textbox' className={styles.selectInput} readOnly placeholder='날짜를 선택해주세요'></input> */}
+                           
                         </li>
                     </ul>
                     <div className={styles.searchButton}>

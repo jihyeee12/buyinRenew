@@ -21,8 +21,8 @@ const BuyroomModal = () => {
         <div className={styles.buyRoomBox}>
             <p className={styles.buyRoomtitle}>선물하실 숙박권을 선택해주세요</p>
             <div className={styles.buyRoomBtnList}>
-                <button type="button" className={styles.buyRoomBtn} onClick={() => linkgift("buyRoom")}>평일권</button>
-                <button type="button" className={styles.buyRoomBtn} onClick={() => linkgift("buyRoom")}>주말권</button>
+                <button type="button" className={styles.buyRoomBtn} onClick={() => linkgift("room")}>평일권</button>
+                <button type="button" className={styles.buyRoomBtn} onClick={() => linkgift("room")}>주말권</button>
             </div>
         </div>
     );

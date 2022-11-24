@@ -49,11 +49,11 @@ const Lodgement = () => {
         <div className={styles.RoomImgs}>
             <img src={hotelImg[0].hotel_img} alt="bigRoom" />
             <div className={styles.smallImgs}>
-                <img src={hotelImg[1].hotel_img} alt="smallRoom" />
-                <img src={hotelImg[2].hotel_img} alt="smallRoom" />
-                <img src={hotelImg[3].hotel_img} alt="smallRoom" />
-                <img src={hotelImg[4].hotel_img} alt="smallRoom" /> 
-                <div className={styles.roomPlus} onClick={()=> setHotelOpen(!hotelOpen)}>
+                <img className={styles.hotelSmall} src={hotelImg[1].hotel_img} alt="smallRoom" />
+                <img className={styles.hotelSmall} src={hotelImg[2].hotel_img} alt="smallRoom" />
+                <img className={styles.hotelSmall} src={hotelImg[3].hotel_img} alt="smallRoom" />
+                <img className={styles.hotelSmall} src={hotelImg[4].hotel_img} onClick={()=> setHotelOpen(!hotelOpen)} alt="smallRoom" /> 
+                <div className={styles.roomPlus} >
                     <p>+8</p>
                 </div>   
                 {hotelOpen && <Modal type={"hotelPhoto"} setHotelOpen={() => setHotelOpen(!hotelOpen)} />}        

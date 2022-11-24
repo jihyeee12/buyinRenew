@@ -17,6 +17,7 @@ const Calendar = ({showDatePicker}) => {
         setStartDate(start);
         setEndDate(end);
         onDateSetting(start,end);
+        
         if(start && end){
             showDatePicker();
         }

@@ -1,8 +1,10 @@
 import React from 'react';
 import styles from './rooms.module.css';
+import styled, {css} from 'styled-components';
+import Slider from "react-slick";
 import { useNavigate } from 'react-router-dom';
-import Modal from '../../modal/modal';
 import { useState } from 'react';
+import Modal from '../../modal/modal';
 import Calendar from '../../date/date';
 
 const Rooms = () => {
@@ -14,22 +16,103 @@ const Rooms = () => {
     const [modalOpen, setModalOpen] = useState(false);
     const [cancelModal, setCancelModal] = useState(false);
     const [roomModal, setRoomModal] = useState(false);
+    const [index, setIndex] = useState("0");
+    const [clickImg, setClickImg] = useState("0");
+    
+    const imgClick = (i) => {
+        setIndex(i);
+        setClickImg(i);
+    }
+    const StyledSlider = styled(Slider)`
+        width: 100%;
+        height: 100%;
+        position: relative;
+        .slick-prev::before,
+        .slick-next::before{
+            opacity: 0;
+            display: none;
+        }
+    `;
+
+    const arrowBtn = css`
+        width: 3rem;
+        height: 3rem;
+        border: none;
+        background-color: transparent;
+        position: absolute;
+        z-index: 1;
+    `
+
+    const Pre = styled.div`
+        ${arrowBtn}
+        left: -3%;
+    `
+    const Next = styled.div`
+        ${arrowBtn}
+        right: -3%;
+    `
+
+    const settings = {
+        infinite: true,
+        speed: 500,
+        slidesToShow: 5,
+        slidesToScroll: 5,
+        prevArrow: (
+            <Pre>
+                <img src="../img/icon/leftBtn.png" alt="" />
+            </Pre>
+        ),
+        nextArrow: (
+            <Next>
+                <img src="../img/icon/rightBtn.png" alt="" />
+            </Next>
+        )
+      };
+    
+    const roomImgs = [
+        {   "room_image_id": 12328,
+            "room_img_url": "https://www.buyinhotel.co.kr/images/lodgements/aurahotel/aurahotel_02_000_2022-09-08-17_44_22.jpg",
+            "items": []},
+        {   "room_image_id": 13197,
+            "room_img_url": "https://www.buyinhotel.co.kr/images/lodgements/aurahotel/aurahotel_02_024_2022-09-08-17_44_22.jpg",
+            "items": []},
+        {   "room_image_id": 13198,
+            "room_img_url": "https://www.buyinhotel.co.kr/images/lodgements/aurahotel/aurahotel_02_025_2022-09-08-17_44_22.jpg",
+            "items": []},
+        {   "room_image_id": 13199,
+            "room_img_url": "https://www.buyinhotel.co.kr/images/lodgements/aurahotel/aurahotel_02_026_2022-09-08-17_44_22.jpg",
+            "items": []},
+        {   "room_image_id": 13200,
+            "room_img_url": "https://www.buyinhotel.co.kr/images/lodgements/aurahotel/aurahotel_02_027_2022-09-08-17_44_22.jpg",
+            "items": []},
+        {   "room_image_id": 13201,
+            "room_img_url": "https://www.buyinhotel.co.kr/images/lodgements/aurahotel/aurahotel_02_028_2022-09-08-17_44_22.jpg",
+            "items": []},
+        {   "room_image_id": 13202,
+            "room_img_url": "https://www.buyinhotel.co.kr/images/lodgements/aurahotel/aurahotel_02_029_2022-09-08-17_44_22.jpg",
+            "items": []},
+        {   "room_image_id": 13203,
+            "room_img_url": "https://www.buyinhotel.co.kr/images/lodgements/aurahotel/aurahotel_02_030_2022-09-08-17_44_22.jpg",
+            "items": []},
+        {   "room_image_id": 13204,
+            "room_img_url": "https://www.buyinhotel.co.kr/images/lodgements/aurahotel/aurahotel_02_034_2022-09-08-17_44_22.jpg",
+            "items": []}
+    ]
 
     return(
         <>
         <div className={styles.rooms}>
             <div className={styles.roomImgs}>
-                <img className={styles.bigRoom} src="/img/roomImg/roomChange_big.png" alt="bigRoom" />
+                    <img className={styles.bigRoom} src={roomImgs[index].room_img_url} alt="bigRoom" />
                 <div className={styles.chagneImg}>
-                    <button type='button' className={styles.left}></button>
-                    <div className={styles.roomchange}>               
-                        <img className={styles.smallRoom} src="/img/roomImg/roomChange_small.png" alt="smallRoom" />
-                        <img className={styles.smallRoom} src="/img/roomImg/roomChange_small.png" alt="smallRoom" />
-                        <img className={styles.smallRoom} src="/img/roomImg/roomChange_small.png" alt="smallRoom" />
-                        <img className={styles.smallRoom} src="/img/roomImg/roomChange_small.png" alt="smallRoom" />
-                        <img className={styles.smallRoom} src="/img/roomImg/roomChange_small.png" alt="smallRoom" />
+                    <div className={styles.roomchange}>     
+                        <StyledSlider {...settings}>
+                            {roomImgs.map((room, i) => (
+                                <img idx={i} onClick={() => imgClick(i)} key={room.room_image_id} className={[styles.smallRoom , clickImg === i && styles.selectImg].join(" ")} src={room.room_img_url} alt="smallRoom" />
+                            ))}
+                        </StyledSlider>
                     </div>
-                    <button type='button' className={styles.right}></button>
+                    
                 </div>
             </div>
             <div className={styles.roomInfo}>
