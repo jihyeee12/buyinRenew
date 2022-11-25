@@ -5,17 +5,57 @@ import { useState } from 'react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import styled, {css} from 'styled-components';
 
     const RoomCard = ({state, slider}) => {
        
-         const roomData = state;
-         console.log(roomData);
-         const settings = {
+        const roomData = state;
+         
+        const StyledSlider = styled(Slider)`
+            width: 100%;
+            height: 100%;
+            position: relative;
+            .slick-prev::before,
+            .slick-next::before{
+                opacity: 0;
+                display: none;
+            }
+        `;
+ 
+    const arrowBtn = css`
+        width: 3rem;
+        height: 3rem;
+        border: none;
+        background-color: transparent;
+        position: absolute;
+        z-index: 1;
+    `
+
+    const Pre = styled.div`
+        ${arrowBtn}
+        left: -4%;
+    `
+    const Next = styled.div`
+        ${arrowBtn}
+        right: -4%;
+    `
+
+        const settings = {
             dots: true,
             infinite: true,
             speed: 500,
             slidesToShow: 3,
-            slidesToScroll: 3
+            slidesToScroll: 3,
+            prevArrow: (
+                <Pre>
+                    <img src="../img/icon/leftBtn.png" alt="" />
+                </Pre>
+            ),
+            nextArrow: (
+                <Next>
+                    <img src="../img/icon/rightBtn.png" alt="" />
+                </Next>
+            )
         }
 
          const [clickedNumArr, setClickedNumArr] = useState([]);
@@ -38,7 +78,7 @@ import "slick-carousel/slick/slick-theme.css";
     return( 
         <>
         {slider === true ? 
-        <Slider {...settings}>
+        <StyledSlider {...settings}>
             {roomData.map((v) => (
                 <div className={styles.roomCardArea} key={v.lodgement_id}>
                     <div className={styles.roomCard} >
@@ -68,7 +108,7 @@ import "slick-carousel/slick/slick-theme.css";
                     </div>
                 </div>
             ))}
-            </Slider>
+            </StyledSlider>
             :<>
             {roomData.map((v) => (
                 <div className={styles.roomCardArea} key={v.lodgement_id}>

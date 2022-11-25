@@ -29,6 +29,7 @@ const GiftBox = () => {
     const [gifts, setgifts] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    
 
     useEffect(() => {
     const fetchgifts = async () => {

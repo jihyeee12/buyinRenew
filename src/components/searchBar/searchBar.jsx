@@ -1,11 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import "react-datepicker/dist/react-datepicker.css";
+import { ko } from 'date-fns/esm/locale';
 import Region from './region/region';
 import styles from './searchBar.module.css';
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import { ko } from 'date-fns/esm/locale';
 
 
 const SearchBar = (props) => {
@@ -14,35 +14,25 @@ const SearchBar = (props) => {
     const linkSearch = () => {
         navigate('/search');
     }
-    const [clickedNumArr, setClickedNumArr] = useState([]);
+    const [region, setRegion] = useState("");
+    const [zone, setZone] = useState("");
     
-    const subMenuClick = (id) => {
-        setClickedNumArr((arr) => {
-            let newArr = [];
-            arr.map((item) => newArr.push(item));
-    
-            if (newArr.includes(id)) {
-            newArr.splice(newArr.indexOf(id), 1);
-            } else {
-            newArr.push(id);
-            }
-            return newArr;
-        });
-        };
+        const [visible, setvisible] = useState(false);
+        
         const [startDate, setStartDate] = useState(new Date());
         const [endDate, setEndDate] = useState(new Date());
 
-       const getFormattedDate = (date) => {
-            const month = date.toLocaleDateString('ko-KR', {
-              month: 'long',
-            });
-            
-            const day = date.toLocaleDateString('ko-KR', {
-              day: 'numeric',
-            });
-            
-            return `${month.substr(0, month.length - 1)}/${day.substr(0, day.length - 1)}`;
-          }
+    const getFormattedDate = (date) => {
+        const month = date.toLocaleDateString('ko-KR', {
+            month: 'long',
+        });
+        
+        const day = date.toLocaleDateString('ko-KR', {
+            day: 'numeric',
+        });
+        
+        return `${month.substr(0, month.length - 1)}/${day.substr(0, day.length - 1)}`;
+        }
 
         // 요일 반환
         const getDayName = (date) => {
@@ -61,6 +51,7 @@ const SearchBar = (props) => {
             , 0));
         }
 
+    
         return(
             <>
                 <div className={styles.searchDiv}>
@@ -71,8 +62,8 @@ const SearchBar = (props) => {
                         </li>
                         <li className={styles.searchLi}>
                             <p className={styles.searchTitle}>지역</p>
-                            <input type='textbox' className={styles.selectInput} readOnly onClick={() => subMenuClick(1)} placeholder='지역을 입력해주세요'></input>
-                            {clickedNumArr.includes(1) && <Region/>}
+                            <input type='textbox' className={styles.selectInput} readOnly onClick={() => setvisible(!visible)} placeholder='지역을 입력해주세요' value={region + " ," + zone}></input>
+                            {visible && <Region setRegion={setRegion} setZone={setZone} setvisible={setvisible} />}
                         </li>
                         <li className={styles.searchLi}>
                             <p className={styles.searchTitle}>체크인</p>

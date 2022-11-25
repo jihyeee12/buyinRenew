@@ -27,6 +27,7 @@
 
 .searchLi input{
     border: none;
+    width: 97%;
 }
 .searchTitle{
     margin-top: 0px;

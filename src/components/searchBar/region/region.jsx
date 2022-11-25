@@ -3,7 +3,17 @@ import { useState } from 'react';
 import styles from './region.module.css';
 import searchStyle from '../searchBar.module.css';
 
-const Region = () => {
+const Region = ({setRegion, setZone, setvisible}) => {
+    const [regionClick, setRegionClick] = useState(0);
+    const [zoneClick, setZoneClick] = useState(0);
+    const [regionName, setRegionName] = useState("");
+    const [ZoneName, setZoneName] = useState("");
+    const SelectRegion = () =>{
+        setRegion(regionName);
+        setZone(ZoneName);
+        setvisible(false);
+    }
+
     const regionData = [
         {
             "region_id": 1,
@@ -131,9 +141,6 @@ const Region = () => {
         }
     ]
 
-    const [regionClick, setRegionClick] = useState(0);
-    const [zoneClick, setZoneClick] = useState(0);
-
     return (
         <div className={searchStyle.searchPop}>
             <div className={styles.resultPop}>
@@ -142,8 +149,8 @@ const Region = () => {
                         {regionData.map(region => (
                             <li 
                                 key={region.region_id}
-                                className={regionClick === region.region_id? styles.active: null}
-                                onClick={()=> setRegionClick(region.region_id)}
+                                className={[styles.regionList, regionClick === region.region_id? styles.active: null].join(" ")}
+                                onClick={()=> {setRegionClick(region.region_id); setRegionName(region.region_name)}}
                                 >
                             {region.region_name}</li>
                         ))}
@@ -156,7 +163,7 @@ const Region = () => {
                             {zone.inner_regions.map((inner) => (
                                 <li
                                 className={zoneClick === inner.region_id? styles.zoneActive: null}
-                                onClick={() => setZoneClick(inner.region_id)}
+                                onClick={() => {setZoneClick(inner.region_id); setZoneName(inner.region_name)}}
                                 >{inner.region_name}</li>
                             ))}
                             </>
@@ -166,8 +173,8 @@ const Region = () => {
                 </div>
             </div>
             <div className={styles.btnBox}>
-                <button className={styles.selectBtn}>선택</button>
-                <button className={styles.cancelBtn}>취소</button>
+                <button className={styles.selectBtn} onClick={()=> SelectRegion()}>선택</button>
+                <button className={styles.cancelBtn} onClick={() => setvisible(false)}>취소</button>
             </div>
         </div>
     );

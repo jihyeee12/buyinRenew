@@ -23,15 +23,13 @@
     cursor: pointer;
     text-align: center;
 }
-.region li{
+.regionList{
     color: #707070;
 }
 .zone{
     background-color: rgb(249, 249, 249);
 }
-.zone li{
 
-}
 .active{
     background-color: rgb(249, 249, 249);
     color: #4366A3;

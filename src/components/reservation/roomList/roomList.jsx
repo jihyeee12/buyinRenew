@@ -15,7 +15,7 @@ const RoomList = ({state}) => {
             }
         });
     }
-    
+   
    return(
         <>
         <h2 className={styles.popular}>인기숙소 <img className={styles.seemore} onClick={() => popularHotel({state})} src='/img/icon/seemore.png' alt='seeMore'/></h2>
