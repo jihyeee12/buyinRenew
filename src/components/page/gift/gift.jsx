@@ -1,11 +1,11 @@
 import React from 'react';
-import Paymethod from '../../paymethod/paymethod';
-import Userinfo from '../../reservation/userinfo/userinfo';
 import styles from './gift.module.css';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import axios from 'axios';
+import Paymethod from '../../paymethod/paymethod';
+import Userinfo from '../../reservation/userinfo/userinfo';
+import Get from '../../../service/api/url/Get';
 
 const Gift = () => {
     const navigate = useNavigate();
@@ -19,31 +19,20 @@ const Gift = () => {
     const [error, setError] = useState(null);
 
     const locationHref= location.state;
+    const giftCardName = locationHref.name;
+    const giftCardId = locationHref.giftCard_Id;
     
     useEffect(() => {
-        const giftUrl= () => {
-            if(locationHref.name === "giftcard"){
-                return `/gift-basic-info?giftcard=${locationHref.giftCard_Id}&isGiftcard=true`
-                //null은 그냥 지우면 됨
-            } else if(locationHref.name === "room"){
-                return `/gift-basic-info?giftcard=${locationHref.giftCard_Id}&isGiftcard=true`
-            };
-        }
-        
-        const fetchUsers = async () => {
-        try {
-            // 요청이 시작 할 때에는 error 와 users 를 초기화하고
-            setError(null);
-            setUsers(null);
-            // loading 상태를 true 로 바꿉니다.
-            setLoading(true);
-            const response = await axios.get(
-                giftUrl(),{headers:{'Contents-type': 'application/json','user': 'AppIDEtest'}}); //get은 data 넣을 자리 필요없으니까 안넣어도 됨
-            setUsers(response.data.data); // 데이터는 response.data 안에 들어있습니다.
-            console.log(response);
-        } catch (e) {
-            setError(e);
-        }
+    const fetchUsers = async () => {
+    
+        Get.getGiftBasicInfo(giftCardName, giftCardId)
+        .then(function (response) {
+            setUsers(response);
+        })
+        .catch(error => {
+            setError(error);
+        })
+
         setLoading(false);
         };
         fetchUsers();

@@ -3,6 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import Get from '../../../../service/api/url/Get';
 import Banner from '../../../banner/banner';
 import DetailBox from '../../../reservation/reservationDetatilBox/detailBox';
 import SideMenu from '../../../sideMenu/sideMenu';
@@ -30,19 +31,14 @@ const ReservationDetail = () => {
     useEffect(() => {
         
     const fetchcancel = async () => {
-        try {
-            // 요청이 시작 할 때에는 error 와 cancel 를 초기화하고
-            setError(null);
-            setcancel(null);
-            // loading 상태를 true 로 바꿉니다.
-            setLoading(true);
-            const response = await axios.get(
-               `/v2/refund-charge?reservation=${locationId}`,{headers:{'Contents-type': 'application/json','user': 'AppIDEtest'}}); //get은 data 넣을 자리 필요없으니까 안넣어도 됨
-            setcancel(response.data.data); // 데이터는 response.data 안에 들어있습니다.
-            
-        } catch (e) {
-            setError(e);
-        }
+        
+        Get.getRefundCharge(locationId)
+        .then(function (response) {
+            setcancel(response);
+        })
+        .catch(error => {
+            setError(error);
+        })
         setLoading(false);
         };
         fetchcancel();

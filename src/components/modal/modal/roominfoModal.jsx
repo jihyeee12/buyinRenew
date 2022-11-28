@@ -1,8 +1,8 @@
-import axios from 'axios';
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import styles from '../modal.module.css';
+import Get from '../../../service/api/url/Get';
 
 const RoominfoModal = ({lodgement}) => {
     const [roomInfo, setroomInfo] = useState(null);
@@ -11,19 +11,13 @@ const RoominfoModal = ({lodgement}) => {
 
     useEffect(() => {
         const fetchroomInfo = async () => {
-        try {
-            // 요청이 시작 할 때에는 error 와 roomInfo 를 초기화하고
-            setError(null);
-            setroomInfo(null);
-            // loading 상태를 true 로 바꿉니다.
-            setLoading(true);
-            const response = await axios.get(
-            `/lodgement-detail?lodgement=${lodgement}`
-            );
-            setroomInfo(response.data.data); // 데이터는 response.data 안에 들어있습니다.
-        } catch (e) {
-            setError(e);
-        }
+        Get.getRoomInfo(lodgement)
+            .then(function (response) {
+                setroomInfo(response);
+            })
+            .catch(error => {
+                setError(error);
+            })
         setLoading(false);
         };
 
@@ -34,8 +28,6 @@ const RoominfoModal = ({lodgement}) => {
     if (error) return <div>에러가 발생했습니다</div>;
     if (!roomInfo) return null;
     
-    
-        
     return (
         <>
         <div className={styles.infoBox} key={roomInfo.lodgement_id}>

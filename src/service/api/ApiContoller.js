@@ -1,6 +1,4 @@
 import axios from "axios";
-import { useState } from "react";
-
 
 const ApiAxios =axios.create({
     baseUrl: 'https://www.buyinhotel.co.kr/',
@@ -22,9 +20,7 @@ const ApiAxios =axios.create({
       ApiAxios.interceptors.response.use(
         function (response) {
           console.log(response);
-      
           return response.data.data;
-         
         },
         function (error) {
           console.log(error);

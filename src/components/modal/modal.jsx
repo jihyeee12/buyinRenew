@@ -75,7 +75,7 @@ const Modal = ({setModalOpen, type,setcouponOpen, setrefundOpen, setAllReview, s
                         type === "roominfo"?<RoominfoModal lodgement={lodgement}/>:
                         type === "cancel"? <CancelModal/>:
                         type === "delete"? <DeleteModal/>:
-                        type === "allReview"? <AllReviewModal/>:
+                        type === "allReview"? <AllReviewModal setAllReview={setAllReview}/>:
                         type === "photoReview"? <PhotoReviewModal/>:
                         type === "hotelPhoto"? <HotelFullViewModal/>:
                         type === "amenity"? <AmenityModal targetAmenity={targetAmenity} setAmenityName={setAmenityName} changeAmenity={changeAmenity}/>:

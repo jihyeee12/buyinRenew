@@ -1,9 +1,6 @@
 import React from 'react';
 import styles from './reservationBox.module.css';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import axios from 'axios';
 
 
 const ReservationBox = ({index, gifts}) => {

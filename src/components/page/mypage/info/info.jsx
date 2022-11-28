@@ -1,11 +1,9 @@
 import React from 'react';
 import styles from './info.module.css';
-import SideMenu from '../../../sideMenu/sideMenu';
 import { useNavigate } from 'react-router-dom';
+import SideMenu from '../../../sideMenu/sideMenu';
 import Banner from '../../../banner/banner';
-import ApiAxios from '../../../../service/api/ApiContoller';
-import { useState } from 'react';
-import { useEffect } from 'react';
+
 
 const Info = () => {
     const navigate = useNavigate();
@@ -13,14 +11,7 @@ const Info = () => {
     const infoChange = () => {
         navigate('/infoChange');
     }
-    const [myInfo, setMyInfo] = useState(null);
-    useEffect(() => {
-        ApiAxios.get(`giftcards`)
-        .then(function (response) {
-            setMyInfo(response);
-        });
-    }, []);
-    console.log(myInfo);
+   
     return(
         <>
         <Banner name={"마이페이지"}/>

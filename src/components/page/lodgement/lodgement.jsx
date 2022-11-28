@@ -1,10 +1,9 @@
 import React from 'react';
 import styles from './lodgement.module.css';
-import Roomprice from '../../reservation/roomprice/roomprice';
 import { useState } from 'react';
-import Modal from '../../modal/modal';
-import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import Roomprice from '../../reservation/roomprice/roomprice';
+import Modal from '../../modal/modal';
 import Date from '../../date/date';
 
 

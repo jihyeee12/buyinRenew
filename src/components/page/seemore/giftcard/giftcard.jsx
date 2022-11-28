@@ -1,19 +1,18 @@
 import React from 'react';
 import styles from './giftcard.module.css'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import axios from 'axios';
-import ApiAxios from '../../../../service/api/ApiContoller';
+import Get from '../../../../service/api/url/Get';
 
 const Giftcard = () => {
     
     const [users, setUsers] = useState(null);
     const [loading, setLoading] = useState(false);
-     const [error, setError] = useState(null);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
-        // const fetchUsers = async () => {
+        const fetchUsers = async () => {
         // try {
         //     // 요청이 시작 할 때에는 error 와 users 를 초기화하고
         //     setError(null);
@@ -27,22 +26,23 @@ const Giftcard = () => {
         // } catch (e) {
         //     setError(e);
         // }
-        // setLoading(false);
-        // };
-
-        // fetchUsers();
-        ApiAxios.get(`giftcards`)
+        Get.getGiftcard()
         .then(function (response) {
             setUsers(response);
         })
         .catch(error => {
             setError(error);
         })
+
+        setLoading(false);
+        };
+
+        fetchUsers();
     }, []);
 
-    // if (loading) return <div>로딩중..</div>;
-    // if (error) return <div>에러가 발생했습니다</div>;
-    // if (!users) return null;
+    if (loading) return <div>로딩중..</div>;
+    if (error) return <div>에러가 발생했습니다</div>;
+    if (!users) return null;
     console.log(users);
     const giftcard = users;
        
@@ -53,7 +53,7 @@ const Giftcard = () => {
                 <div className={styles.cardList}>
                 {giftcard.map(v => (
                     <Link to={`/giftcardDetail/${v.giftcard_id}`} className={styles.link}>
-                    <div id={v.card_id} className={styles.giftcard}>
+                    <div key={v.card_id} id={v.card_id} className={styles.giftcard}>
                     <div className={styles.cardImg}>
                             <img className={styles.card_imgs} src={v.giftcard_img_url} alt="cardImg" />
                         </div>

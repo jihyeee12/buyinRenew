@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Baskethotel from '../../baskethotel/baskethotel';
-import styles from './basket.module.css';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { useEffect } from 'react';
+import styles from './basket.module.css';
+import Baskethotel from '../../baskethotel/baskethotel';
+import Get from '../../../service/api/url/Get';
 
 const Basket = () => {
     const navigate = useNavigate();
@@ -19,19 +19,15 @@ const Basket = () => {
     useEffect(() => {
         
     const fetchbasket = async () => {
-        try {
-            // 요청이 시작 할 때에는 error 와 basket 를 초기화하고
-            setError(null);
-            setbasket(null);
-            // loading 상태를 true 로 바꿉니다.
-            setLoading(true);
-            const response = await axios.get(
-               `/shopbaskets`,{headers:{'Contents-type': 'application/json','user': 'AppIDEtest'}}); //get은 data 넣을 자리 필요없으니까 안넣어도 됨
-            setbasket(response.data.data); // 데이터는 response.data 안에 들어있습니다.
-            
-        } catch (e) {
-            setError(e);
-        }
+        
+        Get.getBasket()
+        .then(function (response) {
+            setbasket(response);
+        })
+        .catch(error => {
+            setError(error);
+        })
+
         setLoading(false);
         };
         fetchbasket();

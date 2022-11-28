@@ -3,7 +3,6 @@ import styles from './recommandDorm.module.css';
 import { useLocation } from 'react-router-dom';
 import RoomCard from '../../reservation/roomCard/roomCard';
 import Sort from '../../sort/sort';
-import { useState } from 'react';
 
 const RecommandDorm = () => {
     const location = useLocation();

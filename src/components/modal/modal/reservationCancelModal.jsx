@@ -1,30 +1,31 @@
-import axios from 'axios';
 import React from 'react';
-import { useEffect } from 'react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Post from '../../../service/api/url/Post';
 import styles from '../modal.module.css';
 
 const ReservationCancelModal = ({id, cancelReason,closeModal}) => {
     const [detail, setdetail] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
+    const reservationList = () =>{
+        navigate('/reservationList');
+    }
     
     const cancelClick = () => {
+
         const fetchdetail = async () => {
-            try {
-                 // 요청이 시작 할 때에는 error 와 detail 를 초기화하고
-                setError(null);
-                setdetail(null);
-                 // loading 상태를 true 로 바꿉니다.
-                setLoading(true);
-                const response = await axios.post(
-                     '/v2/cancelations',{reservation_id: id, cancel_reason: cancelReason},{headers:{'Contents-type': 'application/json','user': 'AppIDEtest'}}); //get은 data 넣을 자리 필요없으니까 안넣어도 됨
-                 setdetail(response.data.data); // 데이터는 response.data 안에 들어있습니다.
-                alert("예약이 취소되었습니다.");
-                closeModal();
-            } catch (e) {
-                setError(e);
-            }
+        Post.reservationCancel(id, cancelReason)
+                .then(function (response) {
+                    setdetail(response);
+                    alert("예약이 취소되었습니다.");
+                    closeModal();
+                    reservationList();
+                })
+                .catch(error => {
+                    setError(error);
+                })
             setLoading(false);
             };
             fetchdetail();

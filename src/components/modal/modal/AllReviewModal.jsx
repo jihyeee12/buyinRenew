@@ -4,6 +4,7 @@ import Modal from '../modal';
 import styles from '../modal.module.css';
 
 const AllReviewModal = () => {
+    
     const imgData = [
         {id: 1, img_url: "../../img/roomImg/room1.png"},
         {id: 2, img_url: "../../img/roomImg/room2.png"},

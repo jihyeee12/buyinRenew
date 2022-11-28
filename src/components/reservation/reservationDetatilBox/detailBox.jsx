@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import Get from '../../../service/api/url/Get';
 import Modal from '../../modal/modal';
 import ReservationInfo from '../reservationInfo/reservationInfo';
 import styles from './detailBox.module.css';
@@ -13,29 +14,17 @@ const DetailBox = ({type,id,refund,changeReason}) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    const listUrl = () => {
-        if(type === "reservation" || type === "reservationCancel"){
-            return `/v2/reservation-detail?reservation=${id}`
-        } else if(type === "cancel"){
-            return `/v2/cancelation-detail?cancelation=${id}`
-        }
-    }
+    
     useEffect(() => {
         
     const fetchdetail = async () => {
-        try {
-            // 요청이 시작 할 때에는 error 와 detail 를 초기화하고
-            setError(null);
-            setdetail(null);
-            // loading 상태를 true 로 바꿉니다.
-            setLoading(true);
-            const response = await axios.get(
-                listUrl(),{headers:{'Contents-type': 'application/json','user': 'AppIDEtest'}}); //get은 data 넣을 자리 필요없으니까 안넣어도 됨
-            setdetail(response.data.data); // 데이터는 response.data 안에 들어있습니다.
-            
-        } catch (e) {
-            setError(e);
-        }
+        Get.getReservationDetail(type,id)
+        .then(function (response) {
+            setdetail(response);
+        })
+        .catch(error => {
+            setError(error);
+        })
         setLoading(false);
         };
         fetchdetail();

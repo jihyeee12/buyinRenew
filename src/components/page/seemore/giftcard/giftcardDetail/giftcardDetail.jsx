@@ -3,6 +3,7 @@ import styles from './giftcardDetail.module.css';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import Modal from '../../../../modal/modal';
 import axios from 'axios';
+import Get from '../../../../../service/api/url/Get';
 
 
 const GiftcardDetail = () => {
@@ -17,18 +18,14 @@ const GiftcardDetail = () => {
 
     useEffect(() => {
         const fetchUsers = async () => {
-        try {
-            // 요청이 시작 할 때에는 error 와 users 를 초기화하고
-            setError(null);
-            setUsers(null);
-            // loading 상태를 true 로 바꿉니다.
-            setLoading(true);
-            const response = await axios.get(
-             `/giftcard-info?giftcard=${giftcard_id}`);
-            setUsers(response.data.data); // 데이터는 response.data 안에 들어있습니다.
-        } catch (e) {
-            setError(e);
-        }
+            
+        Get.getGiftcardInfo(giftcard_id)
+        .then(function (response) {
+            setUsers(response);
+        })
+        .catch(error => {
+            setError(error);
+        })
         setLoading(false);
         };
 

@@ -99,7 +99,11 @@ const HotelFullViewModal = () => {
             
             <StyledSlider {...settings}>
                 {hotelImg.map((room, i) => (
-                    <img idx={i} onClick={() => imgClick(i)} key={room.id} className={[styles.hotelList , clickImg === i && styles.selectImg].join(" ")} src={room.lodgement_img_url} alt="smallRoom" />
+                    <img idx={i} onClick={() => imgClick(i)} 
+                    key={room.id} 
+                    className={[styles.hotelList , clickImg === i && styles.selectImg].join(" ")} 
+                    src={room.lodgement_img_url} 
+                    alt="smallRoom" />
                 ))}
             </StyledSlider>
             

@@ -11,6 +11,7 @@ const Options = ({basket}) => {
 
     const [targetAmenity, setTargetAmenity] = useState({})
     console.log(basket)
+    
     const handleModalOpen = e => {
         let clickedAmenity = {}
         basket.amenities.map(item => {
