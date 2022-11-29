@@ -108,7 +108,7 @@ const Review = () => {
                                                 <tr>
                                                     <td>{review.review_date}</td>
                                                     <td>
-                                                        <span key={review.review_id} onClick={writeReview}>수정</span>
+                                                        <span key={review.review_id} onClick={() => writeReview(review.reservation_id)}>수정</span>
                                                         <span key={review.review_id} className={styles.deleteBtn} onClick={()=> setModalOpen(!modalOpen)}>삭제</span>
                                                         {modalOpen && <Modal type={"delete"} setModalOpen={() => setModalOpen(!modalOpen)} />}
                                                     </td>

@@ -27,6 +27,7 @@
 }
 .wishTable td{
     font-family: pretendard;
+    width: 50%;
 }
 .wishTable td:last-child{
     text-align: right;

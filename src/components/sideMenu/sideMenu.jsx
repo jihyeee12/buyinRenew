@@ -32,8 +32,9 @@ const SideMenu = ({type}) => {
     navigate(`/${menuName}`);
     setActiveId(index);
     }
-    const navigateSee = (seeName) => {
+    const navigateSee = (seeName, index) => {
         navigate(`/${seeName}`);
+        setActiveId(index);
     }
     return(
             <div className={styles.sideMenu}>
@@ -41,18 +42,16 @@ const SideMenu = ({type}) => {
                     <ul>
                         
                         {menuList.map((menu,index) => (
-                            <li key={index} className={activeId === index ? styles.menuClick : ""} onClick={() => {navigateMenu(menu.EngName,index)}} >{menu.KorName}</li>
+                            <li key={index} className={activeId === index ? styles.menuClick : ""} onClick={() => navigateMenu(menu.EngName,index)}>{menu.KorName}</li>
                         ))}
                     </ul>
                     :
                     <ul>
                         {seemoreList.map((see,index) => (
-                            <li key={index} className={activeId === index ? styles.menuClick : ""} onClick={() => {navigateSee(see.EngName); setActiveId(index)}} >{see.KorName}</li>
+                            <li key={index} className={activeId === index ? styles.menuClick : ""} onClick={() => navigateSee(see.EngName,index)}>{see.KorName}</li>
                         ))}
                     </ul>
                 }
-
-                
             </div>
         
     )
