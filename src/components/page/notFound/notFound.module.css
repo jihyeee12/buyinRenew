@@ -1,9 +1,17 @@
 .notFoundBox{
-    margin: auto;
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
 .notFoundTxt{
     font-weight: 600;
     font-size: 1rem;
+    margin: 1rem 0;
 }
 .homeBtn{
     border: 1.5px solid #3966B7;

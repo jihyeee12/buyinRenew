@@ -39,11 +39,11 @@ const Review = () => {
         Get.getReview(index)
         .then(function (response) {
             setreview(response);
+            
         })
         .catch(error => {
             setError(error);
         })
-
         setLoading(false);
         };
         fetchreview();
@@ -54,31 +54,6 @@ const Review = () => {
     if (!review) return null;
     
     console.log(review);
-
-    // const reviewData = [
-    //         {
-    //             "review_id": 56,
-    //             "reservation_id": 263,
-    //             "lodgement_id": 78,
-    //             "lodgement_name": "신안동 이끌림(테스트용)",
-    //             "lodgement_img_url": "https://www.buyinhotel.co.kr/images/lodgements/test0325/test0325_99_000_2022-03-30-17_56_09.jpg",
-    //             "review_date": "2022.05.17",
-    //             "room_id": 70,
-    //             "room_name": "비즈니스 더블",
-    //             "like_num": 0,
-    //             "review_text": "좋아요 굿 좋아요 굿 좋아요 굿 좋아요 굿 굿굿",
-    //             "review_img_url": null
-    //         }
-    //     ]
-     const reviewAbleData = [
-         {
-             "reservation_id": 194,
-             "room_name": "비즈니스 더블",
-             "lodgement_name": "신안동 이끌림",
-             "date_string": "2022.04.19 (화) 19:00 ~ 2022.04.30 (수) 11:00",
-             "lodgement_img_url": "https://www.buyinhotel.co.kr/images/lodgements/test0325/test0325_99_000_2022-03-30-17_56_09.jpg",
-         }
-     ]
 
     return(
         <>
@@ -97,7 +72,12 @@ const Review = () => {
                         
                     </ul>
                     <div className="tabContent">
-                        {reviewList.filter(item => index === item.id).map(item => {
+                        {review.length === 0 ? 
+                        <div className="noData">
+                            <img src='../../../img/icon/listIcon.png' alt='noReview'/>
+                            <p className="noDataTxt">리뷰내역이 없습니다.</p>
+                        </div>
+                        :<>{reviewList.filter(item => index === item.id).map(item => {
                             if(item.id === 0){
                                 return <>
                                 <p className={styles.reviewCount}>작성리뷰 <span className={styles.reviewCount}>{review.length}개</span></p>
@@ -138,9 +118,9 @@ const Review = () => {
                                 </>
                             } else if(item.id === 1){
                                 return <>
-                                <p className={styles.reviewCount}>작성리뷰 <span className={styles.reviewCount}>{reviewAbleData.length}개</span></p>
+                                <p className={styles.reviewCount}>작성리뷰 <span className={styles.reviewCount}>{review.length}개</span></p>
                                 <div className={styles.contentBox}>
-                                {reviewAbleData.map(able => (
+                                {review.map(able => (
                                     <div className={styles.reviewAbleBox}>
                                         <table className={styles.reviewAbleTable}>
                                             <tbody>
@@ -165,7 +145,8 @@ const Review = () => {
                                 </div>
                                 </>
                             }
-                        })}
+                        })}</>
+                        }
                         </div>
                 </section>
             </div>

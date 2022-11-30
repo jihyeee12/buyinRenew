@@ -45,7 +45,12 @@ const Wishroom = (props) => {
 
     return(
         <>
-        {wishData.map(wish => (
+        {wishData.length === 0 ? 
+            <div className="noData">
+                <img src="../../../img/icon/memoIcon.png" alt="noWish" />
+                <p className="noDataTxt">선택하신 위시리스트가 없습니다.</p>
+            </div>
+        : <>{wishData.map(wish => (
             <div className={styles.wishBox}>
                 <Link to={`/lodgement/${wish.lodgement_id}`}>
                 <img className={styles.wishImg} src={wish.lodgement_img_url} alt="roomImg" />
@@ -66,7 +71,8 @@ const Wishroom = (props) => {
                     </table>
                 </div>
             </div>
-        ))}
+        ))}  </>}
+        
         </>
     )
 };

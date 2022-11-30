@@ -86,8 +86,7 @@ function Router() {
               <Route path ='/findPW' element={<FindPw/>}/>
               <Route path ='/grade' element={<UserGrade/>}/>
               <Route path ='/reservationCancel' element={<ReservationCancel/>}/>
-              
-              
+              <Route path ='/*' element={<NotFound/>}/>
             </Routes>
         </main>
         <Footer />

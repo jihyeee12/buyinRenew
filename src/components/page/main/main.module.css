@@ -25,13 +25,8 @@
     display: grid;
     grid-template-columns: 50% 50%;
 }
-.adTitle{
-    font-size: 24px;
-    font-family: pretendard;
-    color: #303030;
-    margin-bottom: 10px;
-}
-.adImg, .eventImg{
+
+.eventImg{
     cursor: pointer;
 }
 .recommand, .giftcard{

@@ -13,6 +13,7 @@ import { useEffect } from 'react';
 import RecommandHotel from './recommandHotel/recommandHotel';
 import RecommandCard from './recommandCard/recommandCard';
 import { Link, useNavigate } from 'react-router-dom';
+import Adverisement from './advertisement/adverisement';
 
 SwiperCore.use([Navigation, Pagination,Autoplay])
 
@@ -84,14 +85,7 @@ function Main() {
                     <RoomList state={users.thumb_lodgements} />
                 </div>
                 <div className={styles.ad}>
-                    <div className="ara">
-                        <h3 className={styles.adTitle}>BUY IN ARA</h3>
-                        <img className={styles.adImg} src="/img/roomImg/app.png" alt="araAd" />
-                    </div>
-                    <div className="app">
-                        <h3 className={styles.adTitle}>BUY IN HOTEL APP</h3>
-                        <img className={styles.adImg} src="/img/roomImg/app.png" alt="app" />
-                    </div>
+                    <Adverisement/>
                 </div>
                 <div className={styles.recommand}>
                     <p className={styles.title}>추천숙소 &nbsp;<img className={styles.seemoreBtn} onClick={()=> recommandDorm({recommendLodgements})} src='img/icon/seemore.png' alt='더보기' /></p>

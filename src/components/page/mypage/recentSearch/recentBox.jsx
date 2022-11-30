@@ -64,6 +64,12 @@ const RecentBox = () => {
 
     return (
         <>
+        {recentData.length === 0 ? 
+            <div className='noData'>
+                <img src="../../../img/icon/searchIcon.png" alt="noSearch" />
+                <p className='noDataTxt'>최근 검색 목록이 없습니다.</p>
+            </div>
+        :<>
         {recentData.map(recent => (
             <div className={styles.recentBox}>
                 <Link to={`/lodgement/${recent.lodgement_id}`}>
@@ -85,6 +91,7 @@ const RecentBox = () => {
                 </div>
             </div>
         ))}
+        </>}
         </>
     );
 };
