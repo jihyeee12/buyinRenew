@@ -1,8 +1,7 @@
 import React from 'react';
 import styles from './giftcard.module.css'
 import { Link} from 'react-router-dom';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState ,useEffect } from 'react';
 import Get from '../../../../service/api/url/Get';
 
 const Giftcard = () => {

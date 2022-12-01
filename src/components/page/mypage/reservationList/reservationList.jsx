@@ -1,7 +1,5 @@
 import React from 'react';
-import axios from 'axios';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState ,useEffect } from 'react';
 import Banner from '../../../banner/banner';
 import SideMenu from '../../../sideMenu/sideMenu';
 import ReservationBox from '../../../reservation/reservationBox/reservationBox';

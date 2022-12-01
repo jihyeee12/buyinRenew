@@ -1,18 +1,16 @@
-// import React,{useState, useEffect} from 'react';
+import React,{useState, useEffect} from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import styles from './main.module.css';
-import SearchBar from '../../searchBar/searchBar';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
+import SearchBar from '../../searchBar/searchBar';
 import RoomList from '../../reservation/roomList/roomList';
-import axios from 'axios';
-import { useState } from 'react';
-import { useEffect } from 'react';
 import RecommandHotel from './recommandHotel/recommandHotel';
 import RecommandCard from './recommandCard/recommandCard';
-import { Link, useNavigate } from 'react-router-dom';
 import Adverisement from './advertisement/adverisement';
 
 SwiperCore.use([Navigation, Pagination,Autoplay])
@@ -61,7 +59,6 @@ function Main() {
     
 
     return (
-            <>
             <div className={styles.container}>
                 <div className={styles.main}>
                     <Swiper 
@@ -100,7 +97,6 @@ function Main() {
                     </div>
                 </div>
             </div>
-            </>
         );
     }
 

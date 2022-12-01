@@ -1,13 +1,11 @@
-import axios from 'axios';
 import React from 'react';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState ,useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import styles from './reservationDetail.module.css';
 import Get from '../../../../service/api/url/Get';
 import Banner from '../../../banner/banner';
 import DetailBox from '../../../reservation/reservationDetatilBox/detailBox';
 import SideMenu from '../../../sideMenu/sideMenu';
-import styles from './reservationDetail.module.css';
 
 const ReservationDetail = () => {
     const location = useLocation();

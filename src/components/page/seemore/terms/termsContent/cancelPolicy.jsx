@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from '../../terms/terms.module.css';
+
 const CancelPolicy = () => {
+    
     return (
         <div>
             <h3>취소규정</h3>

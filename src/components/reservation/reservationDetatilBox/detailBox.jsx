@@ -1,11 +1,9 @@
-import axios from 'axios';
 import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import styles from './detailBox.module.css';
+import { useEffect ,useState } from 'react';
 import Get from '../../../service/api/url/Get';
 import Modal from '../../modal/modal';
 import ReservationInfo from '../reservationInfo/reservationInfo';
-import styles from './detailBox.module.css';
 
 const DetailBox = ({type,id,refund,changeReason}) => {
     const [cancelModal, setCancelModal] = useState(false);

@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
+import styles from './point.module.css';
 import Banner from '../../../banner/banner';
 import SideMenu from '../../../sideMenu/sideMenu';
-import styles from './point.module.css';
 
 const Point = () => {
     const tabList = [

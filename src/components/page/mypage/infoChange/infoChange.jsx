@@ -1,8 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import styles from './infoChange.module.css';
 import Banner from '../../../banner/banner';
 import SideMenu from '../../../sideMenu/sideMenu';
-import styles from './infoChange.module.css';
-import { useNavigate } from 'react-router-dom';
 
 
 const Infochange = () => {

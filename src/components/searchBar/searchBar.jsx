@@ -1,26 +1,29 @@
 import React from 'react';
+import styles from './searchBar.module.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import "react-datepicker/dist/react-datepicker.css";
-import { ko } from 'date-fns/esm/locale';
-import Region from './region/region';
-import styles from './searchBar.module.css';
 import DatePicker from "react-datepicker";
-
+import { ko } from 'date-fns/esm/locale';
+import "react-datepicker/dist/react-datepicker.css";
+import Region from './region/region';
+import dayjs from 'dayjs';
 
 const SearchBar = (props) => {
     const navigate = useNavigate();
 
     const linkSearch = () => {
-        navigate('/search');
+        navigate('/search',{
+            state: {
+                startDay: startDay,
+                endDay : endDay
+            }
+        });
     }
     const [region, setRegion] = useState("");
     const [zone, setZone] = useState("");
-    
-        const [visible, setvisible] = useState(false);
-        
-        const [startDate, setStartDate] = useState(new Date());
-        const [endDate, setEndDate] = useState(new Date());
+    const [visible, setvisible] = useState(false);
+    const [startDate, setStartDate] = useState(new Date());
+    const [endDate, setEndDate] = useState(new Date());
 
     const getFormattedDate = (date) => {
         const month = date.toLocaleDateString('ko-KR', {
@@ -51,7 +54,9 @@ const SearchBar = (props) => {
             , 0));
         }
 
-    
+        const startDay = dayjs(startDate).format("YYYY.MM.DD");
+        const endDay = dayjs(endDate).format("YYYY.MM.DD");
+
         return(
             <>
                 <div className={styles.searchDiv}>
@@ -107,7 +112,7 @@ const SearchBar = (props) => {
                         </li>
                     </ul>
                     <div className={styles.searchButton}>
-                        <button type='button' className={styles.searchBtn} onClick={linkSearch}>
+                        <button type='button' className={styles.searchBtn} onClick={() => linkSearch(startDay, endDay)}>
                             <img src='/img/icon/round-search.png' alt='magnifier' />
                         </button>
                     </div>

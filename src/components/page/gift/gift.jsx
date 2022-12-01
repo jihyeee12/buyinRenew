@@ -1,8 +1,7 @@
 import React from 'react';
 import styles from './gift.module.css';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState ,useEffect } from 'react';
 import Paymethod from '../../paymethod/paymethod';
 import Userinfo from '../../reservation/userinfo/userinfo';
 import Get from '../../../service/api/url/Get';

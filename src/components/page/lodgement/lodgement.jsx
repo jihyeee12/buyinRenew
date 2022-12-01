@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import Roomprice from '../../reservation/roomprice/roomprice';
 import Modal from '../../modal/modal';
 import Date from '../../date/date';
+import HotelMaps from './map/hotelMaps';
 
 
 const Lodgement = () => {
@@ -13,6 +14,7 @@ const Lodgement = () => {
     const [allReview, setAllReview] = useState(false);
     const [photoOpen, setPhotoOpen] = useState(false);
     const [hotelOpen, setHotelOpen] = useState(false);
+    const [imgId, setImgId] = useState("");
     const {lodgement} = useParams();
 
     
@@ -40,6 +42,11 @@ const Lodgement = () => {
         document.body.removeChild(textarea);
 
         alert("url을 복사했습니다.");
+    }
+
+    const ImgClick = (id) => {
+        setImgId(id);
+        setPhotoOpen(!photoOpen);
     }
 
     return(
@@ -90,13 +97,13 @@ const Lodgement = () => {
                         도보 5분거리에 먹자골목이 있습니다.
                     </p>
                     <div className={styles.map}>
-                        <p>지도 자리</p>
+                        <HotelMaps/>
                     </div>
                 </div>
                 <div className={styles.review}>     
                     <h4 className={styles.title}>리뷰 &nbsp;<span className={styles.reviewCount}>100</span></h4>
                     <div className={styles.reviewImgs}>
-                        <img className={styles.photoReviews} onClick={() => setPhotoOpen(!photoOpen)} src="/img/roomImg/reviewImg.png" alt="reviewimg" />
+                        <img className={styles.photoReviews} onClick={(id) => ImgClick(1)} src="/img/roomImg/reviewImg.png" alt="reviewimg" />
                         <img className={styles.photoReviews} src="/img/roomImg/reviewImg.png" alt="reviewimg" />
                         <img className={styles.photoReviews} src="/img/roomImg/reviewImg.png" alt="reviewimg" />
                         <img className={styles.photoReviews} src="/img/roomImg/reviewImg.png" alt="reviewimg" />
@@ -104,7 +111,7 @@ const Lodgement = () => {
                             <p>+5</p>
                         </div>
                     {allReview && <Modal type={"allReview"} setAllReview={() => setAllReview(!allReview)} />}
-                    {photoOpen && <Modal type={"photoReview"} setPhotoOpen={() => setPhotoOpen(!photoOpen)} />}
+                    {photoOpen && <Modal type={"photoReview"} img_id={imgId} setPhotoOpen={() => setPhotoOpen(!photoOpen)} />}
                     </div>
                     <div className={styles.reviewText}>
                         <div className={styles.userReview}>

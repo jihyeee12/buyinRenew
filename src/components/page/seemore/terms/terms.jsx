@@ -1,9 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
+import styles from './terms.module.css';
 import Banner from '../../../banner/banner';
 import SideMenu from '../../../sideMenu/sideMenu';
 import Policy from './termsContent/policy';
-import styles from './terms.module.css';
 import Personal from './termsContent/personal';
 import Email from './termsContent/email';
 import Marketing from './termsContent/marketing';

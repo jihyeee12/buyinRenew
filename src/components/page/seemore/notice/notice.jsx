@@ -1,8 +1,8 @@
 import React from 'react';
-import Banner from '../../../banner/banner';
-import SideMenu from '../../../sideMenu/sideMenu';
 import {useState} from 'react';
 import styles from './notice.module.css';
+import Banner from '../../../banner/banner';
+import SideMenu from '../../../sideMenu/sideMenu';
 
 
 const Notice = () => {

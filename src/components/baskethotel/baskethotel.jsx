@@ -1,7 +1,7 @@
 import React from 'react';
+import { useState } from 'react';
 import styles from './baskethotel.module.css';
 import Options from '../reservation/options/options';
-import { useState } from 'react';
 
 const Baskethotel = ({date, shopbaskets}) => {
     const [showOption, setShowOption] = useState(false);

@@ -1,8 +1,7 @@
 import React from 'react';
-import { useRef } from 'react';
-import { useState } from 'react';
-import Modal from '../../modal/modal';
 import styles from './options.module.css';
+import { useRef ,useState } from 'react';
+import Modal from '../../modal/modal';
 
 const Options = ({basket}) => {
     const [counter, setCounter] = useState(0);

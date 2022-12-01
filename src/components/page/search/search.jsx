@@ -3,9 +3,13 @@ import styles from './search.module.css';
 import RoomCard from '../../reservation/roomCard/roomCard';
 import SearchBar from '../../searchBar/searchBar';
 import Sort from '../../sort/sort';
+import { useLocation } from 'react-router-dom';
 
 const Search = () => {
-    
+    const location = useLocation();
+    const startDay = location.state.startDay;
+    const endDay = location.state.endDay;
+
     const roomData = [
         {dc_rate: "44.3",
             is_ambassadr: false,
@@ -28,7 +32,7 @@ const Search = () => {
     return(
         <>
             <div className={styles.searchDiv}>
-                <SearchBar />
+                <SearchBar />         
                 <Sort state={roomData}/>
                 <div className={styles.roomList}>
                     <RoomCard state={roomData}/>

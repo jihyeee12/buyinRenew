@@ -1,8 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import styles from './payment.module.css';
 import Paymethod from '../../paymethod/paymethod';
 import Userinfo from '../../reservation/userinfo/userinfo';
-import styles from './payment.module.css';
-import { useNavigate } from 'react-router-dom';
 
 const Payment = () => {
     const navigate = useNavigate();

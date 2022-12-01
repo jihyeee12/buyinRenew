@@ -1,8 +1,8 @@
 import React from 'react';
+import styles from './recentSearch.module.css';
 import Banner from '../../../banner/banner';
 import SideMenu from '../../../sideMenu/sideMenu';
 import RecentBox from './recentBox';
-import styles from './recentSearch.module.css';
 
 
 const RecentSearch = (props) => {

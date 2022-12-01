@@ -1,11 +1,9 @@
 import React from 'react';
-import Banner from '../../banner/banner';
-import SideMenu from '../../sideMenu/sideMenu';
 import styles from './writeReview.module.css';
 import { useLocation, useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import Banner from '../../banner/banner';
+import SideMenu from '../../sideMenu/sideMenu';
 import Get from '../../../service/api/url/Get';
 
 

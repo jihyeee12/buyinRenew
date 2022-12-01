@@ -1,7 +1,7 @@
 import React from 'react';
+import styles from './event.module.css';
 import Banner from '../../../banner/banner';
 import SideMenu from '../../../sideMenu/sideMenu';
-import styles from './event.module.css';
 
 const Event = () => {
     const eventBanner= [
@@ -18,7 +18,11 @@ const Event = () => {
     ]
     
     const event = eventBanner.map(v => (
-        <img className={styles.eventImg} id={v.event_id}  src={v.event_img_url} onClick={()=> window.open(v.event_contents_url,'_blank','width=780, height= 1200, left=100%')} />
+        <img 
+            className={styles.eventImg} 
+            id={v.event_id}  
+            src={v.event_img_url} 
+            onClick={()=> window.open(v.event_contents_url,'_blank','width=780, height= 1200, left=100%')} />
     ))
     return(
         <>

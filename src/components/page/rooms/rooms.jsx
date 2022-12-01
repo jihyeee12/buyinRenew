@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './rooms.module.css';
-import styled, {css} from 'styled-components';
-import Slider from "react-slick";
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import styled, {css} from 'styled-components';
+import Slider from "react-slick";
 import Modal from '../../modal/modal';
 import Calendar from '../../date/date';
 

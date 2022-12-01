@@ -1,12 +1,10 @@
 import React from 'react';
-import Banner from '../../../banner/banner';
-import SideMenu from '../../../sideMenu/sideMenu';
 import styles from './review.module.css';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState ,useEffect } from 'react';
+import Banner from '../../../banner/banner';
+import SideMenu from '../../../sideMenu/sideMenu';
 import Modal from '../../../modal/modal';
-import { useEffect } from 'react';
-import axios from 'axios';
 import Get from '../../../../service/api/url/Get';
 
 

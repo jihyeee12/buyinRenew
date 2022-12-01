@@ -1,6 +1,6 @@
 import React from 'react';
 import Wishroom from '../../reservation/wishRoom/wishroom';
-//import styles from './wishlist.module.css';
+
 
 const Wishlist = (props) => (
     <>

@@ -1,7 +1,7 @@
 import React from 'react';
+import styles from './userGrade.module.css';
 import Banner from '../../../banner/banner';
 import SideMenu from '../../../sideMenu/sideMenu';
-import styles from './userGrade.module.css';
 
 const UserGrade = () => {
     return (

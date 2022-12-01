@@ -1,10 +1,9 @@
 import React from 'react';
+import { useState ,useContext } from 'react';
 import styles from './date.module.css';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { ko } from 'date-fns/esm/locale';
-import { useState } from 'react';
-import { useContext } from 'react';
 import { MainContext } from './store';
 
 const Calendar = ({showDatePicker}) => {

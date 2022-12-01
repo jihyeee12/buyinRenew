@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Modal from '../modal';
 import styles from '../modal.module.css';
 
-const AllReviewModal = () => {
+const AllReviewModal = ({setAllReview}) => {
     
     const imgData = [
         {id: 1, img_url: "../../img/roomImg/room1.png"},
@@ -12,13 +12,19 @@ const AllReviewModal = () => {
         {id: 4, img_url: "../../img/roomImg/bigRoom.png"},
     ]
     const [photoOpen, setPhotoOpen] = useState(false);
-    
+    const [imgId, setImgId] = useState("");
+
+    const reviewImgClick = (id) => {
+        setPhotoOpen(!photoOpen);
+        setImgId(id)
+    }
+    console.log(imgId);
     return (
         <div className={styles.reviewImgBox}>
             {imgData.map(img => (
-                <img className={styles.reviewImg} key={img.id} value={img.id} onClick={() => setPhotoOpen(!photoOpen)} src={img.img_url} alt="roomImg" />
+                <img className={styles.reviewImg} key={img.id} value={img.id} onClick={(id) => reviewImgClick(img.id)} src={img.img_url} alt="roomImg" />
             ))}
-                {photoOpen && <Modal type={"photoReview"} setPhotoOpen={() => setPhotoOpen(!photoOpen)} />}
+                {photoOpen && <Modal type={"photoReview"} img_id={imgId} setPhotoOpen={() => setPhotoOpen(!photoOpen)} />}
             
         </div>
     );

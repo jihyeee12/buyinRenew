@@ -14,7 +14,7 @@ import ReservationCancelModal from './modal/reservationCancelModal';
 import RoomDetailModal from './modal/roomDetailModal';
 import RoominfoModal from './modal/roominfoModal';
 
-const Modal = ({setModalOpen, type,setcouponOpen, setrefundOpen, setAllReview, setPhotoOpen,setHotelOpen, lodgement, setCancelModal, setRoomModal, id, cancelReason,targetAmenity, setAmenityName, changeAmenity}) => {
+const Modal = ({setModalOpen, type,setcouponOpen, setrefundOpen, setAllReview, setPhotoOpen,setHotelOpen, lodgement, setCancelModal, setRoomModal, id, cancelReason,targetAmenity, setAmenityName, changeAmenity, img_id}) => {
     
     const closeModal = () => {
         {if(type === "coupon"){
@@ -75,8 +75,8 @@ const Modal = ({setModalOpen, type,setcouponOpen, setrefundOpen, setAllReview, s
                         type === "roominfo"?<RoominfoModal lodgement={lodgement}/>:
                         type === "cancel"? <CancelModal/>:
                         type === "delete"? <DeleteModal/>:
-                        type === "allReview"? <AllReviewModal setAllReview={setAllReview}/>:
-                        type === "photoReview"? <PhotoReviewModal/>:
+                        type === "allReview"? <AllReviewModal setAllReview={setAllReview} closeModal={closeModal} />:
+                        type === "photoReview"? <PhotoReviewModal img_id={img_id}/>:
                         type === "hotelPhoto"? <HotelFullViewModal/>:
                         type === "amenity"? <AmenityModal targetAmenity={targetAmenity} setAmenityName={setAmenityName} changeAmenity={changeAmenity}/>:
                         type === "room"? <RoomDetailModal/>:

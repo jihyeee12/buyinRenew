@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import styles from './giftcardDetail.module.css';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import styles from './giftcardDetail.module.css';
 import Modal from '../../../../modal/modal';
-import axios from 'axios';
 import Get from '../../../../../service/api/url/Get';
 
 
