@@ -27,6 +27,12 @@ const Options = ({basket}) => {
     const personAdd = useRef();
     const bedRoomAdd = useRef();
 
+    const changeCount =(e) => {
+        const {value , name} = e.target;
+        setCounter(
+            ...counter,
+            value);
+    }
     
     const onPlus = () => setCounter((prev) => prev +1);
     const onMinus = () => {
@@ -78,7 +84,7 @@ const Options = ({basket}) => {
                         <tr>
                             <td><span className={styles.plusTitle}>{room.option_name}</span>&nbsp;<span className={styles.plusPrice}>({room.option_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원)</span></td>
                             <td><button type='button' className={styles.minus} onClick={onMinus}>―</button>
-                                <input className={styles.count} ref={personAdd} type="text" value={room.option_count} disabled/>
+                                <input name={room.option_count} className={styles.count} onChange={changeCount} ref={personAdd} type="text" value={room.option_count} disabled/>
                                 <button type='button' className={styles.plus} onClick={onPlus}>+</button>
                             </td>
                         </tr>
