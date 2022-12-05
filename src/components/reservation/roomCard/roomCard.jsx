@@ -88,19 +88,27 @@ import styled, {css} from 'styled-components';
                         </button>
                         <Link className={styles.link} to={`/lodgement/${v.lodgement_id}`}>
                         <div className={styles.roomInfo} >
+                            <p className={styles.pointMark}><img src="../../../img/icon/pointMark.png" alt="ambassador" /> &nbsp;1,000P</p>
                             <p className={styles.HotelName}>{v.lodgement_name}</p>
                             <p className={styles.Location}><img className={styles.wishIcon} src='/img/icon/location.png' alt='mapIcon'/> {v.landmark}</p>
                             <div className={styles.hotelPrice}>
                                 <div className={styles.interestZone}>
-                                    <p className={styles.interest}>관심 <span className={styles.interestCount}>{v.wish_num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span></p>
-                                    <p className={styles.interest}>리뷰 <span className={styles.interestCount}>{v.review_num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span></p>
+                                    <p className={styles.interest}>관심 {v.wish_num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p>
+                                    <p className={styles.interest}>리뷰 {v.review_num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p>
                                 </div>
                                 <div className={styles.priceZone}>
-                                    {v.rent_list_price === null ? <><br/><br/></>: <><p className={styles.discounts}><span className={styles.discount}>{v.rent_dc_rate}%</span><span className={styles.discountPrice}>{v.rent_list_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</span></p>
-                                    <p className={styles.roomPrice}>대실 {v.rent_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</p></>}
+                                    {v.rent_list_price === null ? <><br/><br/></>: <><p className={styles.discounts}><span className={styles.discount}>{v.rent_dc_rate}% &nbsp;</span><span className={styles.discountPrice}>{v.rent_list_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</span></p>
+                                    <p className={styles.roomPrice}>대실 <span className={styles.salePrice}>{v.rent_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>원</p></>}
                                     
-                                    <p className={styles.discounts}><span className={styles.discount}>{v.lodge_dc_rate}%</span><span className={styles.discountPrice}>{v.lodge_list_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</span></p>
-                                    <p className={styles.roomPrice}>숙박 {v.lodge_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</p>
+                                    <p className={styles.discounts}><span className={styles.discount}>{v.lodge_dc_rate}% &nbsp;</span><span className={styles.discountPrice}>{v.lodge_list_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</span></p>
+                                    <p className={styles.roomPrice}>숙박 <span className={styles.salePrice}>{v.lodge_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>원</p>
+                                </div>
+                            </div>
+                            <div className={styles.businessBox}>
+                                <p className={styles.businessTitle}>기업회원가</p>
+                                <div className={styles.businessPriceBox}>
+                                    <p><span className={styles.businessRate}>50% </span><span className={styles.businessPrice}>80,000원</span></p>
+                                    <p className={styles.businessTxt}>기업숙박 <span className={styles.businessSalePrice}>40,000</span>원</p>
                                 </div>
                             </div>
                         </div>

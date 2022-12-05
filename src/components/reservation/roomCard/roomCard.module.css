@@ -6,7 +6,6 @@
 
 .roomCard{
     width: 384px;
-    height: 358px;
     border-radius: 12px;
     box-shadow: 0px 2px 4px rgba(84, 116, 199, 0.07);
     border: 1px solid #EDEFF2;
@@ -62,12 +61,9 @@ p{
 }
 
 .interest{
-    font-size: 14px;
-    color: #4365A2;
-    font-weight: 600;
-}
-.interestCount{
-    color: #303030;
+    font-size: 0.9rem;
+    color: #A4A4A4;
+    font-weight: 500;
 }
 
 .priceZone{
@@ -75,21 +71,75 @@ p{
 }
 
 .discounts{
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 0.9rem;
+    font-weight: 700;
 }
 .discount{
-    color: #4365A2;
+    color: #EA5D5D;
 }
 .discountPrice{
-    color: #A1A1A1;
+    color: #A4A4A4;
+    font-weight: 500;
     text-decoration: line-through;
 }
 .roomPrice{
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 1rem;
+    font-weight: 500;
     color: #303030;
+}
+.salePrice{
+    font-weight: 700;
 }
 .link{
     text-decoration: none;
+}
+.businessBox{
+    border: 1px solid #EDEFF2;
+    background-color: #F2F9FF;
+    border-radius: 0.25rem;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+    margin-top: 1rem;
+}
+.businessTitle{
+    font-size: 1rem;
+    font-weight: 600;
+    color: #3966B7;
+    text-align: left;
+    margin-left: 0.25rem;
+}
+.businessPriceBox{
+    text-align: right;
+    margin-right: 0.25rem;
+    width: 100%;
+}
+.businessRate{
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #4365A2;
+}
+.businessPrice{
+    color: #A4A4A4;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration-line: line-through;
+}
+.businessTxt{
+    font-size: 1rem;
+    color: #303030;
+}
+.businessSalePrice{
+    font-size: 1rem;
+    font-weight: 700;
+    color: #303030;
+}
+.pointMark{
+    display: flex;
+    color: #4285F4;
+    font-weight: 700;
+    font-size: 0.75rem;
+    align-items: center;
 }
