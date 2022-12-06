@@ -86,7 +86,7 @@ function Main() {
                 </div>
                 <div className={styles.recommand}>
                     <p className={styles.title}>추천숙소 &nbsp;<img className={styles.seemoreBtn} onClick={()=> recommandDorm({recommendLodgements})} src='img/icon/seemore.png' alt='더보기' /></p>
-                    <div className={styles.recommandBox}>
+                    <div className={`${styles.recommandBox} ${styles.recommandHotelBox}`}>
                         <RecommandHotel state={users.recommend_lodgements}/>
                     </div>
                 </div>

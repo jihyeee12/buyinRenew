@@ -1,5 +1,5 @@
 .roomPriceInfo{
-    width: 30rem;
+    width: 24rem;
     background-color: #fff;
     border: 1px solid #EDEFF2;
     box-shadow: 0px 2px 4px 0px #5474C712;
@@ -9,25 +9,21 @@
 }
 
 .roomInfo{
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; */
-    padding: 1.25rem;
     border-bottom: 1px solid #F1F1F1;
 }
 .roomImg{
     width: 100%;
-    border-radius: 0.5rem;
-    margin-bottom: 1rem;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    height: 12.5rem;
 }
 .roomName{
     width: 100%;
     font-size: 0.9rem;
     font-weight: 500;
+    padding: 1.25rem;
     color: #303030;
     position: relative;
-    margin-top: 1.5rem;
 }
 .standardBox{
     padding: 0.25rem;
@@ -38,6 +34,7 @@
 .standardBox p{
     font-size: 0.9rem;
     color: #707070;
+    margin: 0;
 }
 
 .roomName h4{
@@ -48,29 +45,29 @@
     font-weight: 600;
 }
 
-.rent{
-    border-bottom: 1px solid #F1F1F1;
-    padding: 1rem 1.25rem;
-}
-.lodge{
+.hotelPriceBox{
     padding: 1rem 1.25rem;
 }
 .discount{
+    font-family: pretendard;
     text-align: right;
     font-size: 0.9rem;
-    font-weight: 600;
+    font-weight: 500;
 }
 .percent{
-    color: #3966B7;
+    color: #EA5D5D;
     margin-right: 0.25rem;
+    font-weight: 700;
 }
 .listPrice{
-    color: #A1A1A1;
+    color: #A4A4A4;
     text-decoration: line-through;
 }
 .kinds{
     display: grid;
     grid-template-columns: 50% 50%;
+    align-items: center;
+    align-content: center;
 }
 .kinds p{
     font-size: 1rem;
@@ -82,11 +79,19 @@
     color: #A1A1A1;
     font-weight: 500;
     font-size: 0.9rem;
-    margin-left: 0.25rem;
+    font-family: pretendard;
 }
 .typeName{
     text-align: left;
 }
 .salePrice{
+    text-align: right;
+    font-size: 1rem;
+    color: #303030;
+}
+.hotelSalePrice{
+    font-weight: 700;
+}
+.discountBox{
     text-align: right;
 }

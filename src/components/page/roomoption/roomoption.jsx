@@ -1,22 +1,31 @@
 import React from 'react';
 import styles from './roomopion.module.css';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Options from '../../reservation/options/options';
 
 const Roomoption = () => {
+    const location = useLocation();
     const navigate = useNavigate();
+    const locationState = location.state.roomType;
+    console.log(locationState);
 
     const linkpay = () => {
         navigate('/payment');
     }
-    const basket = () => {
-        navigate('/Basket');
-    }
+    // const basket = () => {
+    //     navigate('/Basket');
+    // }
     return(
         <>
         <div className={styles.roomoption}>
             <div className={styles.optionBox}>
-                <Options basket={basket}/>
+                {locationState === 0 && <div>
+                    <h4 className={styles.title}>이용시간 선택</h4>
+                    <div>
+                        <button type='button' className={styles.timeBtn}>18:00</button>
+                    </div>
+                    </div>}
+                {/* <Options basket={basket}/> */}
             </div>
             <div>
                 <div className={styles.reservationInfo}>
@@ -46,7 +55,7 @@ const Roomoption = () => {
                     </table>
                 </div>
                 <div className={styles.moveBtn}>
-                    <button type='button' className={styles.basketBtn} onClick={basket}>장바구니 담기</button>
+                    {/* <button type='button' className={styles.basketBtn} onClick={basket}>장바구니 담기</button> */}
                     <button type='button' className={styles.payBtn} onClick={linkpay}>바로 결제하기</button>
                 </div>
             </div>

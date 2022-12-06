@@ -4,6 +4,7 @@ import styles from './roomprice.module.css';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import BusinessBox from './businessBox/businessBox';
 
 
 const Roomprice = (props) => {
@@ -43,19 +44,32 @@ const Roomprice = (props) => {
                     </div>
                 </div>
             </div>
-            <div className={styles.rent}  onClick={linkRoom}>
-                <p className={styles.discount}><span className={styles.percent}>50%</span><span className={styles.listPrice}>40,000원</span></p>
+            <div className={styles.hotelPriceBox} onClick={linkRoom}>
+            <div className={styles.rent}>
                 <div className={styles.kinds}>
-                    <p className={styles.typeName}>대실<span className={styles.availTime}>최대 3시간 이용가능</span></p>
-                    <p className={styles.salePrice}>20,000원</p>
+                    <div>
+                        <p className={styles.typeName}>대실</p>
+                        <span className={styles.availTime}>최대 3시간 이용가능</span>
+                    </div>
+                    <div>
+                        <p className={styles.discountBox}><span className={styles.discount}><span className={styles.percent}>50%</span><span className={styles.listPrice}>40,000원</span></span></p>
+                        <p className={styles.salePrice}><span className={styles.hotelSalePrice}>20,000</span>원</p>
+                    </div>
                 </div>
             </div>
-            <div className={styles.lodge}  onClick={linkRoom}>
-                <p className={styles.discount}><span className={styles.percent}>50%</span><span className={styles.listPrice}>40,000원</span></p>
+            <div className={styles.lodge}>
                 <div className={styles.kinds}>
-                    <p className={styles.typeName}>숙박<span className={styles.availTime}>18:00부터 12:00까지</span></p>
-                    <p className={styles.salePrice}>35,000원</p>
+                    <div>
+                        <p className={styles.typeName}>숙박</p>
+                        <span className={styles.availTime}>18:00부터</span>
+                    </div>
+                    <div>
+                        <p className={styles.discountBox}><span className={styles.discount}><span className={styles.percent}>40%</span><span className={styles.listPrice}>70,000원</span></span></p>
+                        <p className={styles.salePrice}><span className={styles.hotelSalePrice}>42,000</span>원</p>
+                    </div>
                 </div>
+            </div>
+            <BusinessBox/>
             </div>
         </div>
         </>

@@ -1,0 +1,39 @@
+.businessBox{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    border: 1px solid #EDEFF2;
+    background-color: #F2F9FF;
+    box-sizing: border-box;
+    border-radius: 0.25rem;
+    padding: 0.25rem;
+    align-items: center;
+}
+.businessTitle{
+    font-size: 1rem;
+    font-weight: 500;
+}
+.businessTime{
+    color: #A4A4A4;
+    font-size: 0.9rem;
+}
+.businessRate{
+    color: #3966B7;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-right: 0.25rem;
+}
+.businessListPrice{
+    color: #A4A4A4;
+    font-size: 0.9rem;
+    text-decoration: line-through;
+}
+.businessSalePrcie{
+    font-size: 1rem;
+    color: #303030;
+}
+.hotelPrice{
+    font-weight: 700;
+}
+.right{
+    text-align: right;
+}

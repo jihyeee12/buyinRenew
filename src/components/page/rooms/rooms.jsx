@@ -6,16 +6,22 @@ import styled, {css} from 'styled-components';
 import Slider from "react-slick";
 import Modal from '../../modal/modal';
 import Calendar from '../../date/date';
+import BusinessBox from '../../reservation/roomprice/businessBox/businessBox';
 
 const Rooms = () => {
     const navigate = useNavigate();
 
-    const linkOption = () => {
-        navigate('/roomoption');
+    const linkOption = (roomType) => {
+        navigate('/roomoption',{
+            state:{
+                roomType: roomType
+            }
+        });
     }
     const [modalOpen, setModalOpen] = useState(false);
     const [cancelModal, setCancelModal] = useState(false);
     const [roomModal, setRoomModal] = useState(false);
+    const [businessModal, setBusinessModal] = useState(false);
     const [index, setIndex] = useState("0");
     const [clickImg, setClickImg] = useState("0");
     
@@ -118,7 +124,7 @@ const Rooms = () => {
             <div className={styles.roomInfo}>
                 <div className={styles.roomName}>
                     <h4>스탠다드</h4>
-                    <p>기준 2명/ 최대 2명</p>
+                    <button type='button' className={styles.standard}><p>기준 2명/ 최대 2명</p></button>
                     <p>넷플릭스 이용가능</p>
                 </div>
                 <div className={styles.date}>
@@ -126,19 +132,26 @@ const Rooms = () => {
                 </div>
                 <div className={styles.rentType}>
                     <div className={styles.rent}>
-                        <p className={styles.discount}><span className={styles.percent}>50%</span><span className={styles.listPrice}>40,000원</span></p>
+                        <div>
+                            <p className={styles.typeName}>대실</p>
+                            <span className={styles.availTime}>최대 3시간</span>
+                        </div>
                         <div className={styles.kinds}>
-                            <p className={styles.typeName}>대실<span className={styles.availTime}>최대 3시간 이용가능</span></p>
-                            <p className={styles.salePrice}>20,000원</p>
+                            <p className={styles.discount}><span className={styles.percent}>50%</span><span className={styles.listPrice}>40,000원</span></p>
+                            <p className={styles.salePrice}><span className={styles.hotelSalePrice}>20,000</span>원</p>
                         </div>
                     </div>
                     <div className={styles.lodge}>
-                        <p className={styles.discount}><span className={styles.percent}>50%</span><span className={styles.listPrice}>40,000원</span></p>
+                        <div>
+                            <p className={styles.typeName}>숙박</p>
+                            <span className={styles.availTime}>18:00부터</span>
+                        </div>
                         <div className={styles.kinds}>
-                            <p className={styles.typeName}>숙박<span className={styles.availTime}>18:00부터 12:00까지</span></p>
-                            <p className={styles.salePrice}>35,000원</p>
+                            <p className={styles.discount}><span className={styles.percent}>50%</span><span className={styles.listPrice}>40,000원</span></p>
+                            <p className={styles.salePrice}><span className={styles.hotelSalePrice}>35,000</span>원</p>
                         </div>
                     </div>
+                    <BusinessBox/>
                 </div>
                 <div className={styles.roomInfoDetail}>
                     <h4 className={styles.detailTitle}>객실정보 <span className={styles.detailPop} onClick={() => setRoomModal(!roomModal)}>상세정보&nbsp;<img src="/img/icon/rightArrow.png" alt="right" /></span></h4>
@@ -175,8 +188,11 @@ const Rooms = () => {
                 <div className={styles.reservationBtn}>
                     <img src="/img/icon/giftBtn.png" alt="giftBtn" onClick={()=> setModalOpen(!modalOpen)}/>
                     {modalOpen && <Modal type={"buyRoom"} setModalOpen={() => setModalOpen(!modalOpen)} />}
-                    <button type='button' className={styles.rentBtn}>대실예약</button>
-                    <button type='button' className={styles.lodgeBtn} onClick={linkOption}>숙박예약</button>
+                    <button type='button' className={styles.rentBtn} onClick={() => linkOption(0)}>대실예약</button>
+                    <button type='button' className={styles.lodgeBtn} onClick={() => linkOption(1)}>숙박예약</button>
+                    {/* 기업회원가가 없는 객실일때
+                     onClick={() => setBusinessModal(!businessModal)}
+                    {businessModal && <Modal type={"business"} setBusinessModal = {() => setBusinessModal(!businessModal)}/>} */}
                 </div>
             </div>
         </div>

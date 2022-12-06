@@ -76,3 +76,7 @@ main{
     color: #717171;
     margin-top: 1.5rem;
 }
+.link{
+  text-decoration: none;
+  color: inherit;
+}

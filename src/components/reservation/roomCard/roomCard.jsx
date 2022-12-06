@@ -6,6 +6,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import styled, {css} from 'styled-components';
+import BusinessCard from './businessCard';
 
     const RoomCard = ({state, slider}) => {
        
@@ -104,13 +105,7 @@ import styled, {css} from 'styled-components';
                                     <p className={styles.roomPrice}>숙박 <span className={styles.salePrice}>{v.lodge_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>원</p>
                                 </div>
                             </div>
-                            <div className={styles.businessBox}>
-                                <p className={styles.businessTitle}>기업회원가</p>
-                                <div className={styles.businessPriceBox}>
-                                    <p><span className={styles.businessRate}>50% </span><span className={styles.businessPrice}>80,000원</span></p>
-                                    <p className={styles.businessTxt}>기업숙박 <span className={styles.businessSalePrice}>40,000</span>원</p>
-                                </div>
-                            </div>
+                            <BusinessCard/>
                         </div>
                         </Link>
                     </div>
@@ -127,6 +122,7 @@ import styled, {css} from 'styled-components';
                         </button>
                         <Link className={styles.link} to={`/lodgement/${v.lodgement_id}`}>
                         <div className={styles.roomInfo} >
+                            <p className={styles.pointMark}><img src="../../../img/icon/pointMark.png" alt="ambassador" /> &nbsp;1,000P</p>
                             <p className={styles.HotelName}>{v.lodgement_name}</p>
                             <p className={styles.Location}><img className={styles.wishIcon} src='/img/icon/location.png' alt='mapIcon'/> {v.landmark}</p>
                             <div className={styles.hotelPrice}>
@@ -142,6 +138,7 @@ import styled, {css} from 'styled-components';
                                     <p className={styles.roomPrice}>숙박 {v.lodge_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</p>
                                 </div>
                             </div>
+                            <BusinessCard/>
                         </div>
                         </Link>
                     </div>

@@ -7,6 +7,7 @@ import CancelModal from './modal/cancelModal';
 import CouponModal from './modal/couponModal';
 import DeleteModal from './modal/deleteModal';
 import HotelFullViewModal from './modal/hotelFullViewModal';
+import NoBusinessModal from './modal/noBusinessModal';
 import PhotoReviewModal from './modal/photoReviewModal';
 import ProductInfoModal from './modal/productInfoModal';
 import RefundModal from './modal/refundModal';
@@ -14,7 +15,7 @@ import ReservationCancelModal from './modal/reservationCancelModal';
 import RoomDetailModal from './modal/roomDetailModal';
 import RoominfoModal from './modal/roominfoModal';
 
-const Modal = ({setModalOpen, type,setcouponOpen, setrefundOpen, setAllReview, setPhotoOpen,setHotelOpen, lodgement, setCancelModal, setRoomModal, id, cancelReason,targetAmenity, setAmenityName, changeAmenity, img_id}) => {
+const Modal = ({setModalOpen, type,setcouponOpen, setrefundOpen, setAllReview, setPhotoOpen,setHotelOpen, lodgement, setCancelModal, setRoomModal, id, cancelReason,targetAmenity, setAmenityName, changeAmenity, img_id, setBusinessModal}) => {
     
     const closeModal = () => {
         {if(type === "coupon"){
@@ -31,6 +32,8 @@ const Modal = ({setModalOpen, type,setcouponOpen, setrefundOpen, setAllReview, s
             return setCancelModal(false);
         } else if(type === "room"){
             return setRoomModal(false);
+        } else if(type === "business"){
+            return setBusinessModal(false);
         } else{
             return setModalOpen(false);
         }
@@ -81,6 +84,7 @@ const Modal = ({setModalOpen, type,setcouponOpen, setrefundOpen, setAllReview, s
                         type === "amenity"? <AmenityModal targetAmenity={targetAmenity} setAmenityName={setAmenityName} changeAmenity={changeAmenity}/>:
                         type === "room"? <RoomDetailModal/>:
                         type === "reservationCancel"? <ReservationCancelModal id={id} cancelReason={cancelReason} closeModal={closeModal}/>:
+                        type === "business"? <NoBusinessModal closeModal={closeModal}/>:
                         null
                         }
                    </div>

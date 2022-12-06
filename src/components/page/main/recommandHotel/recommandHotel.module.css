@@ -1,18 +1,26 @@
 .recommandItem{
-    padding: 0 1rem;
+    padding: 0.5rem 1.125rem;
     border-right: 1px solid #EDEFF2;
+    width: 30%;
+}
+.recommandBox{
+    display: grid;
+    grid-template-columns: 30% 70%;
 }
 .lodgement_img{
-    width: 16.5rem;
-    height: 10rem;
+    width: 6.8rem;
+    height: 7.5rem;
     border-radius: 0.5rem;
 }
-.recommandItem:last-child{
+.recommandItem:last-child, .recommandItem:nth-child(3){
     border-right: none;
 }
 .lodgement_name{
     font-size: 1rem;
     font-weight: 600;
+}
+.priceInfoBox{
+    padding: 0 0.5rem;
 }
 .infoBox{
     display: grid;
@@ -24,24 +32,28 @@
     font-weight: 600;
 }
 .Count{
-    font-size: 0.9rem;
-}
-.countTitle{
-    color: #4365A2;   
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: #A4A4A4;
 }
 .priceBox{
     text-align: right;
 }
 .dcRate{
-    color: #4365A2;
+    color: #EA5D5D;
     font-weight: 600;
     font-size: 0.9rem;
 }
 .priceTxt{
-    color: #A1A1A1;
+    color: #A4A4A4;
+    font-size: 0.8125rem;
     text-decoration-line: line-through;
 }
 .salePrice{
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 0.985rem;
+    font-weight: 500;
+    color: #303030;
+}
+.roomSalePrice{
+    font-weight: 700;
 }

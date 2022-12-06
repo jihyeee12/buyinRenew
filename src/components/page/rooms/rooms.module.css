@@ -18,7 +18,7 @@
 }
 .bigRoom{
     width: 36.7rem;
-    height: 23.7rem;
+    height: 24.7rem;
     border-radius: 8px;
 }
 .roomchange{
@@ -72,12 +72,13 @@
     border-radius: 8px;
     box-sizing: border-box;
 }
-.rent{
-    border-bottom: 1px solid #F1F1F1;
+.rentType{
     padding: 1rem 1.25rem;
 }
-.lodge{
-    padding: 1rem 1.25rem;
+.rent, .lodge{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding-bottom: 1rem;
 }
 .discount{
     text-align: right;
@@ -85,17 +86,15 @@
     font-weight: 600;
 }
 .percent{
-    color: #3966B7;
+    color: #EA5D5D;
     margin-right: 0.25rem;
+    font-weight: 700;
 }
 .listPrice{
-    color: #A1A1A1;
+    color: #A4A4A4;
     text-decoration: line-through;
 }
-.kinds{
-    display: grid;
-    grid-template-columns: 50% 50%;
-}
+
 .kinds p{
     font-size: 1rem;
     color: #303030;
@@ -103,16 +102,18 @@
     width: 100%;
 }
 .availTime{
-    color: #A1A1A1;
+    color: #A4A4A4;
     font-weight: 500;
     font-size: 0.9rem;
-    margin-left: 0.25rem;
 }
 .typeName{
     text-align: left;
+    font-size: 1rem;
 }
 .salePrice{
     text-align: right;
+    font-size: 1rem;
+    color: #303030;
 }
 .roomInfoDetail{
     padding: 1.25rem;
@@ -181,6 +182,19 @@
     font-family: pretendard;
     margin: 0 0.5rem;
 }
+.rentBtn{
+    background-color: #3DA1D9;
+}
 .selectImg{
     outline: 3px solid #3966B7;
+}
+.standard{
+    border: 1px solid #E5E5E5;
+    border-radius: 0.125rem;
+    background-color: white;
+    cursor: auto;
+}
+.hotelSalePrice{
+    font-size: 1rem;
+    font-weight: 700;
 }

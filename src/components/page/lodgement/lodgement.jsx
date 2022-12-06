@@ -6,6 +6,7 @@ import Roomprice from '../../reservation/roomprice/roomprice';
 import Modal from '../../modal/modal';
 import Date from '../../date/date';
 import HotelMaps from './map/hotelMaps';
+import LodgeReview from './lodgeReview';
 
 
 const Lodgement = () => {
@@ -107,6 +108,7 @@ const Lodgement = () => {
                         <img className={styles.photoReviews} src="/img/roomImg/reviewImg.png" alt="reviewimg" />
                         <img className={styles.photoReviews} src="/img/roomImg/reviewImg.png" alt="reviewimg" />
                         <img className={styles.photoReviews} src="/img/roomImg/reviewImg.png" alt="reviewimg" />
+                        <img className={styles.photoReviews} src="/img/roomImg/reviewImg.png" alt="reviewimg" />
                         <div className={styles.reviewPlus} onClick={()=> setAllReview(!allReview)}>
                             <p>+5</p>
                         </div>
@@ -114,17 +116,7 @@ const Lodgement = () => {
                     {photoOpen && <Modal type={"photoReview"} img_id={imgId} setPhotoOpen={() => setPhotoOpen(!photoOpen)} />}
                     </div>
                     <div className={styles.reviewText}>
-                        <div className={styles.userReview}>
-                            <h4>바이인호텔님</h4>
-                            <h4>2022.01.01</h4>
-                            <h4>스탠다드</h4>
-                            <p className={styles.userContents}>내부 깔끔했어요 우선 거울이 여기저기 많구 큼직해서 좋았어용 ㅎㅎ 컴터 두대에 좋아보였어요 
-                                게임하시는 분들한테는 좋을듯용 전 휴식차원에서 가서 조용하게 잘 쉬다 왔어요 화장실 문이 문이 문이 문의 문의 두대 두대 화장실
-                                좀 빡빡한거외에 좋았습니다
-                            </p>
-                            <img src="/img/roomImg/reviewImg.png" alt="reviewimg" />
-                            <p className={styles.likeNum}><img src="/img/icon/likeBtn.png" alt="likeBtn" />&nbsp;100</p>
-                        </div>
+                        <LodgeReview/>
                         <button type='button' className={styles.reviewBtn}>리뷰 더보기</button>
                     </div>
                 </div>
