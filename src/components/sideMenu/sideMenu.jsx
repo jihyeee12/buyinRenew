@@ -1,12 +1,11 @@
 import React from 'react';
 import styles from './sideMenu.module.css';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import styled from 'styled-components';
 
 const SideMenu = ({type}) => {
-    const navigate = useNavigate();
     
-    const [activeId, setActiveId] = useState();
     const menuList = [
         {EngName : "info", KorName: "내정보"},
         {EngName : "reservationList", KorName: "예약내역"},
@@ -23,32 +22,47 @@ const SideMenu = ({type}) => {
         {EngName: "faq", KorName: "FAQ"},
         {EngName: "terms", KorName: "약관 및 정책"},
     ]
-    const menuclickStyle = {
-        background: "#3966B7",
-        borderRadius: "4px",
-        color: "#ffffff!important"
-    }
-    const navigateMenu = (menuName,index) => {
-    navigate(`/${menuName}`);
-    setActiveId(index);
-    }
-    const navigateSee = (seeName, index) => {
-        navigate(`/${seeName}`);
-        setActiveId(index);
-    }
+    const MenuclickStyle = styled.li`
+        width: 9.6rem;
+        font-family: pretendard;
+        font-size: 1.25rem;
+        font-weight: 600;
+        cursor: pointer;
+        a {
+            color: #303030;
+            text-decoration: none;
+            padding: 0.8rem;
+            width: 100%;
+            display: block;
+            &.active {
+                background: #3966B7;
+                border-radius: 4px;
+                color: #ffffff!important;
+            }
+        }
+    `
+ 
     return(
             <div className={styles.sideMenu}>
                 {type === 'my' ? 
                     <ul>
                         
                         {menuList.map((menu,index) => (
-                            <li key={index} className={activeId === index ? styles.menuClick : ""} onClick={() => navigateMenu(menu.EngName,index)}>{menu.KorName}</li>
+                            <MenuclickStyle key={index}>
+                                <NavLink to={`/${menu.EngName}`} activeClassName="active">
+                                    {menu.KorName}
+                                </NavLink>
+                            </MenuclickStyle>
                         ))}
                     </ul>
                     :
                     <ul>
                         {seemoreList.map((see,index) => (
-                            <li key={index} className={activeId === index ? styles.menuClick : ""} onClick={() => navigateSee(see.EngName,index)}>{see.KorName}</li>
+                            <MenuclickStyle key={index}>
+                                <NavLink to={`/${see.EngName}`} activeClassName="active">
+                                {see.KorName}
+                                </NavLink>
+                            </MenuclickStyle>
                         ))}
                     </ul>
                 }

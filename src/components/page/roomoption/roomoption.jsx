@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './roomopion.module.css';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Options from '../../reservation/options/options';
+import TimeTable from './timeTable/timeTable';
 
 const Roomoption = () => {
     const location = useLocation();
@@ -21,9 +22,7 @@ const Roomoption = () => {
             <div className={styles.optionBox}>
                 {locationState === 0 && <div>
                     <h4 className={styles.title}>이용시간 선택</h4>
-                    <div>
-                        <button type='button' className={styles.timeBtn}>18:00</button>
-                    </div>
+                        <TimeTable/>
                     </div>}
                 {/* <Options basket={basket}/> */}
             </div>

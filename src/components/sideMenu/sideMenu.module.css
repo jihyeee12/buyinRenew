@@ -2,15 +2,7 @@
     width: 100%;
     margin-left: 0;
 }
-.sideMenu ul li{
-    width: 56%;
-    padding: 0.8rem;
-    font-family: pretendard;
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #303030;
-    cursor: pointer;
-}
+
 .menuClick{
     background: #3966B7;
     border-radius: 4px;

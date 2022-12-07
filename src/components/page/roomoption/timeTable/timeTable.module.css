@@ -1,0 +1,24 @@
+.timeTable{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+}
+
+.timeBtn{
+    border: 1px solid #3966B7;
+    color: #3966B7;
+    background-color: white;
+    border-radius: 0.25rem;
+    box-sizing: border-box;
+    font-family: pretendard;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    width: 3.375rem;
+    margin: 0 0.5rem 0.5rem;
+    cursor: pointer;
+}
+.checkBtn{
+    background-color: #3966B7;
+    color: #FFFFFF;
+}
