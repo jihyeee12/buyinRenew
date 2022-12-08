@@ -23,14 +23,14 @@ const Info = () => {
                         <p className={styles.userinfo}><span className={styles.user_name}>바이인호텔</span> 님 <span className={styles.grade}>VIP</span></p>
                         <table className={styles.userTable}>
                             <tbody>
-                               <tr>
-                                <td>연락처</td>
-                                <td>010-6666-6666</td>
-                               </tr>
-                               <tr>
-                                <td>이메일</td>
-                                <td>buyinhotel@naver.com</td>
-                               </tr> 
+                                <tr>
+                                    <td>연락처</td>
+                                    <td>010-6666-6666</td>
+                                </tr>
+                                <tr>
+                                    <td>이메일</td>
+                                    <td>buyinhotel@naver.com</td>
+                                </tr> 
                             </tbody>
                         </table>
                     </div>

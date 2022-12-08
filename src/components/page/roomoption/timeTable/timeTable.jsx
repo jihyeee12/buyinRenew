@@ -8,6 +8,8 @@ import { useState } from 'react';
 const TimeTable = () => {
     const [sequence, setSequence] = useState(true);
     const [dateList, setDateList] = useState([]);
+    const currentTime = new Date().toLocaleTimeString().split(" ")[1].substring(0,5);
+    console.log(currentTime);
 
     const times = [
         {id: 0, time: "11:00"},
@@ -73,8 +75,11 @@ const TimeTable = () => {
     return (
         <div>
             <ul className={styles.timeTable}>
-                {times.map((time ,index) => (
-                    <li key={index} className={[styles.timeBtn , (dateList.includes(time.time) && styles.checkBtn)].join(" ")} value={time.time} onClick={() => timeClick(time.time)}>{time.time}</li>
+                {times.map((time ,index) => (<>
+                    {currentTime < time.time && (
+                        <li key={index} className={[styles.timeBtn , (dateList.includes(time.time) && styles.checkBtn)].join(" ")} value={time.time} onClick={() => timeClick(time.time)}>{time.time}</li>
+                    )}
+                    </>
                 ))}
             </ul>
         </div>

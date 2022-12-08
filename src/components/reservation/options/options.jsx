@@ -27,15 +27,15 @@ const Options = ({basket}) => {
     const personAdd = useRef();
     const bedRoomAdd = useRef();
 
-    const onPlus = () => {
-        setCounter((prev) => prev +1)
+    const onPlus = (e) => {
+        setCounter((e) => e +1)
     };
 
-    const onMinus = () => {
+    const onMinus = (e) => {
         if(counter < 1){
             return
         }
-        setCounter((prev) => prev -1);
+        setCounter((e) => e -1);
     }
     return(
     <>
@@ -79,9 +79,9 @@ const Options = ({basket}) => {
                     {basket.room_options.map(room => (
                         <tr>
                             <td><span className={styles.plusTitle}>{room.option_name}</span>&nbsp;<span className={styles.plusPrice}>({room.option_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원)</span></td>
-                            <td><button type='button' className={styles.minus} onClick={onMinus}>―</button>
-                                <input name={room.option_count} className={styles.count} onChange={(e) => setCounter(e.target.value)} ref={personAdd} type="text" value={counter} disabled/>
-                                <button type='button' className={styles.plus} onClick={onPlus}>+</button>
+                            <td><button type='button' className={styles.minus} onClick={() => onMinus(room.option_count)}>―</button>
+                                <input name={room.option_id} className={styles.count}  ref={personAdd} type="text" value={counter} disabled/>
+                                <button type='button' className={styles.plus} onClick={() => onPlus(room.option_count)}>+</button>
                             </td>
                         </tr>
                     ))}
