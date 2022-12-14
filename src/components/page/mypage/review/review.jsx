@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './review.module.css';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState ,useEffect } from 'react';
 import Banner from '../../../banner/banner';
 import SideMenu from '../../../sideMenu/sideMenu';
@@ -37,7 +37,6 @@ const Review = () => {
         Get.getReview(index)
         .then(function (response) {
             setreview(response);
-            
         })
         .catch(error => {
             setError(error);
@@ -86,13 +85,13 @@ const Review = () => {
                                                 <tr>
                                                     <td>{review.review_date}</td>
                                                     <td>
-                                                        <span key={review.review_id} onClick={() => writeReview(review.reservation_id)}>수정</span>
+                                                        <Link className='link' to={`/writeReview/${review.reservation_id}`}><span key={review.review_id}>수정</span></Link>
                                                         <span key={review.review_id} className={styles.deleteBtn} onClick={()=> setModalOpen(!modalOpen)}>삭제</span>
-                                                        {modalOpen && <Modal type={"delete"} setModalOpen={() => setModalOpen(!modalOpen)} />}
                                                     </td>
                                                 </tr>
                                             </tbody>
                                         </table>
+                                        {modalOpen && <Modal type={"delete"} setModalOpen={() => setModalOpen(!modalOpen)} />}
                                         <div className={styles.hotelInfoBox}>
                                             <div>
                                                 <img src={review.lodgement_img_url} alt='호텔이미지' className={styles.hotelImg} />
@@ -104,7 +103,7 @@ const Review = () => {
                                         </div>
                                         <p className={styles.reviewTxt}>{review.review_text}</p>
                                         <div className={styles.reviewImgBox}>
-                                            <img className={styles.reviewImg} src={review.review_img_url} style={{display: review.review_img_url === null ? "none": "block"}} alt="리뷰이미지" />
+                                            {review.review_img_url && <img className={styles.reviewImg} src={review.review_img_url} alt="리뷰이미지" />}
                                         </div>
                                         <div className={styles.likeBox}>
                                             <img src="../../../img/icon/likeBtn.png" alt="좋아요" />
@@ -122,9 +121,9 @@ const Review = () => {
                                     <div className={styles.reviewAbleBox}>
                                         <table className={styles.reviewAbleTable}>
                                             <tbody>
-                                                <tr>
+                                                <tr className={styles.writeBox}>
                                                     <td>{able.date_string} <span>이용완료</span></td>
-                                                    <td className={styles.reviewBtn} key={able.reservation_id} onClick={() => writeReview(able.reservation_id)}>리뷰작성</td>
+                                                    <Link className='link' to={`/writeReview/${able.reservation_id}`}><td className={styles.reviewBtn} key={able.reservation_id}>리뷰작성</td></Link>
                                                 </tr>
                                             </tbody>
                                         </table>

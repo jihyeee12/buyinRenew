@@ -78,9 +78,10 @@ const Options = ({basket}) => {
                 <tbody>
                     {basket.room_options.map(room => (
                         <tr>
-                            <td><span className={styles.plusTitle}>{room.option_name}</span>&nbsp;<span className={styles.plusPrice}>({room.option_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원)</span></td>
+                            <td>
+                                <span className={styles.plusTitle}>{room.option_name}</span>&nbsp;<span className={styles.plusPrice}>({room.option_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원)</span></td>
                             <td><button type='button' className={styles.minus} onClick={() => onMinus(room.option_count)}>―</button>
-                                <input name={room.option_id} className={styles.count}  ref={personAdd} type="text" value={counter} disabled/>
+                                <input name={room.option_id} className={styles.count} type="text" value={counter} disabled/>
                                 <button type='button' className={styles.plus} onClick={() => onPlus(room.option_count)}>+</button>
                             </td>
                         </tr>
@@ -94,7 +95,6 @@ const Options = ({basket}) => {
                 <div className={styles.amenities}>
                     <p className={styles.amenityType}>{amenity.amenity_name}</p>
                     <div className={styles.selectAmenity}>
-                        
                         <input type="text" className={styles.amenityText} onChange={changeAmenity} value={amenityName} readOnly />
                         <button type='button' className={styles.selectBtn} value={amenity.amenity_id} onClick={ e=> handleModalOpen(e)}>선택</button>
                     </div>

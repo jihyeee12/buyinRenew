@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const ApiAxios =axios.create({
-    baseUrl: 'https://www.buyinhotel.co.kr/',
+    baseUrl: 'http://ekklim.kr/',
     timeout : 1000 
     });
 

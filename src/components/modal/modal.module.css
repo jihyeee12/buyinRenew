@@ -106,6 +106,7 @@
   border: 1px solid #EDEFF2;
   padding: 1rem;
   font-size: 0.9rem;
+  line-height: 1.5rem;
 }
 
 .roomsTable tr td:first-child {

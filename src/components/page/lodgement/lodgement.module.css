@@ -10,6 +10,9 @@
 
 .hotelSmall{
     margin: 0 0.5rem;
+    width: 17.625rem;
+    height: 11rem;
+    border-radius: 0.5rem;
 }
 
 .hotelSmall:nth-child(4){
@@ -20,7 +23,7 @@
 .roomPlus{
     position: absolute;
     font-size: 1.5rem;
-    transform: translate(27.2rem, -7rem);
+    transform: translate(27.2rem, 16rem);
     color: #FFFFFF;
 }
 
@@ -80,9 +83,20 @@
 }
 .serviceIcons{
     display: flex;
+    flex-wrap: wrap;
 }
 .serviceIcon{
     margin-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.serviceIcon img{
+    width: 4.5rem;
+}
+.serviceIcon p{
+    font-size: 0.9rem;
 }
 .introSpan{
     font-size: 0.8rem;
@@ -191,4 +205,25 @@
     width: 100%;
     padding: 0.8rem 0;
     margin-top: 1rem;
+}
+.bigImg{
+    width: 36.75rem;
+    height: 23.25rem;
+    border-radius: 0.5rem;
+}
+.smallImgs{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-between;
+}
+.ambassadorBox{
+    color: #4285F4;
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+.ambassadorPoint{
+    margin-left: 0.5rem;
 }

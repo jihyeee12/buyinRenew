@@ -33,6 +33,10 @@
 .standard{
     color: #636465;
     font-size: 0.8rem;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
 }
 .percent{
     color: #4365A2;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './writeReview.module.css';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Banner from '../../banner/banner';
 import SideMenu from '../../sideMenu/sideMenu';
@@ -9,8 +9,8 @@ import Get from '../../../service/api/url/Get';
 
 const WriteReview = () => {
     const navigate = useNavigate();
-    const location = useLocation();
-    const reservation_id = location.state.reservation_id;
+    const reservation_id = useParams().reservation;
+    console.log(reservation_id);
     
     const review = () =>{
         navigate('/review');
@@ -62,7 +62,7 @@ const WriteReview = () => {
                     <div className={styles.writeArea}>
                         <p>이용해보신 숙소는 어떠셨나요?</p>
                         <p>리뷰를 작성해 주세요.</p>
-                        <textarea className={styles.reviewWrite} name="reviewTxt" id="review" cols="30" rows="10" placeholder='자세하고 솔직한 리뷰는 다른 고객에게 큰 도움이 됩니다. (최소 20자 이상)' />
+                        <textarea className={styles.reviewWrite} name="reviewTxt" id="review" cols="30" rows="10" value={writeReview.review_contents} placeholder='자세하고 솔직한 리뷰는 다른 고객에게 큰 도움이 됩니다. (최소 20자 이상)' />
                         <img className={styles.photoImg} src="../../../img/icon/photoIcon.png" alt="사진추가" />
                     </div>
                 </div>

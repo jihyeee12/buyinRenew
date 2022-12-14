@@ -5,10 +5,10 @@ import styled, {css} from 'styled-components';
 import { useState } from 'react';
 
 
-const HotelFullViewModal = () => {
+const HotelFullViewModal = ({imgData}) => {
     const [index, setIndex] = useState("0");
     const [clickImg, setClickImg] = useState("0");
-    
+    console.log(imgData);
     const imgClick = (i) => {
         setIndex(i);
         setClickImg(i);
@@ -41,40 +41,6 @@ const HotelFullViewModal = () => {
         ${arrowBtn}
         right: -3%;
     `
-    const hotelImg = [
-        {
-            "id": 4170,
-            "lodgement_img_url": "https://www.buyinhotel.co.kr/images/lodgements/ekklim031/ekklim031_99_000_2022-08-19-17_57_27.jpg"
-        },
-        {
-            "id": 4171,
-            "lodgement_img_url": "https://www.buyinhotel.co.kr/images/lodgements/ekklim031/ekklim031_99_069_2022-08-19-17_57_27.jpg"
-        },
-        {
-            "id": 4172,
-            "lodgement_img_url": "https://www.buyinhotel.co.kr/images/lodgements/ekklim031/ekklim031_99_070_2022-08-19-17_57_27.jpg"
-        },
-        {
-            "id": 4173,
-            "lodgement_img_url": "https://www.buyinhotel.co.kr/images/lodgements/ekklim031/ekklim031_99_075_2022-08-19-17_57_27.jpg"
-        },
-        {
-            "id": 4174,
-            "lodgement_img_url": "https://www.buyinhotel.co.kr/images/lodgements/ekklim031/ekklim031_99_076_2022-08-19-17_57_27.jpg"
-        },
-        {
-            "id": 4175,
-            "lodgement_img_url": "https://www.buyinhotel.co.kr/images/lodgements/ekklim031/ekklim031_99_077_2022-08-19-17_57_27.jpg"
-        },
-        {
-            "id": 4176,
-            "lodgement_img_url": "https://www.buyinhotel.co.kr/images/lodgements/ekklim031/ekklim031_99_078_2022-08-19-17_57_27.jpg"
-        },
-        {
-            "id": 4184,
-            "lodgement_img_url": "https://www.buyinhotel.co.kr/images/lodgements/ekklim031/ekklim031_99_086_2022-08-19-17_57_28.jpg"
-        }
-  ]
 
     const settings = {
         infinite: true,
@@ -95,10 +61,10 @@ const HotelFullViewModal = () => {
 
     return (
         <div className={styles.hotelImgBox}>
-            <img className={styles.bigImg} src={hotelImg[index].lodgement_img_url} alt="bigRoom" />
+            <img className={styles.bigImg} src={imgData[index].lodgement_img_url} alt="bigRoom" />
             
             <StyledSlider {...settings}>
-                {hotelImg.map((room, i) => (
+                {imgData.map((room, i) => (
                     <img idx={i} onClick={() => imgClick(i)} 
                     key={room.id} 
                     className={[styles.hotelList , clickImg === i && styles.selectImg].join(" ")} 

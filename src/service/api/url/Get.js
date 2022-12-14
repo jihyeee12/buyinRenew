@@ -103,8 +103,9 @@ export default{
 
     getReview(index){
         const reviewUrl = () => {
+            
             if(index === 0){
-                return '/v2/reservations'
+                return '/reviews'
             } else if(index === 1){
                 return '/reviewables'
             }
@@ -129,4 +130,41 @@ export default{
             method: 'get'
         })
     },
+    getmyInfo(){
+        return ApiAxios({
+            url:`basic-myinfo`,
+            method: 'get'
+        })
+    },
+
+    getPoint(index){
+        const pointUrl = () => {
+            if(index === 0){
+                return `/points`
+            } else if(index === 1){
+                return `coupons`
+            }
+        }
+    return ApiAxios({
+            url: pointUrl(),
+            method: 'get'
+        })
+    },
+    
+    getRecent(){
+        return ApiAxios({
+            url:`recents`,
+            method: 'get'
+        })
+    },
+    getLodgementInfo(lodgement,checkin,checkout){
+        return ApiAxios({
+            url:`/lodgement-info?lodgement=${lodgement}&checkin=${checkin}&checkout=${checkout}`,
+            method: 'get'
+        })
+    },
+
+
+
+
 }

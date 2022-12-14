@@ -7,6 +7,8 @@ import Modal from '../../modal/modal';
 import Date from '../../date/date';
 import HotelMaps from './map/hotelMaps';
 import LodgeReview from './lodgeReview';
+import { useEffect } from 'react';
+import Get from '../../../service/api/url/Get';
 
 
 const Lodgement = () => {
@@ -18,20 +20,34 @@ const Lodgement = () => {
     const [imgId, setImgId] = useState("");
     const {lodgement} = useParams();
 
-    
-    const serviceData = [
-        {id: 0, img_src :'/img/icon/service.png', service_name: "와이파이"},
-        {id: 1, img_src :'/img/icon/service.png', service_name: "와이파이"},
-    ]
-    
-    const hotelImg = [
-        {hotel_id: 0, hotel_img : "/img/roomImg/bigRoom.png"},
-        {hotel_id: 1, hotel_img : "/img/roomImg/room1.png"},
-        {hotel_id: 2, hotel_img : "/img/roomImg/room1.png"},
-        {hotel_id: 3, hotel_img : "/img/roomImg/room1.png"},
-        {hotel_id: 4, hotel_img : "/img/roomImg/room1.png"},
-    ]
+    const [hotelInfo, setHotelInfo] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const checkin = '2022.12.24';
+    const checkout = '2022.12.25';
 
+    useEffect(() => {
+      
+    const fetchhotelInfo = async () => {
+
+        Get.getLodgementInfo(lodgement,checkin,checkout)
+        .then(function (response) {
+            setHotelInfo(response);
+        })
+        .catch(error => {
+            setError(error);
+        })
+        setLoading(false);
+        };
+        fetchhotelInfo();
+    
+    }, []);
+    if (loading) return <div>로딩중..</div>;
+    if (error) return <div>에러가 발생했습니다</div>;
+    if (!hotelInfo) return null;
+    
+    console.log(hotelInfo);
+    
     const clip = () => {
         var url = "";
         var textarea = document.createElement("textarea");
@@ -54,32 +70,33 @@ const Lodgement = () => {
         <>
     <div className={styles.container}>
         <div className={styles.RoomImgs}>
-            <img src={hotelImg[0].hotel_img} alt="bigRoom" />
+            <img className={styles.bigImg} src={hotelInfo.lodgement_images[0].lodgement_img_url} alt="bigRoom" />
             <div className={styles.smallImgs}>
-                <img className={styles.hotelSmall} src={hotelImg[1].hotel_img} alt="smallRoom" />
-                <img className={styles.hotelSmall} src={hotelImg[2].hotel_img} alt="smallRoom" />
-                <img className={styles.hotelSmall} src={hotelImg[3].hotel_img} alt="smallRoom" />
-                <img className={styles.hotelSmall} src={hotelImg[4].hotel_img} onClick={()=> setHotelOpen(!hotelOpen)} alt="smallRoom" /> 
+                <img className={styles.hotelSmall} src={hotelInfo.lodgement_images[1].lodgement_img_url} alt="smallRoom" />
+                <img className={styles.hotelSmall} src={hotelInfo.lodgement_images[2].lodgement_img_url} alt="smallRoom" />
+                <img className={styles.hotelSmall} src={hotelInfo.lodgement_images[3].lodgement_img_url} alt="smallRoom" />
+                <img className={styles.hotelSmall} src={hotelInfo.lodgement_images[4].lodgement_img_url} onClick={()=> setHotelOpen(!hotelOpen)} alt="smallRoom" /> 
                 <div className={styles.roomPlus} >
                     <p>+8</p>
                 </div>   
-                {hotelOpen && <Modal type={"hotelPhoto"} setHotelOpen={() => setHotelOpen(!hotelOpen)} />}        
+                {hotelOpen && <Modal type={"hotelPhoto"} imgData={hotelInfo.lodgement_images} setHotelOpen={() => setHotelOpen(!hotelOpen)} />}        
             </div>
         </div>
         <div className={styles.hotelGrid}>
             <div className={styles.hotelInfo}>
                 <div className={styles.hotelTitle}>
-                    <h4>이끌림호텔 충장점 <img className={styles.shareIcon} onClick={clip} src="/img/icon/share.png" alt="shareIcon" /></h4>
-                    <p className={styles.hotelLocation}><img className={styles.locationImg} src="/img/icon/location.png" alt="location" /> 충장로, 구시청, 아시아문화전당역</p>
+                    <h4>{hotelInfo.lodgement_name} <img className={styles.shareIcon} onClick={clip} src="/img/icon/share.png" alt="shareIcon" /></h4>
+                    <p className={styles.hotelLocation}><img className={styles.locationImg} src="/img/icon/location.png" alt="location" /> {hotelInfo.landmark}</p>
+                    {hotelInfo.is_ambassadr !== false && <p className={styles.ambassadorBox}><img src='../../../img/icon/pointMark.png' alt='ambassador'/> <span className={styles.ambassadorPoint}>3,000P 적립</span></p>}
                     <button type='button' className={styles.couponBtn} onClick={()=> setcouponOpen(!couponOpen)}>최대 10,000원 쿠폰받기<img src='/img/icon/downloadIcon.png'/></button>
                     {couponOpen && <Modal type={"coupon"} setcouponOpen={() => setcouponOpen(!couponOpen)} />}
                 </div>
                 <div className={styles.service}>
                     <h4 className={styles.title}>편의 시설 및 서비스</h4>
                     <div className={styles.serviceIcons}>
-                            {serviceData.map(v => (
+                            {hotelInfo.lodgement_service.map(v => (
                                 <div className={styles.serviceIcon}>
-                                    <img src={v.img_src} alt="serviceIcon" />
+                                    <img src={v.service_icon_url} alt="serviceIcon" />
                                     <p>{v.service_name}</p>
                                 </div>    
                             ))
@@ -92,10 +109,7 @@ const Lodgement = () => {
                     </h4>
                     {modalOpen && <Modal type={"roominfo"} lodgement={lodgement} setModalOpen={() => setModalOpen(!modalOpen)} />}
                     <p className={styles.introText}>
-                        이끌림호텔 신안점은
-                        고객들이 가장 필요로 하는 핵심적인 서비스와 시설에 초점을 맞춤으로써, 스마트한 고객님들의 니즈를 충족하고 비즈니스 호텔과는
-                        차별화된 따뜻하고 감성적이면서 세련된 공간을 제공합니다. 광주 전남대학교에 인접해있어 활기찬 대학가 젊은 감성을 느끼실 수 있고
-                        도보 5분거리에 먹자골목이 있습니다.
+                        {hotelInfo.lodgement_detail}
                     </p>
                     <div className={styles.map}>
                         <HotelMaps/>
@@ -123,7 +137,7 @@ const Lodgement = () => {
             </div>
             <div className={styles.roomSelect}>
                 <Date />
-                <Roomprice />
+                <Roomprice roomData={hotelInfo.rooms}/>
             </div>
         </div>
 

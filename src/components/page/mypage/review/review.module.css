@@ -9,6 +9,7 @@
     box-sizing: border-box;
     background-color: #ffffff;
     border-radius: 8px;
+    margin-bottom: 1rem;
 }
 .reviewTitle{
     font-family: pretendard;
@@ -116,4 +117,9 @@
 }
 .reviewAbleInfo p:last-child{
     font-size: 0.9rem;
+}
+.writeBox{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

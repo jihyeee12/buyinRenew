@@ -70,7 +70,7 @@ function Router() {
               <Route path ='/reservationDetail' element={<ReservationDetail/>}/>
               <Route path ='/point' element={<Point/>}/>
               <Route path ='/review' element={<Review/>}/>
-              <Route path ='/writeReview' element={<WriteReview/>}/>
+              <Route path ='/writeReview/:reservation' element={<WriteReview/>}/>
               <Route path ='/recent' element={<RecentSearch/>}/>
               <Route path ='/giftBox' element={<GiftBox/>}/>
               <Route path ='/giftDetail' element={<GiftDetail/>}/>
