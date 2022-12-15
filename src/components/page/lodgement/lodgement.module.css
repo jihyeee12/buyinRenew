@@ -63,6 +63,8 @@
     color: #636465;
     font-size: 0.8rem;
     display: flex;
+    align-items: flex-start;
+    line-height: 1.125rem;
 }
 .locationImg{
     margin-right: 0.3rem;
@@ -138,7 +140,7 @@
 }
 .reviewPlus{
     position: absolute;
-    color: #FFFFFF;
+    color: blue;
     font-size: 1.3rem;
     right: 9%;
     top: 40%;
@@ -148,10 +150,11 @@
 }
 
 .reviewText{
-    margin-top: 3.125rem;
+    margin-top: 1.5rem;
 }
 .userReview{
     border-bottom: 1px solid #F1F1F1;
+    margin-top: 1rem;
 }
 .userReview h4{
     margin: 0;
@@ -226,4 +229,9 @@
 }
 .ambassadorPoint{
     margin-left: 0.5rem;
+}
+.reviewTxtImg{
+    width: 9rem;
+    height: 9rem;
+    border-radius: 0.5rem;
 }

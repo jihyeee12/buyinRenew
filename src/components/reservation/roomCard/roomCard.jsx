@@ -91,7 +91,9 @@ import BusinessCard from './businessCard';
                         <div className={styles.roomInfo} >
                             <p className={styles.pointMark}><img src="../../../img/icon/pointMark.png" alt="ambassador" /> &nbsp;1,000P</p>
                             <p className={styles.HotelName}>{v.lodgement_name}</p>
-                            <p className={styles.Location}><img className={styles.wishIcon} src='/img/icon/location.png' alt='mapIcon'/> {v.landmark}</p>
+                            <p className={styles.Location}>
+                                <img className={styles.wishIcon} src='/img/icon/location.png' alt='mapIcon'/>
+                                <span className={styles.landMark}>{v.landmark}</span></p>
                             <div className={styles.hotelPrice}>
                                 <div className={styles.interestZone}>
                                     <p className={styles.interest}>관심 {v.wish_num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p>

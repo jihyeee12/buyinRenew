@@ -65,7 +65,8 @@ const Lodgement = () => {
         setImgId(id);
         setPhotoOpen(!photoOpen);
     }
-
+    const reviewData = hotelInfo.reviews;
+    
     return(
         <>
     <div className={styles.container}>
@@ -116,21 +117,26 @@ const Lodgement = () => {
                     </div>
                 </div>
                 <div className={styles.review}>     
-                    <h4 className={styles.title}>리뷰 &nbsp;<span className={styles.reviewCount}>100</span></h4>
+                    <h4 className={styles.title}>리뷰 &nbsp;<span className={styles.reviewCount}>{reviewData.length.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span></h4>
                     <div className={styles.reviewImgs}>
-                        <img className={styles.photoReviews} onClick={(id) => ImgClick(1)} src="/img/roomImg/reviewImg.png" alt="reviewimg" />
-                        <img className={styles.photoReviews} src="/img/roomImg/reviewImg.png" alt="reviewimg" />
-                        <img className={styles.photoReviews} src="/img/roomImg/reviewImg.png" alt="reviewimg" />
-                        <img className={styles.photoReviews} src="/img/roomImg/reviewImg.png" alt="reviewimg" />
-                        <img className={styles.photoReviews} src="/img/roomImg/reviewImg.png" alt="reviewimg" />
-                        <div className={styles.reviewPlus} onClick={()=> setAllReview(!allReview)}>
-                            <p>+5</p>
-                        </div>
+                        {reviewData.filter(review => review.review_img_url !== undefined).map((review) => (
+                            <>
+                                <img className={styles.photoReviews} src={review.review_img_url} alt="reviewimg" />
+                                {console.log(review.review_img_url.length)}
+                                {review.review_img_url.length > 5 && (<div className={styles.reviewPlus} onClick={()=> setAllReview(!allReview)}>
+                                    <p>+5</p>
+                                </div>)}
+                            </>
+                            ))
+                        }
+                        {/* <img className={styles.photoReviews} onClick={(id) => ImgClick(1)} src="/img/roomImg/reviewImg.png" alt="reviewimg" />*/}
+                        
+                       
                     {allReview && <Modal type={"allReview"} setAllReview={() => setAllReview(!allReview)} />}
                     {photoOpen && <Modal type={"photoReview"} img_id={imgId} setPhotoOpen={() => setPhotoOpen(!photoOpen)} />}
                     </div>
                     <div className={styles.reviewText}>
-                        <LodgeReview/>
+                        <LodgeReview reviewData={reviewData}/>
                         <button type='button' className={styles.reviewBtn}>리뷰 더보기</button>
                     </div>
                 </div>

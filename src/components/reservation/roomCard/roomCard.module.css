@@ -49,6 +49,11 @@ p{
     color: #636465;
     display: flex;
 }
+.landMark{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .hotelPrice{
     display: grid;
     grid-template-columns: 50% 50%;

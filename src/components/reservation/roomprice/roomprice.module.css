@@ -16,7 +16,27 @@
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
     height: 12.5rem;
+    position: relative;
 }
+.countBox{
+    position: absolute;
+    bottom: 0;
+    width: 24rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.countBox p{
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.8rem;
+    color: white;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
 .roomName{
     font-size: 0.9rem;
     font-weight: 500;
@@ -93,4 +113,7 @@
 }
 .discountBox{
     text-align: right;
+}
+.rent{
+    margin-bottom: 0.5rem;
 }
