@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../modal.module.css';
 
-const RoomDetailModal = () => {
+const RoomDetailModal = ({notice, amenity}) => {
     return (
         <div className={styles.roomBox}>
             <table className={styles.roomModal}>

@@ -15,7 +15,7 @@ import ReservationCancelModal from './modal/reservationCancelModal';
 import RoomDetailModal from './modal/roomDetailModal';
 import RoominfoModal from './modal/roominfoModal';
 
-const Modal = ({setModalOpen, type,setcouponOpen, setrefundOpen, setAllReview, setPhotoOpen,setHotelOpen, lodgement, setCancelModal, setRoomModal, id, cancelReason,targetAmenity, setAmenityName, changeAmenity, img_id, setBusinessModal, imgData}) => {
+const Modal = ({setModalOpen, type,setcouponOpen, setrefundOpen, setAllReview, setPhotoOpen,setHotelOpen, amenity,notice, lodgement, setCancelModal, setRoomModal, id, cancelReason,targetAmenity, setAmenityName, changeAmenity, reviewImg, setBusinessModal, imgData, review}) => {
     
     const closeModal = () => {
         {if(type === "coupon"){
@@ -78,11 +78,11 @@ const Modal = ({setModalOpen, type,setcouponOpen, setrefundOpen, setAllReview, s
                         type === "roominfo"?<RoominfoModal lodgement={lodgement}/>:
                         type === "cancel"? <CancelModal/>:
                         type === "delete"? <DeleteModal/>:
-                        type === "allReview"? <AllReviewModal setAllReview={setAllReview} closeModal={closeModal} />:
-                        type === "photoReview"? <PhotoReviewModal img_id={img_id}/>:
+                        type === "allReview"? <AllReviewModal setAllReview={setAllReview} review={review} closeModal={closeModal} />:
+                        type === "photoReview"? <PhotoReviewModal reviewImg={reviewImg} review={review} setPhotoOpen={setPhotoOpen} />:
                         type === "hotelPhoto"? <HotelFullViewModal imgData={imgData}/>:
                         type === "amenity"? <AmenityModal targetAmenity={targetAmenity} setAmenityName={setAmenityName} changeAmenity={changeAmenity}/>:
-                        type === "room"? <RoomDetailModal/>:
+                        type === "room"? <RoomDetailModal notice={notice} amenity={amenity}/>:
                         type === "reservationCancel"? <ReservationCancelModal id={id} cancelReason={cancelReason} closeModal={closeModal}/>:
                         type === "business"? <NoBusinessModal closeModal={closeModal}/>:
                         null

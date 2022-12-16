@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const ApiAxios =axios.create({
-    baseUrl: 'http://ekklim.kr/',
-    timeout : 1000 
+    baseUrl: '',
+    timeout : 1000
     });
 
     ApiAxios.interceptors.request.use(

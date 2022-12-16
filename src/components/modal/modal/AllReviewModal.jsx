@@ -3,29 +3,24 @@ import { useState } from 'react';
 import Modal from '../modal';
 import styles from '../modal.module.css';
 
-const AllReviewModal = ({setAllReview}) => {
+const AllReviewModal = ({setAllReview, review}) => {
     
-    const imgData = [
-        {id: 1, img_url: "../../img/roomImg/room1.png"},
-        {id: 2, img_url: "../../img/roomImg/room2.png"},
-        {id: 3, img_url: "../../img/roomImg/room3.png"},
-        {id: 4, img_url: "../../img/roomImg/bigRoom.png"},
-    ]
+    console.log(review);
     const [photoOpen, setPhotoOpen] = useState(false);
     const [imgId, setImgId] = useState("");
 
     const reviewImgClick = (id) => {
         setPhotoOpen(!photoOpen);
-        setImgId(id)
+        setImgId(id);
     }
-    console.log(imgId);
+    const reviewData = review.filter(img => img.review_id === imgId);
+    
     return (
         <div className={styles.reviewImgBox}>
-            {imgData.map(img => (
-                <img className={styles.reviewImg} key={img.id} value={img.id} onClick={(id) => reviewImgClick(img.id)} src={img.img_url} alt="roomImg" />
+            {review.map(img => (
+                <img className={styles.reviewImg} key={img.review_id} value={img.review_id} onClick={(id) => reviewImgClick(img.review_id)} src={img.review_img_url} alt="roomImg" />
             ))}
-                {photoOpen && <Modal type={"photoReview"} img_id={imgId} setPhotoOpen={() => setPhotoOpen(!photoOpen)} />}
-            
+            {photoOpen && <Modal type={"photoReview"} reviewImg={reviewData} review={review} setPhotoOpen={() => setPhotoOpen(!photoOpen)} />}
         </div>
     );
 };

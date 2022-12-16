@@ -13,8 +13,12 @@ import LodgeBox from './lodgeBox';
 const Roomprice = ({roomData}) => {
     console.log(roomData)
     const navigate = useNavigate();
-    const linkRoom = () =>{
-        navigate('/rooms')
+    const linkRoom = (id) =>{
+        navigate('/rooms',{
+            state:{
+                id: id
+            }
+        })
     }
     
     const StyledSlider = styled(Slider)`
@@ -71,21 +75,21 @@ const Roomprice = ({roomData}) => {
                 <div className={styles.roomInfo}>
                     <StyledSlider {...settings}>
                     {room.room_images.map((roomImg, index) => (<>
-                        <img className={styles.roomImg} key={roomImg.id} src={roomImg.room_img_url} onClick={linkRoom} alt="roomprice" />
+                        <img className={styles.roomImg} key={roomImg.id} src={roomImg.room_img_url} onClick={() => linkRoom(room.room_id)} alt="roomprice" />
                         <div className={styles.countBox}>
                             <p>{index+1} / {room.room_images.length}</p>
                         </div>
                         </>
                     ))}
                     </StyledSlider>
-                    <div className={styles.roomName} onClick={linkRoom}>
+                    <div className={styles.roomName} onClick={() => linkRoom(room.room_id)}>
                         <h4>{room.room_name}</h4>
                         <div className={styles.standardBox}>
                             <p>기준 {room.people_num}명/ 최대 {room.max_people_num}명</p>
                         </div>
                     </div>
                 </div>
-                <div className={styles.hotelPriceBox} onClick={linkRoom}>
+                <div className={styles.hotelPriceBox} onClick={() => linkRoom(room.room_id)}>
                 <div className={styles.rent}>
                     {(room.can_reserve_rent === true || room.can_reserve_rent === false) && <RentBox roomData={room}/>}
                     

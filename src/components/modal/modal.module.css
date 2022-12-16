@@ -122,12 +122,14 @@
 .reviewImgBox {
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
 }
 .reviewImgBox{
   width: 45rem;
+  height: 100%;
+  min-height: 37rem;
 }
 
-.reviewImgBox,
 .amenityBox,
 .roomBox {
   height: 37rem;
@@ -328,6 +330,7 @@
   font-size: 1rem;
   font-weight: 400;
   margin-top: 1rem;
+  line-height: 1.4rem;
 }
 
 .reviewListBtn {

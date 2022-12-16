@@ -3,34 +3,26 @@ import { useLocation } from 'react-router-dom';
 import Modal from '../modal';
 import styles from '../modal.module.css';
 
-const PhotoReviewModal = ({img_id}) => {
-    
+const PhotoReviewModal = ({reviewImg, review,setPhotoOpen}) => {
     const [allReview, setAllReview] = useState(false);
+    console.log(reviewImg);
 
-    const reviewData = [
-        {id: 1, img_url: "../../img/roomImg/room1.png"},
-        {id: 2, img_url: "../../img/roomImg/room2.png"},
-        {id: 3, img_url: "../../img/roomImg/room3.png"},
-        {id: 4, img_url: "../../img/roomImg/bigRoom.png"},
-    ]
-
-
+    const listClick = () => {
+        setAllReview(!allReview);
+    }
+    
     return (
         <div className={styles.reviewBox}>
-            {reviewData.filter(review => img_id === review.id).map(review => (
-                <>
-                <img className={styles.reviewImgs} src={review.img_url} alt="reviewPhoto" />
+            <img className={styles.reviewImgs} src={reviewImg[0].review_img_url} alt="reviewPhoto" />
                 <div className={styles.reviewInfo}>
                     <button type='button' className={styles.bestBtn}>BEST</button>
-                    <p className={styles.reviewInfoTxt}>바이인호텔님</p>
-                    <p className={styles.reviewInfoTxt}>2022.01.01</p>
-                    <p className={styles.reviewInfoTxt}>스탠다드</p>
-                    <p className={styles.reviewTxt}>내부 깔금 ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ</p>
+                    <p className={styles.reviewInfoTxt}>{reviewImg[0].review_writer_name}님</p>
+                    <p className={styles.reviewInfoTxt}>{reviewImg[0].review_date}</p>
+                    <p className={styles.reviewInfoTxt}>{reviewImg[0].room_name}</p>
+                    <p className={styles.reviewTxt}>{reviewImg[0].review_text}</p>
                 </div>
-                </>
-            ))}
-            <button type='button' className={styles.reviewListBtn} onClick={()=> setAllReview(!allReview)}>목록보기</button>
-            {allReview && <Modal type={"allReview"} setAllReview={() => setAllReview(!allReview)} />}
+            <button type='button' className={styles.reviewListBtn} onClick={()=> listClick()}>목록보기</button>
+            {allReview && <Modal type={"allReview"} review={review} setAllReview={() => setAllReview(!allReview)} />}
         </div>
     );
 };

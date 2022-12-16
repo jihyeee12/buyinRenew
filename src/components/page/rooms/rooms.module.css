@@ -133,6 +133,7 @@
 .infoIconBox{
     display: flex;
     margin-top: 1rem;
+    flex-wrap: wrap;
 }
 .infoIcon{
     text-align: center;
@@ -193,8 +194,15 @@
     border-radius: 0.125rem;
     background-color: white;
     cursor: auto;
+    margin: 0.25rem 0;
 }
 .hotelSalePrice{
     font-size: 1rem;
     font-weight: 700;
+}
+.serviceImg{
+    width: 3.5rem;
+}
+.serviceName{
+    font-size: 0.875rem;
 }

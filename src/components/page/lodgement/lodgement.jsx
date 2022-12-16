@@ -66,7 +66,10 @@ const Lodgement = () => {
         setPhotoOpen(!photoOpen);
     }
     const reviewData = hotelInfo.reviews;
+    const allReviewData = reviewData.filter(review => review.review_img_url !== undefined);
+    const oneReviewData = allReviewData.filter(img => img.review_id === imgId);
     
+    console.log(allReviewData.length);
     return(
         <>
     <div className={styles.container}>
@@ -78,7 +81,7 @@ const Lodgement = () => {
                 <img className={styles.hotelSmall} src={hotelInfo.lodgement_images[3].lodgement_img_url} alt="smallRoom" />
                 <img className={styles.hotelSmall} src={hotelInfo.lodgement_images[4].lodgement_img_url} onClick={()=> setHotelOpen(!hotelOpen)} alt="smallRoom" /> 
                 <div className={styles.roomPlus} >
-                    <p>+8</p>
+                    <p>+{hotelInfo.lodgement_images.length -5}</p>
                 </div>   
                 {hotelOpen && <Modal type={"hotelPhoto"} imgData={hotelInfo.lodgement_images} setHotelOpen={() => setHotelOpen(!hotelOpen)} />}        
             </div>
@@ -119,21 +122,18 @@ const Lodgement = () => {
                 <div className={styles.review}>     
                     <h4 className={styles.title}>리뷰 &nbsp;<span className={styles.reviewCount}>{reviewData.length.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span></h4>
                     <div className={styles.reviewImgs}>
-                        {reviewData.filter(review => review.review_img_url !== undefined).map((review) => (
-                            <>
-                                <img className={styles.photoReviews} src={review.review_img_url} alt="reviewimg" />
-                                {console.log(review.review_img_url.length)}
-                                {review.review_img_url.length > 5 && (<div className={styles.reviewPlus} onClick={()=> setAllReview(!allReview)}>
-                                    <p>+5</p>
-                                </div>)}
-                            </>
-                            ))
-                        }
+                        {reviewData.filter(review => review.review_img_url).map((review) => (
+                            <img className={styles.photoReviews} onClick={(id) => ImgClick(review.review_id)} src={review.review_img_url} alt="reviewimg" />
+                        ))}
+                        {allReviewData.length == 5 && (<div className={styles.reviewPlus} onClick={()=> setAllReview(!allReview)}>
+                            <p>+ {allReviewData.length -5}</p>
+                        </div>)}
+                        {photoOpen && <Modal type={"photoReview"} review={allReviewData} reviewImg={oneReviewData} setPhotoOpen={() => setPhotoOpen(!photoOpen)} />}
+                        {allReview && <Modal type={"allReview"} review={allReviewData} setAllReview={() => setAllReview(!allReview)} />}
                         {/* <img className={styles.photoReviews} onClick={(id) => ImgClick(1)} src="/img/roomImg/reviewImg.png" alt="reviewimg" />*/}
                         
                        
-                    {allReview && <Modal type={"allReview"} setAllReview={() => setAllReview(!allReview)} />}
-                    {photoOpen && <Modal type={"photoReview"} img_id={imgId} setPhotoOpen={() => setPhotoOpen(!photoOpen)} />}
+                    
                     </div>
                     <div className={styles.reviewText}>
                         <LodgeReview reviewData={reviewData}/>
@@ -146,7 +146,6 @@ const Lodgement = () => {
                 <Roomprice roomData={hotelInfo.rooms}/>
             </div>
         </div>
-
     </div>
     </>
     )

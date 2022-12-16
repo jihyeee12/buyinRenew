@@ -1,16 +1,26 @@
 import React from 'react';
 import styles from './rooms.module.css';
-import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useState ,useEffect } from 'react';
 import styled, {css} from 'styled-components';
 import Slider from "react-slick";
 import Modal from '../../modal/modal';
 import Calendar from '../../date/date';
-import BusinessBox from '../../reservation/roomprice/businessBox/businessBox';
+// import BusinessBox from '../../reservation/roomprice/businessBox/businessBox';
+import Get from '../../../service/api/url/Get';
 
 const Rooms = () => {
     const navigate = useNavigate();
-
+    const location = useLocation();
+    const roomId = location.state.id;
+    
+    const [modalOpen, setModalOpen] = useState(false);
+    const [cancelModal, setCancelModal] = useState(false);
+    const [roomModal, setRoomModal] = useState(false);
+    // const [businessModal, setBusinessModal] = useState(false);
+    const [index, setIndex] = useState("0");
+    const [clickImg, setClickImg] = useState("0");
+    
     const linkOption = (roomType) => {
         navigate('/roomoption',{
             state:{
@@ -18,13 +28,35 @@ const Rooms = () => {
             }
         });
     }
-    const [modalOpen, setModalOpen] = useState(false);
-    const [cancelModal, setCancelModal] = useState(false);
-    const [roomModal, setRoomModal] = useState(false);
-    const [businessModal, setBusinessModal] = useState(false);
-    const [index, setIndex] = useState("0");
-    const [clickImg, setClickImg] = useState("0");
+    const [roomInfo, setroomInfo] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const checkin = '2022.12.24';
+    const checkout = '2022.12.25';
+
+    useEffect(() => {
+      
+    const fetchroomInfo = async () => {
+
+        Get.getRoomDetails(roomId,checkin,checkout)
+        .then(function (response) {
+            setroomInfo(response);
+        })
+        .catch(error => {
+            setError(error);
+        })
+        setLoading(false);
+        };
+        fetchroomInfo();
     
+    }, [roomId]);
+    if (loading) return <div>로딩중..</div>;
+    if (error) return <div>에러가 발생했습니다</div>;
+    if (!roomInfo) return null;
+    
+    console.log(roomInfo);
+
+
     const imgClick = (i) => {
         setIndex(i);
         setClickImg(i);
@@ -75,46 +107,16 @@ const Rooms = () => {
         )
       };
     
-    const roomImgs = [
-        {   "room_image_id": 12328,
-            "room_img_url": "https://www.buyinhotel.co.kr/images/lodgements/aurahotel/aurahotel_02_000_2022-09-08-17_44_22.jpg",
-            "items": []},
-        {   "room_image_id": 13197,
-            "room_img_url": "https://www.buyinhotel.co.kr/images/lodgements/aurahotel/aurahotel_02_024_2022-09-08-17_44_22.jpg",
-            "items": []},
-        {   "room_image_id": 13198,
-            "room_img_url": "https://www.buyinhotel.co.kr/images/lodgements/aurahotel/aurahotel_02_025_2022-09-08-17_44_22.jpg",
-            "items": []},
-        {   "room_image_id": 13199,
-            "room_img_url": "https://www.buyinhotel.co.kr/images/lodgements/aurahotel/aurahotel_02_026_2022-09-08-17_44_22.jpg",
-            "items": []},
-        {   "room_image_id": 13200,
-            "room_img_url": "https://www.buyinhotel.co.kr/images/lodgements/aurahotel/aurahotel_02_027_2022-09-08-17_44_22.jpg",
-            "items": []},
-        {   "room_image_id": 13201,
-            "room_img_url": "https://www.buyinhotel.co.kr/images/lodgements/aurahotel/aurahotel_02_028_2022-09-08-17_44_22.jpg",
-            "items": []},
-        {   "room_image_id": 13202,
-            "room_img_url": "https://www.buyinhotel.co.kr/images/lodgements/aurahotel/aurahotel_02_029_2022-09-08-17_44_22.jpg",
-            "items": []},
-        {   "room_image_id": 13203,
-            "room_img_url": "https://www.buyinhotel.co.kr/images/lodgements/aurahotel/aurahotel_02_030_2022-09-08-17_44_22.jpg",
-            "items": []},
-        {   "room_image_id": 13204,
-            "room_img_url": "https://www.buyinhotel.co.kr/images/lodgements/aurahotel/aurahotel_02_034_2022-09-08-17_44_22.jpg",
-            "items": []}
-    ]
-
     return(
         <>
         <div className={styles.rooms}>
             <div className={styles.roomImgs}>
-                    <img className={styles.bigRoom} src={roomImgs[index].room_img_url} alt="bigRoom" />
+                    <img className={styles.bigRoom} src={roomInfo.room_images[index].room_img_url} alt="bigRoom" />
                 <div className={styles.chagneImg}>
                     <div className={styles.roomchange}>     
                         <StyledSlider {...settings}>
-                            {roomImgs.map((room, i) => (
-                                <img idx={i} onClick={() => imgClick(i)} key={room.room_image_id} className={[styles.smallRoom , clickImg === i && styles.selectImg].join(" ")} src={room.room_img_url} alt="smallRoom" />
+                            {roomInfo.room_images.map((room, i) => (
+                                <img idx={i} onClick={() => imgClick(i)} key={room.id} className={[styles.smallRoom , clickImg === i && styles.selectImg].join(" ")} src={room.room_img_url} alt="smallRoom" />
                             ))}
                         </StyledSlider>
                     </div>
@@ -123,9 +125,9 @@ const Rooms = () => {
             </div>
             <div className={styles.roomInfo}>
                 <div className={styles.roomName}>
-                    <h4>스탠다드</h4>
-                    <button type='button' className={styles.standard}><p>기준 2명/ 최대 2명</p></button>
-                    <p>넷플릭스 이용가능</p>
+                    <h4>{roomInfo.room_name}</h4>
+                    <button type='button' className={styles.standard}><p>기준 {roomInfo.people_num}명/ 최대 {roomInfo.max_people_num}명</p></button>
+                    <p>{roomInfo.room_service.replaceAll("\n", ", ")}</p>
                 </div>
                 <div className={styles.date}>
                     <Calendar />    
@@ -151,20 +153,18 @@ const Rooms = () => {
                             <p className={styles.salePrice}><span className={styles.hotelSalePrice}>35,000</span>원</p>
                         </div>
                     </div>
-                    <BusinessBox/>
+                    {/* <BusinessBox/> */}
                 </div>
                 <div className={styles.roomInfoDetail}>
                     <h4 className={styles.detailTitle}>객실정보 <span className={styles.detailPop} onClick={() => setRoomModal(!roomModal)}>상세정보&nbsp;<img src="/img/icon/rightArrow.png" alt="right" /></span></h4>
-                    {roomModal && <Modal type={"room"} setRoomModal = {() => setRoomModal(!roomModal)}/>}
+                    {roomModal && <Modal type={"room"} amenity={roomInfo.room_amenity} notice={roomInfo.room_notice} setRoomModal = {() => setRoomModal(!roomModal)}/>}
                     <div className={styles.infoIconBox}>
-                        <div className={styles.infoIcon}>
-                            <img src="/img/icon/parking.png" alt="parking" />
-                            <p>주차가능</p>
-                        </div>
-                        <div className={styles.infoIcon}>
-                            <img src="/img/icon/parking.png" alt="parking" />
-                            <p>주차가능</p>
-                        </div>
+                        {roomInfo.room_services.map(service => (
+                            <div className={styles.infoIcon}>
+                                <img src={service.service_icon_url} className={styles.serviceImg} alt="serviceIcon" />
+                                <p className={styles.serviceName}>{service.service_name}</p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
