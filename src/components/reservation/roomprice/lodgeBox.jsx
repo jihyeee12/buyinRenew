@@ -6,7 +6,7 @@ const LodgeBox = ({roomData}) => {
     
     return (
         <div className={styles.kinds}>
-            {roomData.can_reserve_lodge === true ? <>
+            {roomData.can_reserve_lodge !== false ? <>
             <div>
                 <p className={styles.typeName}>숙박</p>
                 <span className={styles.availTime}>{roomData.lodge_begin}부터</span>

@@ -9,18 +9,8 @@ import Get from '../../../../service/api/url/Get';
 
 
 const Review = () => {
-    const navigate = useNavigate();
     const [modalOpen, setModalOpen] = useState(false);
-
-    const writeReview = (reservation_id) =>{
-        navigate('/writeReview',{
-            state:{
-                reservation_id: reservation_id
-            }
-        });
-    }
     const [index, setIndex] = useState(0);
-
     const reviewList = [
         {id: 0, title: "작성한 리뷰"},
         {id: 1, title: "작성 가능 리뷰"},

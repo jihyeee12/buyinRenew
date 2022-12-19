@@ -148,3 +148,9 @@ p{
     font-size: 0.75rem;
     align-items: center;
 }
+.rentZone{
+    margin-bottom: 0.5rem;
+}
+.close{
+    font-weight: 600;
+}

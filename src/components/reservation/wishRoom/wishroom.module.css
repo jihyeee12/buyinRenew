@@ -29,7 +29,7 @@
     font-family: pretendard;
     width: 50%;
 }
-.wishTable td:last-child{
+.listPrice, .price, .close{
     text-align: right;
 }
 .hotelName ,.price{
@@ -51,4 +51,15 @@
 .standard{
     font-size: 14px;
     color: #707070;
+    /* white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; */
+}
+.wishBtn{
+    position: absolute;
+    cursor: auto;
+    top: 0%;
+    right: 0%;
+    background-color: transparent;
+    border: none;
 }

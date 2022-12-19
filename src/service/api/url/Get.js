@@ -172,9 +172,13 @@ export default{
     },
     getRoomDetails(roomId,checkin,checkout){
         return ApiAxios({
-            // https://ekklim.kr/rooms?room=606&checkin=2022.12.24&checkout=2022.12.25
-            //url:`/rooms?room=${roomId}&checkin=${checkin}&checkout=${checkout}`,
-            url:`/rooms?room=606&checkin=2022.12.24&checkout=2022.12.25`,
+            url:`/rooms?room=${roomId}&checkin=${checkin}&checkout=${checkout}`,
+            method: 'get'
+        })
+    },
+    getWishList(){
+        return ApiAxios({
+            url:`wishlists`,
             method: 'get'
         })
     },

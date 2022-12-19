@@ -3,8 +3,10 @@ import { useState } from 'react';
 import styles from './sort.module.css';
 
 const Sort = ({state}) => {
+    console.log(state);
     const [order, setOrder] = useState("best");
-    const sortItems = state.sort((a,b) => b[order] - a[order]);
+    //const sortItems = state.wish_num.sort((a,b) => b[order] - a[order]);
+    
     
     const handleBestClick = () => {
         setOrder("best");

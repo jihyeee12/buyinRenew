@@ -6,8 +6,10 @@ import styled, {css} from 'styled-components';
 import Slider from "react-slick";
 import Modal from '../../modal/modal';
 import Calendar from '../../date/date';
-// import BusinessBox from '../../reservation/roomprice/businessBox/businessBox';
 import Get from '../../../service/api/url/Get';
+import BusinessBox from '../../reservation/roomprice/businessBox/businessBox';
+import RentBox from '../../reservation/roomprice/rentBox';
+import LodgeBox from '../../reservation/roomprice/lodgeBox';
 
 const Rooms = () => {
     const navigate = useNavigate();
@@ -17,7 +19,7 @@ const Rooms = () => {
     const [modalOpen, setModalOpen] = useState(false);
     const [cancelModal, setCancelModal] = useState(false);
     const [roomModal, setRoomModal] = useState(false);
-    // const [businessModal, setBusinessModal] = useState(false);
+    const [businessModal, setBusinessModal] = useState(false);
     const [index, setIndex] = useState("0");
     const [clickImg, setClickImg] = useState("0");
     
@@ -134,26 +136,28 @@ const Rooms = () => {
                 </div>
                 <div className={styles.rentType}>
                     <div className={styles.rent}>
-                        <div>
+                    {(roomInfo.can_reserve_rent === true || roomInfo.can_reserve_rent === false) && <RentBox roomData={roomInfo}/>}
+                        {/* <div>
                             <p className={styles.typeName}>대실</p>
                             <span className={styles.availTime}>최대 3시간</span>
                         </div>
                         <div className={styles.kinds}>
                             <p className={styles.discount}><span className={styles.percent}>50%</span><span className={styles.listPrice}>40,000원</span></p>
                             <p className={styles.salePrice}><span className={styles.hotelSalePrice}>20,000</span>원</p>
-                        </div>
+                        </div> */}
                     </div>
                     <div className={styles.lodge}>
-                        <div>
+                        <LodgeBox roomData={roomInfo}/>
+                        {/* <div>
                             <p className={styles.typeName}>숙박</p>
                             <span className={styles.availTime}>18:00부터</span>
                         </div>
                         <div className={styles.kinds}>
                             <p className={styles.discount}><span className={styles.percent}>50%</span><span className={styles.listPrice}>40,000원</span></p>
                             <p className={styles.salePrice}><span className={styles.hotelSalePrice}>35,000</span>원</p>
-                        </div>
+                        </div> */}
                     </div>
-                    {/* <BusinessBox/> */}
+                    {roomInfo.is_business !== false && <BusinessBox roomData={roomInfo} />}
                 </div>
                 <div className={styles.roomInfoDetail}>
                     <h4 className={styles.detailTitle}>객실정보 <span className={styles.detailPop} onClick={() => setRoomModal(!roomModal)}>상세정보&nbsp;<img src="/img/icon/rightArrow.png" alt="right" /></span></h4>
@@ -189,10 +193,9 @@ const Rooms = () => {
                     <img src="/img/icon/giftBtn.png" alt="giftBtn" onClick={()=> setModalOpen(!modalOpen)}/>
                     {modalOpen && <Modal type={"buyRoom"} setModalOpen={() => setModalOpen(!modalOpen)} />}
                     <button type='button' className={styles.rentBtn} onClick={() => linkOption(0)}>대실예약</button>
-                    <button type='button' className={styles.lodgeBtn} onClick={() => linkOption(1)}>숙박예약</button>
-                    {/* 기업회원가가 없는 객실일때
-                     onClick={() => setBusinessModal(!businessModal)}
-                    {businessModal && <Modal type={"business"} setBusinessModal = {() => setBusinessModal(!businessModal)}/>} */}
+                    <button type='button' className={styles.lodgeBtn} onClick={(roomInfo.business_user === true && roomInfo.is_business === false) ? () => setBusinessModal(!businessModal) : () => linkOption(1)}>숙박예약</button>
+                    
+                    {businessModal && <Modal type={"business"} setBusinessModal = {() => setBusinessModal(!businessModal)}/>} 
                 </div>
             </div>
         </div>

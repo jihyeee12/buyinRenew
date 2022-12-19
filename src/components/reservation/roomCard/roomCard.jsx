@@ -7,6 +7,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styled, {css} from 'styled-components';
 import BusinessCard from './businessCard';
+import RentZone from './priceBox/rentZone';
+import LodgeZone from './priceBox/lodgeZone';
 
     const RoomCard = ({state, slider}) => {
        
@@ -59,21 +61,21 @@ import BusinessCard from './businessCard';
             )
         }
 
-         const [clickedNumArr, setClickedNumArr] = useState([]);
+        const [clickedNumArr, setClickedNumArr] = useState([]);
         const handleClickToggleBtn = (id) => {
             setClickedNumArr((arr) => {
-              let newArr = [];
-              arr.map((item) => newArr.push(item));
-        
-              if (newArr.includes(id)) {
-                newArr.splice(newArr.indexOf(id), 1);
-              } else {
-                newArr.push(id);
-              }
-              console.log(clickedNumArr);
-              return newArr;
-            });
-          };
+            let newArr = [];
+            arr.map((item) => newArr.push(item));
+    
+            if (newArr.includes(id)) {
+            newArr.splice(newArr.indexOf(id), 1);
+            } else {
+            newArr.push(id);
+            }
+            console.log(clickedNumArr);
+            return newArr;
+        });
+        };
         
 
     return( 
@@ -100,14 +102,13 @@ import BusinessCard from './businessCard';
                                     <p className={styles.interest}>리뷰 {v.review_num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p>
                                 </div>
                                 <div className={styles.priceZone}>
-                                    {!v.rent_list_price ? <><br/><br/></>: <><p className={styles.discounts}><span className={styles.discount}>{v.rent_dc_rate}% &nbsp;</span><span className={styles.discountPrice}>{v.rent_list_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</span></p>
-                                    <p className={styles.roomPrice}>대실 <span className={styles.salePrice}>{v.rent_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>원</p></>}
-                                    
-                                    <p className={styles.discounts}><span className={styles.discount}>{v.lodge_dc_rate}% &nbsp;</span><span className={styles.discountPrice}>{v.lodge_list_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</span></p>
-                                    <p className={styles.roomPrice}>숙박 <span className={styles.salePrice}>{v.lodge_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>원</p>
+                                    <div className={styles.rentZone}>
+                                        {v.is_rent && <RentZone priceInfo={v}/>}
+                                    </div>
+                                    <LodgeZone priceInfo={v}/>
                                 </div>
                             </div>
-                            <BusinessCard/>
+                            {v.is_business === true && <BusinessCard priceInfo={v}/>} 
                         </div>
                         </Link>
                     </div>
@@ -136,14 +137,14 @@ import BusinessCard from './businessCard';
                                     <p className={styles.interest}>리뷰 <span className={styles.interestCount}>{v.review_num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span></p>
                                 </div>
                                 <div className={styles.priceZone}>
-                                    {!v.rent_list_price ? <><br/><br/></>: <><p className={styles.discounts}><span className={styles.discount}>{v.rent_dc_rate}%</span><span className={styles.discountPrice}>{v.rent_list_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</span></p>
-                                    <p className={styles.roomPrice}>대실 {v.rent_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</p></>}
-                                    
-                                    {/* <p className={styles.discounts}><span className={styles.discount}>{v.lodge_dc_rate}%</span><span className={styles.discountPrice}>{v.lodge_list_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</span></p> 
-                                    <p className={styles.roomPrice}>숙박 {v.lodge_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</p>*/}
+                                    <div className={styles.rentZone}>
+                                        {v.is_rent && <RentZone priceInfo={v}/>}
+                                    </div>
+                                    <LodgeZone priceInfo={v}/>
                                 </div>
                             </div>
-                            <BusinessCard/>
+                            {v.is_business === true && <BusinessCard priceInfo={v}/>} 
+                            
                         </div>
                         </Link>
                     </div>
