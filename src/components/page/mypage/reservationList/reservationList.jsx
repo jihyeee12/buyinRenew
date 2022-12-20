@@ -74,9 +74,9 @@ const ReservationList = () => {
                         <div style={{display : "flex", flexWrap: "wrap"}}>
                             {tabList.filter(item => index === item.id).map(item => {
                                 if(item.id === 0){
-                                    return <><ReservationBox index={0} gifts={gifts}/></>
+                                    return <ReservationBox index={0} gifts={gifts}/>
                                 } else if(item.id === 1){
-                                    return <><ReservationBox index={1} gifts={gifts}/></>
+                                    return <ReservationBox index={1} gifts={gifts}/>
                                 }
                             })}
                         </div>

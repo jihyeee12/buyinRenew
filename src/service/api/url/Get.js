@@ -103,7 +103,6 @@ export default{
 
     getReview(index){
         const reviewUrl = () => {
-            
             if(index === 0){
                 return '/reviews'
             } else if(index === 1){
@@ -142,7 +141,8 @@ export default{
             if(index === 0){
                 return `/points`
             } else if(index === 1){
-                return `coupons`
+                console.log(index);
+                return `/coupons`
             }
         }
     return ApiAxios({

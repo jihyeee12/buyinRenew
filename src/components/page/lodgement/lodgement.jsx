@@ -116,9 +116,9 @@ const Lodgement = () => {
                         {hotelInfo.lodgement_detail}
                     </p>
                     <div className={styles.map}>
-                        <HotelMaps/>
+                        <HotelMaps lat={hotelInfo.lat} lng={hotelInfo.lng} address={hotelInfo.lodgement_address}/>
+                    </div>                    
                     </div>
-                </div>
                 <div className={styles.review}>     
                     <h4 className={styles.title}>리뷰 &nbsp;<span className={styles.reviewCount}>{reviewData.length.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span></h4>
                     <div className={styles.reviewImgs}>
@@ -130,14 +130,11 @@ const Lodgement = () => {
                         </div>)}
                         {photoOpen && <Modal type={"photoReview"} review={allReviewData} reviewImg={oneReviewData} setPhotoOpen={() => setPhotoOpen(!photoOpen)} />}
                         {allReview && <Modal type={"allReview"} review={allReviewData} setAllReview={() => setAllReview(!allReview)} />}
-                        {/* <img className={styles.photoReviews} onClick={(id) => ImgClick(1)} src="/img/roomImg/reviewImg.png" alt="reviewimg" />*/}
-                        
-                       
-                    
                     </div>
                     <div className={styles.reviewText}>
                         <LodgeReview reviewData={reviewData}/>
-                        <button type='button' className={styles.reviewBtn}>리뷰 더보기</button>
+                        {reviewData.length !== 0 && <button type='button' className={styles.reviewBtn}>리뷰 더보기</button>}
+                        
                     </div>
                 </div>
             </div>

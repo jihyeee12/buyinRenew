@@ -10,8 +10,15 @@ import Get from '../../../service/api/url/Get';
 const WriteReview = () => {
     const navigate = useNavigate();
     const reservation_id = useParams().reservation;
-    console.log(reservation_id);
+    const fileInput = React.createRef();
     
+    const fileBtnClick = () => {
+        fileInput.current.click();
+    }
+    const fileChange = (e) => {
+        console.log(e.target.files[0]);
+    }
+
     const review = () =>{
         navigate('/review');
     }
@@ -21,10 +28,7 @@ const WriteReview = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-      
-        
     const fetchwriteReview = async () => {
-        
         Get.getWriteReview(reservation_id)
         .then(function (response) {
             setwriteReview(response);
@@ -63,7 +67,10 @@ const WriteReview = () => {
                         <p>이용해보신 숙소는 어떠셨나요?</p>
                         <p>리뷰를 작성해 주세요.</p>
                         <textarea className={styles.reviewWrite} name="reviewTxt" id="review" cols="30" rows="10" value={writeReview.review_contents} placeholder='자세하고 솔직한 리뷰는 다른 고객에게 큰 도움이 됩니다. (최소 20자 이상)' />
-                        <img className={styles.photoImg} src="../../../img/icon/photoIcon.png" alt="사진추가" />
+                        <button className={styles.fileBtn} onClick={fileBtnClick}>
+                            <img className={styles.photoImg} src="../../../img/icon/photoIcon.png" alt="사진추가" />
+                        </button>
+                        <input type="file" ref={fileInput} onChange={fileChange} style={{display: "none"}} />
                     </div>
                 </div>
                 <div className={styles.writeBtn}>

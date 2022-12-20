@@ -6,10 +6,12 @@ import Banner from '../../../banner/banner';
 import SideMenu from '../../../sideMenu/sideMenu';
 import Modal from '../../../modal/modal';
 import Get from '../../../../service/api/url/Get';
+import WrittenReview from './writtenReview';
+import CanReview from './canReview';
 
 
 const Review = () => {
-    const [modalOpen, setModalOpen] = useState(false);
+    
     const [index, setIndex] = useState(0);
     const reviewList = [
         {id: 0, title: "작성한 리뷰"},
@@ -66,71 +68,9 @@ const Review = () => {
                         </div>
                         :<>{reviewList.filter(item => index === item.id).map(item => {
                             if(item.id === 0){
-                                return <>
-                                <p className={styles.reviewCount}>작성리뷰 <span className={styles.reviewCount}>{review.length}개</span></p>
-                                {review.map(review => (
-                                    <div className={styles.reviewBox}>
-                                        <table className={styles.reviewTitle}>
-                                            <tbody>
-                                                <tr>
-                                                    <td>{review.review_date}</td>
-                                                    <td>
-                                                        <Link className='link' to={`/writeReview/${review.reservation_id}`}><span key={review.review_id}>수정</span></Link>
-                                                        <span key={review.review_id} className={styles.deleteBtn} onClick={()=> setModalOpen(!modalOpen)}>삭제</span>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        {modalOpen && <Modal type={"delete"} setModalOpen={() => setModalOpen(!modalOpen)} />}
-                                        <div className={styles.hotelInfoBox}>
-                                            <div>
-                                                <img src={review.lodgement_img_url} alt='호텔이미지' className={styles.hotelImg} />
-                                            </div>
-                                            <div className={styles.hotelInfo}>
-                                                <p>{review.lodgement_name}</p>
-                                                <p>{review.room_name}</p>
-                                            </div>
-                                        </div>
-                                        <p className={styles.reviewTxt}>{review.review_text}</p>
-                                        <div className={styles.reviewImgBox}>
-                                            {review.review_img_url && <img className={styles.reviewImg} src={review.review_img_url} alt="리뷰이미지" />}
-                                        </div>
-                                        <div className={styles.likeBox}>
-                                            <img src="../../../img/icon/likeBtn.png" alt="좋아요" />
-                                            <span className={styles.likeCount}>{review.like_num}</span>
-                                        </div>
-                                    </div>
-                                ))}
-                                
-                                </>
+                                return <WrittenReview review={review}/>
                             } else if(item.id === 1){
-                                return <>
-                                <p className={styles.reviewCount}>작성리뷰 <span className={styles.reviewCount}>{review.length}개</span></p>
-                                <div className={styles.contentBox}>
-                                {review.map(able => (
-                                    <div className={styles.reviewAbleBox}>
-                                        <table className={styles.reviewAbleTable}>
-                                            <tbody>
-                                                <tr className={styles.writeBox}>
-                                                    <td>{able.date_string} <span>이용완료</span></td>
-                                                    <Link className='link' to={`/writeReview/${able.reservation_id}`}><td className={styles.reviewBtn} key={able.reservation_id}>리뷰작성</td></Link>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <div className={styles.reviewAbleHotel}>
-                                            <div>
-                                                <img src={able.lodgement_img_url} alt='호텔이미지' className={styles.ableHotelImg} />
-                                            </div>
-                                            <div className={styles.reviewAbleInfo}>
-                                                <p>{able.lodgement_name}</p>
-                                                <p>{able.room_name}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                                
-                                </div>
-                                </>
+                                return <CanReview review={review}/>
                             }
                         })}</>
                         }
