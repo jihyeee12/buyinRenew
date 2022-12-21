@@ -1,11 +1,38 @@
 import React from 'react';
 import styles from './point.module.css';
+import Get from '../../../../service/api/url/Get';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
-const PointTabBox = ({point, index}) => {
-    console.log(index);
+const PointBox = () => {
+    const [point, setPoint] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+
+
+    useEffect(() => {
+      
+    const fetchPoint = async () => {
+
+        Get.getPoint()
+        .then(function (response) {
+            setPoint(response);
+        })
+        .catch(error => {
+            setError(error);
+        })
+        setLoading(false);
+        };
+        fetchPoint();
+    
+    }, []);
+    if (loading) return <div>로딩중..</div>;
+    if (error) return <div>에러가 발생했습니다</div>;
+    if (!point) return null;
+    
+    console.log(point);
     return (
-        <>
-        {index === 0 ? <div className={styles.point}>
+        <div className={styles.point}>
             <div className={styles.pointBox}>
                 <div>
                     <p>사용가능포인트</p>
@@ -35,30 +62,8 @@ const PointTabBox = ({point, index}) => {
                         </tbody>
                 </table>
             </div>
-        </div>: index === 1 ?<div className={styles.coupon}>
-            <p className={styles.couponTitle}>쿠폰내역</p>
-            <div className={styles.couponList}>
-                <table className={styles.couponTable}>
-                    <tbody>
-                        {point.map(coupon => (
-                        <tr>
-                            <td>
-                                <p className={styles.couponName}>{coupon.coupon_name}</p>
-                                <p className={styles.couponDate}>{coupon.valid_date.split(" ")[0]}</p>
-                            </td>
-                            <td>
-                                <p className={styles.couponPercent}>{coupon.is_percent === "true"? coupon.coupon_charge + "%" : coupon.coupon_charge.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') +"원"}</p>
-                            </td>
-                        </tr>
-                        ))}
-                        
-                    </tbody>
-                </table>
-            </div>
-        </div>:<></>}
-            
-        </>
+        </div>
     );
 };
 
-export default PointTabBox;
+export default PointBox;

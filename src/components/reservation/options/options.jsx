@@ -4,7 +4,6 @@ import { useRef ,useState } from 'react';
 import Modal from '../../modal/modal';
 
 const Options = ({basket}) => {
-    const [counter, setCounter] = useState(0);
     const [modalOpen, setModalOpen] = useState(false);
     const [amenityName, setAmenityName] = useState("");
     const [targetAmenity, setTargetAmenity] = useState({})
@@ -16,8 +15,8 @@ const Options = ({basket}) => {
         basket.amenities.map(item => {
         return `${item.amenity_id}` === e.target.value ? (clickedAmenity = item) : ""
     })
-    setTargetAmenity(clickedAmenity);
-    setModalOpen(!modalOpen);
+        setTargetAmenity(clickedAmenity);
+        setModalOpen(!modalOpen);
     }
 
     const changeAmenity = (amenityName) => {
@@ -27,15 +26,48 @@ const Options = ({basket}) => {
     const personAdd = useRef();
     const bedRoomAdd = useRef();
 
-    const onPlus = (e) => {
-        setCounter((e) => e +1)
+    const [clickOptions, setClickOptions] = useState([]);
+    const optionNumber = basket.room_options.map(option => option.option_count);
+    
+    const [option, setOption] = useState(optionNumber);
+    console.log(option);
+    
+    const onPlus = (id, index) => {
+        setClickOptions((arr) => {
+            let newArr = [];
+            arr.map((item) => newArr.push(item));
+            let optionCnt = [...option];
+        if (newArr.includes(id)) {
+            newArr.splice(newArr.indexOf(id), 1);
+            
+            optionCnt[index]++;
+            setOption(optionCnt);
+        } 
+        console.log(clickOptions);
+        return newArr;
+        });
     };
 
-    const onMinus = (e) => {
-        if(counter < 1){
-            return
-        }
-        setCounter((e) => e -1);
+
+    const onMinus = (id, index) => {
+        setClickOptions((arr) => {
+            let newArr = [];
+            arr.map((item) => newArr.push(item));
+            let optionCnt = [...option];
+        
+        if (newArr.includes(id)) {
+            newArr.splice(newArr.indexOf(id), 1);
+            
+            optionCnt[index]--;
+            setOption(optionCnt);
+            if(optionCnt[index] < 1){
+                return
+            }
+        } 
+        console.log(clickOptions);
+        
+        return newArr;
+        });
     }
     return(
     <>
@@ -76,13 +108,13 @@ const Options = ({basket}) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {basket.room_options.map(room => (
+                    {basket.room_options.map((room, index) => (
                         <tr>
                             <td>
                                 <span className={styles.plusTitle}>{room.option_name}</span>&nbsp;<span className={styles.plusPrice}>({room.option_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원)</span></td>
-                            <td><button type='button' className={styles.minus} onClick={() => onMinus(room.option_count)}>―</button>
-                                <input name={room.option_id} className={styles.count} type="text" value={counter} disabled/>
-                                <button type='button' className={styles.plus} onClick={() => onPlus(room.option_count)}>+</button>
+                            <td><button type='button' className={styles.minus} onClick={() => onMinus(room.option_id, index)}>―</button>
+                                <input name={room.option_id} className={styles.count} type="text" value={option[index]} disabled/>
+                                <button type='button' className={styles.plus} onClick={() => onPlus(room.option_id, index)}>+</button>
                             </td>
                         </tr>
                     ))}

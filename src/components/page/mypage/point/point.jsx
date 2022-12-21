@@ -2,8 +2,10 @@ import React from 'react';
 import { useState ,useEffect } from 'react';
 import Banner from '../../../banner/banner';
 import SideMenu from '../../../sideMenu/sideMenu';
-import Get from '../../../../service/api/url/Get';
-import PointTabBox from './pointTabBox';
+import CouponBox from './couponBox';
+
+import PointTabBox from './pointBox';
+import PointBox from './pointBox';
 
 const Point = () => {
     const tabList = [
@@ -11,32 +13,7 @@ const Point = () => {
         {id: 1, title : "쿠폰"}
     ]
     const [index, setIndex] = useState(0);
-    const [point, setPoint] = useState(null);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
-
-
-    useEffect(() => {
-      
-    const fetchPoint = async () => {
-
-        Get.getPoint(index)
-        .then(function (response) {
-            setPoint(response);
-        })
-        .catch(error => {
-            setError(error);
-        })
-        setLoading(false);
-        };
-        fetchPoint();
     
-    }, [index]);
-    if (loading) return <div>로딩중..</div>;
-    if (error) return <div>에러가 발생했습니다</div>;
-    if (!point) return null;
-    
-    console.log(point);
     
     return(
         <>
@@ -58,9 +35,9 @@ const Point = () => {
                     <div className="tabContent">
                         {tabList.filter(item => index === item.id).map(item => {
                             if(item.id === 0){
-                                return <PointTabBox point={point} index={0}/>
+                                return <PointBox/>
                             } else if(item.id === 1){
-                                return <PointTabBox point={point} index={1}/>
+                                return <CouponBox/>
                             }
                             }
                         )}

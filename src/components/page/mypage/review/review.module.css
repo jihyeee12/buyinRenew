@@ -63,9 +63,7 @@
     display: flex;
     align-items: flex-end;
 }
-.likeBox img{
-    cursor: pointer;
-}
+
 .likeCount{
     color: #707070;
     font-size: 0.9rem;

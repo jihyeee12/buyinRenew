@@ -15,7 +15,7 @@ import ReservationCancelModal from './modal/reservationCancelModal';
 import RoomDetailModal from './modal/roomDetailModal';
 import RoominfoModal from './modal/roominfoModal';
 
-const Modal = ({setModalOpen, type,setcouponOpen, setrefundOpen, setAllReview, setPhotoOpen,setHotelOpen, amenity,notice, lodgement, setCancelModal, setRoomModal, id, cancelReason,targetAmenity, setAmenityName, changeAmenity, reviewImg, setBusinessModal, imgData, review}) => {
+const Modal = ({setModalOpen, type,setcouponOpen, setrefundOpen, setAllReview, setPhotoOpen,setHotelOpen,reviewId, amenity,notice, lodgement, setCancelModal, setRoomModal, id, cancelReason,targetAmenity, setAmenityName, changeAmenity, reviewImg, setBusinessModal, imgData, review}) => {
     
     const closeModal = () => {
         {if(type === "coupon"){
@@ -77,7 +77,7 @@ const Modal = ({setModalOpen, type,setcouponOpen, setrefundOpen, setAllReview, s
                         type === "refund"? <RefundModal/>:
                         type === "roominfo"?<RoominfoModal lodgement={lodgement}/>:
                         type === "cancel"? <CancelModal/>:
-                        type === "delete"? <DeleteModal/>:
+                        type === "delete"? <DeleteModal reviewId={reviewId} closeModal={closeModal}/>:
                         type === "allReview"? <AllReviewModal setAllReview={setAllReview} review={review} closeModal={closeModal} />:
                         type === "photoReview"? <PhotoReviewModal reviewImg={reviewImg} review={review} setPhotoOpen={setPhotoOpen} />:
                         type === "hotelPhoto"? <HotelFullViewModal imgData={imgData}/>:

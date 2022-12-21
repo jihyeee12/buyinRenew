@@ -136,17 +136,15 @@ export default{
         })
     },
 
-    getPoint(index){
-        const pointUrl = () => {
-            if(index === 0){
-                return `/points`
-            } else if(index === 1){
-                console.log(index);
-                return `/coupons`
-            }
-        }
-    return ApiAxios({
-            url: pointUrl(),
+    getPoint(){
+        return ApiAxios({
+            url: `points`,
+            method: 'get'
+        })
+    },
+    getCoupon(){
+        return ApiAxios({
+            url:`coupons`,
             method: 'get'
         })
     },

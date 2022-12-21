@@ -6,24 +6,30 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const WrittenReview = ({review}) => {
     const [modalOpen, setModalOpen] = useState(false);
+    const [reviewId, setReviewId] = useState("")
+    const deleteReview = (id) => {
+        setReviewId(id);
+        setModalOpen(!modalOpen)
+    }
+    
 
     return (
         <>
         <p className={styles.reviewCount}>작성리뷰 <span className={styles.reviewCount}>{review.length}개</span></p>
             {review.map(review => (
-                <div className={styles.reviewBox}>
+                <div className={styles.reviewBox} key={review.review_id}>
                     <table className={styles.reviewTitle}>
                         <tbody>
                             <tr>
                                 <td>{review.review_date}</td>
                                 <td>
                                     <Link className='link' to={`/writeReview/${review.reservation_id}`}><span key={review.review_id}>수정</span></Link>
-                                    <span key={review.review_id} className={styles.deleteBtn} onClick={()=> setModalOpen(!modalOpen)}>삭제</span>
+                                    <span key={review.review_id} className={styles.deleteBtn} onClick={()=> deleteReview(review.review_id)}>삭제</span>
+                                    
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                    {modalOpen && <Modal type={"delete"} setModalOpen={() => setModalOpen(!modalOpen)} />}
                     <div className={styles.hotelInfoBox}>
                         <div>
                             <img src={review.lodgement_img_url} alt='호텔이미지' className={styles.hotelImg} />
@@ -43,6 +49,7 @@ const WrittenReview = ({review}) => {
                     </div>
                 </div>
             ))}
+            {modalOpen && <Modal type={"delete"} reviewId={reviewId} setModalOpen={() => setModalOpen(!modalOpen)} />}
         </>
     );
 };
