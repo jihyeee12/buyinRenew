@@ -19,7 +19,8 @@ const Lodgement = () => {
     const [hotelOpen, setHotelOpen] = useState(false);
     const [imgId, setImgId] = useState("");
     const {lodgement} = useParams();
-
+    console.log(photoOpen)
+    console.log(allReview)
     const [hotelInfo, setHotelInfo] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -67,6 +68,7 @@ const Lodgement = () => {
     }
     const reviewData = hotelInfo.reviews;
     const allReviewData = reviewData.filter(review => review.review_img_url !== undefined);
+    const fiveReviewData = allReviewData.slice(0, 5);
     const oneReviewData = allReviewData.filter(img => img.review_id === imgId);
     
     console.log(allReviewData.length);
@@ -122,14 +124,14 @@ const Lodgement = () => {
                 <div className={styles.review}>     
                     <h4 className={styles.title}>리뷰 &nbsp;<span className={styles.reviewCount}>{reviewData.length.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span></h4>
                     <div className={styles.reviewImgs}>
-                        {reviewData.filter(review => review.review_img_url).map((review) => (
+                        {fiveReviewData.map((review) => (
                             <img className={styles.photoReviews} onClick={(id) => ImgClick(review.review_id)} src={review.review_img_url} alt="reviewimg" />
                         ))}
-                        {allReviewData.length == 5 && (<div className={styles.reviewPlus} onClick={()=> setAllReview(!allReview)}>
+                        {allReviewData.length > 5 && (<div className={styles.reviewPlus} onClick={()=> setAllReview(!allReview)}>
                             <p>+ {allReviewData.length -5}</p>
                         </div>)}
-                        {photoOpen && <Modal type={"photoReview"} review={allReviewData} reviewImg={oneReviewData} setPhotoOpen={() => setPhotoOpen(!photoOpen)} />}
-                        {allReview && <Modal type={"allReview"} review={allReviewData} setAllReview={() => setAllReview(!allReview)} />}
+                        {photoOpen && <Modal type={"photoReview"} review={allReviewData} reviewImg={oneReviewData} setPhotoOpen={() => setPhotoOpen(!photoOpen)} setAllReview = {setAllReview} allReview = {allReview}/>}
+                        {allReview && <Modal type={"allReview"} review={allReviewData} setAllReview={() => setAllReview(!allReview)} setPhotoOpen = {setPhotoOpen} photoOpen = {photoOpen} setImgId = {setImgId} imgId = {imgId}/>}
                     </div>
                     <div className={styles.reviewText}>
                         <LodgeReview reviewData={reviewData}/>

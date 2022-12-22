@@ -3,12 +3,14 @@ import { useLocation } from 'react-router-dom';
 import Modal from '../modal';
 import styles from '../modal.module.css';
 
-const PhotoReviewModal = ({reviewImg, review,setPhotoOpen}) => {
-    const [allReview, setAllReview] = useState(false);
+const PhotoReviewModal = ({reviewImg, review, setPhotoOpen, setAllReview, allReview}) => {
+    //const [allReview, setAllReview] = useState(false);
     console.log(reviewImg);
-
+    console.log("review");
     const listClick = () => {
-        setAllReview(!allReview);
+        // setPhotoOpen(false);
+        setPhotoOpen(false);
+        setAllReview(true);
     }
     
     return (

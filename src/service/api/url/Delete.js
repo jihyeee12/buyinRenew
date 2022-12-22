@@ -4,7 +4,7 @@ import ApiAxios from "../ApiContoller";
 export default{
     deleteReview(reviewId){
         return ApiAxios({
-            url: `reviews/review=${reviewId}`,
+            url: `reviews?review=${reviewId}`,
             method: 'delete'
         })
     },

@@ -21,6 +21,10 @@ const Review = () => {
     const [review, setreview] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    const [deleteState, setDeleteState] = useState(false);
+    const DeleteStatus = () => {
+        setDeleteState(!deleteState);
+    }
 
     useEffect(() => {
       
@@ -37,7 +41,7 @@ const Review = () => {
         };
         fetchreview();
     
-    }, [index]);
+    }, [index, deleteState]);
     if (loading) return <div>로딩중..</div>;
     if (error) return <div>에러가 발생했습니다</div>;
     if (!review) return null;
@@ -68,7 +72,7 @@ const Review = () => {
                         </div>
                         :<>{reviewList.filter(item => index === item.id).map(item => {
                             if(item.id === 0){
-                                return <WrittenReview review={review}/>
+                                return <WrittenReview review={review} setDeleteState={DeleteStatus}/>
                             } else if(item.id === 1){
                                 return <CanReview review={review}/>
                             }

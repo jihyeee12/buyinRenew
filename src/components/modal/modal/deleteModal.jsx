@@ -1,44 +1,38 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import Delete from '../../../service/api/url/Delete';
+import Delete from 'service/api/url/Delete';
 import styles from '../modal.module.css';
 
-const DeleteModal = ({reviewId, closeModal}) => {
+const DeleteModal = ({reviewId, closeModal , setDeleteState }) => {
     console.log(reviewId)
-
-    // const [deleteReview, setDeleteReview] = useState(null);
-    // const [loading, setLoading] = useState(false);
-    // const [error, setError] = useState(null);
+    console.log(setDeleteState)
+    const [error, setError] = useState(null);
     
-    // const deleteClick = () => {
-    //     const fetchDeleteReview = async () => {
+    const deleteClick = () => {
+        const fetchDeleteReview = async () => {
+        Delete.deleteReview(reviewId)
+            .then(function (response) {
+                console.log(response);
+                closeModal(false);
+                setDeleteState();
+            })
+            .catch(error => {
+                setError(error);
+                console.log(error);
+            })
+            };
+            fetchDeleteReview();
+    }
     
-    //         Delete.deleteReview(reviewId)
-    //         .then(function (response) {
-    //             setDeleteReview(response);
-    //         })
-    //         .catch(error => {
-    //             setError(error);
-    //         })
-    //         setLoading(false);
-    //         };
-    //         fetchDeleteReview();
-    // }
+    if (error) return <div>에러가 발생했습니다</div>;
     
-    // if (loading) return <div>로딩중..</div>;
-    // if (error) return <div>에러가 발생했습니다</div>;
-    // if (!deleteReview) return null;
-    
-    // console.log(deleteReview);
-
-
 
     return (
         <div>
             <p className={styles.reviewTitle}>리뷰를 삭제하시겠습니까?</p>
             <button type='button' className={styles.reviewBtn} onClick={() => closeModal(false)}>취소</button>
-            <button type='button' className={styles.deleteBtn}>삭제</button>
+            <button type='button' className={styles.deleteBtn} onClick={deleteClick}>삭제</button>
         </div>
     );
 };

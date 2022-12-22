@@ -15,7 +15,9 @@ import ReservationCancelModal from './modal/reservationCancelModal';
 import RoomDetailModal from './modal/roomDetailModal';
 import RoominfoModal from './modal/roominfoModal';
 
-const Modal = ({setModalOpen, type,setcouponOpen, setrefundOpen, setAllReview, setPhotoOpen,setHotelOpen,reviewId, amenity,notice, lodgement, setCancelModal, setRoomModal, id, cancelReason,targetAmenity, setAmenityName, changeAmenity, reviewImg, setBusinessModal, imgData, review}) => {
+const Modal = ({setModalOpen, type,setcouponOpen, setrefundOpen, allReview, setAllReview, photoOpen, setPhotoOpen, 
+    setHotelOpen,reviewId, amenity, notice, lodgement, setCancelModal, setRoomModal, id, cancelReason,targetAmenity, 
+    setAmenityName, changeAmenity, reviewImg, setBusinessModal, imgData, review, setImgId, imgId, setDeleteState}) => {
     
     const closeModal = () => {
         {if(type === "coupon"){
@@ -77,9 +79,9 @@ const Modal = ({setModalOpen, type,setcouponOpen, setrefundOpen, setAllReview, s
                         type === "refund"? <RefundModal/>:
                         type === "roominfo"?<RoominfoModal lodgement={lodgement}/>:
                         type === "cancel"? <CancelModal/>:
-                        type === "delete"? <DeleteModal reviewId={reviewId} closeModal={closeModal}/>:
-                        type === "allReview"? <AllReviewModal setAllReview={setAllReview} review={review} closeModal={closeModal} />:
-                        type === "photoReview"? <PhotoReviewModal reviewImg={reviewImg} review={review} setPhotoOpen={setPhotoOpen} />:
+                        type === "delete"? <DeleteModal reviewId={reviewId} closeModal={closeModal} setDeleteState={setDeleteState}/>:
+                        type === "allReview"? <AllReviewModal setAllReview={setAllReview} review={review} closeModal={closeModal} setPhotoOpen={setPhotoOpen} photoOpen = {photoOpen} setImgId = {setImgId} imgId = {imgId}/>:
+                        type === "photoReview"? <PhotoReviewModal reviewImg={reviewImg} review={review} photoOpen = {photoOpen} setPhotoOpen={setPhotoOpen} setAllReview = {setAllReview} allReview = {allReview}/>:
                         type === "hotelPhoto"? <HotelFullViewModal imgData={imgData}/>:
                         type === "amenity"? <AmenityModal targetAmenity={targetAmenity} setAmenityName={setAmenityName} changeAmenity={changeAmenity}/>:
                         type === "room"? <RoomDetailModal notice={notice} amenity={amenity}/>:

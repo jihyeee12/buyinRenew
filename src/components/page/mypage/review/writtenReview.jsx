@@ -1,15 +1,17 @@
 import React from 'react';
 import { useState } from 'react';
 import styles from './review.module.css';
-import Modal from '../../../modal/modal';
+import Modal from 'components/modal/modal';
 import { Link, useNavigate } from 'react-router-dom';
 
-const WrittenReview = ({review}) => {
+const WrittenReview = ({review, setDeleteState}) => {
+
     const [modalOpen, setModalOpen] = useState(false);
     const [reviewId, setReviewId] = useState("")
     const deleteReview = (id) => {
         setReviewId(id);
-        setModalOpen(!modalOpen)
+        setModalOpen(!modalOpen);
+        
     }
     
 
@@ -44,12 +46,12 @@ const WrittenReview = ({review}) => {
                         {review.review_img_url && <img className={styles.reviewImg} src={review.review_img_url} alt="리뷰이미지" />}
                     </div>
                     <div className={styles.likeBox}>
-                        <img src="../../../img/icon/likeBtn.png" alt="좋아요" />
+                        <img src="img/icon/likeBtn.png" alt="좋아요" />
                         <span className={styles.likeCount}>{review.like_num}</span>
                     </div>
                 </div>
             ))}
-            {modalOpen && <Modal type={"delete"} reviewId={reviewId} setModalOpen={() => setModalOpen(!modalOpen)} />}
+            {modalOpen && <Modal type={"delete"} reviewId={reviewId} setDeleteState={setDeleteState} setModalOpen={() => setModalOpen(!modalOpen)} />}
         </>
     );
 };
