@@ -1,14 +1,40 @@
 import React from 'react';
 import styles from './recentSearch.module.css';
 import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import Delete from 'service/api/url/Delete';
 
-const RecentBox = ({recentData}) => {
+const RecentBox = ({recentData, setDeleteState}) => {
     const navigate = useNavigate();
 
     const lodgement = () =>{
         navigate('/lodgement');
     }
     console.log(recentData);
+
+    const [error, setError] = useState(null);
+    
+    const deleteClick = (lodgement) => {
+        console.log(lodgement);
+        const fetchDeleteRecent = async () => {
+        Delete.deleteRecent(lodgement)
+            .then(function (response) {
+                console.log(response);
+                setDeleteState();
+            })
+            .catch(error => {
+                setError(error);
+                console.log(error);
+            })
+            };
+            fetchDeleteRecent();
+    }
+    
+    if (error) return <div>에러가 발생했습니다</div>;
+
+
+
+
     return (
         <>
         {recentData.length === 0 ? 
@@ -36,7 +62,7 @@ const RecentBox = ({recentData}) => {
                     </div>
                 </div>
                 <div className={styles.deleteIcon}>
-                    <img className={styles.deleteImg} key={recent.lodgement_id} src='../../../img/icon/deleteIcon.png' alt='deleteIcon' />
+                    <img className={styles.deleteImg} key={recent.lodgement_id} onClick={() => deleteClick(recent.lodgement_id)} src='../../../img/icon/deleteIcon.png' alt='deleteIcon' />
                 </div>
             </div>
         ))}

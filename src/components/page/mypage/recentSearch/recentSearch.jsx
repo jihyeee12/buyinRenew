@@ -12,7 +12,8 @@ const RecentSearch = () => {
     const [recentData, setRecentData] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-
+    const [deleteState, setDeleteState] = useState(false);
+    
     useEffect(() => {
       
     const fetchrecentData = async () => {
@@ -28,19 +29,14 @@ const RecentSearch = () => {
         };
         fetchrecentData();
     
-    }, []);
+    }, [deleteState]);
     if (loading) return <div>로딩중..</div>;
     if (error) return <div>에러가 발생했습니다</div>;
     if (!recentData) return null;
     
     console.log(recentData);
 
-    // const recentRemove = (id) => {
-    //     setRecentData(recentData.filter((recent) => recent.id !== id));
-    // }
-
-
-
+    
     return(
         <>
         <Banner name={"마이페이지"}/>
@@ -48,7 +44,7 @@ const RecentSearch = () => {
             <SideMenu type={'my'}/>
             <div className="pageBox">
                 <div className={styles.recentList}>
-                    <RecentBox recentData={recentData}/>
+                    <RecentBox setDeleteState={setDeleteState} recentData={recentData}/>
                 </div>
             </div>
         </div>

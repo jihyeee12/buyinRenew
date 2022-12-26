@@ -47,6 +47,8 @@ import LodgeZone from './priceBox/lodgeZone';
             dots: true,
             infinite: true,
             speed: 500,
+            autoplay: false,
+            focusOnSelect : true,
             slidesToShow: 3,
             slidesToScroll: 3,
             prevArrow: (
@@ -87,7 +89,7 @@ import LodgeZone from './priceBox/lodgeZone';
                     <div className={styles.roomCard} >
                         <Link className={styles.link} to={`/lodgement/${v.lodgement_id}`}><img className={styles.roomImg} src={v.lodgement_img_url} alt='roomImg' /></Link>
                         <button type='button' className={styles.wishBtn} key={v.lodgement_id} onClick={() => {handleClickToggleBtn(v.lodgement_id)}}> 
-                            <img className={styles.wish} src={(clickedNumArr.includes(v.lodgement_id)  ? "/img/icon/wishOkIcon.png" : "/img/icon/wish.png")} alt='wish' />
+                            <img className={styles.wish} src={((clickedNumArr.includes(v.lodgement_id) || v.is_wished === true) ? "/img/icon/wishOkIcon.png" : "/img/icon/wish.png")} alt='wish' />
                         </button>
                         <Link className={styles.link} to={`/lodgement/${v.lodgement_id}`}>
                         <div className={styles.roomInfo} >

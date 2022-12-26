@@ -60,3 +60,10 @@
     border: none;
     background-color: transparent;
 }
+.fileImg{
+    width: 12rem;
+    cursor: pointer;
+}
+.WarningTxt{
+    font-size: 0.8rem;
+}

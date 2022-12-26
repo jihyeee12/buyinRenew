@@ -12,4 +12,31 @@ export default{
             }
         })
     },
+
+    reviewWrite(formData){
+        return ApiAxios({
+            url: `/reviews`,
+            method: 'post',
+            headers:{
+                "Content-Type": "multipart/form-data",
+            },
+            data:{
+                formData,
+            }
+        })
+    },
+
+    selectWish(lodgement, user_id){
+        return ApiAxios({
+            url: `/wishlists?lodgement=${lodgement}`,
+            method: 'post',
+            data:{
+                user: user_id, 
+                lodgement: lodgement,
+            }
+        })
+    },
+
+
+
 }

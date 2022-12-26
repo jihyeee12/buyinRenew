@@ -47,6 +47,7 @@ const HotelFullViewModal = ({imgData}) => {
         speed: 500,
         slidesToShow: 7,
         slidesToScroll: 7,
+        focusOnSelect : true,
         prevArrow: (
             <Pre>
                 <img src="../img/icon/leftBtn.png" alt="" />

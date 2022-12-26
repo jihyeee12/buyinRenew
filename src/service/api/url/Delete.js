@@ -8,4 +8,17 @@ export default{
             method: 'delete'
         })
     },
+
+    deleteRecent(lodgement){
+        return ApiAxios({
+            url: `recents?lodgement=${lodgement}`,
+            method: 'delete'
+        })
+    },
+    deleteWish(id){
+        return ApiAxios({
+            url: `wishlists?lodgement=${id}`,
+            method: 'delete'
+        })
+    },
 }

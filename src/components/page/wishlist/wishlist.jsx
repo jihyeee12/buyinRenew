@@ -9,6 +9,7 @@ const Wishlist = (props) => {
     const [wish, setWish] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    const [deleteState, setDeleteState] = useState(false);
 
  
     useEffect(() => {
@@ -27,7 +28,7 @@ const Wishlist = (props) => {
         };
         fetchWish();
     
-    }, []);
+    }, [deleteState]);
     if (loading) return <div>로딩중..</div>;
     if (error) return <div>에러가 발생했습니다</div>;
     if (!wish) return null;
@@ -39,7 +40,7 @@ const Wishlist = (props) => {
             <p>위시리스트</p>
         </div>
         <div className="container">
-            <Wishroom wish ={wish} />
+            <Wishroom setDeleteState={setDeleteState} wish ={wish} />
         </div>
     </>)
 };

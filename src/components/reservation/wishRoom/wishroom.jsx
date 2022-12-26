@@ -4,28 +4,32 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import Get from '../../../service/api/url/Get';
+import Delete from 'service/api/url/Delete';
 
-const Wishroom = ({wish}) => {
+const Wishroom = ({wish, setDeleteState}) => {
     const navigate = useNavigate();
     const linkLodge = () =>{
         navigate('/lodgement')
     }
-    const [clickedNumArr, setClickedNumArr] = useState([]);
-    const handleClickToggleBtn = (id) => {
-        setClickedNumArr((arr) => {
-            let newArr = [];
-            arr.map((item) => newArr.push(item));
-
-            if (newArr.includes(id)) {
-            newArr.splice(newArr.indexOf(id), 1);
-            } else {
-            newArr.push(id);
-            }
-            console.log(clickedNumArr);
-            return newArr;
-        });
-        };
-
+    
+    const [error, setError] = useState(null);
+    const [wishOut, setWishOut] = useState();
+        const clickWish = (id) => {
+            const fetchDeleteWish = async () => {
+                Delete.deleteWish(id)
+                    .then(function (response) {
+                        console.log(response);
+                        setWishOut(id);
+                        setDeleteState();
+                    })
+                    .catch(error => {
+                        setError(error);
+                        console.log(error);
+                    })
+                };
+                    fetchDeleteWish();
+        }
+        if (error) return <div>에러가 발생했습니다</div>;
     return(
         <>
         {wish.length === 0 ? 
@@ -38,8 +42,8 @@ const Wishroom = ({wish}) => {
                 <Link to={`/lodgement/${wish.lodgement_id}`}>
                 <img className={styles.wishImg} src={wish.lodgement_img_url} alt="roomImg" />
                 </Link>
-                <button type='button' className={styles.wishBtn} key={wish.lodgement_id} onClick={() => handleClickToggleBtn(wish.lodgement_id)}>
-                    <img className={styles.wishIcon} src={(clickedNumArr.includes(wish.lodgement_id)  ? "/img/icon/wishOkIcon.png" : "/img/icon/wish.png")} alt="wishIcon" />
+                <button type='button' className={styles.wishBtn} key={wish.lodgement_id} onClick={() => clickWish(wish.lodgement_id)}>
+                    <img className={styles.wishIcon}  src={(wishOut === wish.lodgement_id ? "/img/icon/wish.png" : "/img/icon/wishOkIcon.png")} alt="wishIcon" />
                 </button>
                 <div>
                     <table className={styles.wishTable}>
