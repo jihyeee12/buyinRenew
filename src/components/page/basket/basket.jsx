@@ -6,15 +6,14 @@ import Get from '../../../service/api/url/Get';
 
 const Basket = () => {
     const navigate = useNavigate();
-
     const linkpay = () => {
         navigate('/payment');
-    }
+    };
+    const [ totalBasketPrice, setTotalBasketPrice ] = useState(0);
     const [basket, setbasket] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
- 
     useEffect(() => {
         
     const fetchbasket = async () => {
@@ -50,7 +49,7 @@ const Basket = () => {
                 </div>
                 <Baskethotel date = {basket.date_string} shopbaskets = {basket.shopbaskets}/>
                 <div className={styles.payBtns}>
-                    <button type='button' className={styles.payBtn} onClick={linkpay}>1,000원 결제하기</button>
+                    <button type='button' className={styles.payBtn} onClick={linkpay}>{totalBasketPrice.toLocaleString()}원 결제하기</button>
                 </div>
             </div>
         </>

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './searchBar.module.css';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import DatePicker from "react-datepicker";
 import { ko } from 'date-fns/esm/locale';
 import "react-datepicker/dist/react-datepicker.css";
@@ -9,21 +9,14 @@ import Region from './region/region';
 import dayjs from 'dayjs';
 
 const SearchBar = (props) => {
-    const navigate = useNavigate();
-
-    const linkSearch = () => {
-        navigate('/search',{
-            state: {
-                startDay: startDay,
-                endDay : endDay
-            }
-        });
-    }
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(today.getDate() + 1);
+    const [startDate, setStartDate] = useState(today);
+    const [endDate, setEndDate] = useState(tomorrow);
     const [region, setRegion] = useState("");
     const [zone, setZone] = useState("");
     const [visible, setvisible] = useState(false);
-    const [startDate, setStartDate] = useState(new Date());
-    const [endDate, setEndDate] = useState(new Date());
 
     const getFormattedDate = (date) => {
         const month = date.toLocaleDateString('ko-KR', {
@@ -57,13 +50,24 @@ const SearchBar = (props) => {
         const startDay = dayjs(startDate).format("YYYY.MM.DD");
         const endDay = dayjs(endDate).format("YYYY.MM.DD");
 
+        
+
+        // const linkSearch = () => {
+        //     navigate('/search',{
+        //         state: {
+        //             startDay: startDay,
+        //             endDay : endDay
+        //         }
+        //     });
+        // }
+        
         return(
             <>
                 <div className={styles.searchDiv}>
                     <ul className={styles.searchBar}>
                         <li className={styles.searchLi}>
                             <p className={styles.searchTitle}>숙소명</p>
-                            <input type='textbox' placeholder='숙소명을 입력해주세요'></input>
+                            <input type='textbox' id='hotelName' placeholder='숙소명을 입력해주세요'></input>
                         </li>
                         <li className={styles.searchLi}>
                             <p className={styles.searchTitle}>지역</p>
@@ -111,8 +115,14 @@ const SearchBar = (props) => {
                            
                         </li>
                     </ul>
+                    {/* onClick={() => linkSearch(startDay, endDay)} */}
                     <div className={styles.searchButton}>
-                        <button type='button' className={styles.searchBtn} onClick={() => linkSearch(startDay, endDay)}>
+                        <button type='button' className={styles.searchBtn} onClick={()=> {
+                            History.push({
+                                pathname: "/search",
+                                search: `?checkin=${startDay}&checkout=${endDay}`
+                                                        })
+                        }}>
                             <img src='/img/icon/round-search.png' alt='magnifier' />
                         </button>
                     </div>
