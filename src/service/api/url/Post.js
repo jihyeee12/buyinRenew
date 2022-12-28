@@ -37,6 +37,17 @@ export default{
         })
     },
 
+    likeReview(id, user_id){
+        return ApiAxios({
+            url: `/like`,
+            method: 'post',
+            data:{
+                user: user_id, 
+                review: id,
+            }
+        })
+    },
+
 
 
 }

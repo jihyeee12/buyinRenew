@@ -1,20 +1,20 @@
 .wishBox{
-    width: 384px;
+    width: 24rem;
     border: 1px solid #EDEFF2;
     box-shadow: 0px 2px 4px 0px #5474C712;
     background: #FFFFFF;
-    border-radius: 12px;
+    border-radius: 0.75rem;
     position: relative;
     display: inline-block;
-    margin-right: 14px;
-    margin-bottom: 24px;
+    margin-right: 0.875rem;
+    margin-bottom: 1.5rem;
     cursor: pointer;
 }
 .wishImg{
-    width: 384px;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    height: 182px;
+    width: 24rem;
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+    height: 11.375rem;
 }
 .wishIcon{
     position: absolute;
@@ -23,7 +23,8 @@
 .wishTable{
     width: 100%;
     box-sizing: border-box;
-    padding: 16px;
+    padding: 1rem;
+    table-layout: fixed;
 }
 .wishTable td{
     font-family: pretendard;
@@ -34,11 +35,11 @@
 }
 .hotelName ,.price{
     font-weight: 600;
-    font-size: 16px;
+    font-size: 1rem;
     color: #303030;
 }
 .percent ,.discount{
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 600;
 }
 .percent{
@@ -49,7 +50,7 @@
     text-decoration: line-through;
 }
 .standard{
-    font-size: 14px;
+    font-size: 0.875rem;
     color: #707070;
     /* white-space: nowrap;
     overflow: hidden;
@@ -62,4 +63,18 @@
     right: 0%;
     background-color: transparent;
     border: none;
+}
+.Location{
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #636465;
+    display: flex;
+}
+.landMark{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.locationIcon{
+    margin-right: 0.375rem;
 }

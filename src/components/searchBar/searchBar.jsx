@@ -9,6 +9,7 @@ import Region from './region/region';
 import dayjs from 'dayjs';
 
 const SearchBar = (props) => {
+    const navigate = useNavigate();
     const today = new Date();
     const tomorrow = new Date(today);
     tomorrow.setDate(today.getDate() + 1);
@@ -52,14 +53,14 @@ const SearchBar = (props) => {
 
         
 
-        // const linkSearch = () => {
-        //     navigate('/search',{
-        //         state: {
-        //             startDay: startDay,
-        //             endDay : endDay
-        //         }
-        //     });
-        // }
+        const linkSearch = () => {
+            navigate('/search',{
+                state: {
+                    startDay: startDay,
+                    endDay : endDay
+                }
+            });
+        }
         
         return(
             <>
@@ -92,7 +93,7 @@ const SearchBar = (props) => {
                                 getDayName(createDate(date)) === '토' ? styles.saturDay :
                                 getDayName(createDate(date)) === '일' ? styles.sunDay : ""}
                                 />
-                           
+                        
                         </li>
                         <li className={styles.searchLi}>
                             <p className={styles.searchTitle}>체크아웃</p>
@@ -112,17 +113,11 @@ const SearchBar = (props) => {
                                 getDayName(createDate(date)) === '토' ? styles.saturDay :
                                 getDayName(createDate(date)) === '일' ? styles.sunDay : undefined}
                             />
-                           
                         </li>
                     </ul>
-                    {/* onClick={() => linkSearch(startDay, endDay)} */}
+                    
                     <div className={styles.searchButton}>
-                        <button type='button' className={styles.searchBtn} onClick={()=> {
-                            History.push({
-                                pathname: "/search",
-                                search: `?checkin=${startDay}&checkout=${endDay}`
-                                                        })
-                        }}>
+                        <button type='button' className={styles.searchBtn} onClick={() => linkSearch(startDay, endDay)} >
                             <img src='/img/icon/round-search.png' alt='magnifier' />
                         </button>
                     </div>

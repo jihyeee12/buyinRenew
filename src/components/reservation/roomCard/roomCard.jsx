@@ -9,11 +9,11 @@ import styled, {css} from 'styled-components';
 import BusinessCard from './businessCard';
 import RentZone from './priceBox/rentZone';
 import LodgeZone from './priceBox/lodgeZone';
+import Delete from 'service/api/url/Delete';
+import Post from 'service/api/url/Post';
 
     const RoomCard = ({state, slider}) => {
-       
         const roomData = state;
-         
         const StyledSlider = styled(Slider)`
             width: 100%;
             height: 100%;
@@ -24,24 +24,23 @@ import LodgeZone from './priceBox/lodgeZone';
                 display: none;
             }
         `;
- 
-    const arrowBtn = css`
-        width: 3rem;
-        height: 3rem;
-        border: none;
-        background-color: transparent;
-        position: absolute;
-        z-index: 1;
-    `
+        const arrowBtn = css`
+            width: 3rem;
+            height: 3rem;
+            border: none;
+            background-color: transparent;
+            position: absolute;
+            z-index: 1;
+        `
 
-    const Pre = styled.div`
-        ${arrowBtn}
-        left: -4%;
-    `
-    const Next = styled.div`
-        ${arrowBtn}
-        right: -4%;
-    `
+        const Pre = styled.div`
+            ${arrowBtn}
+            left: -4%;
+        `
+        const Next = styled.div`
+            ${arrowBtn}
+            right: -4%;
+        `
 
         const settings = {
             dots: true,
@@ -62,22 +61,7 @@ import LodgeZone from './priceBox/lodgeZone';
                 </Next>
             )
         }
-
-        const [clickedNumArr, setClickedNumArr] = useState([]);
-        const handleClickToggleBtn = (id) => {
-            setClickedNumArr((arr) => {
-            let newArr = [];
-            arr.map((item) => newArr.push(item));
-    
-            if (newArr.includes(id)) {
-            newArr.splice(newArr.indexOf(id), 1);
-            } else {
-            newArr.push(id);
-            }
-            console.log(clickedNumArr);
-            return newArr;
-        });
-        };
+        
         
 
     return( 
@@ -87,10 +71,7 @@ import LodgeZone from './priceBox/lodgeZone';
             {roomData.map((v) => (
                 <div className={styles.roomCardArea} key={v.lodgement_id}>
                     <div className={styles.roomCard} >
-                        <Link className={styles.link} to={`/lodgement/${v.lodgement_id}`}><img className={styles.roomImg} src={v.lodgement_img_url} alt='roomImg' /></Link>
-                        <button type='button' className={styles.wishBtn} key={v.lodgement_id} onClick={() => {handleClickToggleBtn(v.lodgement_id)}}> 
-                            <img className={styles.wish} src={((clickedNumArr.includes(v.lodgement_id) || v.is_wished === true) ? "/img/icon/wishOkIcon.png" : "/img/icon/wish.png")} alt='wish' />
-                        </button>
+                        <Link className={styles.link} to={`/lodgement/${v.lodgement_id}`}><img className={styles.roomImg} src={v.lodgement_img_url} alt='roomImg' /></Link>                      
                         <Link className={styles.link} to={`/lodgement/${v.lodgement_id}`}>
                         <div className={styles.roomInfo} >
                             <p className={styles.pointMark}><img src="../../../img/icon/pointMark.png" alt="ambassador" /> &nbsp;3,000P</p>
@@ -122,9 +103,6 @@ import LodgeZone from './priceBox/lodgeZone';
                 <div className={styles.roomCardArea} key={v.lodgement_id}>
                     <div className={styles.roomCard} >
                         <Link className={styles.link} to={`/lodgement/${v.lodgement_id}`}><img className={styles.roomImg} src={v.lodgement_img_url} alt='roomImg' /></Link>
-                        <button type='button' className={styles.wishBtn} key={v.lodgement_id} onClick={() => {handleClickToggleBtn(v.lodgement_id)}}> 
-                            <img className={styles.wish} src={(clickedNumArr.includes(v.lodgement_id)  ? "/img/icon/wishOkIcon.png" : "/img/icon/wish.png")} alt='wish' />
-                        </button>
                         <Link className={styles.link} to={`/lodgement/${v.lodgement_id}`}>
                         <div className={styles.roomInfo} >
                             <p className={styles.pointMark}><img src="../../../img/icon/pointMark.png" alt="ambassador" /> &nbsp;1,000P</p>

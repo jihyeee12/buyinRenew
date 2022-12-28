@@ -21,4 +21,11 @@ export default{
             method: 'delete'
         })
     },
+
+    deleteReview(id){
+        return ApiAxios({
+            url: `like?review=${id}`,
+            method: 'delete'
+        })
+    },
 }

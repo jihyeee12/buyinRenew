@@ -5,9 +5,9 @@
 }
 
 .roomCard{
-    width: 384px;
-    border-radius: 12px;
-    box-shadow: 0px 2px 4px rgba(84, 116, 199, 0.07);
+    width: 24rem;
+    border-radius: 0.75rem;
+    box-shadow: 0px 2px 0.25rem rgba(84, 116, 199, 0.07);
     border: 1px solid #EDEFF2;
     background-color: white;
     cursor: pointer;
@@ -17,34 +17,25 @@
     padding: 1rem;
 }
 p{
-    margin: 4px auto;
+    margin: 0.25rem auto;
     font-family: pretendard;
 }
 .roomImg{
     position: relative;
-    width: 384px;
-    height: 182px;
-    border-radius: 12px 12px 0px 0px;
+    width: 24rem;
+    height: 11.375rem;
+    border-radius: 0.75rem 0.75rem 0px 0px;
 }
-.wishBtn{
-    position: absolute;
-    cursor: auto;
-    top: 3%;
-    right: 3%;
-    background-color: transparent;
-    border: none;
-}
-
 .wishIcon{
-    margin-right: 6px;
+    margin-right: 0.375rem;
 }
 .HotelName{
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 600;
     color: #303030;
 }
 .Location{
-    font-size: 13px;
+    font-size: 0.8125rem;
     font-weight: 600;
     color: #636465;
     display: flex;

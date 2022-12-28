@@ -55,8 +55,8 @@
 }
 
 .shareIcon{
-    float: right;
     cursor: pointer;
+    margin-left: 0.7rem;
 }
 
 .hotelLocation{
@@ -237,4 +237,9 @@
     width: 9rem;
     height: 9rem;
     border-radius: 0.5rem;
+}
+.titleBox{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

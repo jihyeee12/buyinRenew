@@ -9,6 +9,8 @@ import HotelMaps from './map/hotelMaps';
 import LodgeReview from './lodgeReview';
 import { useEffect } from 'react';
 import Get from '../../../service/api/url/Get';
+import Delete from 'service/api/url/Delete';
+import Post from 'service/api/url/Post';
 
 
 const Lodgement = () => {
@@ -19,16 +21,15 @@ const Lodgement = () => {
     const [hotelOpen, setHotelOpen] = useState(false);
     const [imgId, setImgId] = useState("");
     const {lodgement} = useParams();
-    console.log(photoOpen)
-    console.log(allReview)
+    const [wish, setWish] = useState(false);
     const [hotelInfo, setHotelInfo] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const checkin = '2022.12.24';
     const checkout = '2022.12.25';
-
+    const user_id = 'AppIDEtest'
+    
     useEffect(() => {
-      
     const fetchhotelInfo = async () => {
 
         Get.getLodgementInfo(lodgement,checkin,checkout)
@@ -48,6 +49,36 @@ const Lodgement = () => {
     if (!hotelInfo) return null;
     
     console.log(hotelInfo);
+
+    const wishDelete = (id) => {
+        const fetchDeleteWish = async () => {
+            Delete.deleteWish(id)
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(error => {
+                    setError(error);
+                    console.log(error);
+                })
+            };
+                fetchDeleteWish();
+    }
+
+    const wishPlus = (id, user_id) => {
+        const fetchLikeWish = async () => {
+            Post.selectWish(id, user_id)
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(error => {
+                    setError(error);
+                    console.log(error);
+                })
+            };
+        fetchLikeWish();
+    }
+
+    if (error) return <div>에러가 발생했습니다</div>;
     
     const clip = () => {
         var url = "";
@@ -71,7 +102,17 @@ const Lodgement = () => {
     const fiveReviewData = allReviewData.slice(0, 5);
     const oneReviewData = allReviewData.filter(img => img.review_id === imgId);
     
-    console.log(allReviewData.length);
+
+    const wishClick = (id) => {
+        if(hotelInfo.is_wished ===  true){
+            setWish();
+            wishDelete(id);
+        } else{
+            setWish(!wish);
+            wishPlus(id, user_id);
+        }
+    }
+
     return(
         <>
     <div className={styles.container}>
@@ -91,8 +132,16 @@ const Lodgement = () => {
         <div className={styles.hotelGrid}>
             <div className={styles.hotelInfo}>
                 <div className={styles.hotelTitle}>
-                    <h4>{hotelInfo.lodgement_name} <img className={styles.shareIcon} onClick={clip} src="/img/icon/share.png" alt="shareIcon" /></h4>
-                    <p className={styles.hotelLocation}><img className={styles.locationImg} src="/img/icon/location.png" alt="location" /> {hotelInfo.landmark}</p>
+                    <div className={styles.titleBox}>
+                        <div className={styles.titleTxt}>
+                            <h4>{hotelInfo.lodgement_name}</h4>
+                            <p className={styles.hotelLocation}><img className={styles.locationImg} src="/img/icon/location.png" alt="location" /> {hotelInfo.landmark}</p>
+                        </div>
+                        <div className={styles.likeBtn}>
+                            <img className={styles.shareIcon} onClick={() => wishClick(hotelInfo.lodgement_id, user_id)} src={((wish || hotelInfo.is_wished === true)? "/img/icon/wishLikeIcon.png" : "/img/icon/wishIcon.png")} alt="wishIcon" />
+                            <img className={styles.shareIcon} onClick={clip} src="/img/icon/share.png" alt="shareIcon" />
+                        </div>
+                    </div>
                     {hotelInfo.is_ambassadr !== false && <p className={styles.ambassadorBox}><img src='../../../img/icon/pointMark.png' alt='ambassador'/> <span className={styles.ambassadorPoint}>3,000P 적립</span></p>}
                     <button type='button' className={styles.couponBtn} onClick={()=> setcouponOpen(!couponOpen)}>최대 10,000원 쿠폰받기<img src='/img/icon/downloadIcon.png'/></button>
                     {couponOpen && <Modal type={"coupon"} setcouponOpen={() => setcouponOpen(!couponOpen)} />}

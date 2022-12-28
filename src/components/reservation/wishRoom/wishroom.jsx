@@ -53,7 +53,12 @@ const Wishroom = ({wish, setDeleteState}) => {
                                 {wish.lodge_list_price !== null && <td className={styles.listPrice}><span className={styles.percent}>{wish.lodge_dc_rate}%</span> <span className={styles.discount}>{wish.lodge_list_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</span></td>}
                             </tr>
                             <tr>
-                                <td className={styles.standard}>{wish.landmark}</td>
+                                <td className={styles.standard}>
+                                    <p className={styles.Location}>
+                                    <img className={styles.locationIcon} src='/img/icon/location.png' alt='mapIcon'/> 
+                                    <span className={styles.landMark}>{wish.landmark}</span>
+                                    </p>
+                                </td>
                                 {wish.lodge_sale_price ? <td className={styles.price}>{wish.lodge_sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</td> : <td className={styles.close}>예약마감</td>}
                             </tr>
                         </tbody>
