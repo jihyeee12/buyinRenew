@@ -3,26 +3,30 @@ import styles from './search.module.css';
 import RoomCard from '../../reservation/roomCard/roomCard';
 import SearchBar from '../../searchBar/searchBar';
 import Sort from '../../sort/sort';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams, useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import Get from '../../../service/api/url/Get';
+import { useCallback } from 'react';
 
 const Search = () => {
     const location = useLocation();
-    const startDay = location.state.startDay;
-    const endDay = location.state.endDay;
+    const [searchParams, setSeratchParams] = useSearchParams();
     const [search, setSearch] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    const checkin = '2022.12.24';
-    const checkout = '2022.12.25';
+    const checkin = searchParams.get("checkin");
+    const checkout = searchParams.get("checkout");
+    const regionName = searchParams.get("name");
+    const region = searchParams.get("region");
 
+    const searchInfo = {checkin,checkout,regionName,region};
+    
     useEffect(() => {
       
     const fetchsearch = async () => {
 
-        Get.getSearch(checkin,checkout)
+        Get.getSearch(checkin, checkout, regionName, region)
         .then(function (response) {
             setSearch(response);
         })
@@ -33,7 +37,8 @@ const Search = () => {
         };
         fetchsearch();
     
-    }, []);
+    }, [checkin, checkout, regionName, region]);
+
     if (loading) return <div>로딩중..</div>;
     if (error) return <div>에러가 발생했습니다</div>;
     if (!search) return null;
@@ -43,7 +48,7 @@ const Search = () => {
     return(
         <>
             <div className={styles.searchDiv}>
-                <SearchBar />         
+                <SearchBar searchInfo={searchInfo}/>         
                 <Sort state={search}/>
                 <div className={styles.roomList}>
                     <RoomCard state={search}/>

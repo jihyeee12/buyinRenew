@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import styles from './main.module.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -20,6 +20,11 @@ function Main() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
+    const [searchParams, setSeratchParams] = useSearchParams();
+    const checkin = searchParams.get("checkin");
+    const checkout = searchParams.get("checkout");
+    const regionName = searchParams.get("name");
+    const region = searchParams.get("region");
     
     const recommandDorm = (state) => {
         navigate('/recommandDorm',{
@@ -57,6 +62,8 @@ function Main() {
     console.log(users)
     const recommendLodgements = users.recommend_lodgements;
     
+    const searchInfo = {checkin,checkout,regionName,region};
+    
 
     return (
             <div className={styles.container}>
@@ -77,7 +84,7 @@ function Main() {
                         
                     </Swiper>
                 </div>
-                <SearchBar />
+                <SearchBar searchInfo={searchInfo} />
                 <div className={styles.roomList}>
                     <RoomList state={users.thumb_lodgements} />
                 </div>

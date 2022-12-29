@@ -51,7 +51,7 @@ const LodgeReview = ({reviewData}) => {
             let likeCnt = [...like];
             //arr 사용하지 말고 새로고침?
             //데이터 넣고 빼는것만 set사용해서 실행
-        if (newArr.includes(id)) {
+        if (newArr.includes(id)){
             newArr.splice(newArr.indexOf(id), 1);
             likeCnt[index] -= 1;
             setLike(likeCnt);
@@ -83,7 +83,7 @@ const LodgeReview = ({reviewData}) => {
             <p className={styles.likeNum}>
             <LikeBtn 
                 onClick={() => handleClickLikeBtn(review.review_id, index, user_id)} 
-                src={(review.is_liked === true || clickedNumArr.includes(review.review_id) ) ? "/img/icon/likeOk.png" : "/img/icon/likeBtn.png"} 
+                src={(review.is_liked === true || clickedNumArr.includes(review.review_id)) ? "/img/icon/likeOk.png" : "/img/icon/likeBtn.png"} 
                 alt="likeBtn" />
                 &nbsp;{like[index]}
             </p>

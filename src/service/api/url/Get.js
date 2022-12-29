@@ -162,9 +162,16 @@ export default{
         })
     },
     
-    getSearch(checkin,checkout){
+    getSearch(checkin,checkout,name,regions){
+        const searchUrl =() => {
+            if(regions) {
+                return `/lodgements?checkin=${checkin}&checkout=${checkout}&region=${regions}&name=${name}`;
+            }else{
+                return `/lodgements?checkin=${checkin}&checkout=${checkout}&name=${name}`;
+            }
+        }
         return ApiAxios({
-            url:`/lodgements?checkin=${checkin}&checkout=${checkout}`,
+            url: searchUrl(),
             method: 'get'
         })
     },
@@ -177,6 +184,12 @@ export default{
     getWishList(){
         return ApiAxios({
             url:`wishlists`,
+            method: 'get'
+        })
+    },
+    getRegion(){
+        return ApiAxios({
+            url:`regions`,
             method: 'get'
         })
     },

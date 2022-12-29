@@ -22,6 +22,7 @@
     font-size: 1rem;
     cursor: pointer;
     text-align: center;
+    line-height: 1.4rem;
 }
 .regionList{
     color: #707070;
