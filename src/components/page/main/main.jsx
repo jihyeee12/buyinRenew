@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from 'react';
-import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import styles from './main.module.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -25,6 +25,7 @@ function Main() {
     const checkout = searchParams.get("checkout");
     const regionName = searchParams.get("name");
     const region = searchParams.get("region");
+    const period = {checkin,checkout};
     
     const recommandDorm = (state) => {
         navigate('/recommandDorm',{
@@ -86,7 +87,7 @@ function Main() {
                 </div>
                 <SearchBar searchInfo={searchInfo} />
                 <div className={styles.roomList}>
-                    <RoomList state={users.thumb_lodgements} />
+                    <RoomList period={period} state={users.thumb_lodgements} />
                 </div>
                 <div className={styles.ad}>
                     <Adverisement/>

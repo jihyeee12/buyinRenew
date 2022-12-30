@@ -21,6 +21,7 @@ const Search = () => {
     const region = searchParams.get("region");
 
     const searchInfo = {checkin,checkout,regionName,region};
+    const period = {checkin, checkout};
     
     useEffect(() => {
       
@@ -51,7 +52,7 @@ const Search = () => {
                 <SearchBar searchInfo={searchInfo}/>         
                 <Sort state={search}/>
                 <div className={styles.roomList}>
-                    <RoomCard state={search}/>
+                    <RoomCard period={period} state={search}/>
                 </div>
             </div>
         </>

@@ -9,8 +9,6 @@ import Region from './region/region';
 import dayjs from 'dayjs';
 
 const SearchBar = ({searchInfo}) => {
-    const location = useLocation();
-    //const localName = location.state.regionTxt;
     const navigate = useNavigate();
     const today = new Date();
     const tomorrow = new Date(today);
@@ -23,7 +21,7 @@ const SearchBar = ({searchInfo}) => {
     const [zoneInfo, setZoneInfo] = useState();
     const [visible, setvisible] = useState(false);
     const [hotelSearch, setHotelSearch] = useState("");
-    const [regionSearch, setRegionSearch] = useState("");
+    
     
     const getFormattedDate = (date) => {
         const month = date.toLocaleDateString('ko-KR', {
@@ -92,8 +90,8 @@ const SearchBar = ({searchInfo}) => {
                                 className={styles.selectInput} 
                                 readOnly
                                 onClick={() => setvisible(!visible)}
-                                onChange ={(e) => {setRegionSearch(e.target.value)}}
                                 placeholder='지역을 선택해주세요' 
+                                value={region + ", " + zone}
                                 defaultValue= {searchInfo.region !== "" ? searchInfo.region : region + "," + zone} />
                             {visible && <Region setRegion={setRegion} setZone={setZone} setvisible={setvisible} setRegionInfo={setRegionInfo} setZoneInfo={setZoneInfo} />}
                         </li>
@@ -139,7 +137,7 @@ const SearchBar = ({searchInfo}) => {
                     </ul>
                     
                     <div className={styles.searchButton}>
-                        <button type='button' className={styles.searchBtn} onClick={() => linkSearch(regionTxt)} >
+                        <button type='button' className={styles.searchBtn} onClick={linkSearch} >
                             <img src='/img/icon/round-search.png' alt='magnifier' />
                         </button>
                     </div>

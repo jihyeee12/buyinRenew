@@ -10,11 +10,15 @@ import Get from '../../../service/api/url/Get';
 import BusinessBox from '../../reservation/roomprice/businessBox/businessBox';
 import RentBox from '../../reservation/roomprice/rentBox';
 import LodgeBox from '../../reservation/roomprice/lodgeBox';
+import DateInfo from '../../date/date';
 
 const Rooms = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const roomId = location.state.id;
+    const checkin = location.state.checkin;
+    const checkout = location.state.checkout;
+    const period = {checkin,checkout}
     
     const [modalOpen, setModalOpen] = useState(false);
     const [cancelModal, setCancelModal] = useState(false);
@@ -33,8 +37,7 @@ const Rooms = () => {
     const [roomInfo, setroomInfo] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    const checkin = '2022.12.24';
-    const checkout = '2022.12.25';
+    
 
     useEffect(() => {
       
@@ -132,8 +135,9 @@ const Rooms = () => {
                     <p>{roomInfo.room_service.replaceAll("\n", ", ")}</p>
                 </div>
                 <div className={styles.date}>
-                    <Calendar />    
+                    <DateInfo period={period}/>
                 </div>
+                
                 <div className={styles.rentType}>
                     <div className={styles.rent}>
                     {(roomInfo.can_reserve_rent === true || roomInfo.can_reserve_rent === false) && <RentBox roomData={roomInfo}/>}

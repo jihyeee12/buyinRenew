@@ -5,7 +5,7 @@ import RoomCard from '../roomCard/roomCard';
 
 
 
-const RoomList = ({state}) => {
+const RoomList = ({state,period}) => {
     const navigate = useNavigate();
 
     const popularHotel = (state) => {
@@ -20,7 +20,7 @@ const RoomList = ({state}) => {
         <>
         <h2 className={styles.popular}>인기숙소 <img className={styles.seemore} onClick={() => popularHotel({state})} src='/img/icon/seemore.png' alt='seeMore'/></h2>
             <div>
-                <RoomCard state={state} slider={true}/>
+                <RoomCard period={period} state={state} slider={true}/>
             </div>
         </>
     )

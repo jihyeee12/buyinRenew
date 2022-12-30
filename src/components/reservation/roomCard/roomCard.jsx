@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './roomCard.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
@@ -12,8 +12,10 @@ import LodgeZone from './priceBox/lodgeZone';
 import Delete from 'service/api/url/Delete';
 import Post from 'service/api/url/Post';
 
-    const RoomCard = ({state, slider}) => {
+    const RoomCard = ({period,state, slider}) => {
         const roomData = state;
+        const checkin = period.checkin;
+        const checkout = period.checkout;
         const StyledSlider = styled(Slider)`
             width: 100%;
             height: 100%;
@@ -71,8 +73,8 @@ import Post from 'service/api/url/Post';
             {roomData.map((v) => (
                 <div className={styles.roomCardArea} key={v.lodgement_id}>
                     <div className={styles.roomCard} >
-                        <Link className={styles.link} to={`/lodgement/${v.lodgement_id}`}><img className={styles.roomImg} src={v.lodgement_img_url} alt='roomImg' /></Link>                      
-                        <Link className={styles.link} to={`/lodgement/${v.lodgement_id}`}>
+                        <Link className={styles.link} to={`/lodgement/${v.lodgement_id}?checkin=${checkin}&checkout=${checkout}`}><img className={styles.roomImg} src={v.lodgement_img_url} alt='roomImg' /></Link>                      
+                        <Link className={styles.link} to={`/lodgement/${v.lodgement_id}?checkin=${checkin}&checkout=${checkout}`}>
                         <div className={styles.roomInfo} >
                             <p className={styles.pointMark}><img src="../../../img/icon/pointMark.png" alt="ambassador" /> &nbsp;3,000P</p>
                             <p className={styles.HotelName}>{v.lodgement_name}</p>
@@ -102,8 +104,8 @@ import Post from 'service/api/url/Post';
             {roomData.map((v) => (
                 <div className={styles.roomCardArea} key={v.lodgement_id}>
                     <div className={styles.roomCard} >
-                        <Link className={styles.link} to={`/lodgement/${v.lodgement_id}`}><img className={styles.roomImg} src={v.lodgement_img_url} alt='roomImg' /></Link>
-                        <Link className={styles.link} to={`/lodgement/${v.lodgement_id}`}>
+                        <Link className={styles.link} to={`/lodgement/${v.lodgement_id}?checkin=${checkin}&checkout=${checkout}`}><img className={styles.roomImg} src={v.lodgement_img_url} alt='roomImg' /></Link>
+                        <Link className={styles.link} to={`/lodgement/${v.lodgement_id}?checkin=${checkin}&checkout=${checkout}`}>
                         <div className={styles.roomInfo} >
                             <p className={styles.pointMark}><img src="../../../img/icon/pointMark.png" alt="ambassador" /> &nbsp;1,000P</p>
                             <p className={styles.HotelName}>{v.lodgement_name}</p>

@@ -10,6 +10,21 @@ const Calendar = ({showDatePicker}) => {
     const {onDateSetting} = useContext(MainContext);
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(null);
+    const getDayName = (date) => {
+        return date.toLocaleDateString('ko-KR', {
+        weekday: 'long',
+        }).substr(0, 1);
+    }
+    
+    // 날짜 비교시 년 월 일까지만 비교하게끔
+    const createDate = (date) => {
+        return new Date(new Date(date.getFullYear()
+        , date.getMonth()
+        , date.getDate()
+        , 0
+        , 0
+        , 0));
+    }
     
     const onChange = (dates) => {
         const [start, end] = dates;
@@ -29,8 +44,11 @@ const Calendar = ({showDatePicker}) => {
             endDate={endDate}
             dateFormat="yyyy.MM.dd" 
             className={styles.datepicker}
-            onChange={onChange}
+            onChange={() => onChange()}
             locale={ko}
+            dayClassName={(date) => 
+                getDayName(createDate(date)) === '토' ? styles.saturDay :
+                getDayName(createDate(date)) === '일' ? styles.sunDay : ""}
             inline />
     );
 };

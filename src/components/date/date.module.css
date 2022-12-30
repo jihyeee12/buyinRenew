@@ -27,6 +27,17 @@
     background-color: transparent;
     font-family: pretendard;
 }
-.datepicker{
-    
+.changeBox{
+    position: relative;
+}
+.changePicker{
+    position: absolute;
+    right: -48%;
+    top: 200%;
+}
+.saturDay{
+    color: #2550A8!important;
+}
+.sunDay{
+    color: #D84049!important;
 }

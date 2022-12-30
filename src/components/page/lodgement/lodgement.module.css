@@ -239,7 +239,7 @@
     border-radius: 0.5rem;
 }
 .titleBox{
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 90% 10%;
     align-items: center;
 }

@@ -1,19 +1,20 @@
 import React from 'react';
 import styles from './lodgement.module.css';
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import Roomprice from '../../reservation/roomprice/roomprice';
 import Modal from '../../modal/modal';
-import Date from '../../date/date';
 import HotelMaps from './map/hotelMaps';
 import LodgeReview from './lodgeReview';
 import { useEffect } from 'react';
 import Get from '../../../service/api/url/Get';
 import Delete from 'service/api/url/Delete';
 import Post from 'service/api/url/Post';
+import DateInfo from '../../date/date';
 
 
 const Lodgement = () => {
+    const [searchParam, setSearchParam] = useSearchParams();
     const [modalOpen, setModalOpen] = useState(false);
     const [couponOpen, setcouponOpen] = useState(false);
     const [allReview, setAllReview] = useState(false);
@@ -25,8 +26,10 @@ const Lodgement = () => {
     const [hotelInfo, setHotelInfo] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    const checkin = '2022.12.24';
-    const checkout = '2022.12.25';
+    const checkin = searchParam.get("checkin");
+    const checkout = searchParam.get("checkout");
+
+    const period = {checkin, checkout};
     const user_id = 'AppIDEtest'
     
     useEffect(() => {
@@ -149,13 +152,12 @@ const Lodgement = () => {
                 <div className={styles.service}>
                     <h4 className={styles.title}>편의 시설 및 서비스</h4>
                     <div className={styles.serviceIcons}>
-                            {hotelInfo.lodgement_service.map(v => (
-                                <div className={styles.serviceIcon}>
-                                    <img src={v.service_icon_url} alt="serviceIcon" />
-                                    <p>{v.service_name}</p>
-                                </div>    
-                            ))
-                            }
+                        {hotelInfo.lodgement_service.map(v => (
+                            <div className={styles.serviceIcon}>
+                                <img src={v.service_icon_url} alt="serviceIcon" />
+                                <p>{v.service_name}</p>
+                            </div>    
+                        ))}
                     </div>
                 </div>
                 <div className={styles.introduce}>
@@ -190,8 +192,8 @@ const Lodgement = () => {
                 </div>
             </div>
             <div className={styles.roomSelect}>
-                <Date />
-                <Roomprice roomData={hotelInfo.rooms}/>
+                <DateInfo period={period} />
+                <Roomprice period={period} roomData={hotelInfo.rooms}/>
             </div>
         </div>
     </div>
